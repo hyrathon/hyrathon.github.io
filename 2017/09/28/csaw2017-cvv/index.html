@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>CSAW 2017 CVV及tabIEZ writeup | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="因为需要准备出差, 只做了一些小题  CVV信用卡号码算算号器和随机生成器https://zh.wikipedia.org/zh-hans/Luhn%E7%AE%97%E6%B3%95从网上找的代码，有问题按照Luhn代码算法说明改 代码很烂，都是粘的还有错。。。1234567891011121314151617181920212223242526272829303132333435363738">
+<meta name="keywords" content="csaw2017,misc,reverse">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSAW 2017 CVV及tabIEZ writeup">
+<meta property="og:url" content="http://yoursite.com/2017/09/28/csaw2017-cvv/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="因为需要准备出差, 只做了一些小题  CVV信用卡号码算算号器和随机生成器https://zh.wikipedia.org/zh-hans/Luhn%E7%AE%97%E6%B3%95从网上找的代码，有问题按照Luhn代码算法说明改 代码很烂，都是粘的还有错。。。1234567891011121314151617181920212223242526272829303132333435363738">
+<meta property="og:image" content="http://yoursite.com/2017/09/28/csaw2017-cvv/tu.jpg">
+<meta property="og:updated_time" content="2017-09-28T09:31:36.901Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSAW 2017 CVV及tabIEZ writeup">
+<meta name="twitter:description" content="因为需要准备出差, 只做了一些小题  CVV信用卡号码算算号器和随机生成器https://zh.wikipedia.org/zh-hans/Luhn%E7%AE%97%E6%B3%95从网上找的代码，有问题按照Luhn代码算法说明改 代码很烂，都是粘的还有错。。。1234567891011121314151617181920212223242526272829303132333435363738">
+<meta name="twitter:image" content="http://yoursite.com/2017/09/28/csaw2017-cvv/tu.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-csaw2017-cvv" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/09/28/csaw2017-cvv/" class="article-date">
+  <time datetime="2017-09-28T09:25:18.000Z" itemprop="datePublished">2017-09-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      CSAW 2017 CVV及tabIEZ writeup
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>因为需要准备出差, 只做了一些小题</p>
+</blockquote>
+<h2 id="CVV"><a href="#CVV" class="headerlink" title="CVV"></a>CVV</h2><p>信用卡号码算算号器和随机生成器<br><a href="https://zh.wikipedia.org/zh-hans/Luhn%E7%AE%97%E6%B3%95" target="_blank" rel="external">https://zh.wikipedia.org/zh-hans/Luhn%E7%AE%97%E6%B3%95</a><br>从网上找的代码，有问题按照Luhn代码算法说明改</p>
+<p>代码很烂，都是粘的还有错。。。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/env python</span></div><div class="line"></div><div class="line"><span class="comment"># author: garbu</span></div><div class="line"></div><div class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randint</div><div class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">generate_card</span><span class="params">(type)</span>:</span></div><div class="line">    <span class="string">"""</span></div><div class="line"><span class="string">    Prefill some values based on the card type</span></div><div class="line"><span class="string">    """</span></div><div class="line">    card_types = [<span class="string">"americanexpress"</span>,<span class="string">"visa11"</span>, <span class="string">"visa16"</span>,<span class="string">"mastercard"</span>,<span class="string">"discover"</span>]</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">prefill</span><span class="params">(t)</span>:</span></div><div class="line">        <span class="comment"># typical number of digits in credit card</span></div><div class="line">        def_length = <span class="number">16</span></div><div class="line">        </div><div class="line">        <span class="string">"""</span></div><div class="line"><span class="string">        Prefill with initial numbers and return it including the total number of digits</span></div><div class="line"><span class="string">        remaining to fill</span></div><div class="line"><span class="string">        """</span></div><div class="line">        <span class="keyword">if</span> <span class="string">'num:'</span> <span class="keyword">in</span> t:</div><div class="line">            <span class="keyword">return</span> [int(t[<span class="number">4</span>]), int(t[<span class="number">5</span>]), int(t[<span class="number">6</span>]), int(t[<span class="number">7</span>])], <span class="number">12</span></div><div class="line">        <span class="keyword">if</span> t == card_types[<span class="number">0</span>]:</div><div class="line">            <span class="comment"># american express starts with 3 and is 15 digits long</span></div><div class="line">            <span class="comment"># override the def lengths</span></div><div class="line">            <span class="keyword">return</span> [<span class="number">3</span>, randint(<span class="number">4</span>,<span class="number">7</span>)], <span class="number">13</span></div><div class="line">            </div><div class="line">        <span class="keyword">elif</span> t == card_types[<span class="number">1</span>] <span class="keyword">or</span> t == card_types[<span class="number">2</span>]:</div><div class="line">            <span class="comment"># visa starts with 4</span></div><div class="line">            <span class="keyword">if</span> t.endswith(<span class="string">"16"</span>):</div><div class="line">                <span class="keyword">return</span> [<span class="number">4</span>], def_length - <span class="number">1</span></div><div class="line">            <span class="keyword">else</span>:</div><div class="line">                <span class="keyword">return</span> [<span class="number">4</span>], <span class="number">10</span></div><div class="line">            </div><div class="line">        <span class="keyword">elif</span> t == card_types[<span class="number">3</span>]:</div><div class="line">            <span class="comment"># master card start with 5 and is 16 digits long</span></div><div class="line">            <span class="keyword">return</span> [<span class="number">5</span>, randint(<span class="number">1</span>,<span class="number">5</span>)], def_length - <span class="number">2</span></div><div class="line">            </div><div class="line">        <span class="keyword">elif</span> t == card_types[<span class="number">4</span>]:</div><div class="line">            <span class="comment"># discover card starts with 6011 and is 16 digits long</span></div><div class="line">            <span class="keyword">return</span> [<span class="number">6</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>], def_length - <span class="number">4</span></div><div class="line">            </div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            <span class="comment"># this section probably not even needed here</span></div><div class="line">            <span class="keyword">return</span> [], def_length</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">finalize</span><span class="params">(nums)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line"><span class="string">        Make the current generated list pass the Luhn check by checking and adding</span></div><div class="line"><span class="string">        the last digit appropriately bia calculating the check sum</span></div><div class="line"><span class="string">        """</span></div><div class="line">        check_sum = <span class="number">0</span></div><div class="line">        </div><div class="line">        <span class="comment">#is_even = True if (len(nums) + 1 % 2) == 0 else False</span></div><div class="line">        </div><div class="line">        <span class="string">"""</span></div><div class="line"><span class="string">        Reason for this check offset is to figure out whther the final list is going</span></div><div class="line"><span class="string">        to be even or odd which will affect calculating the check_sum.</span></div><div class="line"><span class="string">        This is mainly also to avoid reversing the list back and forth which is specified</span></div><div class="line"><span class="string">        on the Luhn algorithm.</span></div><div class="line"><span class="string">        """</span></div><div class="line">        check_offset = (len(nums) + <span class="number">1</span>) % <span class="number">2</span></div><div class="line">        </div><div class="line">        <span class="keyword">for</span> i, n <span class="keyword">in</span> enumerate(nums):</div><div class="line">            <span class="keyword">if</span> (i + check_offset) % <span class="number">2</span> == <span class="number">0</span>:</div><div class="line">                n_ = n*<span class="number">2</span></div><div class="line">                check_sum += n_ <span class="number">-9</span> <span class="keyword">if</span> n_ &gt; <span class="number">9</span> <span class="keyword">else</span> n_</div><div class="line">            <span class="keyword">else</span>:</div><div class="line">                check_sum += n</div><div class="line">        <span class="keyword">if</span> check_sum % <span class="number">10</span> == <span class="number">0</span>:</div><div class="line">            <span class="keyword">return</span> nums + [<span class="number">0</span>]</div><div class="line">        <span class="keyword">return</span> nums + [<span class="number">10</span> - (check_sum % <span class="number">10</span>) ]</div><div class="line">    </div><div class="line">    <span class="comment"># main body</span></div><div class="line">    t = type.lower()    </div><div class="line">    initial, rem = prefill(t)</div><div class="line">    so_far = initial + [randint(<span class="number">1</span>,<span class="number">9</span>) <span class="keyword">for</span> x <span class="keyword">in</span> xrange(rem - <span class="number">1</span>)]</div><div class="line">    <span class="comment">#print "Card type: %s, " % t</span></div><div class="line">    cardnum = <span class="string">""</span>.join(map(str,finalize(so_far))).strip(<span class="string">'\n'</span>)</div><div class="line">    <span class="keyword">print</span> cardnum</div><div class="line">    <span class="keyword">return</span> cardnum</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># # run - check</span></div><div class="line"><span class="comment"># generate_card("discover")</span></div><div class="line"><span class="comment"># generate_card("mastercard")</span></div><div class="line"><span class="comment"># generate_card("americanexpress")</span></div><div class="line"></div><div class="line"><span class="comment"># generate_card("visa13")</span></div><div class="line"><span class="comment"># generate_card("visa16")</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">ck</span><span class="params">(nums)</span>:</span></div><div class="line">    <span class="string">"""</span></div><div class="line"><span class="string">    Make the current generated list pass the Luhn check by checking and adding</span></div><div class="line"><span class="string">    the last digit appropriately bia calculating the check sum</span></div><div class="line"><span class="string">    """</span></div><div class="line">    check_sum = <span class="number">0</span></div><div class="line">    </div><div class="line">    is_even = <span class="keyword">True</span> <span class="keyword">if</span> ((len(nums) + <span class="number">1</span> )% <span class="number">2</span>) == <span class="number">0</span> <span class="keyword">else</span> <span class="keyword">False</span></div><div class="line">    </div><div class="line">    <span class="string">"""</span></div><div class="line"><span class="string">    Reason for this check offset is to figure out whther the final list is going</span></div><div class="line"><span class="string">    to be even or odd which will affect calculating the check_sum.</span></div><div class="line"><span class="string">    This is mainly also to avoid reversing the list back and forth which is specified</span></div><div class="line"><span class="string">    on the Luhn algorithm.</span></div><div class="line"><span class="string">    """</span></div><div class="line">    check_offset = (len(nums) + <span class="number">1</span>) % <span class="number">2</span></div><div class="line">    </div><div class="line">    <span class="keyword">for</span> i, n <span class="keyword">in</span> enumerate(nums):</div><div class="line">        i = int(i)</div><div class="line">        n = int(n)</div><div class="line">        <span class="keyword">if</span> i == <span class="number">0</span>:</div><div class="line">            <span class="keyword">if</span> is_even:</div><div class="line">                n_ = n*<span class="number">2</span></div><div class="line">                check_sum += n_ <span class="number">-9</span> <span class="keyword">if</span> n_ &gt; <span class="number">9</span> <span class="keyword">else</span> n_</div><div class="line">            <span class="keyword">else</span>:</div><div class="line">                check_sum += n</div><div class="line">            <span class="keyword">continue</span>;</div><div class="line">        <span class="keyword">if</span> (i + check_offset) % <span class="number">2</span> == <span class="number">0</span>:</div><div class="line">            n_ = n*<span class="number">2</span></div><div class="line">            check_sum += n_ <span class="number">-9</span> <span class="keyword">if</span> n_ &gt; <span class="number">9</span> <span class="keyword">else</span> n_</div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            check_sum += n</div><div class="line">    <span class="keyword">if</span> check_sum % <span class="number">10</span> == <span class="number">0</span>:</div><div class="line">        <span class="keyword">return</span> <span class="number">0</span></div><div class="line">    <span class="keyword">return</span> <span class="number">10</span> - (check_sum % <span class="number">10</span>)</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">ck2</span><span class="params">(nums)</span>:</span></div><div class="line">    digits = [int(i) <span class="keyword">for</span> i <span class="keyword">in</span> str(nums)]</div><div class="line">    odd_digits = digits[<span class="number">-1</span>::<span class="number">-2</span>]</div><div class="line">    even_digits = digits[<span class="number">-2</span>::<span class="number">-2</span>]</div><div class="line">    total = sum(odd_digits)</div><div class="line">    <span class="keyword">for</span> digit <span class="keyword">in</span> even_digits:</div><div class="line">        total += sum([int(i) <span class="keyword">for</span> i <span class="keyword">in</span> str(<span class="number">2</span> * digit)])</div><div class="line">    <span class="keyword">if</span> total % <span class="number">10</span> == <span class="number">0</span>:</div><div class="line">        <span class="keyword">return</span> <span class="string">"1"</span></div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        <span class="keyword">return</span> <span class="string">"0"</span></div><div class="line"></div><div class="line">conn = remote(<span class="string">"misc.chal.csaw.io"</span>, <span class="number">8308</span>)</div><div class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">    cmd = conn.recvline()</div><div class="line">    <span class="keyword">print</span> cmd,</div><div class="line"></div><div class="line">    <span class="keyword">if</span> <span class="string">'I need to know if '</span> <span class="keyword">in</span> cmd:</div><div class="line">        card = <span class="string">""</span>.join(filter(str.isdigit, cmd))</div><div class="line">        card = card[:<span class="number">-2</span>]</div><div class="line">        <span class="keyword">print</span> card</div><div class="line">        conn.sendline(ck2(card))</div><div class="line">        conn.recvline()</div><div class="line"></div><div class="line">    <span class="keyword">elif</span> <span class="string">'Visa'</span> <span class="keyword">in</span> cmd:</div><div class="line">        conn.sendline(generate_card(<span class="string">'visa16'</span>))</div><div class="line">    <span class="keyword">elif</span> <span class="string">'MasterCard'</span> <span class="keyword">in</span> cmd:</div><div class="line">        conn.sendline(generate_card(<span class="string">'mastercard'</span>))</div><div class="line">    <span class="keyword">elif</span> <span class="string">'Discover'</span> <span class="keyword">in</span> cmd:</div><div class="line">        conn.sendline(generate_card(<span class="string">'discover'</span>))</div><div class="line">    <span class="keyword">elif</span> <span class="string">'American Express'</span> <span class="keyword">in</span> cmd:</div><div class="line">        conn.sendline(generate_card(<span class="string">'americanexpress'</span>))</div><div class="line">    <span class="keyword">elif</span> <span class="string">'starts with'</span> <span class="keyword">in</span> cmd:</div><div class="line">        num = generate_card(<span class="string">"num:"</span> + cmd[<span class="number">-6</span>:<span class="number">-2</span>])</div><div class="line">        conn.sendline(num)</div><div class="line">    <span class="keyword">elif</span> <span class="string">'ends with'</span> <span class="keyword">in</span> cmd <span class="keyword">and</span> cmd[<span class="number">-4</span>] <span class="keyword">in</span> <span class="string">'01234567890'</span>:</div><div class="line">        num = cmd[<span class="number">-6</span>:<span class="number">-2</span>]</div><div class="line">        <span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">            card = generate_card(<span class="string">'visa11'</span>) + <span class="string">'1'</span> + num</div><div class="line">            <span class="keyword">if</span> ck(card[:<span class="number">-1</span>]) == int(card[<span class="number">-1</span>]):</div><div class="line">                <span class="keyword">print</span> card</div><div class="line">                conn.sendline(card)</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">    <span class="keyword">elif</span> <span class="string">'ends with'</span> <span class="keyword">in</span> cmd:</div><div class="line">        num = cmd[<span class="number">-3</span>:<span class="number">-2</span>]</div><div class="line">        <span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">            card = generate_card(<span class="string">'visa16'</span>)</div><div class="line">            <span class="keyword">if</span> card[<span class="number">-1</span>] == num:</div><div class="line">                conn.sendline(card)</div><div class="line">                <span class="keyword">break</span>;</div><div class="line"></div><div class="line">    <span class="keyword">print</span> conn.recvline(),</div></pre></td></tr></table></figure></p>
+<h2 id="tabIEZ"><a href="#tabIEZ" class="headerlink" title="tabIEZ"></a>tabIEZ</h2><p>Ascii值用表置换，长度不长直接手动查表逐位算出来的</p>
+<p><img src="tu.jpg" alt=""></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/09/28/csaw2017-cvv/" data-id="cj849ge9h0005m099prf0k1h3" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/csaw2017/">csaw2017</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/misc/">misc</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/reverse/">reverse</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/09/28/BCTF2016-pingpongmachine/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">BCTF2016 pingpongmachine</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/android/">android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/pwnable-kr/">pwnable.kr</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/csaw2017/">csaw2017</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/heap/">heap</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/misc/">misc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pwn/">pwn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reverse/">reverse</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/unlink/">unlink</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/csaw2017/" style="font-size: 10px;">csaw2017</a> <a href="/tags/heap/" style="font-size: 10px;">heap</a> <a href="/tags/misc/" style="font-size: 10px;">misc</a> <a href="/tags/pwn/" style="font-size: 10px;">pwn</a> <a href="/tags/reverse/" style="font-size: 10px;">reverse</a> <a href="/tags/unlink/" style="font-size: 10px;">unlink</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/09/28/csaw2017-cvv/">CSAW 2017 CVV及tabIEZ writeup</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/28/BCTF2016-pingpongmachine/">BCTF2016 pingpongmachine</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/28/boomshakalaka-3/">0CTF 2016 boomshakalaka-3</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/28/SECCONQualsCTF2015Reverse-EngineeringAndroidAPK1/">SECCON Quals CTF 2015 Reverse-Engineering Android APK 1</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/28/VEZEL100/">0CTF 2015 Quals CTF VEZEL</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
