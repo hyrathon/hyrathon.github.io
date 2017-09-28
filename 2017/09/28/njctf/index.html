@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>南京CTF2017 easycrack | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Category: MobilePoints: 100Solves:43Description: None Write-upARM二进制分析题, Java里边基本没有内容, 只有一个native需要的固定值msg是从Java中计算然后传进去的, 写个脚本跑一下就能得到这个值. 程序运行流程是经典的字符串加密, 用户输入经过与msg的异或处理后被与一个I_am_the_key字符串经过复杂但是固定的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="南京CTF2017 easycrack">
+<meta property="og:url" content="http://yoursite.com/2017/09/28/njctf/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Category: MobilePoints: 100Solves:43Description: None Write-upARM二进制分析题, Java里边基本没有内容, 只有一个native需要的固定值msg是从Java中计算然后传进去的, 写个脚本跑一下就能得到这个值. 程序运行流程是经典的字符串加密, 用户输入经过与msg的异或处理后被与一个I_am_the_key字符串经过复杂但是固定的">
+<meta property="og:updated_time" content="2017-09-28T09:13:22.386Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="南京CTF2017 easycrack">
+<meta name="twitter:description" content="Category: MobilePoints: 100Solves:43Description: None Write-upARM二进制分析题, Java里边基本没有内容, 只有一个native需要的固定值msg是从Java中计算然后传进去的, 写个脚本跑一下就能得到这个值. 程序运行流程是经典的字符串加密, 用户输入经过与msg的异或处理后被与一个I_am_the_key字符串经过复杂但是固定的">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-njctf" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/09/28/njctf/" class="article-date">
+  <time datetime="2017-09-28T08:49:43.000Z" itemprop="datePublished">2017-09-28</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/android/">android</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      南京CTF2017 easycrack
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>Category:</strong> Mobile<br><strong>Points:</strong> 100<br><strong>Solves:</strong>43<br><strong>Description:</strong> None</p>
+<h2 id="Write-up"><a href="#Write-up" class="headerlink" title="Write-up"></a>Write-up</h2><p>ARM二进制分析题, Java里边基本没有内容, 只有一个native需要的固定值msg是从Java中计算然后传进去的, 写个脚本跑一下就能得到这个值.</p>
+<p>程序运行流程是经典的字符串加密, 用户输入经过与msg的异或处理后被与一个I_am_the_key字符串经过复杂但是固定的运算流程得到的值进行加密, 我们称这个值为buffer, 加密过程 buffer 与处理过的用户输入进行加密, 但是加密算法实质是异或可逆, 因此在得知结果的时候即可算出用户输入. 叙述不是特别明确, 简单画图解释:</p>
+<p>user_input(?)  ——&gt; xor  —-&gt; 处理过的输入————————————&gt;crypt————–&gt;结果</p>
+<p>msg——————–&gt;              I_am_the_key——&gt;process——&gt;buffer—&gt;</p>
+<p>通过逆向发现结果作为明文字符串存储在二进制文件中, 因为上述每一步都可逆, 因此可以编写脚本反过来执行, 从结果获得最初的用户输入. 分析过程比较简单, 不具体说明, 详见idb</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line">debug = <span class="keyword">False</span></div><div class="line"></div><div class="line"><span class="comment">#seems like a char shift</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">init</span><span class="params">(s=<span class="string">"I_am_the_key"</span>)</span>:</span></div><div class="line">    buffer1 = []</div><div class="line">    buffer2 = <span class="string">""</span></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">256</span>):</div><div class="line">        buffer1 += chr(i)</div><div class="line">        buffer2 += s[i % len(s)]</div><div class="line">    <span class="keyword">if</span> debug :</div><div class="line">        <span class="keyword">print</span> buffer1</div><div class="line">        <span class="keyword">print</span> buffer2</div><div class="line"></div><div class="line">    v7 = <span class="number">0</span></div><div class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">256</span>):</div><div class="line">        v9 = buffer1[j]</div><div class="line">        v7 = (v7 + ord(v9) + ord(buffer2[j])) % <span class="number">256</span></div><div class="line">        buffer1[j] = buffer1[v7]</div><div class="line">        buffer1[v7] = v9</div><div class="line">    <span class="keyword">return</span> map(ord, buffer1)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">getcompare</span><span class="params">()</span>:</span></div><div class="line">    cmpstr = <span class="string">"C8E4EF0E4DCCA683088134F8635E970EEAD9E277F314869F7EF5198A2AA4"</span></div><div class="line">    compare = []</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(cmpstr)/<span class="number">2</span>):</div><div class="line">        compare += cmpstr[<span class="number">2</span> * i:<span class="number">2</span> * i+<span class="number">2</span>].decode(<span class="string">'hex'</span>)</div><div class="line">    <span class="keyword">return</span> map(ord, compare)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">decrypt</span><span class="params">(buffer, compare)</span>:</span></div><div class="line">    v3=<span class="number">0</span></div><div class="line">    v4=<span class="number">0</span></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">30</span>):</div><div class="line">        v3 = (v3 + <span class="number">1</span>) % <span class="number">256</span>;</div><div class="line">        v5 = buffer[v3];</div><div class="line">        v4 = (v5 + v4) % <span class="number">256</span>;</div><div class="line">        buffer[v3] = buffer[v4];</div><div class="line">        buffer[v4] = v5;</div><div class="line">        compare[i] ^= buffer[(buffer[v3] + v5) % <span class="number">256</span>];</div><div class="line">    <span class="keyword">return</span> compare</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">getuserinput</span><span class="params">(beforecrypt)</span>:</span></div><div class="line">    msg = map(ord, <span class="string">"V7D=^,M.E"</span>)</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">30</span>):</div><div class="line">        beforecrypt[i] ^= msg[i % <span class="number">9</span>]</div><div class="line">    <span class="keyword">return</span> <span class="string">""</span>.join(map(chr, beforecrypt))</div><div class="line"></div><div class="line"></div><div class="line">buffer = init()</div><div class="line">compare = getcompare()</div><div class="line">beforecrypt = decrypt(buffer, compare)</div><div class="line"><span class="keyword">print</span> getuserinput(beforecrypt)</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/09/28/njctf/" data-id="cj848uwo50006lc99vhg781zj" class="article-share-link">Partager</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/09/28/Commercialapplication/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Récent</strong>
+      <div class="article-nav-title">
+        
+          Sharif University Quals CTF 2014 Commercial Application
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/09/28/SECCONQualsCTF2015Reverse-EngineeringAndroidAPK1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ancien</strong>
+      <div class="article-nav-title">SECCON Quals CTF 2015 Reverse-Engineering Android APK 1</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Catégories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/android/">android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/pwnable-kr/">pwnable.kr</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Mot-clés</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/heap/">heap</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pwn/">pwn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/unlink/">unlink</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Nuage de mot-clés</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/heap/" style="font-size: 10px;">heap</a> <a href="/tags/pwn/" style="font-size: 10px;">pwn</a> <a href="/tags/unlink/" style="font-size: 10px;">unlink</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Articles récents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/09/28/VEZEL100/">0CTF 2015 Quals CTF VEZEL</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/28/boomshakalaka-3/">0CTF 2016 boomshakalaka-3</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/28/zctf-android-1/">ZCTF Android 1</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/28/BCTF2016-pingpongmachine/">BCTF2016 pingpongmachine</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/28/helctf/">360 Hello CTF</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

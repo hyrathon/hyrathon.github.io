@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>SECCON Quals CTF 2015 Reverse-Engineering Android APK 1 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="SECCON Quals CTF 2015: Reverse-Engineering Android APK 1Github Link  题目比较简单,不多赘述  Overview不需要Overview,直接看代码逻辑即可 Analyse根据惯例对apk反编译,直接看Java代码12if (1000 == MainActivity.this.cnt)    localTextView.setTex">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SECCON Quals CTF 2015 Reverse-Engineering Android APK 1">
+<meta property="og:url" content="http://yoursite.com/2017/09/28/SECCONQualsCTF2015Reverse-EngineeringAndroidAPK1/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="SECCON Quals CTF 2015: Reverse-Engineering Android APK 1Github Link  题目比较简单,不多赘述  Overview不需要Overview,直接看代码逻辑即可 Analyse根据惯例对apk反编译,直接看Java代码12if (1000 == MainActivity.this.cnt)    localTextView.setTex">
+<meta property="og:updated_time" content="2017-09-28T09:14:05.422Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SECCON Quals CTF 2015 Reverse-Engineering Android APK 1">
+<meta name="twitter:description" content="SECCON Quals CTF 2015: Reverse-Engineering Android APK 1Github Link  题目比较简单,不多赘述  Overview不需要Overview,直接看代码逻辑即可 Analyse根据惯例对apk反编译,直接看Java代码12if (1000 == MainActivity.this.cnt)    localTextView.setTex">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-SECCONQualsCTF2015Reverse-EngineeringAndroidAPK1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/09/28/SECCONQualsCTF2015Reverse-EngineeringAndroidAPK1/" class="article-date">
+  <time datetime="2017-09-28T08:49:43.000Z" itemprop="datePublished">2017-09-28</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/android/">android</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      SECCON Quals CTF 2015 Reverse-Engineering Android APK 1
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="SECCON-Quals-CTF-2015-Reverse-Engineering-Android-APK-1"><a href="#SECCON-Quals-CTF-2015-Reverse-Engineering-Android-APK-1" class="headerlink" title="SECCON Quals CTF 2015: Reverse-Engineering Android APK 1"></a>SECCON Quals CTF 2015: Reverse-Engineering Android APK 1</h1><p><a href="https://github.com/ctfs/write-ups-2015/tree/master/seccon-quals-ctf-2015/binary/reverse-engineering-android-apk-1" target="_blank" rel="external">Github Link</a></p>
+<blockquote>
+<p>题目比较简单,不多赘述</p>
+</blockquote>
+<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>不需要Overview,直接看代码逻辑即可</p>
+<h2 id="Analyse"><a href="#Analyse" class="headerlink" title="Analyse"></a>Analyse</h2><p>根据惯例对apk反编译,直接看Java代码<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (<span class="number">1000</span> == MainActivity.<span class="keyword">this</span>.cnt)</div><div class="line">    localTextView.setText(<span class="string">"SECCON&#123;"</span> + String.valueOf(<span class="number">107</span> * (MainActivity.<span class="keyword">this</span>.cnt + MainActivity.<span class="keyword">this</span>.calc())) + <span class="string">"&#125;"</span>);</div></pre></td></tr></table></figure></p>
+<p>可以看出flag是形如<code>SECCON{107*(1000 + calc)}</code>形式,只有一个未知量是函数calc返回值,而这个函数是native函数,将lib中任意一个so文件拖入IDA,找到对应函数形式如下所示<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">public Java_com_example_seccon2015_rock_1paper_1scissors_MainActivity_calc</div><div class="line">Java_com_example_seccon2015_rock_1paper_1scissors_MainActivity_calc proc near</div><div class="line">mov     eax, 7</div><div class="line">retn</div><div class="line">Java_com_example_seccon2015_rock_1paper_1scissors_MainActivity_calc endp</div><div class="line"></div><div class="line">_text ends</div></pre></td></tr></table></figure></p>
+<p>竟然直接返回7!</p>
+<h2 id="Solve"><a href="#Solve" class="headerlink" title="Solve"></a>Solve</h2><p><code>107*1007=107749</code><br>flag is SECCON{107749}</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/09/28/SECCONQualsCTF2015Reverse-EngineeringAndroidAPK1/" data-id="cj848uwok0008lc998d5fmpn2" class="article-share-link">Partager</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/09/28/njctf/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Récent</strong>
+      <div class="article-nav-title">
+        
+          南京CTF2017 easycrack
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/09/28/unlink/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ancien</strong>
+      <div class="article-nav-title">pwnable.kr之unlink</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Catégories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/android/">android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/pwnable-kr/">pwnable.kr</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Mot-clés</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/heap/">heap</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pwn/">pwn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/unlink/">unlink</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Nuage de mot-clés</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/heap/" style="font-size: 10px;">heap</a> <a href="/tags/pwn/" style="font-size: 10px;">pwn</a> <a href="/tags/unlink/" style="font-size: 10px;">unlink</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Articles récents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/09/28/VEZEL100/">0CTF 2015 Quals CTF VEZEL</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/28/boomshakalaka-3/">0CTF 2016 boomshakalaka-3</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/28/zctf-android-1/">ZCTF Android 1</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/28/BCTF2016-pingpongmachine/">BCTF2016 pingpongmachine</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/28/helctf/">360 Hello CTF</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Sharif University Quals CTF 2014 Commercial Application | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Sharif University Quals CTF 2014: Commercial ApplicationGithub Link  Markdown哪儿都好就是插图太麻烦,尽量用语言描述  Overview题目给的是一个Demo小程序,安装在手机或者虚拟机之后看是一个看图程序,一共三张黄图图,预览版只可以看一张,输入key之后可以看另外两张,提供了一个输入key的窗口,输入错误之后会提示错误">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sharif University Quals CTF 2014 Commercial Application">
+<meta property="og:url" content="http://yoursite.com/2017/09/28/Commercialapplication/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Sharif University Quals CTF 2014: Commercial ApplicationGithub Link  Markdown哪儿都好就是插图太麻烦,尽量用语言描述  Overview题目给的是一个Demo小程序,安装在手机或者虚拟机之后看是一个看图程序,一共三张黄图图,预览版只可以看一张,输入key之后可以看另外两张,提供了一个输入key的窗口,输入错误之后会提示错误">
+<meta property="og:updated_time" content="2017-09-28T09:08:05.519Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Sharif University Quals CTF 2014 Commercial Application">
+<meta name="twitter:description" content="Sharif University Quals CTF 2014: Commercial ApplicationGithub Link  Markdown哪儿都好就是插图太麻烦,尽量用语言描述  Overview题目给的是一个Demo小程序,安装在手机或者虚拟机之后看是一个看图程序,一共三张黄图图,预览版只可以看一张,输入key之后可以看另外两张,提供了一个输入key的窗口,输入错误之后会提示错误">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Commercialapplication" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/09/28/Commercialapplication/" class="article-date">
+  <time datetime="2017-09-28T08:49:43.000Z" itemprop="datePublished">2017-09-28</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/android/">android</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Sharif University Quals CTF 2014 Commercial Application
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Sharif-University-Quals-CTF-2014-Commercial-Application"><a href="#Sharif-University-Quals-CTF-2014-Commercial-Application" class="headerlink" title="Sharif University Quals CTF 2014: Commercial Application"></a>Sharif University Quals CTF 2014: Commercial Application</h1><p><a href="https://github.com/ctfs/write-ups-2014/tree/master/su-ctf-quals-2014/commercial_application/" target="_blank" rel="external">Github Link</a></p>
+<blockquote>
+<p>Markdown哪儿都好就是插图太麻烦,尽量用语言描述</p>
+</blockquote>
+<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>题目给的是一个Demo小程序,安装在手机或者虚拟机之后看是一个看图程序,一共三张<del>黄</del>图图,预览版只可以看一张,输入key之后可以看另外两张,提供了一个输入key的窗口,输入错误之后会提示错误(废话),想必正确的key就是题目的flag.</p>
+<h2 id="Analyse"><a href="#Analyse" class="headerlink" title="Analyse"></a>Analyse</h2><p>首先例行的对给的apk进行基础操作,我的习惯是同时恢复Java代码和Smali代码.分析的时候Java代码比较方便,出错或者是需要重新打包dex的时候使用Smali.逆向之后发现程序没有lib目录,且Java代码只经过简单混淆,没有报错,说明单纯分析Java代码逻辑即可.</p>
+<p>从输入错误key时候给出的报错语句入手,<code>Your licence key is incorrect...! Please try again with another.</code>这句在源程序中出现两次,都在<code>/edu/sharif/ctf/activities/MainActivity.java</code>之中,查看代码关键位置.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(DialogInterface paramDialogInterface, <span class="keyword">int</span> paramInt)</span></span></div><div class="line"><span class="function">      </span>&#123;</div><div class="line">        <span class="keyword">if</span> (KeyVerifier.isValidLicenceKey(<span class="keyword">this</span>.val$userInput.getText().toString(), MainActivity.<span class="keyword">this</span>.app.getDataHelper().getConfig().getSecurityKey(), MainActivity.<span class="keyword">this</span>.app.getDataHelper().getConfig().getSecurityIv()))</div><div class="line">        &#123;</div><div class="line">          MainActivity.<span class="keyword">this</span>.app.getDataHelper().updateLicence(<span class="number">2014</span>);</div><div class="line">          MainActivity.isRegisterd = <span class="keyword">true</span>;</div><div class="line">          MainActivity.<span class="keyword">this</span>.showAlertDialog(<span class="keyword">this</span>.val$context, <span class="string">"Thank you, Your application has full licence. Enjoy it...!"</span>);</div><div class="line">          <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line">        MainActivity.<span class="keyword">this</span>.showAlertDialog(<span class="keyword">this</span>.val$context, <span class="string">"Your licence key is incorrect...! Please try again with another."</span>);</div><div class="line">      &#125;</div></pre></td></tr></table></figure>
+<p>发现关键逻辑位于KeyVerifier.isValidLicenceKey函数中,对所在文件进行分析,会发现实质性调用的是encrypt函数,该函数需要三个参数.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isValidLicenceKey</span><span class="params">(String paramString1, String paramString2, String paramString3)</span></span></div><div class="line"><span class="function">  </span>&#123;</div><div class="line">    <span class="keyword">return</span> encrypt(paramString1, paramString2, paramString3).equals(<span class="string">"29a002d9340fc4bd54492f327269f3e051619b889dc8da723e135ce486965d84"</span>);</div><div class="line">  &#125;</div><div class="line">  </div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">encrypt</span><span class="params">(String paramString1, String paramString2, String paramString3)</span></span></div><div class="line"><span class="function">  </span>&#123;</div><div class="line">    <span class="keyword">try</span></div><div class="line">    &#123;</div><div class="line">      SecretKeySpec localSecretKeySpec = <span class="keyword">new</span> SecretKeySpec(hexStringToBytes(paramString2), <span class="string">"AES"</span>);</div><div class="line">      Cipher localCipher = Cipher.getInstance(<span class="string">"AES/CBC/PKCS5Padding"</span>);</div><div class="line">      localCipher.init(<span class="number">1</span>, localSecretKeySpec, <span class="keyword">new</span> IvParameterSpec(paramString3.getBytes()));</div><div class="line">      String str = bytesToHexString(localCipher.doFinal(paramString1.getBytes()));</div><div class="line">      <span class="keyword">return</span> str;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">catch</span> (Exception localException)</div><div class="line">    &#123;</div><div class="line">      localException.printStackTrace();</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="string">""</span>;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<p>由代码可以发现,加密使用AES算法,对称加密就可逆,现在需要找出使用的三个参数paramString1,paramString2,paramString3,即可逆推出输入的值.回到MainActivity中考察传递三个参数的位置作分析,<br><code>KeyVerifier.isValidLicenceKey(this.val$userInput.getText().toString(), MainActivity.this.app.getDataHelper().getConfig().getSecurityKey(), MainActivity.this.app.getDataHelper().getConfig().getSecurityIv())</code><br>第一个参数是从UI中读入的用户输入,即用户输入的key,第二个是SecurityKey,第三个是SecurityIv,通过调用进一步分析源码包括程序带的SQLite数据库可以找到后两者的值,而AES加密之后的值应该是<br><code>29a002d9340fc4bd54492f327269f3e051619b889dc8da723e135ce486965d84</code><br>这里使用一个<del>奇技淫巧</del>不去进一步考察代码,而是修改Smali代码,在使用三个值之前将它们从Log中打印出来,条用位置位于<code>class Ledu/sharif/ctf/activities/MainActivity$4</code>之中<br><figure class="highlight smali"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">.line</span> 211</div><div class="line"><span class="keyword">    .local</span> v0, <span class="string">"iv"</span>:<span class="class">Ljava/lang/String;</span></div><div class="line"></div><div class="line">   <span class="built_in"> invoke-static </span>&#123;v3, v3&#125;, <span class="class">Landroid/util/Log;</span>-&gt;v(<span class="class">Ljava/lang/String;</span><span class="class">Ljava/lang/String;</span>)I</div><div class="line">   <span class="built_in"> invoke-static </span>&#123;v3, v2&#125;, <span class="class">Landroid/util/Log;</span>-&gt;v(<span class="class">Ljava/lang/String;</span><span class="class">Ljava/lang/String;</span>)I</div><div class="line">   <span class="built_in"> invoke-static </span>&#123;v3, v0&#125;, <span class="class">Landroid/util/Log;</span>-&gt;v(<span class="class">Ljava/lang/String;</span><span class="class">Ljava/lang/String;</span>)I</div><div class="line"></div><div class="line">   <span class="built_in"> invoke-static </span>&#123;v3, v2, v0&#125;, <span class="class">Ledu/sharif/ctf/security/KeyVerifier;</span>-&gt;isValidLicenceKey(<span class="class">Ljava/lang/String;</span><span class="class">Ljava/lang/String;</span><span class="class">Ljava/lang/String;</span>)Z</div><div class="line"></div><div class="line">   <span class="built_in"> move-result </span>v1</div></pre></td></tr></table></figure></p>
+<p>重新打包dex,插入apk中,签名,运行之后随便输入点东西,通过Logcat可以截取三条Log,tag都是随便输入的内容,后两条即SecurityKey,SecurityIv<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">SecurityKey = 37eaae0141f1a3adf8a1dee655853714</div><div class="line">SecurityIv = a5efdbd57b84ca36</div><div class="line">encrypted = 29a002d9340fc4bd54492f327269f3e051619b889dc8da723e135ce486965d84</div></pre></td></tr></table></figure></p>
+<h2 id="Solve"><a href="#Solve" class="headerlink" title="Solve"></a>Solve</h2><p>经过以上分析,已经可以基本确定解决问题方法,即利用KeyVerifier中的代码,更改Cipher工作模式为解密,接触答案并ASCII化为字符串,即为key(flag).完整代码如下所示<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.company;</div><div class="line"></div><div class="line"><span class="keyword">import</span> javax.crypto.Cipher;</div><div class="line"><span class="keyword">import</span> javax.crypto.spec.IvParameterSpec;</div><div class="line"><span class="keyword">import</span> javax.crypto.spec.SecretKeySpec;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        <span class="comment">// write your code here</span></div><div class="line">        String encrypted = <span class="string">"29a002d9340fc4bd54492f327269f3e051619b889dc8da723e135ce486965d84"</span>;</div><div class="line">        String securityKey = <span class="string">"37eaae0141f1a3adf8a1dee655853714"</span>;</div><div class="line">        String securityIv = <span class="string">"a5efdbd57b84ca36"</span>;</div><div class="line">        String result = decrypt(encrypted, securityKey, securityIv);</div><div class="line">        System.out.println(result);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">bytesToHexString</span><span class="params">(<span class="keyword">byte</span>[] paramArrayOfByte)</span> </span>&#123;</div><div class="line">        StringBuilder localStringBuilder = <span class="keyword">new</span> StringBuilder();</div><div class="line">        <span class="keyword">int</span> i = paramArrayOfByte.length;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; ; j++) &#123;</div><div class="line">            <span class="keyword">if</span> (j &gt;= i)</div><div class="line">                <span class="keyword">return</span> localStringBuilder.toString();</div><div class="line">            <span class="keyword">int</span> k = paramArrayOfByte[j];</div><div class="line">            Object[] arrayOfObject = <span class="keyword">new</span> Object[<span class="number">1</span>];</div><div class="line">            arrayOfObject[<span class="number">0</span>] = Integer.valueOf(k &amp; <span class="number">0xFF</span>);</div><div class="line">            localStringBuilder.append(String.format(<span class="string">"%02x"</span>, arrayOfObject));</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">decrypt</span><span class="params">(String paramString1, String paramString2, String paramString3)</span> </span>&#123;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            SecretKeySpec localSecretKeySpec = <span class="keyword">new</span> SecretKeySpec(hexStringToBytes(paramString2), <span class="string">"AES"</span>);</div><div class="line">            Cipher localCipher = Cipher.getInstance(<span class="string">"AES/CBC/PKCS5Padding"</span>);</div><div class="line">            localCipher.init(Cipher.DECRYPT_MODE, localSecretKeySpec, <span class="keyword">new</span> IvParameterSpec(paramString3.getBytes()));</div><div class="line">            <span class="keyword">byte</span>[] bytes = localCipher.doFinal(hexStringToBytes(paramString1));</div><div class="line">            String flag = <span class="string">""</span>;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">byte</span> b : bytes) &#123;</div><div class="line">                flag += (<span class="keyword">char</span>) b;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">return</span> flag;</div><div class="line">        &#125; <span class="keyword">catch</span> (Exception localException) &#123;</div><div class="line">            localException.printStackTrace();</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="string">""</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">byte</span>[] hexStringToBytes(String paramString) &#123;</div><div class="line">        <span class="keyword">int</span> i = paramString.length();</div><div class="line">        <span class="keyword">byte</span>[] arrayOfByte = <span class="keyword">new</span> <span class="keyword">byte</span>[i / <span class="number">2</span>];</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; ; j += <span class="number">2</span>) &#123;</div><div class="line">            <span class="keyword">if</span> (j &gt;= i)</div><div class="line">                <span class="keyword">return</span> arrayOfByte;</div><div class="line">            arrayOfByte[(j / <span class="number">2</span>)] = (<span class="keyword">byte</span>) ((Character.digit(paramString.charAt(j), <span class="number">16</span>) &lt;&lt; <span class="number">4</span>) + Character.digit(paramString.charAt(j + <span class="number">1</span>), <span class="number">16</span>));</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>运行得到结果<br><strong>Flag:</strong><code>fl-ag-IS-se-ri-al-NU-MB-ER</code></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/09/28/Commercialapplication/" data-id="cj848uwnp0002lc99fik48osj" class="article-share-link">Partager</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/09/28/helctf/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Récent</strong>
+      <div class="article-nav-title">
+        
+          360 Hello CTF
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/09/28/njctf/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ancien</strong>
+      <div class="article-nav-title">南京CTF2017 easycrack</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Catégories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/android/">android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/pwnable-kr/">pwnable.kr</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Mot-clés</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/heap/">heap</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pwn/">pwn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/unlink/">unlink</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Nuage de mot-clés</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/heap/" style="font-size: 10px;">heap</a> <a href="/tags/pwn/" style="font-size: 10px;">pwn</a> <a href="/tags/unlink/" style="font-size: 10px;">unlink</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Articles récents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/09/28/VEZEL100/">0CTF 2015 Quals CTF VEZEL</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/28/boomshakalaka-3/">0CTF 2016 boomshakalaka-3</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/28/zctf-android-1/">ZCTF Android 1</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/28/BCTF2016-pingpongmachine/">BCTF2016 pingpongmachine</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/28/helctf/">360 Hello CTF</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

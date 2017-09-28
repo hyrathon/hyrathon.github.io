@@ -48,9 +48,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -102,7 +102,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/28/VEZEL100/" data-id="cj847zozp0000jc99c4s6ekrx" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/09/28/VEZEL100/" data-id="cj847zozp0000jc99c4s6ekrx" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -155,7 +155,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/28/boomshakalaka-3/" data-id="cj84879ng0000ig99unwcbdmp" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/09/28/boomshakalaka-3/" data-id="cj84879ng0000ig99unwcbdmp" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -224,7 +224,259 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/28/zctf-android-1/" data-id="cj84879nu0002ig99sq71cdyf" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/09/28/zctf-android-1/" data-id="cj84879nu0002ig99sq71cdyf" class="article-share-link">Partager</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-BCTF2016-pingpongmachine" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/09/28/BCTF2016-pingpongmachine/" class="article-date">
+  <time datetime="2017-09-28T08:49:43.000Z" itemprop="datePublished">2017-09-28</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/android/">android</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/28/BCTF2016-pingpongmachine/">BCTF2016 pingpongmachine</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="pingpong-555"><a href="#pingpong-555" class="headerlink" title="pingpong - 555"></a>pingpong - 555</h1><p>拿到题之后解包, 整体上Java逻辑没有明显混淆, C层用了O-LLVM混淆, 但是代码量不大. 整体上没有加壳或者对完整性校验. 通过观察Java层逻辑, 要求我们依次点击ping pong两个按键, 共计100万次.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">MainActivity</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">super</span>();</div><div class="line">    <span class="keyword">this</span>.p = <span class="number">0</span>;</div><div class="line">    <span class="keyword">this</span>.num = <span class="number">0</span>;</div><div class="line">    <span class="keyword">this</span>.ttt = <span class="number">1000000</span>;</div><div class="line">    <span class="keyword">this</span>.tt = <span class="keyword">this</span>.ttt;</div><div class="line">    <span class="keyword">this</span>.jping = <span class="keyword">new</span> com.geekerchina.pingpongmachine.MainActivity$<span class="number">1</span>(<span class="keyword">this</span>);</div><div class="line">    <span class="keyword">this</span>.jpong = <span class="keyword">new</span> com.geekerchina.pingpongmachine.MainActivity$<span class="number">2</span>(<span class="keyword">this</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View arg7)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span>(MainActivity.<span class="keyword">this</span>.tt % <span class="number">2</span> == <span class="number">1</span>) &#123;</div><div class="line">            MainActivity.<span class="keyword">this</span>.p = <span class="number">0</span>;</div><div class="line">            MainActivity.<span class="keyword">this</span>.num = <span class="number">0</span>;</div><div class="line">            MainActivity.<span class="keyword">this</span>.tt = MainActivity.<span class="keyword">this</span>.ttt;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        --MainActivity.<span class="keyword">this</span>.tt;</div><div class="line">        MainActivity.<span class="keyword">this</span>.p = MainActivity.<span class="keyword">this</span>.ping(MainActivity.<span class="keyword">this</span>.p, MainActivity.<span class="keyword">this</span>.num);</div><div class="line">        ++MainActivity.<span class="keyword">this</span>.num;</div><div class="line">        <span class="keyword">if</span>(MainActivity.<span class="keyword">this</span>.num &gt;= <span class="number">7</span>) &#123;</div><div class="line">            MainActivity.<span class="keyword">this</span>.num = <span class="number">0</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        View v0 = MainActivity.<span class="keyword">this</span>.findViewById(<span class="number">2131427414</span>);</div><div class="line">        ((TextView)v0).setText(<span class="string">"PING"</span>);</div><div class="line">        <span class="keyword">if</span>(MainActivity.<span class="keyword">this</span>.tt == <span class="number">0</span>) &#123;</div><div class="line">            ((TextView)v0).setText(<span class="string">"FLAG: BCTF&#123;MagicNum"</span> + Integer.toString(MainActivity.<span class="keyword">this</span>.p) + <span class="string">"&#125;"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View arg7)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span>(MainActivity.<span class="keyword">this</span>.tt % <span class="number">2</span> == <span class="number">0</span>) &#123;</div><div class="line">            MainActivity.<span class="keyword">this</span>.p = <span class="number">0</span>;</div><div class="line">            MainActivity.<span class="keyword">this</span>.num = <span class="number">0</span>;</div><div class="line">            MainActivity.<span class="keyword">this</span>.tt = MainActivity.<span class="keyword">this</span>.ttt;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        --MainActivity.<span class="keyword">this</span>.tt;</div><div class="line">        MainActivity.<span class="keyword">this</span>.p = MainActivity.<span class="keyword">this</span>.pong(MainActivity.<span class="keyword">this</span>.p, MainActivity.<span class="keyword">this</span>.num);</div><div class="line">        ++MainActivity.<span class="keyword">this</span>.num;</div><div class="line">        <span class="keyword">if</span>(MainActivity.<span class="keyword">this</span>.num &gt;= <span class="number">7</span>) &#123;</div><div class="line">            MainActivity.<span class="keyword">this</span>.num = <span class="number">0</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        View v0 = MainActivity.<span class="keyword">this</span>.findViewById(<span class="number">2131427414</span>);</div><div class="line">        ((TextView)v0).setText(<span class="string">"PONG"</span>);</div><div class="line">        <span class="keyword">if</span>(MainActivity.<span class="keyword">this</span>.tt == <span class="number">0</span>) &#123;</div><div class="line">            ((TextView)v0).setText(<span class="string">"FLAG: BCTF&#123;MagicNum"</span> + Integer.toString(MainActivity.<span class="keyword">this</span>.p) + <span class="string">"&#125;"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>在C层会发现sleep(1) 暂停一秒, 如果直接调用点击时间肯定不够, 因此将sleep一秒patch掉, 可以改为 mov r1, r1.<br>之后自己写一个包名和原程序相同的包, 依次调用ping 和pong 共计100万次, 随后输出结果.</p>
+<p>一个示例的调用程序为:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">setContentView(R.layout.activity_main);</div><div class="line"><span class="keyword">int</span> p = <span class="number">0</span>;</div><div class="line"><span class="keyword">int</span> num = <span class="number">0</span>;</div><div class="line"></div><div class="line">p = pong(p, num);</div><div class="line">num ++;</div><div class="line"><span class="keyword">for</span>(<span class="keyword">int</span> tt = <span class="number">1000000</span> - <span class="number">1</span>; tt != <span class="number">0</span>; --tt)&#123;</div><div class="line">    <span class="keyword">if</span>(tt % <span class="number">2</span> == <span class="number">0</span>)&#123;</div><div class="line">        p = ping(p,num);</div><div class="line">        num ++;</div><div class="line">        <span class="keyword">if</span>(num &gt;=<span class="number">7</span>) num = <span class="number">0</span>;</div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">        p = pong(p, num);</div><div class="line">        num ++;</div><div class="line">        <span class="keyword">if</span>(num &gt;= <span class="number">7</span>) num = <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">//Log.e("yourdad", Integer.toString(p));</span></div><div class="line">((TextView)findViewById(R.id.a)).setText(String.valueOf(p));</div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/09/28/BCTF2016-pingpongmachine/" data-id="cj848uwna0000lc99fs8a9qoh" class="article-share-link">Partager</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-helctf" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/09/28/helctf/" class="article-date">
+  <time datetime="2017-09-28T08:49:43.000Z" itemprop="datePublished">2017-09-28</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/android/">android</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/28/helctf/">360 Hello CTF</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="HelloCTF"><a href="#HelloCTF" class="headerlink" title="HelloCTF"></a>HelloCTF</h1><p>纯Java,没有任何反调试,实质上是一道编程题.</p>
+<p>逐行仔细分析代码可以不断得到关系,输入是一个22字符长的小写a-z字符串,约束关系总结如下:</p>
+<p>v8 v9 = 4   19 分别是上述序号英文字符</p>
+<p>四次出现的位置5 8 10 12</p>
+<p>三次 3 16 19</p>
+<p><img src="helctf/1.png" alt="1"></p>
+<p>pos4 ^ pos3 = 22</p>
+<p>pos6^pos7=5</p>
+<p>pos7^pos8 = 12</p>
+<p>p9=118</p>
+<p>p11=109</p>
+<p>p13 = 106</p>
+<p>p14 117</p>
+<p>p15 115</p>
+<p>(ord</p>
+<p>有一个watch夹在中间</p>
+<p>以don开头</p>
+<p>得到结论dontbelievemejustwatch</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/09/28/helctf/" data-id="cj848uwnp0001lc99tt8pvfc2" class="article-share-link">Partager</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Commercialapplication" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/09/28/Commercialapplication/" class="article-date">
+  <time datetime="2017-09-28T08:49:43.000Z" itemprop="datePublished">2017-09-28</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/android/">android</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/28/Commercialapplication/">Sharif University Quals CTF 2014 Commercial Application</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Sharif-University-Quals-CTF-2014-Commercial-Application"><a href="#Sharif-University-Quals-CTF-2014-Commercial-Application" class="headerlink" title="Sharif University Quals CTF 2014: Commercial Application"></a>Sharif University Quals CTF 2014: Commercial Application</h1><p><a href="https://github.com/ctfs/write-ups-2014/tree/master/su-ctf-quals-2014/commercial_application/" target="_blank" rel="external">Github Link</a></p>
+<blockquote>
+<p>Markdown哪儿都好就是插图太麻烦,尽量用语言描述</p>
+</blockquote>
+<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>题目给的是一个Demo小程序,安装在手机或者虚拟机之后看是一个看图程序,一共三张<del>黄</del>图图,预览版只可以看一张,输入key之后可以看另外两张,提供了一个输入key的窗口,输入错误之后会提示错误(废话),想必正确的key就是题目的flag.</p>
+<h2 id="Analyse"><a href="#Analyse" class="headerlink" title="Analyse"></a>Analyse</h2><p>首先例行的对给的apk进行基础操作,我的习惯是同时恢复Java代码和Smali代码.分析的时候Java代码比较方便,出错或者是需要重新打包dex的时候使用Smali.逆向之后发现程序没有lib目录,且Java代码只经过简单混淆,没有报错,说明单纯分析Java代码逻辑即可.</p>
+<p>从输入错误key时候给出的报错语句入手,<code>Your licence key is incorrect...! Please try again with another.</code>这句在源程序中出现两次,都在<code>/edu/sharif/ctf/activities/MainActivity.java</code>之中,查看代码关键位置.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(DialogInterface paramDialogInterface, <span class="keyword">int</span> paramInt)</span></span></div><div class="line"><span class="function">      </span>&#123;</div><div class="line">        <span class="keyword">if</span> (KeyVerifier.isValidLicenceKey(<span class="keyword">this</span>.val$userInput.getText().toString(), MainActivity.<span class="keyword">this</span>.app.getDataHelper().getConfig().getSecurityKey(), MainActivity.<span class="keyword">this</span>.app.getDataHelper().getConfig().getSecurityIv()))</div><div class="line">        &#123;</div><div class="line">          MainActivity.<span class="keyword">this</span>.app.getDataHelper().updateLicence(<span class="number">2014</span>);</div><div class="line">          MainActivity.isRegisterd = <span class="keyword">true</span>;</div><div class="line">          MainActivity.<span class="keyword">this</span>.showAlertDialog(<span class="keyword">this</span>.val$context, <span class="string">"Thank you, Your application has full licence. Enjoy it...!"</span>);</div><div class="line">          <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line">        MainActivity.<span class="keyword">this</span>.showAlertDialog(<span class="keyword">this</span>.val$context, <span class="string">"Your licence key is incorrect...! Please try again with another."</span>);</div><div class="line">      &#125;</div></pre></td></tr></table></figure>
+<p>发现关键逻辑位于KeyVerifier.isValidLicenceKey函数中,对所在文件进行分析,会发现实质性调用的是encrypt函数,该函数需要三个参数.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isValidLicenceKey</span><span class="params">(String paramString1, String paramString2, String paramString3)</span></span></div><div class="line"><span class="function">  </span>&#123;</div><div class="line">    <span class="keyword">return</span> encrypt(paramString1, paramString2, paramString3).equals(<span class="string">"29a002d9340fc4bd54492f327269f3e051619b889dc8da723e135ce486965d84"</span>);</div><div class="line">  &#125;</div><div class="line">  </div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">encrypt</span><span class="params">(String paramString1, String paramString2, String paramString3)</span></span></div><div class="line"><span class="function">  </span>&#123;</div><div class="line">    <span class="keyword">try</span></div><div class="line">    &#123;</div><div class="line">      SecretKeySpec localSecretKeySpec = <span class="keyword">new</span> SecretKeySpec(hexStringToBytes(paramString2), <span class="string">"AES"</span>);</div><div class="line">      Cipher localCipher = Cipher.getInstance(<span class="string">"AES/CBC/PKCS5Padding"</span>);</div><div class="line">      localCipher.init(<span class="number">1</span>, localSecretKeySpec, <span class="keyword">new</span> IvParameterSpec(paramString3.getBytes()));</div><div class="line">      String str = bytesToHexString(localCipher.doFinal(paramString1.getBytes()));</div><div class="line">      <span class="keyword">return</span> str;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">catch</span> (Exception localException)</div><div class="line">    &#123;</div><div class="line">      localException.printStackTrace();</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="string">""</span>;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<p>由代码可以发现,加密使用AES算法,对称加密就可逆,现在需要找出使用的三个参数paramString1,paramString2,paramString3,即可逆推出输入的值.回到MainActivity中考察传递三个参数的位置作分析,<br><code>KeyVerifier.isValidLicenceKey(this.val$userInput.getText().toString(), MainActivity.this.app.getDataHelper().getConfig().getSecurityKey(), MainActivity.this.app.getDataHelper().getConfig().getSecurityIv())</code><br>第一个参数是从UI中读入的用户输入,即用户输入的key,第二个是SecurityKey,第三个是SecurityIv,通过调用进一步分析源码包括程序带的SQLite数据库可以找到后两者的值,而AES加密之后的值应该是<br><code>29a002d9340fc4bd54492f327269f3e051619b889dc8da723e135ce486965d84</code><br>这里使用一个<del>奇技淫巧</del>不去进一步考察代码,而是修改Smali代码,在使用三个值之前将它们从Log中打印出来,条用位置位于<code>class Ledu/sharif/ctf/activities/MainActivity$4</code>之中<br><figure class="highlight smali"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">.line</span> 211</div><div class="line"><span class="keyword">    .local</span> v0, <span class="string">"iv"</span>:<span class="class">Ljava/lang/String;</span></div><div class="line"></div><div class="line">   <span class="built_in"> invoke-static </span>&#123;v3, v3&#125;, <span class="class">Landroid/util/Log;</span>-&gt;v(<span class="class">Ljava/lang/String;</span><span class="class">Ljava/lang/String;</span>)I</div><div class="line">   <span class="built_in"> invoke-static </span>&#123;v3, v2&#125;, <span class="class">Landroid/util/Log;</span>-&gt;v(<span class="class">Ljava/lang/String;</span><span class="class">Ljava/lang/String;</span>)I</div><div class="line">   <span class="built_in"> invoke-static </span>&#123;v3, v0&#125;, <span class="class">Landroid/util/Log;</span>-&gt;v(<span class="class">Ljava/lang/String;</span><span class="class">Ljava/lang/String;</span>)I</div><div class="line"></div><div class="line">   <span class="built_in"> invoke-static </span>&#123;v3, v2, v0&#125;, <span class="class">Ledu/sharif/ctf/security/KeyVerifier;</span>-&gt;isValidLicenceKey(<span class="class">Ljava/lang/String;</span><span class="class">Ljava/lang/String;</span><span class="class">Ljava/lang/String;</span>)Z</div><div class="line"></div><div class="line">   <span class="built_in"> move-result </span>v1</div></pre></td></tr></table></figure></p>
+<p>重新打包dex,插入apk中,签名,运行之后随便输入点东西,通过Logcat可以截取三条Log,tag都是随便输入的内容,后两条即SecurityKey,SecurityIv<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">SecurityKey = 37eaae0141f1a3adf8a1dee655853714</div><div class="line">SecurityIv = a5efdbd57b84ca36</div><div class="line">encrypted = 29a002d9340fc4bd54492f327269f3e051619b889dc8da723e135ce486965d84</div></pre></td></tr></table></figure></p>
+<h2 id="Solve"><a href="#Solve" class="headerlink" title="Solve"></a>Solve</h2><p>经过以上分析,已经可以基本确定解决问题方法,即利用KeyVerifier中的代码,更改Cipher工作模式为解密,接触答案并ASCII化为字符串,即为key(flag).完整代码如下所示<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.company;</div><div class="line"></div><div class="line"><span class="keyword">import</span> javax.crypto.Cipher;</div><div class="line"><span class="keyword">import</span> javax.crypto.spec.IvParameterSpec;</div><div class="line"><span class="keyword">import</span> javax.crypto.spec.SecretKeySpec;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        <span class="comment">// write your code here</span></div><div class="line">        String encrypted = <span class="string">"29a002d9340fc4bd54492f327269f3e051619b889dc8da723e135ce486965d84"</span>;</div><div class="line">        String securityKey = <span class="string">"37eaae0141f1a3adf8a1dee655853714"</span>;</div><div class="line">        String securityIv = <span class="string">"a5efdbd57b84ca36"</span>;</div><div class="line">        String result = decrypt(encrypted, securityKey, securityIv);</div><div class="line">        System.out.println(result);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">bytesToHexString</span><span class="params">(<span class="keyword">byte</span>[] paramArrayOfByte)</span> </span>&#123;</div><div class="line">        StringBuilder localStringBuilder = <span class="keyword">new</span> StringBuilder();</div><div class="line">        <span class="keyword">int</span> i = paramArrayOfByte.length;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; ; j++) &#123;</div><div class="line">            <span class="keyword">if</span> (j &gt;= i)</div><div class="line">                <span class="keyword">return</span> localStringBuilder.toString();</div><div class="line">            <span class="keyword">int</span> k = paramArrayOfByte[j];</div><div class="line">            Object[] arrayOfObject = <span class="keyword">new</span> Object[<span class="number">1</span>];</div><div class="line">            arrayOfObject[<span class="number">0</span>] = Integer.valueOf(k &amp; <span class="number">0xFF</span>);</div><div class="line">            localStringBuilder.append(String.format(<span class="string">"%02x"</span>, arrayOfObject));</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">decrypt</span><span class="params">(String paramString1, String paramString2, String paramString3)</span> </span>&#123;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            SecretKeySpec localSecretKeySpec = <span class="keyword">new</span> SecretKeySpec(hexStringToBytes(paramString2), <span class="string">"AES"</span>);</div><div class="line">            Cipher localCipher = Cipher.getInstance(<span class="string">"AES/CBC/PKCS5Padding"</span>);</div><div class="line">            localCipher.init(Cipher.DECRYPT_MODE, localSecretKeySpec, <span class="keyword">new</span> IvParameterSpec(paramString3.getBytes()));</div><div class="line">            <span class="keyword">byte</span>[] bytes = localCipher.doFinal(hexStringToBytes(paramString1));</div><div class="line">            String flag = <span class="string">""</span>;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">byte</span> b : bytes) &#123;</div><div class="line">                flag += (<span class="keyword">char</span>) b;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">return</span> flag;</div><div class="line">        &#125; <span class="keyword">catch</span> (Exception localException) &#123;</div><div class="line">            localException.printStackTrace();</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="string">""</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">byte</span>[] hexStringToBytes(String paramString) &#123;</div><div class="line">        <span class="keyword">int</span> i = paramString.length();</div><div class="line">        <span class="keyword">byte</span>[] arrayOfByte = <span class="keyword">new</span> <span class="keyword">byte</span>[i / <span class="number">2</span>];</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; ; j += <span class="number">2</span>) &#123;</div><div class="line">            <span class="keyword">if</span> (j &gt;= i)</div><div class="line">                <span class="keyword">return</span> arrayOfByte;</div><div class="line">            arrayOfByte[(j / <span class="number">2</span>)] = (<span class="keyword">byte</span>) ((Character.digit(paramString.charAt(j), <span class="number">16</span>) &lt;&lt; <span class="number">4</span>) + Character.digit(paramString.charAt(j + <span class="number">1</span>), <span class="number">16</span>));</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>运行得到结果<br><strong>Flag:</strong><code>fl-ag-IS-se-ri-al-NU-MB-ER</code></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/09/28/Commercialapplication/" data-id="cj848uwnp0002lc99fik48osj" class="article-share-link">Partager</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-njctf" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/09/28/njctf/" class="article-date">
+  <time datetime="2017-09-28T08:49:43.000Z" itemprop="datePublished">2017-09-28</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/android/">android</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/28/njctf/">南京CTF2017 easycrack</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>Category:</strong> Mobile<br><strong>Points:</strong> 100<br><strong>Solves:</strong>43<br><strong>Description:</strong> None</p>
+<h2 id="Write-up"><a href="#Write-up" class="headerlink" title="Write-up"></a>Write-up</h2><p>ARM二进制分析题, Java里边基本没有内容, 只有一个native需要的固定值msg是从Java中计算然后传进去的, 写个脚本跑一下就能得到这个值.</p>
+<p>程序运行流程是经典的字符串加密, 用户输入经过与msg的异或处理后被与一个I_am_the_key字符串经过复杂但是固定的运算流程得到的值进行加密, 我们称这个值为buffer, 加密过程 buffer 与处理过的用户输入进行加密, 但是加密算法实质是异或可逆, 因此在得知结果的时候即可算出用户输入. 叙述不是特别明确, 简单画图解释:</p>
+<p>user_input(?)  ——&gt; xor  —-&gt; 处理过的输入————————————&gt;crypt————–&gt;结果</p>
+<p>msg——————–&gt;              I_am_the_key——&gt;process——&gt;buffer—&gt;</p>
+<p>通过逆向发现结果作为明文字符串存储在二进制文件中, 因为上述每一步都可逆, 因此可以编写脚本反过来执行, 从结果获得最初的用户输入. 分析过程比较简单, 不具体说明, 详见idb</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line">debug = <span class="keyword">False</span></div><div class="line"></div><div class="line"><span class="comment">#seems like a char shift</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">init</span><span class="params">(s=<span class="string">"I_am_the_key"</span>)</span>:</span></div><div class="line">    buffer1 = []</div><div class="line">    buffer2 = <span class="string">""</span></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">256</span>):</div><div class="line">        buffer1 += chr(i)</div><div class="line">        buffer2 += s[i % len(s)]</div><div class="line">    <span class="keyword">if</span> debug :</div><div class="line">        <span class="keyword">print</span> buffer1</div><div class="line">        <span class="keyword">print</span> buffer2</div><div class="line"></div><div class="line">    v7 = <span class="number">0</span></div><div class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">256</span>):</div><div class="line">        v9 = buffer1[j]</div><div class="line">        v7 = (v7 + ord(v9) + ord(buffer2[j])) % <span class="number">256</span></div><div class="line">        buffer1[j] = buffer1[v7]</div><div class="line">        buffer1[v7] = v9</div><div class="line">    <span class="keyword">return</span> map(ord, buffer1)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">getcompare</span><span class="params">()</span>:</span></div><div class="line">    cmpstr = <span class="string">"C8E4EF0E4DCCA683088134F8635E970EEAD9E277F314869F7EF5198A2AA4"</span></div><div class="line">    compare = []</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(cmpstr)/<span class="number">2</span>):</div><div class="line">        compare += cmpstr[<span class="number">2</span> * i:<span class="number">2</span> * i+<span class="number">2</span>].decode(<span class="string">'hex'</span>)</div><div class="line">    <span class="keyword">return</span> map(ord, compare)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">decrypt</span><span class="params">(buffer, compare)</span>:</span></div><div class="line">    v3=<span class="number">0</span></div><div class="line">    v4=<span class="number">0</span></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">30</span>):</div><div class="line">        v3 = (v3 + <span class="number">1</span>) % <span class="number">256</span>;</div><div class="line">        v5 = buffer[v3];</div><div class="line">        v4 = (v5 + v4) % <span class="number">256</span>;</div><div class="line">        buffer[v3] = buffer[v4];</div><div class="line">        buffer[v4] = v5;</div><div class="line">        compare[i] ^= buffer[(buffer[v3] + v5) % <span class="number">256</span>];</div><div class="line">    <span class="keyword">return</span> compare</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">getuserinput</span><span class="params">(beforecrypt)</span>:</span></div><div class="line">    msg = map(ord, <span class="string">"V7D=^,M.E"</span>)</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">30</span>):</div><div class="line">        beforecrypt[i] ^= msg[i % <span class="number">9</span>]</div><div class="line">    <span class="keyword">return</span> <span class="string">""</span>.join(map(chr, beforecrypt))</div><div class="line"></div><div class="line"></div><div class="line">buffer = init()</div><div class="line">compare = getcompare()</div><div class="line">beforecrypt = decrypt(buffer, compare)</div><div class="line"><span class="keyword">print</span> getuserinput(beforecrypt)</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/09/28/njctf/" data-id="cj848uwo50006lc99vhg781zj" class="article-share-link">Partager</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-SECCONQualsCTF2015Reverse-EngineeringAndroidAPK1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/09/28/SECCONQualsCTF2015Reverse-EngineeringAndroidAPK1/" class="article-date">
+  <time datetime="2017-09-28T08:49:43.000Z" itemprop="datePublished">2017-09-28</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/android/">android</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/28/SECCONQualsCTF2015Reverse-EngineeringAndroidAPK1/">SECCON Quals CTF 2015 Reverse-Engineering Android APK 1</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="SECCON-Quals-CTF-2015-Reverse-Engineering-Android-APK-1"><a href="#SECCON-Quals-CTF-2015-Reverse-Engineering-Android-APK-1" class="headerlink" title="SECCON Quals CTF 2015: Reverse-Engineering Android APK 1"></a>SECCON Quals CTF 2015: Reverse-Engineering Android APK 1</h1><p><a href="https://github.com/ctfs/write-ups-2015/tree/master/seccon-quals-ctf-2015/binary/reverse-engineering-android-apk-1" target="_blank" rel="external">Github Link</a></p>
+<blockquote>
+<p>题目比较简单,不多赘述</p>
+</blockquote>
+<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>不需要Overview,直接看代码逻辑即可</p>
+<h2 id="Analyse"><a href="#Analyse" class="headerlink" title="Analyse"></a>Analyse</h2><p>根据惯例对apk反编译,直接看Java代码<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (<span class="number">1000</span> == MainActivity.<span class="keyword">this</span>.cnt)</div><div class="line">    localTextView.setText(<span class="string">"SECCON&#123;"</span> + String.valueOf(<span class="number">107</span> * (MainActivity.<span class="keyword">this</span>.cnt + MainActivity.<span class="keyword">this</span>.calc())) + <span class="string">"&#125;"</span>);</div></pre></td></tr></table></figure></p>
+<p>可以看出flag是形如<code>SECCON{107*(1000 + calc)}</code>形式,只有一个未知量是函数calc返回值,而这个函数是native函数,将lib中任意一个so文件拖入IDA,找到对应函数形式如下所示<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">public Java_com_example_seccon2015_rock_1paper_1scissors_MainActivity_calc</div><div class="line">Java_com_example_seccon2015_rock_1paper_1scissors_MainActivity_calc proc near</div><div class="line">mov     eax, 7</div><div class="line">retn</div><div class="line">Java_com_example_seccon2015_rock_1paper_1scissors_MainActivity_calc endp</div><div class="line"></div><div class="line">_text ends</div></pre></td></tr></table></figure></p>
+<p>竟然直接返回7!</p>
+<h2 id="Solve"><a href="#Solve" class="headerlink" title="Solve"></a>Solve</h2><p><code>107*1007=107749</code><br>flag is SECCON{107749}</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/09/28/SECCONQualsCTF2015Reverse-EngineeringAndroidAPK1/" data-id="cj848uwok0008lc998d5fmpn2" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -288,7 +540,7 @@ BK-&gt;fd=FD;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/28/unlink/" data-id="cj847g1tx0001fg99gbi9uo8p" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/09/28/unlink/" data-id="cj847g1tx0001fg99gbi9uo8p" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/heap/">heap</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pwn/">pwn</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/unlink/">unlink</a></li></ul>
@@ -307,7 +559,7 @@ BK-&gt;fd=FD;
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
+    <h3 class="widget-title">Catégories</h3>
     <div class="widget">
       <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/android/">android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/pwnable-kr/">pwnable.kr</a></li></ul>
     </div>
@@ -317,7 +569,7 @@ BK-&gt;fd=FD;
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
+    <h3 class="widget-title">Mot-clés</h3>
     <div class="widget">
       <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/heap/">heap</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pwn/">pwn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/unlink/">unlink</a></li></ul>
     </div>
@@ -327,7 +579,7 @@ BK-&gt;fd=FD;
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
+    <h3 class="widget-title">Nuage de mot-clés</h3>
     <div class="widget tagcloud">
       <a href="/tags/heap/" style="font-size: 10px;">heap</a> <a href="/tags/pwn/" style="font-size: 10px;">pwn</a> <a href="/tags/unlink/" style="font-size: 10px;">unlink</a>
     </div>
@@ -346,7 +598,7 @@ BK-&gt;fd=FD;
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Articles récents</h3>
     <div class="widget">
       <ul>
         
@@ -363,7 +615,11 @@ BK-&gt;fd=FD;
           </li>
         
           <li>
-            <a href="/2017/09/28/unlink/">pwnable.kr之unlink</a>
+            <a href="/2017/09/28/BCTF2016-pingpongmachine/">BCTF2016 pingpongmachine</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/28/helctf/">360 Hello CTF</a>
           </li>
         
       </ul>
@@ -379,7 +635,7 @@ BK-&gt;fd=FD;
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2017 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
