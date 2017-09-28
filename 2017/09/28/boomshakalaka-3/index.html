@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>0CTF 2016 boomshakalaka-3 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="0CTF : boomshakalaka-3Category: MobilePoints: 3Solves: 35Description:  play the game, get the highest score  Write-up脑洞题, 基础的分析之后可以发现是由Cocos2d写的游戏程序, 部分与flag有关的代码在Java层, 在sharedPreference里边写了MGNO, 进一步">
+<meta property="og:type" content="article">
+<meta property="og:title" content="0CTF 2016 boomshakalaka-3">
+<meta property="og:url" content="http://yoursite.com/2017/09/28/boomshakalaka-3/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="0CTF : boomshakalaka-3Category: MobilePoints: 3Solves: 35Description:  play the game, get the highest score  Write-up脑洞题, 基础的分析之后可以发现是由Cocos2d写的游戏程序, 部分与flag有关的代码在Java层, 在sharedPreference里边写了MGNO, 进一步">
+<meta property="og:updated_time" content="2017-09-28T08:54:31.897Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="0CTF 2016 boomshakalaka-3">
+<meta name="twitter:description" content="0CTF : boomshakalaka-3Category: MobilePoints: 3Solves: 35Description:  play the game, get the highest score  Write-up脑洞题, 基础的分析之后可以发现是由Cocos2d写的游戏程序, 部分与flag有关的代码在Java层, 在sharedPreference里边写了MGNO, 进一步">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-boomshakalaka-3" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/09/28/boomshakalaka-3/" class="article-date">
+  <time datetime="2017-09-28T08:49:43.000Z" itemprop="datePublished">2017-09-28</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/android/">android</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      0CTF 2016 boomshakalaka-3
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="0CTF-boomshakalaka-3"><a href="#0CTF-boomshakalaka-3" class="headerlink" title="0CTF : boomshakalaka-3"></a>0CTF : boomshakalaka-3</h1><p><strong>Category:</strong> Mobile<br><strong>Points:</strong> 3<br><strong>Solves:</strong> 35<br><strong>Description:</strong></p>
+<blockquote>
+<p>play the game, get the highest score</p>
+</blockquote>
+<h2 id="Write-up"><a href="#Write-up" class="headerlink" title="Write-up"></a>Write-up</h2><p>脑洞题, 基础的分析之后可以发现是由Cocos2d写的游戏程序, 部分与flag有关的代码在Java层, 在sharedPreference里边写了MGNO, 进一步的写sharedPreference在native代码中寻找.</p>
+<p>从updateScore函数中可以发现根据分数写flag的明显痕迹, 其他方法中也有一部分写的代码, 但是顺序未知.</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div></pre></td><td class="code"><pre><div class="line">    <span class="keyword">if</span> ( v3 == (<span class="keyword">const</span> <span class="keyword">char</span> *)<span class="number">100</span> )</div><div class="line">    &#123;</div><div class="line">      v6 = cocos2d::CCUserDefault::sharedUserDefault(v5);</div><div class="line">      <span class="built_in">std</span>::<span class="keyword">operator</span>+&lt;<span class="keyword">char</span>,<span class="built_in">std</span>::char_traits&lt;<span class="keyword">char</span>&gt;,<span class="built_in">std</span>::allocator&lt;<span class="keyword">char</span>&gt;&gt;(&amp;v22, &amp;v20, <span class="string">"MW"</span>);</div><div class="line">      cocos2d::CCUserDefault::setStringForKey(v6, &amp;v34, &amp;v22);</div><div class="line">      v7 = &amp;v22;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span> ( v3 == (<span class="keyword">const</span> <span class="keyword">char</span> *)<span class="number">600</span> )</div><div class="line">    &#123;</div><div class="line">      v8 = cocos2d::CCUserDefault::sharedUserDefault(v5);</div><div class="line">      <span class="built_in">std</span>::<span class="keyword">operator</span>+&lt;<span class="keyword">char</span>,<span class="built_in">std</span>::char_traits&lt;<span class="keyword">char</span>&gt;,<span class="built_in">std</span>::allocator&lt;<span class="keyword">char</span>&gt;&gt;(&amp;v23, &amp;v20, <span class="string">"Rf"</span>);</div><div class="line">      cocos2d::CCUserDefault::setStringForKey(v8, &amp;v34, &amp;v23);</div><div class="line">      v7 = &amp;v23;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span> ( v3 == (<span class="keyword">const</span> <span class="keyword">char</span> *)<span class="number">700</span> )</div><div class="line">    &#123;</div><div class="line">      v9 = cocos2d::CCUserDefault::sharedUserDefault(v5);</div><div class="line">      <span class="built_in">std</span>::<span class="keyword">operator</span>+&lt;<span class="keyword">char</span>,<span class="built_in">std</span>::char_traits&lt;<span class="keyword">char</span>&gt;,<span class="built_in">std</span>::allocator&lt;<span class="keyword">char</span>&gt;&gt;(&amp;v24, &amp;v20, <span class="string">"Rz"</span>);</div><div class="line">      cocos2d::CCUserDefault::setStringForKey(v9, &amp;v34, &amp;v24);</div><div class="line">      v7 = &amp;v24;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span> ( v3 == (<span class="keyword">const</span> <span class="keyword">char</span> *)<span class="number">3000</span> )</div><div class="line">    &#123;</div><div class="line">      v10 = cocos2d::CCUserDefault::sharedUserDefault(v5);</div><div class="line">      <span class="built_in">std</span>::<span class="keyword">operator</span>+&lt;<span class="keyword">char</span>,<span class="built_in">std</span>::char_traits&lt;<span class="keyword">char</span>&gt;,<span class="built_in">std</span>::allocator&lt;<span class="keyword">char</span>&gt;&gt;(&amp;v25, &amp;v20, <span class="string">"Bt"</span>);</div><div class="line">      cocos2d::CCUserDefault::setStringForKey(v10, &amp;v34, &amp;v25);</div><div class="line">      v7 = &amp;v25;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span> ( v3 == (<span class="keyword">const</span> <span class="keyword">char</span> *)<span class="number">5600</span> )</div><div class="line">    &#123;</div><div class="line">      v11 = cocos2d::CCUserDefault::sharedUserDefault(v5);</div><div class="line">      <span class="built_in">std</span>::<span class="keyword">operator</span>+&lt;<span class="keyword">char</span>,<span class="built_in">std</span>::char_traits&lt;<span class="keyword">char</span>&gt;,<span class="built_in">std</span>::allocator&lt;<span class="keyword">char</span>&gt;&gt;(&amp;v26, &amp;v20, <span class="string">"RV"</span>);</div><div class="line">      cocos2d::CCUserDefault::setStringForKey(v11, &amp;v34, &amp;v26);</div><div class="line">      v7 = &amp;v26;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span> ( v3 == (<span class="keyword">const</span> <span class="keyword">char</span> *)<span class="number">9900</span> )</div><div class="line">    &#123;</div><div class="line">      v12 = cocos2d::CCUserDefault::sharedUserDefault(v5);</div><div class="line">      <span class="built_in">std</span>::<span class="keyword">operator</span>+&lt;<span class="keyword">char</span>,<span class="built_in">std</span>::char_traits&lt;<span class="keyword">char</span>&gt;,<span class="built_in">std</span>::allocator&lt;<span class="keyword">char</span>&gt;&gt;(&amp;v27, &amp;v20, <span class="string">"9Z"</span>);</div><div class="line">      cocos2d::CCUserDefault::setStringForKey(v12, &amp;v34, &amp;v27);</div><div class="line">      v7 = &amp;v27;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span> ( v3 == (<span class="keyword">const</span> <span class="keyword">char</span> *)<span class="number">18000</span> )</div><div class="line">    &#123;</div><div class="line">      v13 = cocos2d::CCUserDefault::sharedUserDefault(v5);</div><div class="line">      <span class="built_in">std</span>::<span class="keyword">operator</span>+&lt;<span class="keyword">char</span>,<span class="built_in">std</span>::char_traits&lt;<span class="keyword">char</span>&gt;,<span class="built_in">std</span>::allocator&lt;<span class="keyword">char</span>&gt;&gt;(&amp;v28, &amp;v20, <span class="string">"b1"</span>);</div><div class="line">      cocos2d::CCUserDefault::setStringForKey(v13, &amp;v34, &amp;v28);</div><div class="line">      v7 = &amp;v28;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span> ( v3 == (<span class="keyword">const</span> <span class="keyword">char</span> *)<span class="number">88800</span> )</div><div class="line">    &#123;</div><div class="line">      v14 = cocos2d::CCUserDefault::sharedUserDefault(v5);</div><div class="line">      <span class="built_in">std</span>::<span class="keyword">operator</span>+&lt;<span class="keyword">char</span>,<span class="built_in">std</span>::char_traits&lt;<span class="keyword">char</span>&gt;,<span class="built_in">std</span>::allocator&lt;<span class="keyword">char</span>&gt;&gt;(&amp;v29, &amp;v20, <span class="string">"Vf"</span>);</div><div class="line">      cocos2d::CCUserDefault::setStringForKey(v14, &amp;v34, &amp;v29);</div><div class="line">      v7 = &amp;v29;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span> ( v3 == (<span class="keyword">const</span> <span class="keyword">char</span> *)<span class="number">100000</span> )</div><div class="line">    &#123;</div><div class="line">      v15 = cocos2d::CCUserDefault::sharedUserDefault(v5);</div><div class="line">      <span class="built_in">std</span>::<span class="keyword">operator</span>+&lt;<span class="keyword">char</span>,<span class="built_in">std</span>::char_traits&lt;<span class="keyword">char</span>&gt;,<span class="built_in">std</span>::allocator&lt;<span class="keyword">char</span>&gt;&gt;(&amp;v30, &amp;v20, <span class="string">"S2"</span>);</div><div class="line">      cocos2d::CCUserDefault::setStringForKey(v15, &amp;v34, &amp;v30);</div><div class="line">      v7 = &amp;v30;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span></div><div class="line">    &#123;</div><div class="line">      <span class="keyword">if</span> ( v3 != (<span class="keyword">const</span> <span class="keyword">char</span> *)<span class="number">1000000000</span> )</div><div class="line">      &#123;</div><div class="line">LABEL_25:</div><div class="line">        v17 = cocos2d::CCString::createWithFormat((cocos2d::CCString *)<span class="string">"%d"</span>, v3);</div><div class="line">        (*(<span class="keyword">void</span> (__fastcall **)(_DWORD, _DWORD))(**(_DWORD **)(v18 + <span class="number">264</span>) + <span class="number">428</span>))(</div><div class="line">          *(_DWORD *)(v18 + <span class="number">264</span>),</div><div class="line">          *(_DWORD *)(v17 + <span class="number">20</span>));</div><div class="line">        <span class="keyword">return</span> sub_3A1DDC(&amp;v20);</div><div class="line">      &#125;</div><div class="line">      v16 = cocos2d::CCUserDefault::sharedUserDefault(v5);</div><div class="line">      <span class="built_in">std</span>::<span class="keyword">operator</span>+&lt;<span class="keyword">char</span>,<span class="built_in">std</span>::char_traits&lt;<span class="keyword">char</span>&gt;,<span class="built_in">std</span>::allocator&lt;<span class="keyword">char</span>&gt;&gt;(&amp;v31, &amp;v20, <span class="string">"4w"</span>);</div></pre></td></tr></table></figure>
+<p>打上一局游戏, root权限查看sharedpreference, 可以发现部分flag:MGN0ZntDMGNvUzJkX0FuRHJv<strong>MWRf</strong>dz99</p>
+<p>注意加粗的地方是与分数先关的, 其余的或许与前面或许与后面有关, 我们不敢确定, 但是我们可以把缺少的分数部分补全.MGN0ZntDMGNvUzJkX0FuRHJvMWRfRzBtRV9Zb1VfS24wdz99, 解码得到0ctf{C0coS2d_AnDro1d_G0mE_YoU_Kn0w?}.</p>
+<h2 id="Other-write-ups-and-resources"><a href="#Other-write-ups-and-resources" class="headerlink" title="Other write-ups and resources"></a>Other write-ups and resources</h2><ul>
+<li><a href="https://eugenekolo.com/blog/0ctf-2016-boomshakalaka-writeup/" target="_blank" rel="external">https://eugenekolo.com/blog/0ctf-2016-boomshakalaka-writeup/</a></li>
+<li><a href="https://github.com/p4-team/ctf/blob/master/2016-03-12-0ctf/boomshakalaka/README.md" target="_blank" rel="external">P4 Team</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/09/28/boomshakalaka-3/" data-id="cj84879ng0000ig99unwcbdmp" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/09/28/VEZEL100/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          0CTF 2015 Quals CTF VEZEL
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/09/28/zctf-android-1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">ZCTF Android 1</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/android/">android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/pwnable-kr/">pwnable.kr</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/heap/">heap</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pwn/">pwn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/unlink/">unlink</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/heap/" style="font-size: 10px;">heap</a> <a href="/tags/pwn/" style="font-size: 10px;">pwn</a> <a href="/tags/unlink/" style="font-size: 10px;">unlink</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/09/28/VEZEL100/">0CTF 2015 Quals CTF VEZEL</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/28/boomshakalaka-3/">0CTF 2016 boomshakalaka-3</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/28/zctf-android-1/">ZCTF Android 1</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/28/unlink/">pwnable.kr之unlink</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
