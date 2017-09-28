@@ -94,7 +94,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/28/csaw2017-cvv/" data-id="cj84a2yvs0004yw990mspwclh" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/09/28/csaw2017-cvv/" data-id="cj84a4k4d0005xs99jr94d5m0" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/csaw2017/">csaw2017</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/misc/">misc</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/reverse/">reverse</a></li></ul>
@@ -140,7 +140,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/28/BCTF2016-pingpongmachine/" data-id="cj84a2yvd0000yw998t62sco0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/09/28/BCTF2016-pingpongmachine/" data-id="cj84a4k3p0000xs99kfazez4k" class="article-share-link">Share</a>
       
       
     </footer>
@@ -189,60 +189,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/28/SECCONQualsCTF2015Reverse-EngineeringAndroidAPK1/" data-id="cj84a2yvi0001yw99hdxhp43q" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-boomshakalaka-3" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/09/28/boomshakalaka-3/" class="article-date">
-  <time datetime="2017-09-28T08:49:43.000Z" itemprop="datePublished">2017-09-28</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/android/">android</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/28/boomshakalaka-3/">0CTF 2016 boomshakalaka-3</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="0CTF-boomshakalaka-3"><a href="#0CTF-boomshakalaka-3" class="headerlink" title="0CTF : boomshakalaka-3"></a>0CTF : boomshakalaka-3</h1><p><strong>Category:</strong> Mobile<br><strong>Points:</strong> 3<br><strong>Solves:</strong> 35<br><strong>Description:</strong></p>
-<blockquote>
-<p>play the game, get the highest score</p>
-</blockquote>
-<h2 id="Write-up"><a href="#Write-up" class="headerlink" title="Write-up"></a>Write-up</h2><p>脑洞题, 基础的分析之后可以发现是由Cocos2d写的游戏程序, 部分与flag有关的代码在Java层, 在sharedPreference里边写了MGNO, 进一步的写sharedPreference在native代码中寻找.</p>
-<p>从updateScore函数中可以发现根据分数写flag的明显痕迹, 其他方法中也有一部分写的代码, 但是顺序未知.</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div></pre></td><td class="code"><pre><div class="line">    <span class="keyword">if</span> ( v3 == (<span class="keyword">const</span> <span class="keyword">char</span> *)<span class="number">100</span> )</div><div class="line">    &#123;</div><div class="line">      v6 = cocos2d::CCUserDefault::sharedUserDefault(v5);</div><div class="line">      <span class="built_in">std</span>::<span class="keyword">operator</span>+&lt;<span class="keyword">char</span>,<span class="built_in">std</span>::char_traits&lt;<span class="keyword">char</span>&gt;,<span class="built_in">std</span>::allocator&lt;<span class="keyword">char</span>&gt;&gt;(&amp;v22, &amp;v20, <span class="string">"MW"</span>);</div><div class="line">      cocos2d::CCUserDefault::setStringForKey(v6, &amp;v34, &amp;v22);</div><div class="line">      v7 = &amp;v22;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span> ( v3 == (<span class="keyword">const</span> <span class="keyword">char</span> *)<span class="number">600</span> )</div><div class="line">    &#123;</div><div class="line">      v8 = cocos2d::CCUserDefault::sharedUserDefault(v5);</div><div class="line">      <span class="built_in">std</span>::<span class="keyword">operator</span>+&lt;<span class="keyword">char</span>,<span class="built_in">std</span>::char_traits&lt;<span class="keyword">char</span>&gt;,<span class="built_in">std</span>::allocator&lt;<span class="keyword">char</span>&gt;&gt;(&amp;v23, &amp;v20, <span class="string">"Rf"</span>);</div><div class="line">      cocos2d::CCUserDefault::setStringForKey(v8, &amp;v34, &amp;v23);</div><div class="line">      v7 = &amp;v23;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span> ( v3 == (<span class="keyword">const</span> <span class="keyword">char</span> *)<span class="number">700</span> )</div><div class="line">    &#123;</div><div class="line">      v9 = cocos2d::CCUserDefault::sharedUserDefault(v5);</div><div class="line">      <span class="built_in">std</span>::<span class="keyword">operator</span>+&lt;<span class="keyword">char</span>,<span class="built_in">std</span>::char_traits&lt;<span class="keyword">char</span>&gt;,<span class="built_in">std</span>::allocator&lt;<span class="keyword">char</span>&gt;&gt;(&amp;v24, &amp;v20, <span class="string">"Rz"</span>);</div><div class="line">      cocos2d::CCUserDefault::setStringForKey(v9, &amp;v34, &amp;v24);</div><div class="line">      v7 = &amp;v24;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span> ( v3 == (<span class="keyword">const</span> <span class="keyword">char</span> *)<span class="number">3000</span> )</div><div class="line">    &#123;</div><div class="line">      v10 = cocos2d::CCUserDefault::sharedUserDefault(v5);</div><div class="line">      <span class="built_in">std</span>::<span class="keyword">operator</span>+&lt;<span class="keyword">char</span>,<span class="built_in">std</span>::char_traits&lt;<span class="keyword">char</span>&gt;,<span class="built_in">std</span>::allocator&lt;<span class="keyword">char</span>&gt;&gt;(&amp;v25, &amp;v20, <span class="string">"Bt"</span>);</div><div class="line">      cocos2d::CCUserDefault::setStringForKey(v10, &amp;v34, &amp;v25);</div><div class="line">      v7 = &amp;v25;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span> ( v3 == (<span class="keyword">const</span> <span class="keyword">char</span> *)<span class="number">5600</span> )</div><div class="line">    &#123;</div><div class="line">      v11 = cocos2d::CCUserDefault::sharedUserDefault(v5);</div><div class="line">      <span class="built_in">std</span>::<span class="keyword">operator</span>+&lt;<span class="keyword">char</span>,<span class="built_in">std</span>::char_traits&lt;<span class="keyword">char</span>&gt;,<span class="built_in">std</span>::allocator&lt;<span class="keyword">char</span>&gt;&gt;(&amp;v26, &amp;v20, <span class="string">"RV"</span>);</div><div class="line">      cocos2d::CCUserDefault::setStringForKey(v11, &amp;v34, &amp;v26);</div><div class="line">      v7 = &amp;v26;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span> ( v3 == (<span class="keyword">const</span> <span class="keyword">char</span> *)<span class="number">9900</span> )</div><div class="line">    &#123;</div><div class="line">      v12 = cocos2d::CCUserDefault::sharedUserDefault(v5);</div><div class="line">      <span class="built_in">std</span>::<span class="keyword">operator</span>+&lt;<span class="keyword">char</span>,<span class="built_in">std</span>::char_traits&lt;<span class="keyword">char</span>&gt;,<span class="built_in">std</span>::allocator&lt;<span class="keyword">char</span>&gt;&gt;(&amp;v27, &amp;v20, <span class="string">"9Z"</span>);</div><div class="line">      cocos2d::CCUserDefault::setStringForKey(v12, &amp;v34, &amp;v27);</div><div class="line">      v7 = &amp;v27;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span> ( v3 == (<span class="keyword">const</span> <span class="keyword">char</span> *)<span class="number">18000</span> )</div><div class="line">    &#123;</div><div class="line">      v13 = cocos2d::CCUserDefault::sharedUserDefault(v5);</div><div class="line">      <span class="built_in">std</span>::<span class="keyword">operator</span>+&lt;<span class="keyword">char</span>,<span class="built_in">std</span>::char_traits&lt;<span class="keyword">char</span>&gt;,<span class="built_in">std</span>::allocator&lt;<span class="keyword">char</span>&gt;&gt;(&amp;v28, &amp;v20, <span class="string">"b1"</span>);</div><div class="line">      cocos2d::CCUserDefault::setStringForKey(v13, &amp;v34, &amp;v28);</div><div class="line">      v7 = &amp;v28;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span> ( v3 == (<span class="keyword">const</span> <span class="keyword">char</span> *)<span class="number">88800</span> )</div><div class="line">    &#123;</div><div class="line">      v14 = cocos2d::CCUserDefault::sharedUserDefault(v5);</div><div class="line">      <span class="built_in">std</span>::<span class="keyword">operator</span>+&lt;<span class="keyword">char</span>,<span class="built_in">std</span>::char_traits&lt;<span class="keyword">char</span>&gt;,<span class="built_in">std</span>::allocator&lt;<span class="keyword">char</span>&gt;&gt;(&amp;v29, &amp;v20, <span class="string">"Vf"</span>);</div><div class="line">      cocos2d::CCUserDefault::setStringForKey(v14, &amp;v34, &amp;v29);</div><div class="line">      v7 = &amp;v29;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span> ( v3 == (<span class="keyword">const</span> <span class="keyword">char</span> *)<span class="number">100000</span> )</div><div class="line">    &#123;</div><div class="line">      v15 = cocos2d::CCUserDefault::sharedUserDefault(v5);</div><div class="line">      <span class="built_in">std</span>::<span class="keyword">operator</span>+&lt;<span class="keyword">char</span>,<span class="built_in">std</span>::char_traits&lt;<span class="keyword">char</span>&gt;,<span class="built_in">std</span>::allocator&lt;<span class="keyword">char</span>&gt;&gt;(&amp;v30, &amp;v20, <span class="string">"S2"</span>);</div><div class="line">      cocos2d::CCUserDefault::setStringForKey(v15, &amp;v34, &amp;v30);</div><div class="line">      v7 = &amp;v30;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span></div><div class="line">    &#123;</div><div class="line">      <span class="keyword">if</span> ( v3 != (<span class="keyword">const</span> <span class="keyword">char</span> *)<span class="number">1000000000</span> )</div><div class="line">      &#123;</div><div class="line">LABEL_25:</div><div class="line">        v17 = cocos2d::CCString::createWithFormat((cocos2d::CCString *)<span class="string">"%d"</span>, v3);</div><div class="line">        (*(<span class="keyword">void</span> (__fastcall **)(_DWORD, _DWORD))(**(_DWORD **)(v18 + <span class="number">264</span>) + <span class="number">428</span>))(</div><div class="line">          *(_DWORD *)(v18 + <span class="number">264</span>),</div><div class="line">          *(_DWORD *)(v17 + <span class="number">20</span>));</div><div class="line">        <span class="keyword">return</span> sub_3A1DDC(&amp;v20);</div><div class="line">      &#125;</div><div class="line">      v16 = cocos2d::CCUserDefault::sharedUserDefault(v5);</div><div class="line">      <span class="built_in">std</span>::<span class="keyword">operator</span>+&lt;<span class="keyword">char</span>,<span class="built_in">std</span>::char_traits&lt;<span class="keyword">char</span>&gt;,<span class="built_in">std</span>::allocator&lt;<span class="keyword">char</span>&gt;&gt;(&amp;v31, &amp;v20, <span class="string">"4w"</span>);</div></pre></td></tr></table></figure>
-<p>打上一局游戏, root权限查看sharedpreference, 可以发现部分flag:MGN0ZntDMGNvUzJkX0FuRHJv<strong>MWRf</strong>dz99</p>
-<p>注意加粗的地方是与分数先关的, 其余的或许与前面或许与后面有关, 我们不敢确定, 但是我们可以把缺少的分数部分补全.MGN0ZntDMGNvUzJkX0FuRHJvMWRfRzBtRV9Zb1VfS24wdz99, 解码得到0ctf{C0coS2d_AnDro1d_G0mE_YoU_Kn0w?}.</p>
-<h2 id="Other-write-ups-and-resources"><a href="#Other-write-ups-and-resources" class="headerlink" title="Other write-ups and resources"></a>Other write-ups and resources</h2><ul>
-<li><a href="https://eugenekolo.com/blog/0ctf-2016-boomshakalaka-writeup/" target="_blank" rel="external">https://eugenekolo.com/blog/0ctf-2016-boomshakalaka-writeup/</a></li>
-<li><a href="https://github.com/p4-team/ctf/blob/master/2016-03-12-0ctf/boomshakalaka/README.md" target="_blank" rel="external">P4 Team</a></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/28/boomshakalaka-3/" data-id="cj84a2yvn0003yw992btb041y" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/09/28/SECCONQualsCTF2015Reverse-EngineeringAndroidAPK1/" data-id="cj84a4k3v0001xs99o0lu2a6c" class="article-share-link">Share</a>
       
       
     </footer>
@@ -296,7 +243,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/28/Commercialapplication/" data-id="cj84a2yvy0005yw99kb3xclyq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/09/28/Commercialapplication/" data-id="cj84a4k400003xs999vch12y1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -347,7 +294,107 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/28/VEZEL100/" data-id="cj84a2yw60008yw99v4qywuxw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/09/28/VEZEL100/" data-id="cj84a4k450004xs99loso6910" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-njctf" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/09/28/njctf/" class="article-date">
+  <time datetime="2017-09-28T08:49:43.000Z" itemprop="datePublished">2017-09-28</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/android/">android</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/28/njctf/">南京CTF2017 easycrack</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>Category:</strong> Mobile<br><strong>Points:</strong> 100<br><strong>Solves:</strong>43<br><strong>Description:</strong> None</p>
+<h2 id="Write-up"><a href="#Write-up" class="headerlink" title="Write-up"></a>Write-up</h2><p>ARM二进制分析题, Java里边基本没有内容, 只有一个native需要的固定值msg是从Java中计算然后传进去的, 写个脚本跑一下就能得到这个值.</p>
+<p>程序运行流程是经典的字符串加密, 用户输入经过与msg的异或处理后被与一个I_am_the_key字符串经过复杂但是固定的运算流程得到的值进行加密, 我们称这个值为buffer, 加密过程 buffer 与处理过的用户输入进行加密, 但是加密算法实质是异或可逆, 因此在得知结果的时候即可算出用户输入. 叙述不是特别明确, 简单画图解释:</p>
+<p>user_input(?)  ——&gt; xor  —-&gt; 处理过的输入————————————&gt;crypt————–&gt;结果</p>
+<p>msg——————–&gt;              I_am_the_key——&gt;process——&gt;buffer—&gt;</p>
+<p>通过逆向发现结果作为明文字符串存储在二进制文件中, 因为上述每一步都可逆, 因此可以编写脚本反过来执行, 从结果获得最初的用户输入. 分析过程比较简单, 不具体说明, 详见idb</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line">debug = <span class="keyword">False</span></div><div class="line"></div><div class="line"><span class="comment">#seems like a char shift</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">init</span><span class="params">(s=<span class="string">"I_am_the_key"</span>)</span>:</span></div><div class="line">    buffer1 = []</div><div class="line">    buffer2 = <span class="string">""</span></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">256</span>):</div><div class="line">        buffer1 += chr(i)</div><div class="line">        buffer2 += s[i % len(s)]</div><div class="line">    <span class="keyword">if</span> debug :</div><div class="line">        <span class="keyword">print</span> buffer1</div><div class="line">        <span class="keyword">print</span> buffer2</div><div class="line"></div><div class="line">    v7 = <span class="number">0</span></div><div class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">256</span>):</div><div class="line">        v9 = buffer1[j]</div><div class="line">        v7 = (v7 + ord(v9) + ord(buffer2[j])) % <span class="number">256</span></div><div class="line">        buffer1[j] = buffer1[v7]</div><div class="line">        buffer1[v7] = v9</div><div class="line">    <span class="keyword">return</span> map(ord, buffer1)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">getcompare</span><span class="params">()</span>:</span></div><div class="line">    cmpstr = <span class="string">"C8E4EF0E4DCCA683088134F8635E970EEAD9E277F314869F7EF5198A2AA4"</span></div><div class="line">    compare = []</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(cmpstr)/<span class="number">2</span>):</div><div class="line">        compare += cmpstr[<span class="number">2</span> * i:<span class="number">2</span> * i+<span class="number">2</span>].decode(<span class="string">'hex'</span>)</div><div class="line">    <span class="keyword">return</span> map(ord, compare)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">decrypt</span><span class="params">(buffer, compare)</span>:</span></div><div class="line">    v3=<span class="number">0</span></div><div class="line">    v4=<span class="number">0</span></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">30</span>):</div><div class="line">        v3 = (v3 + <span class="number">1</span>) % <span class="number">256</span>;</div><div class="line">        v5 = buffer[v3];</div><div class="line">        v4 = (v5 + v4) % <span class="number">256</span>;</div><div class="line">        buffer[v3] = buffer[v4];</div><div class="line">        buffer[v4] = v5;</div><div class="line">        compare[i] ^= buffer[(buffer[v3] + v5) % <span class="number">256</span>];</div><div class="line">    <span class="keyword">return</span> compare</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">getuserinput</span><span class="params">(beforecrypt)</span>:</span></div><div class="line">    msg = map(ord, <span class="string">"V7D=^,M.E"</span>)</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">30</span>):</div><div class="line">        beforecrypt[i] ^= msg[i % <span class="number">9</span>]</div><div class="line">    <span class="keyword">return</span> <span class="string">""</span>.join(map(chr, beforecrypt))</div><div class="line"></div><div class="line"></div><div class="line">buffer = init()</div><div class="line">compare = getcompare()</div><div class="line">beforecrypt = decrypt(buffer, compare)</div><div class="line"><span class="keyword">print</span> getuserinput(beforecrypt)</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/09/28/njctf/" data-id="cj84a4k4i0007xs9998xx65i5" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-boomshakalaka-3" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/09/28/boomshakalaka-3/" class="article-date">
+  <time datetime="2017-09-28T08:49:43.000Z" itemprop="datePublished">2017-09-28</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/android/">android</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/28/boomshakalaka-3/">0CTF 2016 boomshakalaka-3</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="0CTF-boomshakalaka-3"><a href="#0CTF-boomshakalaka-3" class="headerlink" title="0CTF : boomshakalaka-3"></a>0CTF : boomshakalaka-3</h1><p><strong>Category:</strong> Mobile<br><strong>Points:</strong> 3<br><strong>Solves:</strong> 35<br><strong>Description:</strong></p>
+<blockquote>
+<p>play the game, get the highest score</p>
+</blockquote>
+<h2 id="Write-up"><a href="#Write-up" class="headerlink" title="Write-up"></a>Write-up</h2><p>脑洞题, 基础的分析之后可以发现是由Cocos2d写的游戏程序, 部分与flag有关的代码在Java层, 在sharedPreference里边写了MGNO, 进一步的写sharedPreference在native代码中寻找.</p>
+<p>从updateScore函数中可以发现根据分数写flag的明显痕迹, 其他方法中也有一部分写的代码, 但是顺序未知.</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div></pre></td><td class="code"><pre><div class="line">    <span class="keyword">if</span> ( v3 == (<span class="keyword">const</span> <span class="keyword">char</span> *)<span class="number">100</span> )</div><div class="line">    &#123;</div><div class="line">      v6 = cocos2d::CCUserDefault::sharedUserDefault(v5);</div><div class="line">      <span class="built_in">std</span>::<span class="keyword">operator</span>+&lt;<span class="keyword">char</span>,<span class="built_in">std</span>::char_traits&lt;<span class="keyword">char</span>&gt;,<span class="built_in">std</span>::allocator&lt;<span class="keyword">char</span>&gt;&gt;(&amp;v22, &amp;v20, <span class="string">"MW"</span>);</div><div class="line">      cocos2d::CCUserDefault::setStringForKey(v6, &amp;v34, &amp;v22);</div><div class="line">      v7 = &amp;v22;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span> ( v3 == (<span class="keyword">const</span> <span class="keyword">char</span> *)<span class="number">600</span> )</div><div class="line">    &#123;</div><div class="line">      v8 = cocos2d::CCUserDefault::sharedUserDefault(v5);</div><div class="line">      <span class="built_in">std</span>::<span class="keyword">operator</span>+&lt;<span class="keyword">char</span>,<span class="built_in">std</span>::char_traits&lt;<span class="keyword">char</span>&gt;,<span class="built_in">std</span>::allocator&lt;<span class="keyword">char</span>&gt;&gt;(&amp;v23, &amp;v20, <span class="string">"Rf"</span>);</div><div class="line">      cocos2d::CCUserDefault::setStringForKey(v8, &amp;v34, &amp;v23);</div><div class="line">      v7 = &amp;v23;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span> ( v3 == (<span class="keyword">const</span> <span class="keyword">char</span> *)<span class="number">700</span> )</div><div class="line">    &#123;</div><div class="line">      v9 = cocos2d::CCUserDefault::sharedUserDefault(v5);</div><div class="line">      <span class="built_in">std</span>::<span class="keyword">operator</span>+&lt;<span class="keyword">char</span>,<span class="built_in">std</span>::char_traits&lt;<span class="keyword">char</span>&gt;,<span class="built_in">std</span>::allocator&lt;<span class="keyword">char</span>&gt;&gt;(&amp;v24, &amp;v20, <span class="string">"Rz"</span>);</div><div class="line">      cocos2d::CCUserDefault::setStringForKey(v9, &amp;v34, &amp;v24);</div><div class="line">      v7 = &amp;v24;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span> ( v3 == (<span class="keyword">const</span> <span class="keyword">char</span> *)<span class="number">3000</span> )</div><div class="line">    &#123;</div><div class="line">      v10 = cocos2d::CCUserDefault::sharedUserDefault(v5);</div><div class="line">      <span class="built_in">std</span>::<span class="keyword">operator</span>+&lt;<span class="keyword">char</span>,<span class="built_in">std</span>::char_traits&lt;<span class="keyword">char</span>&gt;,<span class="built_in">std</span>::allocator&lt;<span class="keyword">char</span>&gt;&gt;(&amp;v25, &amp;v20, <span class="string">"Bt"</span>);</div><div class="line">      cocos2d::CCUserDefault::setStringForKey(v10, &amp;v34, &amp;v25);</div><div class="line">      v7 = &amp;v25;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span> ( v3 == (<span class="keyword">const</span> <span class="keyword">char</span> *)<span class="number">5600</span> )</div><div class="line">    &#123;</div><div class="line">      v11 = cocos2d::CCUserDefault::sharedUserDefault(v5);</div><div class="line">      <span class="built_in">std</span>::<span class="keyword">operator</span>+&lt;<span class="keyword">char</span>,<span class="built_in">std</span>::char_traits&lt;<span class="keyword">char</span>&gt;,<span class="built_in">std</span>::allocator&lt;<span class="keyword">char</span>&gt;&gt;(&amp;v26, &amp;v20, <span class="string">"RV"</span>);</div><div class="line">      cocos2d::CCUserDefault::setStringForKey(v11, &amp;v34, &amp;v26);</div><div class="line">      v7 = &amp;v26;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span> ( v3 == (<span class="keyword">const</span> <span class="keyword">char</span> *)<span class="number">9900</span> )</div><div class="line">    &#123;</div><div class="line">      v12 = cocos2d::CCUserDefault::sharedUserDefault(v5);</div><div class="line">      <span class="built_in">std</span>::<span class="keyword">operator</span>+&lt;<span class="keyword">char</span>,<span class="built_in">std</span>::char_traits&lt;<span class="keyword">char</span>&gt;,<span class="built_in">std</span>::allocator&lt;<span class="keyword">char</span>&gt;&gt;(&amp;v27, &amp;v20, <span class="string">"9Z"</span>);</div><div class="line">      cocos2d::CCUserDefault::setStringForKey(v12, &amp;v34, &amp;v27);</div><div class="line">      v7 = &amp;v27;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span> ( v3 == (<span class="keyword">const</span> <span class="keyword">char</span> *)<span class="number">18000</span> )</div><div class="line">    &#123;</div><div class="line">      v13 = cocos2d::CCUserDefault::sharedUserDefault(v5);</div><div class="line">      <span class="built_in">std</span>::<span class="keyword">operator</span>+&lt;<span class="keyword">char</span>,<span class="built_in">std</span>::char_traits&lt;<span class="keyword">char</span>&gt;,<span class="built_in">std</span>::allocator&lt;<span class="keyword">char</span>&gt;&gt;(&amp;v28, &amp;v20, <span class="string">"b1"</span>);</div><div class="line">      cocos2d::CCUserDefault::setStringForKey(v13, &amp;v34, &amp;v28);</div><div class="line">      v7 = &amp;v28;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span> ( v3 == (<span class="keyword">const</span> <span class="keyword">char</span> *)<span class="number">88800</span> )</div><div class="line">    &#123;</div><div class="line">      v14 = cocos2d::CCUserDefault::sharedUserDefault(v5);</div><div class="line">      <span class="built_in">std</span>::<span class="keyword">operator</span>+&lt;<span class="keyword">char</span>,<span class="built_in">std</span>::char_traits&lt;<span class="keyword">char</span>&gt;,<span class="built_in">std</span>::allocator&lt;<span class="keyword">char</span>&gt;&gt;(&amp;v29, &amp;v20, <span class="string">"Vf"</span>);</div><div class="line">      cocos2d::CCUserDefault::setStringForKey(v14, &amp;v34, &amp;v29);</div><div class="line">      v7 = &amp;v29;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span> ( v3 == (<span class="keyword">const</span> <span class="keyword">char</span> *)<span class="number">100000</span> )</div><div class="line">    &#123;</div><div class="line">      v15 = cocos2d::CCUserDefault::sharedUserDefault(v5);</div><div class="line">      <span class="built_in">std</span>::<span class="keyword">operator</span>+&lt;<span class="keyword">char</span>,<span class="built_in">std</span>::char_traits&lt;<span class="keyword">char</span>&gt;,<span class="built_in">std</span>::allocator&lt;<span class="keyword">char</span>&gt;&gt;(&amp;v30, &amp;v20, <span class="string">"S2"</span>);</div><div class="line">      cocos2d::CCUserDefault::setStringForKey(v15, &amp;v34, &amp;v30);</div><div class="line">      v7 = &amp;v30;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span></div><div class="line">    &#123;</div><div class="line">      <span class="keyword">if</span> ( v3 != (<span class="keyword">const</span> <span class="keyword">char</span> *)<span class="number">1000000000</span> )</div><div class="line">      &#123;</div><div class="line">LABEL_25:</div><div class="line">        v17 = cocos2d::CCString::createWithFormat((cocos2d::CCString *)<span class="string">"%d"</span>, v3);</div><div class="line">        (*(<span class="keyword">void</span> (__fastcall **)(_DWORD, _DWORD))(**(_DWORD **)(v18 + <span class="number">264</span>) + <span class="number">428</span>))(</div><div class="line">          *(_DWORD *)(v18 + <span class="number">264</span>),</div><div class="line">          *(_DWORD *)(v17 + <span class="number">20</span>));</div><div class="line">        <span class="keyword">return</span> sub_3A1DDC(&amp;v20);</div><div class="line">      &#125;</div><div class="line">      v16 = cocos2d::CCUserDefault::sharedUserDefault(v5);</div><div class="line">      <span class="built_in">std</span>::<span class="keyword">operator</span>+&lt;<span class="keyword">char</span>,<span class="built_in">std</span>::char_traits&lt;<span class="keyword">char</span>&gt;,<span class="built_in">std</span>::allocator&lt;<span class="keyword">char</span>&gt;&gt;(&amp;v31, &amp;v20, <span class="string">"4w"</span>);</div></pre></td></tr></table></figure>
+<p>打上一局游戏, root权限查看sharedpreference, 可以发现部分flag:MGN0ZntDMGNvUzJkX0FuRHJv<strong>MWRf</strong>dz99</p>
+<p>注意加粗的地方是与分数先关的, 其余的或许与前面或许与后面有关, 我们不敢确定, 但是我们可以把缺少的分数部分补全.MGN0ZntDMGNvUzJkX0FuRHJvMWRfRzBtRV9Zb1VfS24wdz99, 解码得到0ctf{C0coS2d_AnDro1d_G0mE_YoU_Kn0w?}.</p>
+<h2 id="Other-write-ups-and-resources"><a href="#Other-write-ups-and-resources" class="headerlink" title="Other write-ups and resources"></a>Other write-ups and resources</h2><ul>
+<li><a href="https://eugenekolo.com/blog/0ctf-2016-boomshakalaka-writeup/" target="_blank" rel="external">https://eugenekolo.com/blog/0ctf-2016-boomshakalaka-writeup/</a></li>
+<li><a href="https://github.com/p4-team/ctf/blob/master/2016-03-12-0ctf/boomshakalaka/README.md" target="_blank" rel="external">P4 Team</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/09/28/boomshakalaka-3/" data-id="cj84a4k4m0009xs99n3vrvk3j" class="article-share-link">Share</a>
       
       
     </footer>
@@ -405,54 +452,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/28/helctf/" data-id="cj84a2yw80009yw99ehuwil46" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-njctf" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/09/28/njctf/" class="article-date">
-  <time datetime="2017-09-28T08:49:43.000Z" itemprop="datePublished">2017-09-28</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/android/">android</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/28/njctf/">南京CTF2017 easycrack</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>Category:</strong> Mobile<br><strong>Points:</strong> 100<br><strong>Solves:</strong>43<br><strong>Description:</strong> None</p>
-<h2 id="Write-up"><a href="#Write-up" class="headerlink" title="Write-up"></a>Write-up</h2><p>ARM二进制分析题, Java里边基本没有内容, 只有一个native需要的固定值msg是从Java中计算然后传进去的, 写个脚本跑一下就能得到这个值.</p>
-<p>程序运行流程是经典的字符串加密, 用户输入经过与msg的异或处理后被与一个I_am_the_key字符串经过复杂但是固定的运算流程得到的值进行加密, 我们称这个值为buffer, 加密过程 buffer 与处理过的用户输入进行加密, 但是加密算法实质是异或可逆, 因此在得知结果的时候即可算出用户输入. 叙述不是特别明确, 简单画图解释:</p>
-<p>user_input(?)  ——&gt; xor  —-&gt; 处理过的输入————————————&gt;crypt————–&gt;结果</p>
-<p>msg——————–&gt;              I_am_the_key——&gt;process——&gt;buffer—&gt;</p>
-<p>通过逆向发现结果作为明文字符串存储在二进制文件中, 因为上述每一步都可逆, 因此可以编写脚本反过来执行, 从结果获得最初的用户输入. 分析过程比较简单, 不具体说明, 详见idb</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line">debug = <span class="keyword">False</span></div><div class="line"></div><div class="line"><span class="comment">#seems like a char shift</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">init</span><span class="params">(s=<span class="string">"I_am_the_key"</span>)</span>:</span></div><div class="line">    buffer1 = []</div><div class="line">    buffer2 = <span class="string">""</span></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">256</span>):</div><div class="line">        buffer1 += chr(i)</div><div class="line">        buffer2 += s[i % len(s)]</div><div class="line">    <span class="keyword">if</span> debug :</div><div class="line">        <span class="keyword">print</span> buffer1</div><div class="line">        <span class="keyword">print</span> buffer2</div><div class="line"></div><div class="line">    v7 = <span class="number">0</span></div><div class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">256</span>):</div><div class="line">        v9 = buffer1[j]</div><div class="line">        v7 = (v7 + ord(v9) + ord(buffer2[j])) % <span class="number">256</span></div><div class="line">        buffer1[j] = buffer1[v7]</div><div class="line">        buffer1[v7] = v9</div><div class="line">    <span class="keyword">return</span> map(ord, buffer1)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">getcompare</span><span class="params">()</span>:</span></div><div class="line">    cmpstr = <span class="string">"C8E4EF0E4DCCA683088134F8635E970EEAD9E277F314869F7EF5198A2AA4"</span></div><div class="line">    compare = []</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(cmpstr)/<span class="number">2</span>):</div><div class="line">        compare += cmpstr[<span class="number">2</span> * i:<span class="number">2</span> * i+<span class="number">2</span>].decode(<span class="string">'hex'</span>)</div><div class="line">    <span class="keyword">return</span> map(ord, compare)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">decrypt</span><span class="params">(buffer, compare)</span>:</span></div><div class="line">    v3=<span class="number">0</span></div><div class="line">    v4=<span class="number">0</span></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">30</span>):</div><div class="line">        v3 = (v3 + <span class="number">1</span>) % <span class="number">256</span>;</div><div class="line">        v5 = buffer[v3];</div><div class="line">        v4 = (v5 + v4) % <span class="number">256</span>;</div><div class="line">        buffer[v3] = buffer[v4];</div><div class="line">        buffer[v4] = v5;</div><div class="line">        compare[i] ^= buffer[(buffer[v3] + v5) % <span class="number">256</span>];</div><div class="line">    <span class="keyword">return</span> compare</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">getuserinput</span><span class="params">(beforecrypt)</span>:</span></div><div class="line">    msg = map(ord, <span class="string">"V7D=^,M.E"</span>)</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">30</span>):</div><div class="line">        beforecrypt[i] ^= msg[i % <span class="number">9</span>]</div><div class="line">    <span class="keyword">return</span> <span class="string">""</span>.join(map(chr, beforecrypt))</div><div class="line"></div><div class="line"></div><div class="line">buffer = init()</div><div class="line">compare = getcompare()</div><div class="line">beforecrypt = decrypt(buffer, compare)</div><div class="line"><span class="keyword">print</span> getuserinput(beforecrypt)</div></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/28/njctf/" data-id="cj84a2ywc000cyw99pwndjw3s" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/09/28/helctf/" data-id="cj84a4k4q000cxs993g4yk9lm" class="article-share-link">Share</a>
       
       
     </footer>
@@ -521,7 +521,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/28/zctf-android-1/" data-id="cj84a2ywk000hyw99dpjxsv03" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/09/28/zctf-android-1/" data-id="cj84a4k4y000hxs99rvvv5jbz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -585,7 +585,7 @@ BK-&gt;fd=FD;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/28/unlink/" data-id="cj84a2ywg000fyw99mz6nicd2" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/09/28/unlink/" data-id="cj84a4k4u000exs99jjeojnaz" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/heap/">heap</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pwn/">pwn</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/unlink/">unlink</a></li></ul>
@@ -660,11 +660,11 @@ BK-&gt;fd=FD;
           </li>
         
           <li>
-            <a href="/2017/09/28/boomshakalaka-3/">0CTF 2016 boomshakalaka-3</a>
+            <a href="/2017/09/28/Commercialapplication/">Sharif University Quals CTF 2014 Commercial Application</a>
           </li>
         
           <li>
-            <a href="/2017/09/28/Commercialapplication/">Sharif University Quals CTF 2014 Commercial Application</a>
+            <a href="/2017/09/28/VEZEL100/">0CTF 2015 Quals CTF VEZEL</a>
           </li>
         
       </ul>
