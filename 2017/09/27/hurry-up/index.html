@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>2016武汉某宣传周题目----Hurry Up | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Overview题目给的APK包含Java和Android层代码, 代码结构清晰没有太多混淆, 反调试等. Analysis程序的入口MainActivity有问题, 无任何实际代码, 分析发现实际有效的是GetActivity, 调用了Encryption类和native的一些方法. 尝试改包或者am start强行启动GetActivity均告失败.分析so库发现, 代码的第一次验证函数get">
+<meta name="keywords" content="android">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2016武汉某宣传周题目----Hurry Up">
+<meta property="og:url" content="http://yoursite.com/2017/09/27/hurry-up/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Overview题目给的APK包含Java和Android层代码, 代码结构清晰没有太多混淆, 反调试等. Analysis程序的入口MainActivity有问题, 无任何实际代码, 分析发现实际有效的是GetActivity, 调用了Encryption类和native的一些方法. 尝试改包或者am start强行启动GetActivity均告失败.分析so库发现, 代码的第一次验证函数get">
+<meta property="og:updated_time" content="2017-09-29T02:24:01.354Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="2016武汉某宣传周题目----Hurry Up">
+<meta name="twitter:description" content="Overview题目给的APK包含Java和Android层代码, 代码结构清晰没有太多混淆, 反调试等. Analysis程序的入口MainActivity有问题, 无任何实际代码, 分析发现实际有效的是GetActivity, 调用了Encryption类和native的一些方法. 尝试改包或者am start强行启动GetActivity均告失败.分析so库发现, 代码的第一次验证函数get">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-hurry-up" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/09/27/hurry-up/" class="article-date">
+  <time datetime="2017-09-26T16:00:00.000Z" itemprop="datePublished">2017-09-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      2016武汉某宣传周题目----Hurry Up
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>题目给的APK包含Java和Android层代码, 代码结构清晰没有太多混淆, 反调试等.</p>
+<h2 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h2><p>程序的入口MainActivity有问题, 无任何实际代码, 分析发现实际有效的是GetActivity, 调用了Encryption类和native的一些方法. 尝试改包或者<code>am start</code>强行启动GetActivity均告失败.分析so库发现, 代码的第一次验证函数getsign对整包签名做了native层校验, 且结果加入了后续flag计算.</p>
+<p>写了一个小工程GetSign, 通过PackageManager获取了程序的签名, 很长一千多个字节, 将其传给第二个native函数getAnswer以期绕过完整性检验.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">PackageManager  pm = getPackageManager();</div><div class="line">        try &#123;</div><div class="line">            PackageInfo pi =  pm.getPackageInfo(&quot;com.example.root.crack_me2&quot;, PackageManager.GET_SIGNATURES);</div><div class="line">            for (Signature s : pi.signatures)&#123;</div><div class="line">                ssss += s.toCharsString() + &quot;!!!!!!!!!!!!&quot;;</div><div class="line">            &#125;</div><div class="line">        &#125; catch (PackageManager.NameNotFoundException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">            ssss += &quot;error&quot;;</div><div class="line">        &#125;</div></pre></td></tr></table></figure></p>
+<p>结果程序无限卡死, 无法通过建立Activity的onCreate函数, 分析native函数发现其中计算返回值的算法时间复杂度极高, 有限时间内根本运算不完(下面列了出来), 但是, 其中有<code>mod 45454</code>的运算, 猜测结果不会超过这个范围, 因此, 可以暴力破解.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">signed int __fastcall Java_com_example_root_crack_1me2_GetActivity_getAnswer(JNIEnv *env, jobject jobj, int int_50213)</div><div class="line">&#123;</div><div class="line">  signed int result; // r0@1</div><div class="line">  int v4; // r1@1</div><div class="line">  int v5; // r7@1</div><div class="line">  signed int v6; // r5@1</div><div class="line">  signed int v7; // r4@2</div><div class="line">  signed int v8; // r6@3</div><div class="line">  signed int v9; // r1@4</div><div class="line"></div><div class="line">  j_j___aeabi_idivmod(int_50213, 45454);</div><div class="line">  result = 1;</div><div class="line">  v5 = v4;</div><div class="line">  v6 = 2110101010;</div><div class="line">  do</div><div class="line">  &#123;</div><div class="line">    v7 = 2110101010;</div><div class="line">    do</div><div class="line">    &#123;</div><div class="line">      v8 = 2110101010;</div><div class="line">      do</div><div class="line">      &#123;</div><div class="line">        j_j___aeabi_idivmod(result * v5, 45454);</div><div class="line">        --v8;</div><div class="line">        result = v9;</div><div class="line">      &#125;</div><div class="line">      while ( v8 );</div><div class="line">      --v7;</div><div class="line">    &#125;</div><div class="line">    while ( v7 );</div><div class="line">    --v6;</div><div class="line">  &#125;</div><div class="line">  while ( v6 );</div><div class="line">  return result;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>写出来的暴力程序如下, 由于理论上有45454种结果, 而结果参与了后续运算, 不是所有的结果参与Encryption的运算都能返回结果, 另外, flag等字样很有可能出现在最终结果中, 因此可以进一步筛选.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">String v3 = null;</div><div class="line">String v1 = &quot;tQJWYl+8C4cO2jwq782P5qc/9FXVF6cedVTtozSnyFk=&quot;;</div><div class="line">for (int i = 0; i &lt; 45454; ++i) &#123;</div><div class="line">    try &#123;</div><div class="line">        v3 = Encryption.decrypt(Integer.toString(i), v1);</div><div class="line">    &#125; catch (Exception e) &#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">    if (v3 == null)</div><div class="line">        continue;</div><div class="line">    if (v3.contains(&quot;flag&quot;)) &#123;</div><div class="line">        textView.setText(v3);</div><div class="line">        v3 = null;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>结果是getAnswer函数返回9953, 对应flag为<code>flag{Y0u_need_t0_hu55y_up}</code>.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/09/27/hurry-up/" data-id="cj85m6p0d000rx8993oqgvtun" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/09/27/GeekpwnSecretCode/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Geekpwn SecretCode
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/08/12/sqzip/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/csaw2017/">csaw2017</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/heap/">heap</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/misc/">misc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pwn/">pwn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pwnable-kr/">pwnable.kr</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reverse/">reverse</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shellcode-pwnable-kr-pwntools/">shellcode pwnable.kr pwntools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/unlink/">unlink</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/csaw2017/" style="font-size: 10px;">csaw2017</a> <a href="/tags/heap/" style="font-size: 10px;">heap</a> <a href="/tags/misc/" style="font-size: 10px;">misc</a> <a href="/tags/pwn/" style="font-size: 15px;">pwn</a> <a href="/tags/pwnable-kr/" style="font-size: 10px;">pwnable.kr</a> <a href="/tags/reverse/" style="font-size: 10px;">reverse</a> <a href="/tags/shellcode-pwnable-kr-pwntools/" style="font-size: 10px;">shellcode pwnable.kr pwntools</a> <a href="/tags/unlink/" style="font-size: 10px;">unlink</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/09/29/asmlong/">pwnable.kr之asm</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/28/csaw2017-cvv/">CSAW 2017 CVV及tabIEZ writeup</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/28/boomshakalaka-3/">0CTF 2016 boomshakalaka-3</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/28/BCTF2016-pingpongmachine/">BCTF2016 pingpongmachine</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/28/zctf-android-1/">ZCTF Android 1</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

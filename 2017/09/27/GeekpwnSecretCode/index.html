@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Geekpwn SecretCode | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Overview题目给了一个APK, 属于MISC类型, 考察APK发现为存的加密算法分析, 没有JNI, 有Proguard混淆, 需要透过混淆分析Java层代码真实逻辑. Analysis程序的Android源码分为三个部分, 从一张图片读入key, 对key进行处理, 使用用户输入+key得到结果. 12345678InputStream v0_1 = this.getResources()">
+<meta name="keywords" content="android">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Geekpwn SecretCode">
+<meta property="og:url" content="http://yoursite.com/2017/09/27/GeekpwnSecretCode/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Overview题目给了一个APK, 属于MISC类型, 考察APK发现为存的加密算法分析, 没有JNI, 有Proguard混淆, 需要透过混淆分析Java层代码真实逻辑. Analysis程序的Android源码分为三个部分, 从一张图片读入key, 对key进行处理, 使用用户输入+key得到结果. 12345678InputStream v0_1 = this.getResources()">
+<meta property="og:updated_time" content="2017-09-29T02:24:27.146Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Geekpwn SecretCode">
+<meta name="twitter:description" content="Overview题目给了一个APK, 属于MISC类型, 考察APK发现为存的加密算法分析, 没有JNI, 有Proguard混淆, 需要透过混淆分析Java层代码真实逻辑. Analysis程序的Android源码分为三个部分, 从一张图片读入key, 对key进行处理, 使用用户输入+key得到结果. 12345678InputStream v0_1 = this.getResources()">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-GeekpwnSecretCode" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/09/27/GeekpwnSecretCode/" class="article-date">
+  <time datetime="2017-09-26T16:00:00.000Z" itemprop="datePublished">2017-09-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Geekpwn SecretCode
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>题目给了一个APK, 属于MISC类型, 考察APK发现为存的加密算法分析, 没有JNI, 有Proguard混淆, 需要透过混淆分析Java层代码真实逻辑.</p>
+<h2 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h2><p>程序的Android源码分为三个部分, 从一张图片读入key, 对key进行处理, 使用用户输入+key得到结果.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">InputStream v0_1 = this.getResources().openRawResource(R.raw.url);</div><div class="line"></div><div class="line">            int v1 = v0_1.available();</div><div class="line">            byte[] v2 = new byte[v1];</div><div class="line">            v0_1.read(v2, 0, v1);</div><div class="line">            byte[] v0_2 = new byte[16];</div><div class="line">            System.arraycopy(v2, 144, v0_2, 0, 16);</div><div class="line">            this.para = new String(v0_2, &quot;utf-8&quot;);</div></pre></td></tr></table></figure>
+<p>读取图片逻辑, 从便宜144开始读16个字符, 分析得到this_is_the_key.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">private String append(String arg4) &#123;</div><div class="line">    String v0_2;</div><div class="line">    try &#123;</div><div class="line">        arg4.getBytes(&quot;utf-8&quot;);</div><div class="line">        StringBuilder v1 = new StringBuilder();</div><div class="line">        int v0_1;</div><div class="line">        for(v0_1 = 0; v0_1 &lt; arg4.length(); v0_1 += 2) &#123;</div><div class="line">            v1.append(arg4.charAt(v0_1 + 1));</div><div class="line">            v1.append(arg4.charAt(v0_1));</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        v0_2 = v1.toString();</div><div class="line">    &#125;</div><div class="line">    catch(UnsupportedEncodingException v0) &#123;</div><div class="line">        v0.printStackTrace();</div><div class="line">        v0_2 = null;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    return v0_2;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>对key进行处理, 简单的每两位互换位置.<br>接下来, 由于代码中比较阶段已经知道预期的密文是什么, 用密文加上密钥得到明文.</p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><figure class="highlight plain"><figcaption><span>javax.crypto.Cipher;</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">import javax.crypto.spec.SecretKeySpec;</div><div class="line"></div><div class="line">public class Solve &#123;</div><div class="line"></div><div class="line"></div><div class="line">    public static void main(String[] args) throws Exception &#123;</div><div class="line">        byte[] output = new byte[]&#123;21, -93, -68, -94, 86, 117, -19, -68,</div><div class="line">                -92, 33, 50, 118, 16, 13, 1, -15, -13, 3, 4, 103, -18, 81, 30, 68, 54, -93, 44, -23,</div><div class="line">                93, 98, 5, 59&#125;;</div><div class="line"></div><div class="line"></div><div class="line">        String key_str = &quot;this_is_the_key.&quot;;</div><div class="line">    String key_sft = &quot;htsii__sht_eek.y&quot;;</div><div class="line"></div><div class="line">    SecretKeySpec secretKeySpec = new SecretKeySpec(key_sft.getBytes(), &quot;AES&quot;);</div><div class="line">    Cipher cipher = Cipher.getInstance(&quot;AES/ECB/PKCS5Padding&quot;);</div><div class="line">    cipher.init(Cipher.DECRYPT_MODE, secretKeySpec);</div><div class="line">    String s = new String(cipher.doFinal(output));</div><div class="line">    System.out.println(s);</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">**flag:LCTF&#123;1t&apos;s_rea1ly_an_ea3y_ap4&#125;**</div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/09/27/GeekpwnSecretCode/" data-id="cj85m6oyn0005x899upkxpf02" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/09/27/abc/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          2016武汉某宣传周题目----Hurry Up
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/09/27/hurry-up/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">2016武汉某宣传周题目----Hurry Up</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/csaw2017/">csaw2017</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/heap/">heap</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/misc/">misc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pwn/">pwn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pwnable-kr/">pwnable.kr</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reverse/">reverse</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shellcode-pwnable-kr-pwntools/">shellcode pwnable.kr pwntools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/unlink/">unlink</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/csaw2017/" style="font-size: 10px;">csaw2017</a> <a href="/tags/heap/" style="font-size: 10px;">heap</a> <a href="/tags/misc/" style="font-size: 10px;">misc</a> <a href="/tags/pwn/" style="font-size: 15px;">pwn</a> <a href="/tags/pwnable-kr/" style="font-size: 10px;">pwnable.kr</a> <a href="/tags/reverse/" style="font-size: 10px;">reverse</a> <a href="/tags/shellcode-pwnable-kr-pwntools/" style="font-size: 10px;">shellcode pwnable.kr pwntools</a> <a href="/tags/unlink/" style="font-size: 10px;">unlink</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/09/29/asmlong/">pwnable.kr之asm</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/28/csaw2017-cvv/">CSAW 2017 CVV及tabIEZ writeup</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/28/boomshakalaka-3/">0CTF 2016 boomshakalaka-3</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/28/BCTF2016-pingpongmachine/">BCTF2016 pingpongmachine</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/28/zctf-android-1/">ZCTF Android 1</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

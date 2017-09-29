@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="title: 神奇的zip 顺藤摸瓜date: 2017-09-27 0:0:0tags:  android—## 神奇的zip  首先拿到的apk坏了, 拖到linux下zip -ff testndk4_Signed4.zip修复一下, 第一个知识点完成. 题目是纯的Java加上存的JNI, Java下没有需要分析的逻辑. 首先需要绕过一处一定会退出的检查, 修改so文件里的move r0,0">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2017/08/12/sqzip/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="title: 神奇的zip 顺藤摸瓜date: 2017-09-27 0:0:0tags:  android—## 神奇的zip  首先拿到的apk坏了, 拖到linux下zip -ff testndk4_Signed4.zip修复一下, 第一个知识点完成. 题目是纯的Java加上存的JNI, Java下没有需要分析的逻辑. 首先需要绕过一处一定会退出的检查, 修改so文件里的move r0,0">
+<meta property="og:updated_time" content="2017-09-29T02:30:05.395Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="title: 神奇的zip 顺藤摸瓜date: 2017-09-27 0:0:0tags:  android—## 神奇的zip  首先拿到的apk坏了, 拖到linux下zip -ff testndk4_Signed4.zip修复一下, 第一个知识点完成. 题目是纯的Java加上存的JNI, Java下没有需要分析的逻辑. 首先需要绕过一处一定会退出的检查, 修改so文件里的move r0,0">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-sqzip" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/08/12/sqzip/" class="article-date">
+  <time datetime="2017-08-11T16:43:37.551Z" itemprop="datePublished">2017-08-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>title: 神奇的zip 顺藤摸瓜<br>date: 2017-09-27 0:0:0<br>tags:</p>
+<ul>
+<li>android<br>—## 神奇的zip</li>
+</ul>
+<p>首先拿到的apk坏了, 拖到linux下<code>zip -ff testndk4_Signed4.zip</code>修复一下, 第一个知识点完成.</p>
+<p>题目是纯的Java加上存的JNI, Java下没有需要分析的逻辑.</p>
+<p>首先需要绕过一处一定会退出的检查, 修改so文件里的move r0,0为move r1,1强行返回1. 或者直接动态调在此处下断点改寄存器过去.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">super.onCreate(arg5);</div><div class="line">this.setContentView(2130903065);</div><div class="line">if(this.isExit()) &#123;</div><div class="line">    this.startActivity(new Intent(((Context)this), MainActivity.class));</div><div class="line">&#125;</div><div class="line">else &#123;</div><div class="line">    Timer v0 = new Timer();</div><div class="line">    b v1 = new b(this);</div><div class="line">    Toast.makeText(((Context)this), &quot;抱歉，请先获得权限，再进入！！&quot;, 0).show();</div><div class="line">    v0.schedule(((TimerTask)v1), 5000);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>题目有个问题对动态调试没有做任何限制,因此在最终需要比较的密码处下个断点看内存即可发现flag.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">int __fastcall Java_com_example_testndk4_MainActivity_encodePassword(int a1)</div><div class="line">&#123;</div><div class="line">  int v1; // r5@1</div><div class="line">  const char *v2; // r7@1</div><div class="line">  char *src; // ST04_4@1</div><div class="line">  char *v4; // ST04_4@1</div><div class="line">  char *v5; // r0@2</div><div class="line">  const char *v6; // r1@2</div><div class="line">  int result; // r0@4</div><div class="line">  char v8; // [sp+8h] [bp-58h]@1</div><div class="line">  char v9; // [sp+14h] [bp-4Ch]@1</div><div class="line">  char s; // [sp+28h] [bp-38h]@1</div><div class="line">  int v11; // [sp+44h] [bp-1Ch]@1</div><div class="line"></div><div class="line">  v1 = a1;</div><div class="line">  v11 = _stack_chk_guard;</div><div class="line">  v2 = (const char *)Jstring2CStr();</div><div class="line">  j_j_memcpy(&amp;v9, &quot;thinkingInAndroid&quot;, 0x12u);</div><div class="line">  src = (char *)encodePS(&amp;v9);</div><div class="line">  j_j_memset(&amp;s, 0, 0x1Au);</div><div class="line">  j_j_strcpy(&amp;s, src);</div><div class="line">  v4 = (char *)encodePS(&amp;s);</div><div class="line">  j_j_memset(&amp;v8, 0, 0xAu);</div><div class="line">  if ( j_j_strcmp(v2, v4) )</div><div class="line">  &#123;</div><div class="line">    v5 = &amp;v8;</div><div class="line">    v6 = &quot;Sorry!&quot;;</div><div class="line">  &#125;</div><div class="line">  else</div><div class="line">  &#123;</div><div class="line">    v5 = &amp;v8;</div><div class="line">    v6 = &quot;Sucess!&quot;;</div><div class="line">  &#125;</div><div class="line">  j_j_strcpy(v5, v6);</div><div class="line">  result = (*(int (__fastcall **)(int, char *))(*(_DWORD *)v1 + 668))(v1, &amp;v8);</div><div class="line">  if ( v11 != _stack_chk_guard )</div><div class="line">    j_j___stack_chk_fail(result);</div><div class="line">  return result;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>看源码或者F5都可以发现程序是对<code>thinkingInAndroid</code>字符串做了复杂的运算,但是用户输入没有参与进来,最后将用户输入与复杂预算的结果比较, 直接在那里下断点输出:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">MOVS    R0, R7          ; s1</div><div class="line">LDR     R1, [SP,#0x60+src] ; s2</div><div class="line">--&gt; set bp here :BL      j_j_strcmp</div><div class="line">CMP     R0, #0</div><div class="line">BNE     loc_1042</div></pre></td></tr></table></figure></p>
+<p>定位到内存,得到flag:lxienietIeAehfyih</p>
+<h2 id="顺藤摸瓜"><a href="#顺藤摸瓜" class="headerlink" title="顺藤摸瓜"></a>顺藤摸瓜</h2><p>单纯的jni逻辑分析, java代码只涉及一点.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div></pre></td><td class="code"><pre><div class="line">int __fastcall Java_com_example_demo_MainActivity_check(int a1, int a2, int a3)</div><div class="line">&#123;</div><div class="line">  int v3; // r4@1</div><div class="line">  int v4; // r6@1</div><div class="line">  int v5; // r7@1</div><div class="line">  void *v6; // ST08_4@1</div><div class="line">  int v7; // r0@1</div><div class="line">  int v8; // r7@1</div><div class="line">  signed int v9; // r6@1</div><div class="line">  void *v10; // r5@2</div><div class="line">  signed int v11; // r0@4</div><div class="line">  signed int i; // r3@4</div><div class="line">  int result; // r0@7</div><div class="line">  void *src; // [sp+8h] [bp-2F0h]@1</div><div class="line">  char dest[56]; // [sp+14h] [bp-2E4h]@4</div><div class="line">  char v16[200]; // [sp+4Ch] [bp-2ACh]@4</div><div class="line">  char v17; // [sp+114h] [bp-1E4h]@4</div><div class="line">  char s; // [sp+1DCh] [bp-11Ch]@4</div><div class="line">  int v19; // [sp+2DCh] [bp-1Ch]@1</div><div class="line"></div><div class="line">  v3 = a1;</div><div class="line">  v4 = a3;</div><div class="line">  v19 = _stack_chk_guard;</div><div class="line">  v5 = (*(int (**)(void))(*(_DWORD *)a1 + 24))();</div><div class="line">  v6 = (void *)(*(int (__fastcall **)(int, const char *))(*(_DWORD *)v3 + 668))(v3, &quot;GB2312&quot;);</div><div class="line">  v7 = (*(int (__fastcall **)(int, int, const char *, const char *))(*(_DWORD *)v3 + 132))(</div><div class="line">         v3,</div><div class="line">         v5,</div><div class="line">         &quot;getBytes&quot;,</div><div class="line">         &quot;(Ljava/lang/String;)[B&quot;);</div><div class="line">  v8 = (*(int (__fastcall **)(int, int, int, void *))(*(_DWORD *)v3 + 136))(v3, v4, v7, v6);</div><div class="line">  v9 = (*(int (__fastcall **)(int, int))(*(_DWORD *)v3 + 684))(v3, v8);</div><div class="line">  src = (void *)(*(int (__fastcall **)(int, int, _DWORD))(*(_DWORD *)v3 + 736))(v3, v8, 0);</div><div class="line">  if ( v9 &lt;= 0 )</div><div class="line">  &#123;</div><div class="line">    v10 = 0;</div><div class="line">  &#125;</div><div class="line">  else</div><div class="line">  &#123;</div><div class="line">    v10 = j_j_malloc(v9 + 1);</div><div class="line">    j_j_memcpy(v10, src, v9);</div><div class="line">    *((_BYTE *)v10 + v9) = 0;</div><div class="line">  &#125;</div><div class="line">  (*(void (__fastcall **)(int, int, void *, _DWORD))(*(_DWORD *)v3 + 768))(v3, v8, src, 0);</div><div class="line">  j_j_memset(v16, 0, 0xC8u);</div><div class="line">  j_j_memset(&amp;v17, 0, 0xC8u);</div><div class="line">  j_j_memset(&amp;s, 0, 0x100u);</div><div class="line">  j_j_memcpy(dest, &amp;unk_2454, 0x38u);</div><div class="line">  v11 = j_j_strlen((const char *)v10);</div><div class="line">  for ( i = 0; i &lt; v11; ++i )</div><div class="line">    v16[i] = *((_BYTE *)v10 + i) + 97 - dest[4 * i];</div><div class="line">  v16[v11 &amp; (~v11 &gt;&gt; 31)] = 0;</div><div class="line">  n1(v16, &quot;nbrcdpassword&quot;, &amp;v17);</div><div class="line">  n2(&amp;v17, &amp;s);</div><div class="line">  result = (unsigned int)j_j_strcmp(&amp;s, &quot;7405847394833303439294822334&quot;) &lt;= 0;</div><div class="line">  if ( v19 != _stack_chk_guard )</div><div class="line">    j_j___stack_chk_fail(result);</div><div class="line">  return result;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>先贴一下F5, 其中没有用的逻辑很多, 基本就是如何如何从java拷贝到c申请内存然后到处挪.ida改的变量名没保存.变量里边<code>dest</code>有点用从内存一遍读取了一段加密向量. 然而这些都没有卵用…….<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"># 我们白白做了这么多工作</div><div class="line">#!/bin/env python</div><div class="line">#coding:utf-8</div><div class="line">import string</div><div class="line"></div><div class="line">iv1 = [0x3F,0x4D,0x6C,0x5B,0x54,0x5B,0x6C,0x5B,0x54,0x46,0x38,0x46,0x3F,0x1C]</div><div class="line">iv2 = &quot;nbrcdpassword&quot;</div><div class="line">#iv2_alpha = [ord(x) - ord(&apos;a&apos;) for x in iv2]</div><div class="line"></div><div class="line"></div><div class="line">final = &quot;7405847394833303439294822334&quot;</div><div class="line">#byte1 = [int(final[x:x+2:][::-1]) + 72 - 97 for x in range(0, len(final), 2)]</div><div class="line">byte1 = map(int, list(final))</div><div class="line">print byte1</div><div class="line"></div><div class="line">#print string.printable</div><div class="line">for i in range(14):</div><div class="line">	for k in &quot;0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_&quot;:</div><div class="line">		k1 = ord(k) - iv1[i] + 0x61 - ord(&apos;a&apos;)</div><div class="line">		k2 = (k1 + ord(iv2[i % len(iv2)]) - ord(&apos;a&apos;))%26 + 97 - 72</div><div class="line">		if k2 % 10 == byte1[2*i] and (k2/10)%10 == byte1[2*i+1]:</div><div class="line">			print k,</div><div class="line">	print</div></pre></td></tr></table></figure></p>
+<p>因为我们可以从java逻辑中发现jni做不做只影响判断, 对输出没有影响……<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">    protected void onCreate(Bundle savedInstanceState) &#123;</div><div class="line">        super.onCreate(savedInstanceState);</div><div class="line">        this.requestWindowFeature(1);</div><div class="line">        this.setContentView(2130903065);</div><div class="line">        this.D_text = this.findViewById(2131296319);</div><div class="line">        String v0 = this.D_text.getText().toString();</div><div class="line">        String v3 = &quot;&quot;;</div><div class="line">        int v2;</div><div class="line">        for(v2 = 0; v2 &lt; v0.length(); ++v2) &#123;</div><div class="line">            try &#123;</div><div class="line">                v0.charAt(v2);</div><div class="line">                v3 = String.valueOf(v3) + (((char)(v0.charAt(v2) - 8)));</div><div class="line">            &#125;</div><div class="line">            catch(Exception v1) &#123;</div><div class="line">                v3 = String.valueOf(v3) + v0.charAt(v2);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        this.D_text.setText(((CharSequence)v3));</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>上面的代码, 当jni执行了或者被绕过之后, 逻辑是对一段R中的烫烫烫进行了移位.<br><code>碸夼圸烁Ｂ夲皅卟跷:叿 + 8 = 西电的校址会面 = flag</code></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/08/12/sqzip/" data-id="cj85m6ozy000nx899fsxkd215" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/09/27/hurry-up/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          2016武汉某宣传周题目----Hurry Up
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/csaw2017/">csaw2017</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/heap/">heap</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/misc/">misc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pwn/">pwn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pwnable-kr/">pwnable.kr</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reverse/">reverse</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shellcode-pwnable-kr-pwntools/">shellcode pwnable.kr pwntools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/unlink/">unlink</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/csaw2017/" style="font-size: 10px;">csaw2017</a> <a href="/tags/heap/" style="font-size: 10px;">heap</a> <a href="/tags/misc/" style="font-size: 10px;">misc</a> <a href="/tags/pwn/" style="font-size: 15px;">pwn</a> <a href="/tags/pwnable-kr/" style="font-size: 10px;">pwnable.kr</a> <a href="/tags/reverse/" style="font-size: 10px;">reverse</a> <a href="/tags/shellcode-pwnable-kr-pwntools/" style="font-size: 10px;">shellcode pwnable.kr pwntools</a> <a href="/tags/unlink/" style="font-size: 10px;">unlink</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/09/29/asmlong/">pwnable.kr之asm</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/28/csaw2017-cvv/">CSAW 2017 CVV及tabIEZ writeup</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/28/boomshakalaka-3/">0CTF 2016 boomshakalaka-3</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/28/BCTF2016-pingpongmachine/">BCTF2016 pingpongmachine</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/28/zctf-android-1/">ZCTF Android 1</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
