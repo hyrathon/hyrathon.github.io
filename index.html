@@ -50,7 +50,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -75,7 +75,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/30/pablelgi/">pablelgi</a>
+      <a class="article-title" href="/2017/09/30/pablelgi/">pwnable.kr之simple login</a>
     </h1>
   
 
@@ -83,13 +83,34 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>这道题主要考察栈溢出. 在进入正题之前, 首先还是对栈帧结构做一个总结, 因为之前很久没做都忘了.</p>
+<p><img src="pablelgi/1.png" alt=""></p>
+<p>如图所示, 我总结的栈结构和其他说法有些不同, 方便自己记忆吧, 是否合理有待讨论.</p>
+<p>在这里我认为函数调用是父函数中断在某一个位置, 然后开始执行子函数的逻辑. EBP通常翻译成基址寄存器, 也就是当前栈底, 问题是父函数也有父函数, 而寄存器EBP只有一个, 因此在函数跳转时, 需要把父父函数的EBP保存在栈上. 另外需要保存的是父函数中断点PC后的下一个位置, 也就是当子函数执行回来时候, 父函数需要继续执行的位置, 很多材料里这个地址叫做ret, 感觉容易和汇编指令搞混.</p>
+<p>接下来上(IDA F5)代码</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> __<span class="function">cdecl <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> **argv, <span class="keyword">const</span> <span class="keyword">char</span> **envp)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">  <span class="keyword">char</span> *decoded; <span class="comment">// [esp+18h] [ebp-28h]</span></div><div class="line">  <span class="keyword">char</span> s[<span class="number">30</span>]; <span class="comment">// [esp+1Eh] [ebp-22h]</span></div><div class="line">  <span class="keyword">unsigned</span> <span class="keyword">int</span> len; <span class="comment">// [esp+3Ch] [ebp-4h]</span></div><div class="line"></div><div class="line">  <span class="built_in">memset</span>(s, <span class="number">0</span>, <span class="number">30u</span>);</div><div class="line">  setvbuf(<span class="built_in">stdout</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">0</span>);</div><div class="line">  setvbuf(<span class="built_in">stdin</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>);</div><div class="line">  <span class="built_in">printf</span>(<span class="string">"Authenticate : "</span>);</div><div class="line">  _isoc99_scanf(<span class="string">"%30s"</span>, s);</div><div class="line">  <span class="built_in">memset</span>(&amp;secret, <span class="number">0</span>, <span class="number">12u</span>);</div><div class="line">  decoded = <span class="number">0</span>;</div><div class="line">  len = Base64Decode((<span class="keyword">int</span>)s, (<span class="keyword">char</span> *)&amp;decoded);</div><div class="line">  <span class="keyword">if</span> ( len &gt; <span class="number">12</span> )</div><div class="line">  &#123;</div><div class="line">    <span class="built_in">puts</span>(<span class="string">"Wrong Length"</span>);</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">else</span></div><div class="line">  &#123;</div><div class="line">    <span class="built_in">memcpy</span>(&amp;secret, decoded, len);</div><div class="line">    <span class="keyword">if</span> ( auth(len) == <span class="number">1</span> )</div><div class="line">      correct();</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">_BOOL4 __<span class="function">cdecl <span class="title">auth</span><span class="params">(<span class="keyword">int</span> len)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">  <span class="keyword">char</span> v2; <span class="comment">// [esp+14h] [ebp-14h]</span></div><div class="line">  <span class="keyword">char</span> *s2; <span class="comment">// [esp+1Ch] [ebp-Ch]</span></div><div class="line">  <span class="keyword">char</span> *local_secret; <span class="comment">// [esp+20h] [ebp-8h]</span></div><div class="line"></div><div class="line">  <span class="built_in">memcpy</span>(&amp;local_secret, &amp;secret, len);</div><div class="line">  s2 = (<span class="keyword">char</span> *)calc_md5((<span class="keyword">int</span>)&amp;v2, <span class="number">12</span>);</div><div class="line">  <span class="built_in">printf</span>(<span class="string">"hash : %s\n"</span>, s2);</div><div class="line">  <span class="keyword">return</span> <span class="built_in">strcmp</span>(<span class="string">"f87cd601aa7fedca99018a8be88eda34"</span>, s2) == <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> __<span class="function">noreturn <span class="title">correct</span><span class="params">()</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">  <span class="keyword">if</span> ( secret == <span class="number">0xDEADBEEF</span> )</div><div class="line">  &#123;</div><div class="line">    <span class="built_in">puts</span>(<span class="string">"Congratulation! you are good!"</span>);</div><div class="line">    system(<span class="string">"/bin/sh"</span>);</div><div class="line">  &#125;</div><div class="line">  <span class="built_in">exit</span>(<span class="number">0</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>程序给了带shell的correct函数, 因此不需要构造shell, 一开始看到程序是静态编译, 因为要用ROP, 胡思乱想了半天.</p>
+<p>按照正常的逻辑执行, 用户输入正确的密码之后, auth函数进行校验通过, 条用correct函数, 验证secret前4字节=0xdeadbeef, 直接给出shell. 问题是, 这个正确密码无从得知, 需要通过溢出绕过验证.</p>
+<p>大概是为了方便构造用户输入, 程序自带了贴心的base64, 脱去这层外衣之后, 实际受控的用户输入只有12个, 很不够用. 而且F5对程序的分析不理想, 一开始没有找到漏洞点. 事实上, 漏洞点在auth函数的汇编中可以看到, 很隐晦.</p>
+<p><img src="pablelgi/2.png" alt=""></p>
+<p>此处memcpy参数len最多12, src是secret, dest是eax中的指针, eax = [ebp + var_14] + 0xc, 注意var_14是ebp-14h, 那么eax最终指向ebp-14h+8h=ebp - 8, 就是图中的anonymous_0位置.</p>
+<p><img src="pablelgi/3.png" alt=""></p>
+<p>这个位置最多接收12个字节, 但是实际上当前函数只有8个字节, 多余四个会溢出并覆盖父函数EBP. 想要覆盖父函数EIP不够.</p>
+<p>父函数EBP效果不如父函数EIP, 后者可以直接在返回时控制指令流. 但是控制父函数EBP也够了, 如前面论述, 父函数EBP指向父函数的栈底, 与父函数的返回值距离很近. 我们不能控制auth的返回值, 它一定返回到main, 但是main的栈底可以控制, 而栈底下一个元素就是main的返回值.</p>
+<p>接下来寻找可控的”伪栈帧”位置, 前面提到,12位的secret,最后四位是溢出点, 前面8位可以布置成栈帧状:前四位是父父函数的EBP, 这里为了过检测必须是0xdeadbeef, 中间四位是correct地址. 这样一来, 可以构造输入如下:</p>
+<p><code>base64.base64encode(p32(0xdeadbeef) + p32(addr_correct) + p32(addr_secret))</code></p>
+<p>即可拿到flag.</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/30/pablelgi/" data-id="cj86rj016000sgo99ccxh15mj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/09/30/pablelgi/" data-id="cj86rj016000sgo99ccxh15mj" class="article-share-link">Delen</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pwn-stack/">pwn stack</a></li></ul>
+
     </footer>
   </div>
   
@@ -123,7 +144,7 @@
 <p>首先上代码</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// compiled with : gcc -o memcpy memcpy.c -m32 -lm</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;signal.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/mman.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;math.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> <span class="title">rdtsc</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">asm</span>(<span class="string">"rdtsc"</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">char</span>* <span class="title">slow_memcpy</span><span class="params">(<span class="keyword">char</span>* dest, <span class="keyword">const</span> <span class="keyword">char</span>* src, <span class="keyword">size_t</span> len)</span></span>&#123;</div><div class="line">	<span class="keyword">int</span> i;</div><div class="line">	<span class="keyword">for</span> (i=<span class="number">0</span>; i&lt;len; i++) &#123;</div><div class="line">		dest[i] = src[i];</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> dest;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">char</span>* <span class="title">fast_memcpy</span><span class="params">(<span class="keyword">char</span>* dest, <span class="keyword">const</span> <span class="keyword">char</span>* src, <span class="keyword">size_t</span> len)</span></span>&#123;</div><div class="line">	<span class="keyword">size_t</span> i;</div><div class="line">	<span class="comment">// 64-byte block fast copy</span></div><div class="line">	<span class="keyword">if</span>(len &gt;= <span class="number">64</span>)&#123;</div><div class="line">		i = len / <span class="number">64</span>;</div><div class="line">		len &amp;= (<span class="number">64</span><span class="number">-1</span>);</div><div class="line">		<span class="keyword">while</span>(i-- &gt; <span class="number">0</span>)&#123;</div><div class="line">			__asm__ __volatile__ (</div><div class="line">			<span class="string">"movdqa (%0), %%xmm0\n"</span></div><div class="line">			<span class="string">"movdqa 16(%0), %%xmm1\n"</span></div><div class="line">			<span class="string">"movdqa 32(%0), %%xmm2\n"</span></div><div class="line">			<span class="string">"movdqa 48(%0), %%xmm3\n"</span></div><div class="line">			<span class="string">"movntps %%xmm0, (%1)\n"</span></div><div class="line">			<span class="string">"movntps %%xmm1, 16(%1)\n"</span></div><div class="line">			<span class="string">"movntps %%xmm2, 32(%1)\n"</span></div><div class="line">			<span class="string">"movntps %%xmm3, 48(%1)\n"</span></div><div class="line">			::<span class="string">"r"</span>(src),<span class="string">"r"</span>(dest):<span class="string">"memory"</span>);</div><div class="line">			dest += <span class="number">64</span>;</div><div class="line">			src += <span class="number">64</span>;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="comment">// byte-to-byte slow copy</span></div><div class="line">	<span class="keyword">if</span>(len) slow_memcpy(dest, src, len);</div><div class="line">	<span class="keyword">return</span> dest;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span>&#123;</div><div class="line"></div><div class="line">	setvbuf(<span class="built_in">stdout</span>, <span class="number">0</span>, _IONBF, <span class="number">0</span>);</div><div class="line">	setvbuf(<span class="built_in">stdin</span>, <span class="number">0</span>, _IOLBF, <span class="number">0</span>);</div><div class="line"></div><div class="line">	<span class="built_in">printf</span>(<span class="string">"Hey, I have a boring assignment for CS class.. :(\n"</span>);</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"The assignment is simple.\n"</span>);</div><div class="line"></div><div class="line">	<span class="built_in">printf</span>(<span class="string">"-----------------------------------------------------\n"</span>);</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"- What is the best implementation of memcpy?        -\n"</span>);</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"- 1. implement your own slow/fast version of memcpy -\n"</span>);</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"- 2. compare them with various size of data         -\n"</span>);</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"- 3. conclude your experiment and submit report     -\n"</span>);</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"-----------------------------------------------------\n"</span>);</div><div class="line"></div><div class="line">	<span class="built_in">printf</span>(<span class="string">"This time, just help me out with my experiment and get flag\n"</span>);</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"No fancy hacking, I promise :D\n"</span>);</div><div class="line"></div><div class="line">	<span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> t1, t2;</div><div class="line">	<span class="keyword">int</span> e;</div><div class="line">	<span class="keyword">char</span>* src;</div><div class="line">	<span class="keyword">char</span>* dest;</div><div class="line">	<span class="keyword">unsigned</span> <span class="keyword">int</span> low, high;</div><div class="line">	<span class="keyword">unsigned</span> <span class="keyword">int</span> size;</div><div class="line">	<span class="comment">// allocate memory</span></div><div class="line">	<span class="keyword">char</span>* cache1 = mmap(<span class="number">0</span>, <span class="number">0x4000</span>, <span class="number">7</span>, MAP_PRIVATE|MAP_ANONYMOUS, <span class="number">-1</span>, <span class="number">0</span>);</div><div class="line">	<span class="keyword">char</span>* cache2 = mmap(<span class="number">0</span>, <span class="number">0x4000</span>, <span class="number">7</span>, MAP_PRIVATE|MAP_ANONYMOUS, <span class="number">-1</span>, <span class="number">0</span>);</div><div class="line">	src = mmap(<span class="number">0</span>, <span class="number">0x2000</span>, <span class="number">7</span>, MAP_PRIVATE|MAP_ANONYMOUS, <span class="number">-1</span>, <span class="number">0</span>);</div><div class="line"></div><div class="line">	<span class="keyword">size_t</span> sizes[<span class="number">10</span>];</div><div class="line">	<span class="keyword">int</span> i=<span class="number">0</span>;</div><div class="line"></div><div class="line">	<span class="comment">// setup experiment parameters</span></div><div class="line">	<span class="keyword">for</span>(e=<span class="number">4</span>; e&lt;<span class="number">14</span>; e++)&#123;	<span class="comment">// 2^13 = 8K</span></div><div class="line">		low = <span class="built_in">pow</span>(<span class="number">2</span>,e<span class="number">-1</span>);</div><div class="line">		high = <span class="built_in">pow</span>(<span class="number">2</span>,e);</div><div class="line">		<span class="built_in">printf</span>(<span class="string">"specify the memcpy amount between %d ~ %d : "</span>, low, high);</div><div class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;size);</div><div class="line">		<span class="keyword">if</span>( size &lt; low || size &gt; high )&#123;</div><div class="line">			<span class="built_in">printf</span>(<span class="string">"don't mess with the experiment.\n"</span>);</div><div class="line">			<span class="built_in">exit</span>(<span class="number">0</span>);</div><div class="line">		&#125;</div><div class="line">		sizes[i++] = size;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	sleep(<span class="number">1</span>);</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"ok, lets run the experiment with your configuration\n"</span>);</div><div class="line">	sleep(<span class="number">1</span>);</div><div class="line"></div><div class="line">	<span class="comment">// run experiment</span></div><div class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;<span class="number">10</span>; i++)&#123;</div><div class="line">		size = sizes[i];</div><div class="line">		<span class="built_in">printf</span>(<span class="string">"experiment %d : memcpy with buffer size %d\n"</span>, i+<span class="number">1</span>, size);</div><div class="line">		dest = <span class="built_in">malloc</span>( size );</div><div class="line"></div><div class="line">		<span class="built_in">memcpy</span>(cache1, cache2, <span class="number">0x4000</span>);		<span class="comment">// to eliminate cache effect</span></div><div class="line">		t1 = rdtsc();</div><div class="line">		slow_memcpy(dest, src, size);		<span class="comment">// byte-to-byte memcpy</span></div><div class="line">		t2 = rdtsc();</div><div class="line">		<span class="built_in">printf</span>(<span class="string">"ellapsed CPU cycles for slow_memcpy : %llu\n"</span>, t2-t1);</div><div class="line"></div><div class="line">		<span class="built_in">memcpy</span>(cache1, cache2, <span class="number">0x4000</span>);		<span class="comment">// to eliminate cache effect</span></div><div class="line">		t1 = rdtsc();</div><div class="line">		fast_memcpy(dest, src, size);		<span class="comment">// block-to-block memcpy</span></div><div class="line">		t2 = rdtsc();</div><div class="line">		<span class="built_in">printf</span>(<span class="string">"ellapsed CPU cycles for fast_memcpy : %llu\n"</span>, t2-t1);</div><div class="line">		<span class="built_in">printf</span>(<span class="string">"\n"</span>);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="built_in">printf</span>(<span class="string">"thanks for helping my experiment!\n"</span>);</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"flag : ----- erased in this source code -----\n"</span>);</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>程序中自己实现了一个快速的memcpy函数, 题目要求是只要能够跑完所有的测试用例就可以拿到flag, 但是随意输入一些会segment fault.</p>
-<p><img src="1.png" alt=""></p>
+<p><img src="memcpy/1.png" alt=""></p>
 <p>这个神奇的浮点运算operand movntps没见过, 查一下它的定义, 发现有这样一个报错点:</p>
 <blockquote>
 <p>The destination operand is a 128-bit or 256-bit memory location. The memory operand must be aligned on a 16-byte (128-bit version) or 32-byte (VEX.256 encoded version) boundary otherwise a general-protection exception (#GP) will be generated.</p>
@@ -136,13 +157,13 @@
 <p>解决这个问题很容易, 在每一个会导致不对齐的数字上+8, 那么就对齐了:</p>
 <p><code>8 24 40 72 136 264 520 1032 2056 4104</code></p>
 <p>注意8之后每一个都不对齐, 都加8就好了.</p>
-<p><img src="2.png" alt=""></p>
+<p><img src="memcpy/2.png" alt=""></p>
 <p>就不直接贴flag了, 做到这里终于把toddler’s bottle做完了, 前边的好多题比较简单, 当时做没有写writeup. 喘一口气, 告一段落, 接下来继续前进! </p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/29/memcpy/" data-id="cj86rj00r000pgo99zkdcom51" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/09/29/memcpy/" data-id="cj86rj00r000pgo99zkdcom51" class="article-share-link">Delen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pwnable-kr-heap/">pwnable.kr heap</a></li></ul>
@@ -185,7 +206,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/29/asmlong/" data-id="cj86rj00b000dgo99nmzqcy58" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/09/29/asmlong/" data-id="cj86rj00b000dgo99nmzqcy58" class="article-share-link">Delen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pwnable-kr/">pwnable.kr</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pwntools/">pwntools</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shellcode/">shellcode</a></li></ul>
@@ -230,7 +251,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/28/csaw2017-cvv/" data-id="cj86rj00r000kgo99ia4a9f8a" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/09/28/csaw2017-cvv/" data-id="cj86rj00r000kgo99ia4a9f8a" class="article-share-link">Delen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/csaw2017/">csaw2017</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/misc/">misc</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/reverse/">reverse</a></li></ul>
@@ -286,7 +307,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/28/helctf/" data-id="cj86rj00r000fgo990jo6vbn5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/09/28/helctf/" data-id="cj86rj00r000fgo990jo6vbn5" class="article-share-link">Delen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li></ul>
@@ -353,7 +374,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/28/zctf-android-1/" data-id="cj86rj021001ego99dbzm1lpq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/09/28/zctf-android-1/" data-id="cj86rj021001ego99dbzm1lpq" class="article-share-link">Delen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li></ul>
@@ -404,7 +425,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/28/boomshakalaka-3/" data-id="cj86rj00b000ago99wlzew7hw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/09/28/boomshakalaka-3/" data-id="cj86rj00b000ago99wlzew7hw" class="article-share-link">Delen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li></ul>
@@ -451,7 +472,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/28/SECCONQualsCTF2015Reverse-EngineeringAndroidAPK1/" data-id="cj86rizzv0003go993v5ma7uw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/09/28/SECCONQualsCTF2015Reverse-EngineeringAndroidAPK1/" data-id="cj86rizzv0003go993v5ma7uw" class="article-share-link">Delen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li></ul>
@@ -493,7 +514,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/28/BCTF2016-pingpongmachine/" data-id="cj86rizzg0001go993jab5att" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/09/28/BCTF2016-pingpongmachine/" data-id="cj86rizzg0001go993jab5att" class="article-share-link">Delen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li></ul>
@@ -545,7 +566,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/28/Commercialapplication/" data-id="cj86rizzv0004go99c3eaww14" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/09/28/Commercialapplication/" data-id="cj86rizzv0004go99c3eaww14" class="article-share-link">Delen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li></ul>
@@ -571,9 +592,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
+    <h3 class="widget-title">Labels</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/csaw2017/">csaw2017</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/heap/">heap</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/misc/">misc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pwn/">pwn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pwnable-kr/">pwnable.kr</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pwnable-kr-heap/">pwnable.kr heap</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pwntools/">pwntools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reverse/">reverse</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shellcode/">shellcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/unlink/">unlink</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/csaw2017/">csaw2017</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/heap/">heap</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/misc/">misc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pwn/">pwn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pwn-stack/">pwn stack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pwnable-kr/">pwnable.kr</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pwnable-kr-heap/">pwnable.kr heap</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pwntools/">pwntools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reverse/">reverse</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shellcode/">shellcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/unlink/">unlink</a></li></ul>
     </div>
   </div>
 
@@ -583,14 +604,14 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/csaw2017/" style="font-size: 10px;">csaw2017</a> <a href="/tags/heap/" style="font-size: 10px;">heap</a> <a href="/tags/misc/" style="font-size: 10px;">misc</a> <a href="/tags/pwn/" style="font-size: 15px;">pwn</a> <a href="/tags/pwnable-kr/" style="font-size: 15px;">pwnable.kr</a> <a href="/tags/pwnable-kr-heap/" style="font-size: 10px;">pwnable.kr heap</a> <a href="/tags/pwntools/" style="font-size: 10px;">pwntools</a> <a href="/tags/reverse/" style="font-size: 10px;">reverse</a> <a href="/tags/shellcode/" style="font-size: 10px;">shellcode</a> <a href="/tags/unlink/" style="font-size: 10px;">unlink</a>
+      <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/csaw2017/" style="font-size: 10px;">csaw2017</a> <a href="/tags/heap/" style="font-size: 10px;">heap</a> <a href="/tags/misc/" style="font-size: 10px;">misc</a> <a href="/tags/pwn/" style="font-size: 15px;">pwn</a> <a href="/tags/pwn-stack/" style="font-size: 10px;">pwn stack</a> <a href="/tags/pwnable-kr/" style="font-size: 15px;">pwnable.kr</a> <a href="/tags/pwnable-kr-heap/" style="font-size: 10px;">pwnable.kr heap</a> <a href="/tags/pwntools/" style="font-size: 10px;">pwntools</a> <a href="/tags/reverse/" style="font-size: 10px;">reverse</a> <a href="/tags/shellcode/" style="font-size: 10px;">shellcode</a> <a href="/tags/unlink/" style="font-size: 10px;">unlink</a>
     </div>
   </div>
 
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Archieven</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li></ul>
     </div>
@@ -600,12 +621,12 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Recente berichten</h3>
     <div class="widget">
       <ul>
         
           <li>
-            <a href="/2017/09/30/pablelgi/">pablelgi</a>
+            <a href="/2017/09/30/pablelgi/">pwnable.kr之simple login</a>
           </li>
         
           <li>
