@@ -20,13 +20,13 @@
     
     
     <meta name="keywords" content="android">
-    <meta name="description" content="先做笔记,最后整理成题解. 首先对APK的Java层代码进行分析.入口的逻辑在Login.attemptLogin函数中该函数调用Auth.auth对用户名密码进行校验.  此处校验有一个读取数据库的函数databaseopt,其逻辑就在下边定义,但是其实不用看,key.db文件就在程序目录中,用随便一个数据库查看器可以看到唯一的键值  所以,auth函数参数0=context,1=yonghum">
+    <meta name="description" content="先做笔记,最后整理成题解. 首先对APK的Java层代码进行分析.入口的逻辑在Login.attemptLogin函数中该函数调用Auth.auth对用户名密码进行校验.                                                                                              1              此处校验有一">
 <meta name="keywords" content="android">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ZCTF Android 1">
 <meta property="og:url" content="http://yoursite.com/2017/09/28/zctf-android-1/index.html">
 <meta property="og:site_name" content="Hyrathon的博客">
-<meta property="og:description" content="先做笔记,最后整理成题解. 首先对APK的Java层代码进行分析.入口的逻辑在Login.attemptLogin函数中该函数调用Auth.auth对用户名密码进行校验.  此处校验有一个读取数据库的函数databaseopt,其逻辑就在下边定义,但是其实不用看,key.db文件就在程序目录中,用随便一个数据库查看器可以看到唯一的键值  所以,auth函数参数0=context,1=yonghum">
+<meta property="og:description" content="先做笔记,最后整理成题解. 首先对APK的Java层代码进行分析.入口的逻辑在Login.attemptLogin函数中该函数调用Auth.auth对用户名密码进行校验.                                                                                              1              此处校验有一">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2017/09/28/zctf-android-1/image/1.png">
 <meta property="og:image" content="http://yoursite.com/2017/09/28/zctf-android-1/image/2.png">
@@ -42,7 +42,7 @@
 <meta property="og:updated_time" content="2017-09-29T02:23:09.047Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ZCTF Android 1">
-<meta name="twitter:description" content="先做笔记,最后整理成题解. 首先对APK的Java层代码进行分析.入口的逻辑在Login.attemptLogin函数中该函数调用Auth.auth对用户名密码进行校验.  此处校验有一个读取数据库的函数databaseopt,其逻辑就在下边定义,但是其实不用看,key.db文件就在程序目录中,用随便一个数据库查看器可以看到唯一的键值  所以,auth函数参数0=context,1=yonghum">
+<meta name="twitter:description" content="先做笔记,最后整理成题解. 首先对APK的Java层代码进行分析.入口的逻辑在Login.attemptLogin函数中该函数调用Auth.auth对用户名密码进行校验.                                                                                              1              此处校验有一">
 <meta name="twitter:image" content="http://yoursite.com/2017/09/28/zctf-android-1/image/1.png">
     
     <link rel="shortcut icon" href="/favicon.ico">
@@ -199,32 +199,92 @@
         <div class="post-content" id="post-content" itemprop="postContent">
             <p>先做笔记,最后整理成题解.</p>
 <p>首先对APK的Java层代码进行分析.入口的逻辑在Login.attemptLogin函数中该函数调用Auth.auth对用户名密码进行校验.</p>
-<p><img src="image/1.png" alt="1"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="image/1.png" alt="1" title="">
+                </div>
+                <div class="image-caption">1</div>
+            </figure>
 <p>此处校验有一个读取数据库的函数databaseopt,其逻辑就在下边定义,但是其实不用看,key.db文件就在程序目录中,用随便一个数据库查看器可以看到唯一的键值</p>
-<p><img src="image/2.png" alt="2"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="image/2.png" alt="2" title="">
+                </div>
+                <div class="image-caption">2</div>
+            </figure>
 <p>所以,auth函数参数0=context,1=yonghuming+mima,2=”zctf2016”<br>下面分析Auth和auth逻辑.</p>
-<p><img src="image/3.png" alt="3"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="image/3.png" alt="3" title="">
+                </div>
+                <div class="image-caption">3</div>
+            </figure>
 <p>Auth有auth,encrypt和decrypt三个函数,后二者是des加解密.auth的逻辑恢复的有些混乱,分析得到黄色部分需要与apk资源中的flag.bin内容进行比较.用python对flag.bin进行des解密还原.盗用程序自带的DES解密,得到结果</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line"></div><div class="line">    String password = <span class="string">"zctf2016"</span>;</div><div class="line">    File file = <span class="keyword">new</span> File(<span class="string">"C:\\Users\\hyrathon\\Desktop\\Solve\\Android1\\assets\\flag.bin"</span>);</div><div class="line">    FileInputStream fileInputStream = <span class="keyword">new</span> FileInputStream(file);</div><div class="line">    <span class="keyword">byte</span>[] str= <span class="keyword">new</span> <span class="keyword">byte</span>[fileInputStream.available()];</div><div class="line">    fileInputStream.read(str);</div><div class="line">    <span class="keyword">byte</span>[] ans = decrypt(str, password);</div><div class="line">    System.out.println(<span class="keyword">new</span> String(ans));</div><div class="line">&#125;</div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">byte</span>[] decrypt(<span class="keyword">byte</span>[] src, String password) <span class="keyword">throws</span> Exception &#123;</div><div class="line">    SecureRandom v3 = <span class="keyword">new</span> SecureRandom();</div><div class="line">    SecretKey v4 = SecretKeyFactory.getInstance(<span class="string">"DES"</span>).generateSecret(<span class="keyword">new</span> DESKeySpec(password.getBytes()));</div><div class="line">    Cipher v0 = Cipher.getInstance(<span class="string">"DES"</span>);</div><div class="line">    v0.init(<span class="number">2</span>, ((Key)v4), v3);</div><div class="line">    <span class="keyword">return</span> v0.doFinal(src);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>}sihttoN{ftcz,根据原来程序的逻辑,这段是取逆之后的用户名加密码即原来应该为zctf{Notthis},用户名为zctf,密码{Notthis}.到此这部分结<img src="image/4.png" alt="4">束.这一部分目前没有什么影响,因为不计算密码直接改Smali逻辑也可以绕过.检查密码正确后会启动一个新的Activity,密码作为extra参数传给这个Activity,在后面会用到,按下不表.</p>
+<p>}sihttoN{ftcz,根据原来程序的逻辑,这段是取逆之后的用户名加密码即原来应该为zctf{Notthis},用户名为zctf,密码{Notthis}.到此这部分结<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="image/4.png" alt="4" title="">
+                </div>
+                <div class="image-caption">4</div>
+            </figure>束.这一部分目前没有什么影响,因为不计算密码直接改Smali逻辑也可以绕过.检查密码正确后会启动一个新的Activity,密码作为extra参数传给这个Activity,在后面会用到,按下不表.</p>
 <p>接下来考察打开的app这个Activity,其中又增加了新的模拟器检验</p>
-<p><img src="image/5.png" alt="5"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="image/5.png" alt="5" title="">
+                </div>
+                <div class="image-caption">5</div>
+            </figure>
 <p>task中会结束进程</p>
-<p><img src="image/6.png" alt="6"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="image/6.png" alt="6" title="">
+                </div>
+                <div class="image-caption">6</div>
+            </figure>
 <p>修改Smali绕过这处检验<br><figure class="highlight smali"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">move-result v0</div><div class="line"></div><div class="line">   <span class="built_in"> if-eqz </span>v0,<span class="keyword"> :cond_c</span></div><div class="line"></div><div class="line"><span class="keyword">    .line</span> 106</div><div class="line">   <span class="built_in"> const/4 </span>v0, 0x0</div><div class="line">    </div><div class="line">   <span class="built_in"> invoke-static </span>&#123;v0&#125;, <span class="class">Ljava/lang/System;</span>-&gt;exit(I)V</div></pre></td></tr></table></figure></p>
 <p>if-eqz改为if-nez,绕过此处.</p>
 <p>接下来绕过add函数,这个函数是native,检查proc/procid/status中第五项,在android的环境中是tracer</p>
-<p><img src="image/7.png" alt="7"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="image/7.png" alt="7" title="">
+                </div>
+                <div class="image-caption">7</div>
+            </figure>
 <p>通过检查该项值判断是否被调试,然而没有什么卵用直接Java层绕过…….话说这个函数伪装成add还传入两个参数,但是并没有用.</p>
 <p>接下来pushbottom函数将bottom拷贝到/data/data/com.zctf.app/files/目录下,接下来app调用native函数sayHelloInc,将pass={Notthis}作为参数传入.Java静态部分完成,接下来IDA考察这个函数的功能.</p>
-<p><img src="image/8.png" alt="8"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="image/8.png" alt="8" title="">
+                </div>
+                <div class="image-caption">8</div>
+            </figure>
 <p> 上图是关键的一个分支,注意有一个DES解密函数跳转,这里R7储存的是malloc到堆上边的地址,指向解密后的内容,随后两个free,之后就too_late了,所以要在des执行后,free执行前获得r7指向的内存.需要进行动态调试.</p>
 <p><img src="image/9.png" alt="9"></p>
 <p>首先考察这里的静态代码,又是熟悉的假add函数,在动态attach上去之后首先修改这里,否则会被发现调试退出,在mov r6,r0下断点强行改变r0=0,接下来执行到free之前,看r7地址,G到内存</p>
-<p><img src="image/10.png" alt="10"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="image/10.png" alt="10" title="">
+                </div>
+                <div class="image-caption">10</div>
+            </figure>
 <p>看到了熟悉的PNG头,从这里开始向下把内存内容dump出来.<br>(这里插两句,ida的android_server只支持arm所以一开始静态分析最好直接从arm开始,该应用lib中包含了x86我没忍住就看了,后来耽误很多时间重新看arm.另外,程序不用的so IDA是检查不到module的,在attach时候加一个”载入新库停下来”然后在其中下断点.)</p>
 <p>将复制的内容另存为png图像,使用stegSolve打开图片查图层得到frog(啥?)</p>
-<p><img src="image/11.png" alt="11"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="image/11.png" alt="11" title="">
+                </div>
+                <div class="image-caption">11</div>
+            </figure>
 <p>就酱.<br><a href="http://pan.baidu.com/s/1dEEnQk5" target="_blank" rel="external">http://pan.baidu.com/s/1dEEnQk5</a><br>6bjm</p>
 
         </div>
@@ -316,18 +376,18 @@
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/2017/09/28/VEZEL100/" id="post-prev" class="post-nav-link">
+      <a href="/2017/09/28/Commercialapplication/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">0CTF 2015 Quals CTF VEZEL</h4>
+        <h4 class="title">Sharif University Quals CTF 2014 Commercial Application</h4>
       </a>
     </div>
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2017/09/28/helctf/" id="post-next" class="post-nav-link">
+      <a href="/2017/09/28/boomshakalaka-3/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">360 Hello CTF</h4>
+        <h4 class="title">0CTF 2016 boomshakalaka-3</h4>
       </a>
     </div>
   
@@ -341,7 +401,7 @@
 <section class="comments" id="comments">
     <div id="disqus_thread"></div>
     <script>
-    var disqus_shortname = 'https-hyrathon-github-io.disqus.com';
+    var disqus_shortname = 'https-hyrathon-github-io';
     lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
     </script>
     <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>

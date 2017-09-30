@@ -19,9 +19,9 @@
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content="pwnable.kr,pwn,heap,unlink">
+    <meta name="keywords" content="pwn,pwnable.kr,heap,unlink">
     <meta name="description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243#include &amp;lt;stdio.h&amp;gt;#include &amp;lt;stdlib.h&amp;gt;#include &amp;lt;string.h&amp;gt;typedef struct tagOBJ&amp;#123;    struct tagOBJ* fd;">
-<meta name="keywords" content="pwnable.kr,pwn,heap,unlink">
+<meta name="keywords" content="pwn,pwnable.kr,heap,unlink">
 <meta property="og:type" content="article">
 <meta property="og:title" content="pwnable.kr之unlink">
 <meta property="og:url" content="http://yoursite.com/2017/09/28/unlink/index.html">
@@ -204,7 +204,13 @@ BK-&gt;fd=FD;
 <p>可以看到, 这种unlink漏洞有两次任意内存写机会, 但是这个机会不是很好用, 因为两次写是有一定关联的. 最直观的想法就是把main函数ret地址写到B4, shell地址写到B3, 但是这样一来会向代码段非法写入. 接下来的一个想法是把一段足够短的跳板或者二次跳板程序写入到A3A4…(这是我们最早可控的内存), 然后通过控制ret跳转到堆上, 遗憾的是程序开启了数据执行保护, 堆上无法执行程序.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">@hyrathon-vm ➜ Desktop  checksec unlink</div><div class="line">[*] &apos;/mnt/hgfs/Desktop/unlink&apos;</div><div class="line">    Arch:     i386-32-little</div><div class="line">    RELRO:    Partial RELRO</div><div class="line">    Stack:    No canary found</div><div class="line">    NX:       NX enabled</div><div class="line">    PIE:      No PIE (0x8048000)</div></pre></td></tr></table></figure>
 <p>做到这里有一点卡壳了, 很羞耻的去网上找了一下writeup, 发现汇编中有这样一段栈很有趣:</p>
-<p><img src="unlink/1.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="unlink/1.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <p>在退出main函数之前, 有一个mov ecx, [ebp-4]和lea esp, [ecx-4], 随后esp被恢复到eip. 既然没有办法直接控制ret, 可以通过控制ebp-4而控制ecx, 进而控制esp, eip</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">eip = esp</div><div class="line">esp = ecx - 4</div><div class="line">ecx = [ebp - 4]</div></pre></td></tr></table></figure>
 <p>我们想让eip=shell地址, 那么就应该控制ecx = shell地址+4, 即[ebp - 4] = shell地址 + 4, 而ebp - 4的地址可以通过stack_leak计算得来(经过实际验证为stack_leak + 0x10). shell地址则应该写在一个我们能控制的位置(堆上A3), 那么payload在堆上的布局就应该是</p>
@@ -301,9 +307,9 @@ BK-&gt;fd=FD;
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/2017/09/28/njctf/" id="post-prev" class="post-nav-link">
+      <a href="/2017/09/28/SECCONQualsCTF2015Reverse-EngineeringAndroidAPK1/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">南京CTF2017 easycrack</h4>
+        <h4 class="title">SECCON Quals CTF 2015 Reverse-Engineering Android APK 1</h4>
       </a>
     </div>
   
@@ -326,7 +332,7 @@ BK-&gt;fd=FD;
 <section class="comments" id="comments">
     <div id="disqus_thread"></div>
     <script>
-    var disqus_shortname = 'https-hyrathon-github-io.disqus.com';
+    var disqus_shortname = 'https-hyrathon-github-io';
     lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
     </script>
     <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>

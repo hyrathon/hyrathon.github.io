@@ -162,7 +162,7 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
-            <article id="post-BCTF2016-pingpongmachine"
+            <article id="post-helctf"
   class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
@@ -178,7 +178,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2017/09/28/BCTF2016-pingpongmachine/">BCTF2016 pingpongmachine</a>
+      <a class="post-title-link" href="/2017/09/28/helctf/">360 Hello CTF</a>
     </h3>
   
 
@@ -188,11 +188,21 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        pingpong - 555拿到题之后解包, 整体上Java逻辑没有明显混淆, C层用了O-LLVM混淆, 但是代码量不大. 整体上没有加壳或者对完整性校验. 通过观察Java层逻辑, 要求我们依次点击ping pong两个按键, 共计100万次.
-123456789101112131415161718192021222324252627282930313233343536373839404...
+        HelloCTF纯Java,没有任何反调试,实质上是一道编程题.
+逐行仔细分析代码可以不断得到关系,输入是一个22字符长的小写a-z字符串,约束关系总结如下:
+v8 v9 = 4   19 分别是上述序号英文字符
+四次出现的位置5 8 10 12
+三次 3 16 19
+
+pos4 ^ pos3 = 22
+pos6^pos7=5
+pos7^pos8 = 12
+p9=118
+p11=109
+p1...
     
 
-        <a href="/2017/09/28/BCTF2016-pingpongmachine/" class="post-more waves-effect waves-button">
+        <a href="/2017/09/28/helctf/" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>
@@ -208,7 +218,7 @@
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-njctf"
+            <article id="post-SECCONQualsCTF2015Reverse-EngineeringAndroidAPK1"
   class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
@@ -224,7 +234,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2017/09/28/njctf/">南京CTF2017 easycrack</a>
+      <a class="post-title-link" href="/2017/09/28/SECCONQualsCTF2015Reverse-EngineeringAndroidAPK1/">SECCON Quals CTF 2015 Reverse-Engineering Android APK 1</a>
     </h3>
   
 
@@ -234,12 +244,15 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        Category: MobilePoints: 100Solves:43Description: None
-Write-upARM二进制分析题, Java里边基本没有内容, 只有一个native需要的固定值msg是从Java中计算然后传进去的, 写个脚本跑一下就能得到这个值.
-程序运行流程是经典的字符串加密, 用户输入经过与msg的异或处理后被与一个I_am_the_key字符串经过复杂但是...
+        SECCON Quals CTF 2015: Reverse-Engineering Android APK 1Github Link
+
+题目比较简单,不多赘述
+
+Overview不需要Overview,直接看代码逻辑即可
+Analyse根据惯例对apk反编译,直接看Java代码12if (1000 == MainActivity.this.cnt)    localTextView.set...
     
 
-        <a href="/2017/09/28/njctf/" class="post-more waves-effect waves-button">
+        <a href="/2017/09/28/SECCONQualsCTF2015Reverse-EngineeringAndroidAPK1/" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>
