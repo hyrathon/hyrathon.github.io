@@ -1,1122 +1,809 @@
-
 <!DOCTYPE html>
-<html lang="zh" style="display: none;">
-
-  
+<html>
 <head>
-  <script>
-    window.mduiVersion = "1.5.0"
-    window.oldVersion = [
-     '1.4.7',
-     '1.4.8',
-     '1.4.9',
-     'unknownVersion'
-    ]
-  </script>
-  <!--
-        © HEXO MDUI Theme
-        https://github.com/Halyul/hexo-theme-mdui
-        Version: 1.5.0 -->
-  <meta charset="UTF-8">
-  <title>首页 - Hyrathon的博客</title>
-
-  <!-- Favicons -->
-  <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
-  <link rel="icon" sizes="192x192" href="/img/favicon.png">
-  <link rel="apple-touch-icon" href="/img/favicon.png">
-
-  <!-- Meta & Info -->
-  <meta http-equiv="X-UA-Compatible">
-  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-
-  
-    <meta name="theme-color" content="
-  
-  #3F51B5
-  
-
-">
-  
-
-  <meta name="author" content="Joachim Hyrathon">
-  
-      <meta name="description" content="三流逆向工程师的N流PWNer之旅">
-  
-  <meta name="keywords" content="blog, hexo, mdui">
-
-  <!--iOS -->
-  <meta name="apple-mobile-web-app-title" content="Hyrathon的博客">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="480">
-
-  <!-- Add to homescreen for Chrome on Android -->
-  <meta name="mobile-web-app-capable" content="yes">
-
-  <!-- The Open Graph protocol -->
-  <meta property="og:url" content="http://yoursite.com">
-  <meta property="og:type" content="blog">
-  <meta property="og:title" content="首页 - Hyrathon的博客 | Hyrathon的博客">
-  <meta property="og:image" content="/img/favicon.png" />
-  
-        <meta property="og:description" content="三流逆向工程师的N流PWNer之旅">
     
 
     
 
-  <!-- Cache -->
-  <meta http-equiv="Cache-Control" content="max-age=7200" />
-  <meta http-equiv="Expires" content="Fri, 29 Dec 2017 23:00:00 GMT" />
-
-  
-
-  <script>
-    (function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(key){try{localStorage.removeItem(key)}catch(e){}};lsloader.setLS=function(key,val){try{localStorage.setItem(key,val)}catch(e){}};lsloader.getLS=function(key){var val="";try{val=localStorage.getItem(key)}catch(e){val=""}return val};versionString="/*"+(window.mduiVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var keys=[];for(var i=0;i<localStorage.length;i++){keys.push(localStorage.key(i))}keys.forEach(function(key){var data=lsloader.getLS(key);if(window.oldVersion){var remove=window.oldVersion.reduce(function(p,c){return p||data.indexOf(c)!==-1},false);if(remove){lsloader.removeLS(key)}}})}catch(e){}};lsloader.clean();lsloader.load=function(jsname,jspath,cssonload,isJs){if(typeof cssonload==="boolean"){isJs=cssonload;cssonload=undefined}isJs=isJs||false;cssonload=cssonload||function(){};var code;code=this.getLS(jsname);if(code&&code.indexOf(versionString)===-1){this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload);return}if(code){var versionNumber=code.split(versionString)[0];if(versionNumber!=jspath){console.log("reload:"+jspath);this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload);return}code=code.split(versionString)[1];if(isJs){this.jsRunSequence.push({name:jsname,code:code});this.runjs(jspath,jsname,code)}else{document.getElementById(jsname).appendChild(document.createTextNode(code));cssonload()}}else{this.requestResource(jsname,jspath,cssonload,isJs)}};lsloader.requestResource=function(name,path,cssonload,isJs){var that=this;if(isJs){this.iojs(path,name,function(path,name,code){that.setLS(name,path+versionString+code);that.runjs(path,name,code)})}else{this.iocss(path,name,function(code){document.getElementById(name).appendChild(document.createTextNode(code));that.setLS(name,path+versionString+code)},cssonload)}};lsloader.iojs=function(path,jsname,callback){var that=this;that.jsRunSequence.push({name:jsname,code:""});try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(path,jsname,xhr.response);return}}that.jsfallback(path,jsname)}};xhr.send(null)}catch(e){that.jsfallback(path,jsname)}};lsloader.iocss=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.iofonts=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.runjs=function(path,name,code){if(!!name&&!!code){for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code=code}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var script=document.createElement("script");script.appendChild(document.createTextNode(this.jsRunSequence[0].code));script.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(script);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var that=this;var script=document.createElement("script");script.src=this.jsRunSequence[0].path;script.type="text/javascript";this.jsRunSequence[0].status="loading";script.onload=function(){that.jsRunSequence.shift();if(that.jsRunSequence.length>0){that.runjs()}};document.body.appendChild(script)}};lsloader.tagLoad=function(path,name){this.jsRunSequence.push({name:name,code:"",path:path,status:"failed"});this.runjs()};lsloader.jsfallback=function(path,name){if(!!this.jsnamemap[name]){return}else{this.jsnamemap[name]=name}for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code="";this.jsRunSequence[k].status="failed";this.jsRunSequence[k].path=path}}this.runjs()};lsloader.cssfallback=function(path,name,cssonload){if(!!this.cssnamemap[name]){return}else{this.cssnamemap[name]=1}var link=document.createElement("link");link.type="text/css";link.href=path;link.rel="stylesheet";link.onload=link.onerror=cssonload;var root=document.getElementsByTagName("script")[0];root.parentNode.insertBefore(link,root)};lsloader.runInlineScript=function(scriptId,codeId){var code=document.getElementById(codeId).innerText;this.jsRunSequence.push({name:scriptId,code:code});this.runjs()};lsloader.loadCombo=function(jslist){var updateList="";var requestingModules={};for(var k in jslist){var LS=this.getLS(jslist[k].name);if(!!LS){var version=LS.split(versionString)[0];var code=LS.split(versionString)[1]}else{var version=""}if(version==jslist[k].path){this.jsRunSequence.push({name:jslist[k].name,code:code,path:jslist[k].path})}else{this.jsRunSequence.push({name:jslist[k].name,code:null,path:jslist[k].path,status:"comboloading"});requestingModules[jslist[k].name]=true;updateList+=(updateList==""?"":";")+jslist[k].path}}var that=this;if(!!updateList){var xhr=new XMLHttpRequest;xhr.open("get",combo+updateList,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){that.runCombo(xhr.response,requestingModules);return}}else{for(var i in that.jsRunSequence){if(requestingModules[that.jsRunSequence[i].name]){that.jsRunSequence[i].status="failed"}}that.runjs()}}};xhr.send(null)}this.runjs()};lsloader.runCombo=function(comboCode,requestingModules){comboCode=comboCode.split("/*combojs*/");comboCode.shift();for(var k in this.jsRunSequence){if(!!requestingModules[this.jsRunSequence[k].name]&&!!comboCode[0]){this.jsRunSequence[k].status="comboJS";this.jsRunSequence[k].code=comboCode[0];this.setLS(this.jsRunSequence[k].name,this.jsRunSequence[k].path+versionString+comboCode[0]);comboCode.shift()}}this.runjs()}})();
-  </script>
-
-  <!-- Import CSS -->
-  
-    <link rel="stylesheet" href="/css/fonts.min.css">
-  
-  
     
-      <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style-now.min.css?MnG3WDlt8z2BLTVb+A+RVQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+    <meta charset="utf-8">
     
-  
+    
+    
+    <title>Hyrathon的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="三流逆向工程师的N流PWNer之旅">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hyrathon的博客">
+<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:site_name" content="Hyrathon的博客">
+<meta property="og:description" content="三流逆向工程师的N流PWNer之旅">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hyrathon的博客">
+<meta name="twitter:description" content="三流逆向工程师的N流PWNer之旅">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
 
-  <!-- Custom Head -->
-  
+    <!-- custom head -->
+    
 
-  
-    <style>
-      body {
-        background-color: #eeeeee;
-      }
-    </style>
-  
-
-  
 </head>
 
+<body>
+    <div id="loading" class="active"></div>
 
-
-
-  
-    
-  <body class="mdui-theme-primary-indigo mdui-theme-accent-blue
-   
-  
-  " >
-
-
-  
-
-
-<div id="top"></div>
-
-
-  
-
-  <div class="mdui-appbar animate-appbar mdui-shadow-0" id="blog-appbar">
-    <div class="mdui-toolbar">
-      <button class="mdui-btn mdui-ripple mdui-btn-icon drawer-button" mdui-drawer="{target: '#drawer'}">
-        <i class="mdui-icon">
-          <span></span>
-        </i>
-      </button>
-    </div>
-  </div>
-
-
-
-
-
-
-
-  
-  <div class="mdui-drawer mdui-drawer-full-height mdui-drawer-close
-  " id="drawer" style="z-index: 2001;">
-  <div class="userview" style="background-image: url(/img/bg.png)">
-  <div class="overlay">
-    <img class="mdui-img-circle avatar" src="/img/avatar.png"/>
-    <div class="bottom">
-      <div class="info">
-        <div class="author mdui-text-color-white-text">
-          Joachim Hyrathon
-        </div>
-        <div class="slogan mdui-text-color-white-secondary">
-          I&#39;m your slogan!
-        </div>
-      </div>
-      <div class="flex-spacer"></div>
-      
-    </div>
-  </div>
-</div>
-
-  <div class="content">
-  <div class="hexo">
-    
-      <div class="mdui-list no-padding-bottom">
-        <li class="mdui-list-item mdui-ripple mdui-list-item-active">
-          <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-accent">&#xe88a;</i>
-          <div class="mdui-list-item-content mdui-text-color-theme-accent">
-            首页
-          </div>
-        </li>
-      </div>
-    
-    
-      <div class="mdui-list no-padding">
-        <a href="/archives">
-          <li class="mdui-list-item mdui-ripple">
-            <i class="mdui-list-item-icon mdui-icon material-icons">&#xe149;</i>
-            <div class="mdui-list-item-content">
-              归档
-              <span class="badge new mdui-color-theme-accent" data-badge-caption="">17</span>
-            </div>
-          </li>
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
         </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Joachim Hyrathon</h5>
+          <a href="mailto:hyrathon@gmail.com" title="hyrathon@gmail.com" class="mail">hyrathon@gmail.com</a>
+        </hgroup>
       </div>
-    
-    
-      <div class="mdui-list no-padding-top" mdui-collapse="{accordion: true}" mdui-collapse>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
         
-        
-          <div class="mdui-collapse-item ">
-            <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
-              <i class="mdui-list-item-icon mdui-icon fa fa-tags mdui-text-center"></i>
-              <div class="mdui-list-item-content">标签</div>
-              <i class="mdui-collapse-item-arrow mdui-icon material-icons">&#xe5c5;</i>
-            </div>
-            <div class="mdui-collapse-item-body mdui-list">
-              
-                <a href="/tags/android/" class="mdui-list-item mdui-ripple" style="display: flex">
-                  android
-                  <div style="flex-grow: 1;"></div>
-                  <span class="badge new mdui-color-theme-accent" data-badge-caption="">10</span>
-                </a>
-              
-                <a href="/tags/shellcode/" class="mdui-list-item mdui-ripple" style="display: flex">
-                  shellcode
-                  <div style="flex-grow: 1;"></div>
-                  <span class="badge new mdui-color-theme-accent" data-badge-caption="">1</span>
-                </a>
-              
-                <a href="/tags/pwnable.kr/" class="mdui-list-item mdui-ripple" style="display: flex">
-                  pwnable.kr
-                  <div style="flex-grow: 1;"></div>
-                  <span class="badge new mdui-color-theme-accent" data-badge-caption="">2</span>
-                </a>
-              
-                <a href="/tags/pwntools/" class="mdui-list-item mdui-ripple" style="display: flex">
-                  pwntools
-                  <div style="flex-grow: 1;"></div>
-                  <span class="badge new mdui-color-theme-accent" data-badge-caption="">1</span>
-                </a>
-              
-                <a href="/tags/pwn/" class="mdui-list-item mdui-ripple" style="display: flex">
-                  pwn
-                  <div style="flex-grow: 1;"></div>
-                  <span class="badge new mdui-color-theme-accent" data-badge-caption="">3</span>
-                </a>
-              
-                <a href="/tags/csaw2017/" class="mdui-list-item mdui-ripple" style="display: flex">
-                  csaw2017
-                  <div style="flex-grow: 1;"></div>
-                  <span class="badge new mdui-color-theme-accent" data-badge-caption="">1</span>
-                </a>
-              
-                <a href="/tags/misc/" class="mdui-list-item mdui-ripple" style="display: flex">
-                  misc
-                  <div style="flex-grow: 1;"></div>
-                  <span class="badge new mdui-color-theme-accent" data-badge-caption="">1</span>
-                </a>
-              
-                <a href="/tags/reverse/" class="mdui-list-item mdui-ripple" style="display: flex">
-                  reverse
-                  <div style="flex-grow: 1;"></div>
-                  <span class="badge new mdui-color-theme-accent" data-badge-caption="">1</span>
-                </a>
-              
-                <a href="/tags/pwnable.kr heap/" class="mdui-list-item mdui-ripple" style="display: flex">
-                  pwnable.kr heap
-                  <div style="flex-grow: 1;"></div>
-                  <span class="badge new mdui-color-theme-accent" data-badge-caption="">1</span>
-                </a>
-              
-                <a href="/tags/stack/" class="mdui-list-item mdui-ripple" style="display: flex">
-                  stack
-                  <div style="flex-grow: 1;"></div>
-                  <span class="badge new mdui-color-theme-accent" data-badge-caption="">1</span>
-                </a>
-              
-                <a href="/tags/heap/" class="mdui-list-item mdui-ripple" style="display: flex">
-                  heap
-                  <div style="flex-grow: 1;"></div>
-                  <span class="badge new mdui-color-theme-accent" data-badge-caption="">1</span>
-                </a>
-              
-                <a href="/tags/unlink/" class="mdui-list-item mdui-ripple" style="display: flex">
-                  unlink
-                  <div style="flex-grow: 1;"></div>
-                  <span class="badge new mdui-color-theme-accent" data-badge-caption="">1</span>
-                </a>
-              
-            </div>
-          </div>
-        
-        <div class="mdui-collapse-item ">
-          <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
-            <i class="mdui-list-item-icon mdui-icon material-icons">&#xe916;</i>
-            <div class="mdui-list-item-content">年份</div>
-            <i class="mdui-collapse-item-arrow mdui-icon material-icons">&#xe5c5;</i>
-          </div>
-          <div class="mdui-collapse-item-body mdui-list">
-            
-            
-              <a href="/archives/2017/" class="mdui-list-item mdui-ripple">
-                2017
+            <li class="waves-block waves-effect active">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
               </a>
-            
-          </div>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/yscoder" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/ysweb" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Hyrathon的博客</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
         </div>
-      </div>
-    
-  </div>
-  
-</div>
-
-  <div class="flex-spacer"></div>
-  <div class="drawer-footer">
-  <div class="mdui-typo mdui-typo-caption-opacity">
-    Powered by <a href="http://hexo.io">Hexo</a>
-    <br />
-    Theme - <a href="//github.com/Halyul/hexo-theme-mdui">Halyul/MDUI</a>
-    <br />
-    <span>
-      Copyright ©
-      <span year></span>
-      Joachim Hyrathon
-    </span>
-    
-    
-  </div>
-</div>
-<script type="text/javascript">
-  var copyrightNow = new Date().getFullYear();
-  var textContent = document.querySelector('span[year]')
-  
-    textContent.textContent = copyrightNow
-  
-</script>
-
-</div>
-
-
-
-
-
-
-
-<main>
-  
-  <div class="index-warper animate-post">
-  <div id="index">
-    <div class="faviconImg">
-      <img class="mdui-img-fluid" src="/img/favicon.png" />
-    </div>
-    
-  </div>
-  <div id="search-cover" searchResult></div>
-
-  
-
-  <div id="posts">
-    
-    
         
-  
-<div class="mdui-card card-bottom-fix mdui-hoverable">
-  <div class="mdui-card-header posts-header">
-    <img class="mdui-card-header-avatar" src="/img/avatar.png"/>
-    <div class="content mdui-valign">
-      <div class="mdui-typo-body-1-opacity mdui-typo">
-        <span>Joachim Hyrathon</span>
-        <span> · </span>
-        <span>9月 30, 2017</span>
-      </div>
-    </div>
-  <div class="flex-spacer"></div>
-    <a href="/2017/09/30/pablelgi/" target="_self" class="mdui-btn mdui-btn-icon mdui-ripple btn-dense"><i class="mdui-icon material-icons">&#xe89e;</i></a>
-  </div>
-  <div class="mdui-card-content posts-content">
-    <div class="posts-excerpt">
-      <a href="/2017/09/30/pablelgi/" target="_self" class="posts-title mdui-typo-title no-text-decoration">
         
-        pwnable.kr之simple login
-      </a>
-      <div class="posts-strip mdui-typo-body-1">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header index-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Hyrathon的博客</h1>
+        <h5 class="subtitle">
+            
+                
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+<div class="container body-wrap">
+
+    <ul class="post-list">
+    
+        <li class="post-list-item fade">
+            <article id="post-pablelgi"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-09-30 11:33:22" datetime="2017-09-30T03:33:22.000Z"  itemprop="datePublished">2017-09-30</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2017/09/30/pablelgi/">pwnable.kr之simple login</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
         这道题主要考察栈溢出. 在进入正题之前, 首先还是对栈帧结构做一个总结, 因为之前很久没做都忘了.
 
-      </div>
+如图所示, 我总结的栈结构和其他说法有些不同, 方便自己记忆吧, 是否合理有待讨论.
+在这里我认为函数调用是父函数中断在某一个位置, 然后开始执行子函数的逻辑. EBP通常翻译成基址寄存器, 也就是当前栈底, 问题是父函数也有父函数, 而寄存器EBP只有一个, 因此在函数跳转时, 需要把父父...
+    
+
+        <a href="/2017/09/30/pablelgi/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
     </div>
-    <div class="flex-spacer"></div>
     
-      <div class="posts-thumbnail" style="background-image: url(/img/random/picHD_21.png)"></div>
-    
-  </div>
-  
-    <div class="mdui-divider" style="margin: 0 16px;"></div>
-    <div class="posts-bottom">
-      
-      
-        <div class="mdui-chip">
-          <span class="mdui-chip-icon"><i class="mdui-icon
-           
-             mdui-text-color-black-icon
-           
-           fa fa-tags mdui-text-center"></i></span>
-        </div>
-        <div class="content mdui-typo">
-          
-            <a href="/tags/pwn/">
-              <span>pwn</span>
-            </a>
-          
-            <a href="/tags/stack/">
-              <span>stack</span>
-            </a>
-          
-        </div>
-      
-    </div>
-  
-</div>
-
-
-
-    
+    <div class="post-footer">
         
-  
-<div class="mdui-card card-bottom-fix mdui-hoverable">
-  <div class="mdui-card-header posts-header">
-    <img class="mdui-card-header-avatar" src="/img/avatar.png"/>
-    <div class="content mdui-valign">
-      <div class="mdui-typo-body-1-opacity mdui-typo">
-        <span>Joachim Hyrathon</span>
-        <span> · </span>
-        <span>9月 29, 2017</span>
-      </div>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pwn/">pwn</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/stack/">stack</a></li></ul>
+
     </div>
-  <div class="flex-spacer"></div>
-    <a href="/2017/09/29/memcpy/" target="_self" class="mdui-btn mdui-btn-icon mdui-ripple btn-dense"><i class="mdui-icon material-icons">&#xe89e;</i></a>
-  </div>
-  <div class="mdui-card-content posts-content">
-    <div class="posts-excerpt">
-      <a href="/2017/09/29/memcpy/" target="_self" class="posts-title mdui-typo-title no-text-decoration">
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-memcpy"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-09-29 18:00:48" datetime="2017-09-29T10:00:48.000Z"  itemprop="datePublished">2017-09-29</time>
+
         
-        pwnable.kr之memcpy
-      </a>
-      <div class="posts-strip mdui-typo-body-1">
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2017/09/29/memcpy/">pwnable.kr之memcpy</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
         感觉这道题考的是堆分配时字节对齐问题.
 首先上代码
-
-      </div>
-    </div>
-    <div class="flex-spacer"></div>
+123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990...
     
-      <div class="posts-thumbnail" style="background-image: url(/img/random/picHD_25.png)"></div>
-    
-  </div>
-  
-    <div class="mdui-divider" style="margin: 0 16px;"></div>
-    <div class="posts-bottom">
-      
-      
-        <div class="mdui-chip">
-          <span class="mdui-chip-icon"><i class="mdui-icon
-           
-             mdui-text-color-black-icon
-           
-           fa fa-tags mdui-text-center"></i></span>
-        </div>
-        <div class="content mdui-typo">
-          
-            <a href="/tags/pwnable.kr heap/">
-              <span>pwnable.kr heap</span>
-            </a>
-          
-        </div>
-      
+
+        <a href="/2017/09/29/memcpy/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
     </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pwnable-kr-heap/">pwnable.kr heap</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-asmlong"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-09-29 16:12:29" datetime="2017-09-29T08:12:29.000Z"  itemprop="datePublished">2017-09-29</time>
+
+        
+
+
+    </div>
+
+    
+
+
   
-</div>
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2017/09/29/asmlong/">pwnable.kr之asm</a>
+    </h3>
+  
 
 
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
 
     
         
-  
-<div class="mdui-card card-bottom-fix mdui-hoverable">
-  <div class="mdui-card-header posts-header">
-    <img class="mdui-card-header-avatar" src="/img/avatar.png"/>
-    <div class="content mdui-valign">
-      <div class="mdui-typo-body-1-opacity mdui-typo">
-        <span>Joachim Hyrathon</span>
-        <span> · </span>
-        <span>9月 29, 2017</span>
-      </div>
-    </div>
-  <div class="flex-spacer"></div>
-    <a href="/2017/09/29/asmlong/" target="_self" class="mdui-btn mdui-btn-icon mdui-ripple btn-dense"><i class="mdui-icon material-icons">&#xe89e;</i></a>
-  </div>
-  <div class="mdui-card-content posts-content">
-    <div class="posts-excerpt">
-      <a href="/2017/09/29/asmlong/" target="_self" class="posts-title mdui-typo-title no-text-decoration">
-        
-        pwnable.kr之asm
-      </a>
-      <div class="posts-strip mdui-typo-body-1">
-        
-这道题考查写shellcode, 用keystone折腾了半天上网一查发现我们对pwntools的运用真的不够熟练...
-      </div>
-    </div>
-    <div class="flex-spacer"></div>
+这道题考查写shellcode, 用keystone折腾了半天上网一查发现我们对pwntools的运用真的不够熟练
+
+123456789101112131415from pwn import *con = ssh(host='pwnable.kr', user='asm', password='guest', port=2222)p = con.connect_remote('localh...
     
-      <div class="posts-thumbnail" style="background-image: url(/img/random/picHD_33.png)"></div>
-    
-  </div>
-  
-    <div class="mdui-divider" style="margin: 0 16px;"></div>
-    <div class="posts-bottom">
-      
-      
-        <div class="mdui-chip">
-          <span class="mdui-chip-icon"><i class="mdui-icon
-           
-             mdui-text-color-black-icon
-           
-           fa fa-tags mdui-text-center"></i></span>
-        </div>
-        <div class="content mdui-typo">
-          
-            <a href="/tags/shellcode/">
-              <span>shellcode</span>
-            </a>
-          
-            <a href="/tags/pwnable.kr/">
-              <span>pwnable.kr</span>
-            </a>
-          
-            <a href="/tags/pwntools/">
-              <span>pwntools</span>
-            </a>
-          
-        </div>
-      
+
+        <a href="/2017/09/29/asmlong/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
     </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pwnable-kr/">pwnable.kr</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pwntools/">pwntools</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shellcode/">shellcode</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-csaw2017-cvv"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-09-28 17:25:18" datetime="2017-09-28T09:25:18.000Z"  itemprop="datePublished">2017-09-28</time>
+
+        
+
+
+    </div>
+
+    
+
+
   
-</div>
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2017/09/28/csaw2017-cvv/">CSAW 2017 CVV及tabIEZ writeup</a>
+    </h3>
+  
 
 
 
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
     
-        
-  
-<div class="mdui-card card-bottom-fix mdui-hoverable">
-  <div class="mdui-card-header posts-header">
-    <img class="mdui-card-header-avatar" src="/img/avatar.png"/>
-    <div class="content mdui-valign">
-      <div class="mdui-typo-body-1-opacity mdui-typo">
-        <span>Joachim Hyrathon</span>
-        <span> · </span>
-        <span>9月 28, 2017</span>
-      </div>
-    </div>
-  <div class="flex-spacer"></div>
-    <a href="/2017/09/28/csaw2017-cvv/" target="_self" class="mdui-btn mdui-btn-icon mdui-ripple btn-dense"><i class="mdui-icon material-icons">&#xe89e;</i></a>
-  </div>
-  <div class="mdui-card-content posts-content">
-    <div class="posts-excerpt">
-      <a href="/2017/09/28/csaw2017-cvv/" target="_self" class="posts-title mdui-typo-title no-text-decoration">
-        
-        CSAW 2017 CVV及tabIEZ writeup
-      </a>
-      <div class="posts-strip mdui-typo-body-1">
         
 因为需要准备出差, 只做了一些小题
 
+CVV信用卡号码算算号器和随机生成器https://zh.wikipedia.org/zh-hans/Luhn%E7%AE%97%E6%B3%95从网上找的代码，有问题按照Luhn代码算法说明改
+代码很烂，都是粘的还有错。。。1234567891011121314151617181920212223242526272829303132333435363...
+    
 
-      </div>
+        <a href="/2017/09/28/csaw2017-cvv/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
     </div>
-    <div class="flex-spacer"></div>
     
-      <div class="posts-thumbnail" style="background-image: url(/img/random/picHD_32.png)"></div>
-    
-  </div>
-  
-    <div class="mdui-divider" style="margin: 0 16px;"></div>
-    <div class="posts-bottom">
-      
-      
-        <div class="mdui-chip">
-          <span class="mdui-chip-icon"><i class="mdui-icon
-           
-             mdui-text-color-black-icon
-           
-           fa fa-tags mdui-text-center"></i></span>
-        </div>
-        <div class="content mdui-typo">
-          
-            <a href="/tags/csaw2017/">
-              <span>csaw2017</span>
-            </a>
-          
-            <a href="/tags/misc/">
-              <span>misc</span>
-            </a>
-          
-            <a href="/tags/reverse/">
-              <span>reverse</span>
-            </a>
-          
-        </div>
-      
-    </div>
-  
-</div>
-
-
-
-    
+    <div class="post-footer">
         
-  
-<div class="mdui-card card-bottom-fix mdui-hoverable">
-  <div class="mdui-card-header posts-header">
-    <img class="mdui-card-header-avatar" src="/img/avatar.png"/>
-    <div class="content mdui-valign">
-      <div class="mdui-typo-body-1-opacity mdui-typo">
-        <span>Joachim Hyrathon</span>
-        <span> · </span>
-        <span>9月 28, 2017</span>
-      </div>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/csaw2017/">csaw2017</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/misc/">misc</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/reverse/">reverse</a></li></ul>
+
     </div>
-  <div class="flex-spacer"></div>
-    <a href="/2017/09/28/Commercialapplication/" target="_self" class="mdui-btn mdui-btn-icon mdui-ripple btn-dense"><i class="mdui-icon material-icons">&#xe89e;</i></a>
-  </div>
-  <div class="mdui-card-content posts-content">
-    <div class="posts-excerpt">
-      <a href="/2017/09/28/Commercialapplication/" target="_self" class="posts-title mdui-typo-title no-text-decoration">
-        
-        Sharif University Quals CTF 2014 Commercial Application
-      </a>
-      <div class="posts-strip mdui-typo-body-1">
-        
-      </div>
-    </div>
-    <div class="flex-spacer"></div>
     
-      <div class="posts-thumbnail" style="background-image: url(/img/random/picHD_32.png)"></div>
-    
-  </div>
-  
-    <div class="mdui-divider" style="margin: 0 16px;"></div>
-    <div class="posts-bottom">
-      
-      
-        <div class="mdui-chip">
-          <span class="mdui-chip-icon"><i class="mdui-icon
-           
-             mdui-text-color-black-icon
-           
-           fa fa-tags mdui-text-center"></i></span>
-        </div>
-        <div class="content mdui-typo">
-          
-            <a href="/tags/android/">
-              <span>android</span>
-            </a>
-          
-        </div>
-      
-    </div>
-  
-</div>
+</article>
 
-
-
-    
-        
-  
-<div class="mdui-card card-bottom-fix mdui-hoverable">
-  <div class="mdui-card-header posts-header">
-    <img class="mdui-card-header-avatar" src="/img/avatar.png"/>
-    <div class="content mdui-valign">
-      <div class="mdui-typo-body-1-opacity mdui-typo">
-        <span>Joachim Hyrathon</span>
-        <span> · </span>
-        <span>9月 28, 2017</span>
-      </div>
-    </div>
-  <div class="flex-spacer"></div>
-    <a href="/2017/09/28/SECCONQualsCTF2015Reverse-EngineeringAndroidAPK1/" target="_self" class="mdui-btn mdui-btn-icon mdui-ripple btn-dense"><i class="mdui-icon material-icons">&#xe89e;</i></a>
-  </div>
-  <div class="mdui-card-content posts-content">
-    <div class="posts-excerpt">
-      <a href="/2017/09/28/SECCONQualsCTF2015Reverse-EngineeringAndroidAPK1/" target="_self" class="posts-title mdui-typo-title no-text-decoration">
-        
-        SECCON Quals CTF 2015 Reverse-Engineering Android APK 1
-      </a>
-      <div class="posts-strip mdui-typo-body-1">
-        
-      </div>
-    </div>
-    <div class="flex-spacer"></div>
-    
-      <div class="posts-thumbnail" style="background-image: url(/img/random/picHD_11.png)"></div>
-    
-  </div>
-  
-    <div class="mdui-divider" style="margin: 0 16px;"></div>
-    <div class="posts-bottom">
-      
-      
-        <div class="mdui-chip">
-          <span class="mdui-chip-icon"><i class="mdui-icon
-           
-             mdui-text-color-black-icon
-           
-           fa fa-tags mdui-text-center"></i></span>
-        </div>
-        <div class="content mdui-typo">
-          
-            <a href="/tags/android/">
-              <span>android</span>
-            </a>
-          
-        </div>
-      
-    </div>
-  
-</div>
-
-
-
-    
-        
-  
-<div class="mdui-card card-bottom-fix mdui-hoverable">
-  <div class="mdui-card-header posts-header">
-    <img class="mdui-card-header-avatar" src="/img/avatar.png"/>
-    <div class="content mdui-valign">
-      <div class="mdui-typo-body-1-opacity mdui-typo">
-        <span>Joachim Hyrathon</span>
-        <span> · </span>
-        <span>9月 28, 2017</span>
-      </div>
-    </div>
-  <div class="flex-spacer"></div>
-    <a href="/2017/09/28/boomshakalaka-3/" target="_self" class="mdui-btn mdui-btn-icon mdui-ripple btn-dense"><i class="mdui-icon material-icons">&#xe89e;</i></a>
-  </div>
-  <div class="mdui-card-content posts-content">
-    <div class="posts-excerpt">
-      <a href="/2017/09/28/boomshakalaka-3/" target="_self" class="posts-title mdui-typo-title no-text-decoration">
-        
-        0CTF 2016 boomshakalaka-3
-      </a>
-      <div class="posts-strip mdui-typo-body-1">
-        
-      </div>
-    </div>
-    <div class="flex-spacer"></div>
-    
-      <div class="posts-thumbnail" style="background-image: url(/img/random/picHD_33.png)"></div>
-    
-  </div>
-  
-    <div class="mdui-divider" style="margin: 0 16px;"></div>
-    <div class="posts-bottom">
-      
-      
-        <div class="mdui-chip">
-          <span class="mdui-chip-icon"><i class="mdui-icon
-           
-             mdui-text-color-black-icon
-           
-           fa fa-tags mdui-text-center"></i></span>
-        </div>
-        <div class="content mdui-typo">
-          
-            <a href="/tags/android/">
-              <span>android</span>
-            </a>
-          
-        </div>
-      
-    </div>
-  
-</div>
-
-
-
-    
-        
-  
-<div class="mdui-card card-bottom-fix mdui-hoverable">
-  <div class="mdui-card-header posts-header">
-    <img class="mdui-card-header-avatar" src="/img/avatar.png"/>
-    <div class="content mdui-valign">
-      <div class="mdui-typo-body-1-opacity mdui-typo">
-        <span>Joachim Hyrathon</span>
-        <span> · </span>
-        <span>9月 28, 2017</span>
-      </div>
-    </div>
-  <div class="flex-spacer"></div>
-    <a href="/2017/09/28/VEZEL100/" target="_self" class="mdui-btn mdui-btn-icon mdui-ripple btn-dense"><i class="mdui-icon material-icons">&#xe89e;</i></a>
-  </div>
-  <div class="mdui-card-content posts-content">
-    <div class="posts-excerpt">
-      <a href="/2017/09/28/VEZEL100/" target="_self" class="posts-title mdui-typo-title no-text-decoration">
-        
-        0CTF 2015 Quals CTF VEZEL
-      </a>
-      <div class="posts-strip mdui-typo-body-1">
-        # 
-Category: MobilePoints: 10...
-      </div>
-    </div>
-    <div class="flex-spacer"></div>
-    
-      <div class="posts-thumbnail" style="background-image: url(/img/random/picHD_1.png)"></div>
-    
-  </div>
-  
-    <div class="mdui-divider" style="margin: 0 16px;"></div>
-    <div class="posts-bottom">
-      
-      
-        <div class="mdui-chip">
-          <span class="mdui-chip-icon"><i class="mdui-icon
-           
-             mdui-text-color-black-icon
-           
-           fa fa-tags mdui-text-center"></i></span>
-        </div>
-        <div class="content mdui-typo">
-          
-            <a href="/tags/android/">
-              <span>android</span>
-            </a>
-          
-        </div>
-      
-    </div>
-  
-</div>
-
-
-
-    
-        
-  
-<div class="mdui-card card-bottom-fix mdui-hoverable">
-  <div class="mdui-card-header posts-header">
-    <img class="mdui-card-header-avatar" src="/img/avatar.png"/>
-    <div class="content mdui-valign">
-      <div class="mdui-typo-body-1-opacity mdui-typo">
-        <span>Joachim Hyrathon</span>
-        <span> · </span>
-        <span>9月 28, 2017</span>
-      </div>
-    </div>
-  <div class="flex-spacer"></div>
-    <a href="/2017/09/28/zctf-android-1/" target="_self" class="mdui-btn mdui-btn-icon mdui-ripple btn-dense"><i class="mdui-icon material-icons">&#xe89e;</i></a>
-  </div>
-  <div class="mdui-card-content posts-content">
-    <div class="posts-excerpt">
-      <a href="/2017/09/28/zctf-android-1/" target="_self" class="posts-title mdui-typo-title no-text-decoration">
-        
-        ZCTF Android 1
-      </a>
-      <div class="posts-strip mdui-typo-body-1">
-        先做笔记,最后整理成题解.
-首先对APK的Java层代码进行分析.入口的逻辑在Login.attemptLogin函数中该函数调用Au...
-      </div>
-    </div>
-    <div class="flex-spacer"></div>
-    
-      <div class="posts-thumbnail" style="background-image: url(/img/random/picHD_14.png)"></div>
-    
-  </div>
-  
-    <div class="mdui-divider" style="margin: 0 16px;"></div>
-    <div class="posts-bottom">
-      
-      
-        <div class="mdui-chip">
-          <span class="mdui-chip-icon"><i class="mdui-icon
-           
-             mdui-text-color-black-icon
-           
-           fa fa-tags mdui-text-center"></i></span>
-        </div>
-        <div class="content mdui-typo">
-          
-            <a href="/tags/android/">
-              <span>android</span>
-            </a>
-          
-        </div>
-      
-    </div>
-  
-</div>
-
-
-
-    
-        
-  
-<div class="mdui-card card-bottom-fix mdui-hoverable">
-  <div class="mdui-card-header posts-header">
-    <img class="mdui-card-header-avatar" src="/img/avatar.png"/>
-    <div class="content mdui-valign">
-      <div class="mdui-typo-body-1-opacity mdui-typo">
-        <span>Joachim Hyrathon</span>
-        <span> · </span>
-        <span>9月 28, 2017</span>
-      </div>
-    </div>
-  <div class="flex-spacer"></div>
-    <a href="/2017/09/28/helctf/" target="_self" class="mdui-btn mdui-btn-icon mdui-ripple btn-dense"><i class="mdui-icon material-icons">&#xe89e;</i></a>
-  </div>
-  <div class="mdui-card-content posts-content">
-    <div class="posts-excerpt">
-      <a href="/2017/09/28/helctf/" target="_self" class="posts-title mdui-typo-title no-text-decoration">
-        
-        360 Hello CTF
-      </a>
-      <div class="posts-strip mdui-typo-body-1">
-        
-      </div>
-    </div>
-    <div class="flex-spacer"></div>
-    
-      <div class="posts-thumbnail" style="background-image: url(/img/random/picHD_41.png)"></div>
-    
-  </div>
-  
-    <div class="mdui-divider" style="margin: 0 16px;"></div>
-    <div class="posts-bottom">
-      
-      
-        <div class="mdui-chip">
-          <span class="mdui-chip-icon"><i class="mdui-icon
-           
-             mdui-text-color-black-icon
-           
-           fa fa-tags mdui-text-center"></i></span>
-        </div>
-        <div class="content mdui-typo">
-          
-            <a href="/tags/android/">
-              <span>android</span>
-            </a>
-          
-        </div>
-      
-    </div>
-  
-</div>
-
-
-
-    
-  </div>
-  
-  <ul class="pagination">
-    
-    <li>
-      <a class="mdui-text-color-theme-icon-disabled">
-        <i class="mdui-icon material-icons">&#xe5cb;</i>
-      </a>
-    </li>
-    
-
-    
-      
-        <li class="mdui-color-theme-accent">
-          <a class="mdui-text-color-theme-text">1</a>
         </li>
-      
     
+        <li class="post-list-item fade">
+            <article id="post-Commercialapplication"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-09-28 16:49:43" datetime="2017-09-28T08:49:43.000Z"  itemprop="datePublished">2017-09-28</time>
+
+        
+
+
+    </div>
 
     
 
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2017/09/28/Commercialapplication/">Sharif University Quals CTF 2014 Commercial Application</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
     
-      
+        Sharif University Quals CTF 2014: Commercial ApplicationGithub Link
+
+Markdown哪儿都好就是插图太麻烦,尽量用语言描述
+
+Overview题目给的是一个Demo小程序,安装在手机或者虚拟机之后看是一个看图程序,一共三张黄图图,预览版只可以看一张,输入key之后可以看另外两张,提供了一个输入key的窗口,输入错误之后会提...
     
-      
+
+        <a href="/2017/09/28/Commercialapplication/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
     
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-SECCONQualsCTF2015Reverse-EngineeringAndroidAPK1"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-09-28 16:49:43" datetime="2017-09-28T08:49:43.000Z"  itemprop="datePublished">2017-09-28</time>
+
+        
+
+
+    </div>
 
     
 
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2017/09/28/SECCONQualsCTF2015Reverse-EngineeringAndroidAPK1/">SECCON Quals CTF 2015 Reverse-Engineering Android APK 1</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
     
-      
+        SECCON Quals CTF 2015: Reverse-Engineering Android APK 1Github Link
+
+题目比较简单,不多赘述
+
+Overview不需要Overview,直接看代码逻辑即可
+Analyse根据惯例对apk反编译,直接看Java代码12if (1000 == MainActivity.this.cnt)    localTextView.set...
     
-      
+
+        <a href="/2017/09/28/SECCONQualsCTF2015Reverse-EngineeringAndroidAPK1/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
     
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-boomshakalaka-3"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-09-28 16:49:43" datetime="2017-09-28T08:49:43.000Z"  itemprop="datePublished">2017-09-28</time>
+
+        
+
+
+    </div>
 
     
 
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2017/09/28/boomshakalaka-3/">0CTF 2016 boomshakalaka-3</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
     
-      <li class="mdui-ripple">
-        <a href="/page/2/" class="mdui-text-color-theme-text">
-          2
+        0CTF : boomshakalaka-3Category: MobilePoints: 3Solves: 35Description:
+
+play the game, get the highest score
+
+Write-up脑洞题, 基础的分析之后可以发现是由Cocos2d写的游戏程序, 部分与flag有关的代码在Java层, 在sharedPreference里边写了MGNO, ...
+    
+
+        <a href="/2017/09/28/boomshakalaka-3/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-VEZEL100"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-09-28 16:49:43" datetime="2017-09-28T08:49:43.000Z"  itemprop="datePublished">2017-09-28</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2017/09/28/VEZEL100/">0CTF 2015 Quals CTF VEZEL</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        # 
+Category: MobilePoints: 100Solves: 105Description: 
+
+Evermars says he is good at repackaging Android applications, for example.
+
+Write-up分析过程可以参考下面三个链接, 程序很简单flag由两个字符串相加内容计算, 其中一个getCRC可以直接得到, ...
+    
+
+        <a href="/2017/09/28/VEZEL100/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-zctf-android-1"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-09-28 16:49:43" datetime="2017-09-28T08:49:43.000Z"  itemprop="datePublished">2017-09-28</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2017/09/28/zctf-android-1/">ZCTF Android 1</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        先做笔记,最后整理成题解.
+首先对APK的Java层代码进行分析.入口的逻辑在Login.attemptLogin函数中该函数调用Auth.auth对用户名密码进行校验.
+
+此处校验有一个读取数据库的函数databaseopt,其逻辑就在下边定义,但是其实不用看,key.db文件就在程序目录中,用随便一个数据库查看器可以看到唯一的键值
+
+所以,auth函数参数0=context,1=yong...
+    
+
+        <a href="/2017/09/28/zctf-android-1/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-helctf"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-09-28 16:49:43" datetime="2017-09-28T08:49:43.000Z"  itemprop="datePublished">2017-09-28</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2017/09/28/helctf/">360 Hello CTF</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        HelloCTF纯Java,没有任何反调试,实质上是一道编程题.
+逐行仔细分析代码可以不断得到关系,输入是一个22字符长的小写a-z字符串,约束关系总结如下:
+v8 v9 = 4   19 分别是上述序号英文字符
+四次出现的位置5 8 10 12
+三次 3 16 19
+
+pos4 ^ pos3 = 22
+pos6^pos7=5
+pos7^pos8 = 12
+p9=118
+p11=109
+p1...
+    
+
+        <a href="/2017/09/28/helctf/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+    </ul>
+
+    
+<nav id="page-nav">
+    <div class="inner">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
+    </div>
+</nav>
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Joachim Hyrathon &copy; 2015 - 2017</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/&title=Hyrathon的博客&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
         </a>
       </li>
-    
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/&title=Hyrathon的博客&source=三流逆向工程师的N流PWNer之旅" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=Hyrathon的博客&url=http://yoursite.com/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
 
-    
-      
-        <li class="mdui-ripple">
-          <a href="/page/2/" class="mdui-text-color-theme-text">
-            <i class="mdui-icon material-icons">&#xe5cc;</i>
-          </a>
-        </li>
-      
-    
-   </ul>
 
-
-  <button id="toTop" class="mdui-fab mdui-color-theme-accent mdui-ripple mdui-fab-fixed mdui-fab-hide" style="z-index: 9;" onclick="smoothScroll.animateScroll( 0 );">
-  <i class="mdui-icon material-icons">&#xe5d8;</i>
-</button>
-
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/" alt="微信分享二维码">
 </div>
 
 
 
-</main>
 
-<div id="outdated" style="z-index: 9999;">
-  <h6>你的浏览器一直过气辣！</h6>
-  <p>赶紧升级浏览器来访问本站吧！<a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">现在就去</a></p>
-  <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="关闭">&times;</a></p>
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
 </div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
 
-
-
-
-<!-- Import JS -->
-
-  <script>lsloader.load("outdatedbrowser_js","/js/outdatedbrowser.min.js?MmKvEvoD8lT7/fO+ebWwWA==", true)</script>
-
-
-
-    <script>lsloader.load("main_js","/js/js.min.js?7Tw9Ng5ky7PDfky4qwNovg==", true)</script>
-
-
-
-
-
-  
-    <script type="text/ls-javascript" id="global-script">
-  /* appbar button */
-  (function() {
-    var drawer = document.querySelector('#drawer')
-    var drawerBtn = document.querySelector('.drawer-button')
-
-    drawer.addEventListener('open.mdui.drawer', function (e) {
-      drawerBtn.classList.add('back')
-    })
-    drawer.addEventListener('close.mdui.drawer', function (e) {
-      drawerBtn.classList.remove('back')
-    })
-  })();
-
-  
-</script>
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
 
 
 
 
 
 
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
-
-
-
-
-
-
-  <script type="text/ls-javascript" id="to-top-script">
-  /* fab */
-  (function() {
-    var pageFlag = false;
-    var fab = new mdui.Fab('#toTop');
-    fab.hide();
-    window.addEventListener('scroll', function() {
-      var bodyTop = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
-      var divTop = document.querySelector('div#top').offsetTop
-      var pageLocation = divTop - bodyTop;
-      if (!pageFlag && pageLocation < 0) {
-        fab.show();
-        pageFlag = true;
-      } else if (pageFlag && pageLocation >= 0) {
-        fab.hide();
-        pageFlag = false;
-      }
-    });
-  })();
-</script>
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-<!-- Custom javascript -->
-
-
-<!-- remove diplay:none -->
-<script type="text/ls-javascript" id="html-script">
-  if (document.readyState === 'complete' || document.readyState !== 'loading') {
-    showHTML();
-  } else {
-    document.addEventListener('DOMContentLoaded', showHTML);
-  }
-  function showHTML(){
-    document.querySelector('html').style.display = 'block';
-  }
-</script>
 
 <script>
-  (function(){
-    var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
-    for (var i = 0; i < scriptList.length; ++i) {
-      var item = scriptList[i];
-      lsloader.runInlineScript(item.id,item.id);
-    }
-  })()
-  /*! Copyright 2017 Halyul */
-  console.info("%cCopyright © 2017 Halyul\n"+'Theme Version: 1.5.0'+'%c\nhttps://github.com/Halyul/hexo-theme-mdui',"font-size: 14px;color: #3F51B5;","color: #448AFF;text-decoration: none");
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
 </script>
 
-</body>
 
+
+</body>
 </html>
