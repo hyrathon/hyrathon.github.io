@@ -6,9 +6,23 @@
 
 
 
-## Who am I
+## About Me
 
-Joachim Hyrathon, a.k.a. Ioachimus Hyracentius. I am a security researcher mainly focused on Android related aspects. 
+Joachim Hyrathon, a.k.a. Ioachimus Hyracentius. I am a security researcher from Qihoo 360, mainly focusing on Android related components. I have looked into some attack surfaces including NFC, Binder, Media Codecs and TrustZone. Security Researching is hard to learn, harder if we learn alone. So feel free to contact me.
+
+
+
+I love reading stuff about history, philosophy and culture related topics in my free time. Self-proclaimed 'Spiritual Roman', diehard fans of PDX Inc., George R.R. Martin, Omar Khayyam and Italo Calvino.
+
+
+
+Find me at:
+
+@JHyrathon
+
+hyrathon@wechat
+
+hyrathon@gmail.com
 
 
 
@@ -18,7 +32,7 @@ TDB
 
 ## Conference(no s yet)
 
-[HITCON 2019]  [Hunting in the Near Field: An Investigation of NFC-related bugs of Android](Research\nfc\Android平台上NFC相關漏洞的研究 - 趙奇.pdf)   [WP](Research\nfc\Whitepaper.pdf) 
+[HITCON 2019]  [Hunting in the Near Field: An Investigation of NFC-related bugs of Android](Research\nfc\Android平台上NFC相關漏洞的研究 - 趙奇.pdf)     [WP](Research\nfc\Whitepaper.pdf) 
 
 ## Hunted Bugs
 
