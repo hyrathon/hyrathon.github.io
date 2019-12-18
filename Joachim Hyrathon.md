@@ -1,4 +1,0 @@
-# Joachim Hyrathon
-
-
-
