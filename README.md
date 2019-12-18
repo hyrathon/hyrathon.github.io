@@ -8,7 +8,7 @@
 
 ## Who am I
 
-Joachim Hyrathon, a.k.a. Ioachimus Hyracentius.
+Joachim Hyrathon, a.k.a. Ioachimus Hyracentius. I am a security researcher mainly focused on Android related aspects. 
 
 
 
@@ -18,7 +18,7 @@ TDB
 
 ## Conference(no s yet)
 
-TBD
+[HITCON 2019]  [Hunting in the Near Field: An Investigation of NFC-related bugs of Android](Research\nfc\Android平台上NFC相關漏洞的研究 - 趙奇.pdf)   [WP](Research\nfc\Whitepaper.pdf) 
 
 ## Hunted Bugs
 
