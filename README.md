@@ -36,4 +36,16 @@ TDB
 
 ## Hunted Bugs
 
-TBD
+| ID            | Component | Link                                                         |
+| ------------- | --------- | ------------------------------------------------------------ |
+| CVE-2019-2017 | NFC       | https://source.android.com/security/bulletin/2019-03-01      |
+| CVE-2019-2027 | Tremolo   | https://source.android.com/security/bulletin/2019-04-01      |
+| CVE-2019-2034 | NFC       | https://source.android.com/security/bulletin/2019-04-01      |
+| CVE-2019-2099 | NFC       | https://source.android.com/security/bulletin/2019-06-01      |
+| CVE-2019-2118 | Binder    | https://source.android.com/security/bulletin/2019-07-01      |
+| CVE-2019-2135 | NFC       | https://source.android.com/security/bulletin/2019-08-01      |
+| CVE-2019-2178 | NFC       | https://source.android.com/security/bulletin/2019-09-01      |
+| CVE-2019-2187 | NFC       | https://source.android.com/security/bulletin/2019-10-01      |
+| CVE-2019-2207 | NFC       | https://source.android.com/security/bulletin/2019-11-01      |
+| CVE-2019-9358 | NFC       | https://source.android.com/security/overview/release-acknowledgements |
+
