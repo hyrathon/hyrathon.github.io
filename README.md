@@ -8,11 +8,7 @@
 
 ## About Me
 
-Joachim Hyrathon, a.k.a. Ioachimus Hyracentius. I am a security researcher from Qihoo 360, mainly focusing on Android related components. I have looked into some attack surfaces including NFC, Binder, Media Codecs and TrustZone. Security Researching is hard to learn, harder if we learn alone. So feel free to contact me.
-
-
-
-I love reading stuff about history, philosophy and culture related topics in my free time. Self-proclaimed 'Spiritual Roman', diehard fans of PDX Inc., George R.R. Martin, Omar Khayyam and Italo Calvino.
+Joachim Hyrathon, a.k.a. Ioachimus Hyracentius. I am a security researcher from Qihoo 360, mainly focusing on Android related components. I have looked into some attack surfaces including NFC, Binder, Media Codecs and TrustZone. Feel free to contact me.
 
 
 
@@ -36,6 +32,8 @@ TDB
 
 ## Hunted Bugs
 
+> PoCs can be found here: https://github.com/hyrathon/hyrathon.github.io
+
 | ID            | Component | Link                                                         |
 | ------------- | --------- | ------------------------------------------------------------ |
 | CVE-2019-2017 | NFC       | https://source.android.com/security/bulletin/2019-03-01      |
@@ -48,4 +46,5 @@ TDB
 | CVE-2019-2187 | NFC       | https://source.android.com/security/bulletin/2019-10-01      |
 | CVE-2019-2207 | NFC       | https://source.android.com/security/bulletin/2019-11-01      |
 | CVE-2019-9358 | NFC       | https://source.android.com/security/overview/release-acknowledgements |
+| CVE-2020-0050 | NFC HCI   | https://source.android.com/security/overview/acknowledgements |
 
