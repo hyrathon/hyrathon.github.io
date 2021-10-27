@@ -20,6 +20,9 @@
     <loc>http://example.org/posts/nfc/</loc>
     <lastmod>2019-09-02T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>http://example.org/about/</loc>
+    <lastmod>2000-01-01T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>http://example.org/categories/</loc>
   </url>
 </urlset>
