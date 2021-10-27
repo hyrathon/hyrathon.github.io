@@ -1,19 +1,31 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>untagged on My New Hugo Site</title>
+    <title>untagged on Hyrathon&#39;s Blog</title>
     <link>http://example.org/tags/untagged/</link>
-    <description>Recent content in untagged on My New Hugo Site</description>
+    <description>Recent content in untagged on Hyrathon&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 27 Oct 2021 15:46:28 +0800</lastBuildDate><atom:link href="http://example.org/tags/untagged/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 19 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="http://example.org/tags/untagged/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>First</title>
-      <link>http://example.org/posts/first/</link>
-      <pubDate>Wed, 27 Oct 2021 15:46:28 +0800</pubDate>
+      <title>Wideshears: Investigating and Breaking Widevine on QTEE</title>
+      <link>http://example.org/posts/wideshears/</link>
+      <pubDate>Wed, 19 May 2021 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/posts/first/</guid>
-      <description></description>
+      <guid>http://example.org/posts/wideshears/</guid>
+      <description>针对QTEE+Widevine的漏洞挖掘与利用
+ 摘要 🔗Widevine is a DRM solution, and QTEE is the TrustZone implement of Qualcomm, both running on billions of devices. In this presentation, we will share our latest study of Widevine on QTEE. We will first explain why QTEE and Widevine are high-value targets and share the basics about them in brief. After the opening, we will show how to locate the command handling logic and get the logic explained to show how we found a vulnerability.</description>
+    </item>
+    
+    <item>
+      <title>Hunting in the Near Field: An Investigation of NFC-related Bug in Android</title>
+      <link>http://example.org/posts/nfc/</link>
+      <pubDate>Mon, 02 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/posts/nfc/</guid>
+      <description>2019年Hitcon上分享的议题, 有关于Android平台NFC协议栈
+ 摘要 🔗Android system has been investigated for a decade, and fewer attack surfaces survive the crowded bug hunters. NFC is one of the lucky untapped areas until recently. In this topic, our team will share our recent study of Android NFC attack surface, together with some lore and related knowledge.
+As a start, basic information about NFC and its protocol stack on Android will be briefed. Then, we will enumerate the attack surfaces related to NFC, explaining the value and difficulty of each and show why and how we pick the targets we focus on.</description>
     </item>
     
   </channel>
